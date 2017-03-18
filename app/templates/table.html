@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+  	<h1>{{ model }}</h1>
+	  <table>
+	  	<tr>
+	  		{% for header in headers %}
+    			<th> {{header}} </th>
+  			{% endfor %}
+	  	</tr>
+	  	<tr>
+	  		{% for header in headers %}
+    			<td > Text </td>
+  			{% endfor %}
+	  	</tr>
+	  </table>
+  </body>
+</html>
