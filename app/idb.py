@@ -1,10 +1,10 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-models = {'planetoid': 'Planetoid Bodies', 'stars': 'Stars', 
+models = {'planetoids': 'Planetoid Bodies', 'stars': 'Stars', 
 		'galaxies': 'Galaxies', 'satellites': 'Satellites'}
 
-headers = {'planetoid': ["Name", "Diameter", "Images", 
+headers = {'planetoids': ["Name", "Diameter", "Images", 
     "Location", "Gravity", "Sol", "Orbital Period", "Age", 
     "Surface Temperatures", "Body it Orbits"],
     'galaxies': ["Name", "Images", "Location", "Age", 
@@ -15,15 +15,16 @@ headers = {'planetoid': ["Name", "Diameter", "Images",
     "Temperature", "Type"] }
 
 @app.route("/")
-def hello():
-    return "Hello world!"
+def home():
+    return render_template('home.html',
+    					   title='spacecowboys')
 
-@app.route('/planetoid')
+@app.route('/planetoids')
 def planetoid_table():
     return render_template('table.html',
-                           title='planetoid',
-                           model=models['planetoid'],
-                           headers= headers['planetoid'] )
+                           title='planetoids',
+                           model=models['planetoids'],
+                           headers= headers['planetoids'] )
 
 @app.route('/galaxies')
 def galaxies_table():
