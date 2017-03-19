@@ -24,28 +24,36 @@ def planetoid_table():
     return render_template('table.html',
                            title='planetoids',
                            model=models['planetoids'],
-                           headers= headers['planetoids'] )
+                           headers= headers['planetoids'],
+                           rows= headers['planetoids'] )
 
 @app.route('/galaxies')
 def galaxies_table():
     return render_template('table.html',
                            title='galaxies',
                            model=models['galaxies'],
-                           headers= headers['galaxies'] )
+                           headers= headers['galaxies'],
+                           rows= headers['galaxies'] )
 
 @app.route('/satellites')
 def satellites_table():
     return render_template('table.html',
                            title='satellites',
                            model=models['satellites'],
-                           headers= headers['satellites'] )
+                           headers= headers['satellites'],
+                           rows= headers['satellites'] )
 
 @app.route('/stars')
 def stars_table():
     return render_template('table.html',
                            title='stars',
                            model=models['stars'],
-                           headers= headers['stars'] )
+                           headers= headers['stars'],
+                           rows= headers['stars'] )
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     app.run()
