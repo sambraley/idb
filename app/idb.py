@@ -19,18 +19,36 @@ headers = {'planetoids': ["Name", "Diameter", "Images",
                           "Year Decommissioned", "Type of Mission"],
            'stars': ["Name", "Diameter", "Images", "Location", "Age",
                      "Temperature", "Type"]}
+member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits': 0, 'issues': 0, 'tests': 0,
+                'responsibilities': "Jack of all trades",
+                'bio': "I'm a Senior Computer Science student and tend to spend my free time playing my trumpet for the longhorn band. After I graduate I plan on pursuing a Master's degree in Computer Science."},
+               {'name': 'Samuel Braley',  'image': 'samuel_braley.jpg', 'commits': 0, 'issues': 0, 'tests': 0,
+                'responsibilities': "Jack of all trades",
+                'bio': "I'm a cuddly wuddly teddy bear"},
+               {'name': 'Taben Malik',    'image': 'taben.jpg', 		    'commits': 0, 'issues': 0, 'tests': 0,
+                'responsibilities': "Jack of all trades",
+                'bio': "I'm a cuddly wuddly teddy bear"},
+               {'name': 'Gustavo Osorio', 'image': 'gustavo.jpg',       'commits': 0, 'issues': 0, 'tests': 0,
+                'responsibilities': "Jack of all trades",
+                'bio': "I'm a cuddly wuddly teddy bear"},
+               {'name': 'Scott Farrior',  'image': 'sfarrior.jpg',      'commits': 0, 'issues': 0, 'tests': 0,
+                'responsibilities': "Jack of all trades",
+                'bio': "I'm a cuddly wuddly teddy bear"},
+               {'name': 'David Ares',     'image': 'david.jpg',         'commits': 0, 'issues': 0, 'tests': 0,
+                'responsibilities': "Jack of all trades",
+                'bio': "I'm a cuddly wuddly teddy bear"}]
 
 
 @app.route("/")
 def home():
     return render_template('home.html',
-                           title='spacecowboys')
+                           title='Spacecowboys')
 
 
 @app.route('/planetoids')
 def planetoid_table():
     return render_template('table.html',
-                           title='planetoids',
+                           title='Planetoids',
                            model=models['planetoids'],
                            headers=headers['planetoids'],
                            rows=headers['planetoids'])
@@ -39,7 +57,7 @@ def planetoid_table():
 @app.route('/galaxies')
 def galaxies_table():
     return render_template('table.html',
-                           title='galaxies',
+                           title='Galaxies',
                            model=models['galaxies'],
                            headers=headers['galaxies'],
                            rows=headers['galaxies'])
@@ -48,7 +66,7 @@ def galaxies_table():
 @app.route('/satellites')
 def satellites_table():
     return render_template('table.html',
-                           title='satellites',
+                           title='Satellites',
                            model=models['satellites'],
                            headers=headers['satellites'],
                            rows=headers['satellites'])
@@ -57,7 +75,7 @@ def satellites_table():
 @app.route('/stars')
 def stars_table():
     return render_template('table.html',
-                           title='stars',
+                           title='Stars',
                            model=models['stars'],
                            headers=headers['stars'],
                            rows=headers['stars'])
@@ -65,7 +83,9 @@ def stars_table():
 
 @app.route("/about")
 def about():
-    return render_template('about.html')
+    return render_template('about.html',
+                           title='About',
+                           member_info=member_info)
 
 
 if __name__ == "__main__":
