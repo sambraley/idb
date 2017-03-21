@@ -7,10 +7,10 @@ class Satellite(db.Model):
     # Attributes
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(), unique = True)
-    orbital_period = db.Column(db.Float)
+    agency = db.Column(db.String())
     type_of_mission = db.Column(db.String())
     year_launched = db.Column(db.Integer)
-    year_decommissioned = db.Column(db.Integer)
+    orbital_period = db.Column(db.Float)
 
     # Relations
     # Satellite has a pointer to its star, planetoid body, and galaxy (should they exist)
@@ -20,39 +20,38 @@ class Satellite(db.Model):
     galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.id'))
 
     # Methods
-    def __init__(self, name, orbital_period, type_of_mission, year_launched, 
-            year_decommissioned = -1):
+    def __init__(self, name, agency, type_of_mission, year_launched, orbital_period):
         # Check types
         assert type(name) is str
-        assert type(orbital_period) is float
+        assert type(agency) is str
         assert type(type_of_mission) is str
         assert type(year_launched) is int
-        assert type(year_decommissioned) is int
+        assert type(orbital_period) is float
 
         self.name = name
-        self.orbital_period = oribital_period
+        self.agency = agency
         self.type_of_mission = type_of_mission
         self.year_launched = year_launched
-        self.year_decommissioned = year_decommissioned
+        self.orbital_period = oribital_period
 
     def __repr__(self):
         return "Name: " + self.name +                      \
-            "\nOrbital Period: " + self.orbital_period +   \
+            "\nAgency: " + self.agency +                   \
             "\nType of Mission: " + self.type_of_mission + \
             "\nYear Launched: " + self.year_launched +     \
-            "\nYear Decomissioned: " +                     \
-                self.year_decomissioned if self.year_decommissioned != -1 else "N/A"
-
+            "\nOrbital Period: " + self.orbital_period
 
 class Star(db.Model):
     # Attributes
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(), unique = True)
-    diameter = db.Column(db.Float)
     images = db.Column(db.String())
-    location = db.Column(db.Float)
-    age = db.Column(db.Float)
     temperature = db.Column(db.Float)
+    diameter = db.Column(db.Float)
+    right_ascension = db.Column(db.Float)
+    declination = db.Column(db.Float)
+    mass = db.Column(db.Float)
+    distance = db.Column(db.Float)
 
     # Relations
     # Stars have a pointer to their galaxy via backreference
@@ -61,26 +60,35 @@ class Star(db.Model):
     satellites = db.relationship('Satellite', backref = 'star', lazy = 'dynamic')
     
     # Methods
-    def __init__(self, name, diameter, images, location, age, temperature,
-            planetoid_bodies = None, satellites = None):
+    def __init__(self, name, images, temperature, diameter, right_ascension, declination, mass,
+            distance, planetoid_bodies = None, satellites = None):
         # Check types
         assert type(name) is str
-        assert type(diameter) is float
         assert type(images) is str
-        assert type(location) is float
-        assert type(age) is float
         assert type(temperature) is float
+        assert type(diameter) is float
+        assert type(right_ascension) is float
+        assert type(declination) is float
+        assert type(mass) is float
+        assert type(distance) is float
 
         self.name = name
-        self.diameter = diameter
         self.images = images
-        self.location = location
+        self.temperature = temperature
+        self.diameter = diameter
+        self.right_ascension = right_ascension
+        self.declination = declination
+        self.mass = mass
+        self.distance = distance
         self.planetoid_bodies = planetoid_bodies
         self.satellites = satellites
 
     def __str__(self):
-        return "Name: " + self.name +        \
-            "\nDiameter: " + self.diameter + \
-            "\nLocation: " + self.location + \
-            "\nAge: " + self.age           + \
-            "\nTemperature: " + self.temperature
+        return "Name: " + self.name +                      \
+            "\nTemperature: " + self.temperature +         \
+            "\nDiameter: " + self.diameter +               \
+            "\nRight Ascension: " + self.right_ascension + \
+            "\nDeclination: " + self.declination +         \
+            "\nMass: " + self.mass +                       \
+            "\nDistance: " + self.distance
+
