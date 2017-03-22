@@ -1,0 +1,52 @@
+html, body {
+	height: 100%;
+}
+.navbar-default {
+	background-color: #1e2430;
+	border-color: #1d1c23;
+}
+.navbar-default .navbar-brand {
+	color: #dedada;
+}
+.navbar-default .navbar-brand:hover {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #777;
+}
+.navbar-default .navbar-nav>li>a:hover {
+	color: white;
+}
+
+.carousel,
+.item{
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+.carousel-image {
+	width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.content-container {
+	margin-top: 70px;
+}
+.about-image {
+	min-width: 360px;
+	max-width: 360px;
+}
+.service-box {
+	min-height: 650px;
+}
+.btn-info {
+	margin: 20px;
+	background-color: #1e2430;
+	border-color: #1d1c23;
+}
+.btn-info:hover {
+	background-color: #777;
+}

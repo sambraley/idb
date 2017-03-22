@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
+<div class="container content-container">
 	<h1 class="text-center">We are the Spacecowboys</h1>
+	<h3 class="text-center">Our goal is to communicate the findings of NASA and the Jet propulsion laboratory in an easy to read format that is enjoyable for the viewer.</h3>
 	<br>
 	<br>
   <div class="row">
@@ -16,6 +17,29 @@
       <p class="text-muted"><strong>Unit tests:</strong> {{member["tests"]}}</p>
   	</div>
     {% endfor %}
+  </div>
+  <div class="row">
+  	<div class="col-md-4 text-center">
+  		<h3><strong>Overall Commits:</strong> {{about_info['commits']}}</h3>
+  		<a class="btn btn-info" href="https://github.com/samuelbraley/idb">Repository</a>
+  	</div>
+  	<div class="col-md-4 text-center">
+  		<h3><strong>Overall Issues:</strong> {{about_info['issues']}}</h3>
+  		<a class="btn btn-info" href="https://github.com/samuelbraley/idb/issues">Issue Tracker</a>
+  	</div>
+  	<div class="col-md-4 text-center">
+  		<h3><strong>Overall Tests:</strong> {{about_info['issues']}}</h3>
+  		<a class="btn btn-info" href="http://docs.spacecowboys.apiary.io">Rest API</a>
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="col-md-4 text-center">
+  	</div>
+  	<div class="col-md-4 text-center">
+  		<a class="btn btn-info" href="TODO">Technical report</a>
+  	</div>
+  	<div class="col-md-4 text-center">
+  	</div>
   </div>
 </div>
 {% endblock %}

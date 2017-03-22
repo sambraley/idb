@@ -37,6 +37,7 @@ member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits
                {'name': 'David Ares',     'image': 'david.jpg',         'commits': 0, 'issues': 0, 'tests': 0,
                 'responsibilities': "Jack of all trades",
                 'bio': "I'm a cuddly wuddly teddy bear"}]
+about_info = {'commits': 0, 'issues': 0, 'tests': 0}
 
 
 @app.route("/")
@@ -85,7 +86,8 @@ def stars_table():
 def about():
     return render_template('about.html',
                            title='About',
-                           member_info=member_info)
+                           member_info=member_info,
+                           about_info=about_info)
 
 
 if __name__ == "__main__":
