@@ -183,11 +183,10 @@ object.
 
         [
             {
-                "orbital_period": 3.474474,
-                "name": "Sat1",
-                "year_launched": 1960,
-                "type_of_mission": "unmanned",
-                "agency": "NASA"
+                "name":"WGS-4 (USA-233)",
+                "year launched": 2012,
+                "mission type": "communications",
+                "agency": "United Launch Alliance"
             }
         ]
 
@@ -199,11 +198,10 @@ object.
 + Request (application/json)
 
         {
-            "orbital_period": 5.64745,
-            "name": "Sat2",
-            "year_launched": 1967,
-            "type_of_mission": "manned",
-            "agency": "USSR"
+            "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+            "year launched": 2012,
+            "mission type": "astrophysics",
+            "agency": "National Aeronautics and Space Administration"
         }
 
 + Response 201 (application/json)
@@ -215,9 +213,8 @@ object.
     + Body
 
             {
-                "orbital_period": 5.64745,
-                "name": "Sat2",
-                "year_launched": 1967,
-                "type_of_mission": "manned",
-                "agency": "USSR"
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "year launched": t2012,
+                "mission type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
             }
