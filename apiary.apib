@@ -4,15 +4,98 @@ HOST: http://spacecowboys.me/
 # Space Cowboys
 
 Space Cowboys is an API allowing users to get information about various celestial objects.
+For all of these objects, you can retrieve the full collection of each or retrieve an individual object by id or name.
 
-## Planetoid Bodies Collection [/planetoids]
+## Satellites Collection [/satellites]
 
-### Retrieve A Planetoid Body [GET]
+### Retrieve All Satellites [GET]
 
 + Response 200 (application/json)
 
         [
             {
+                "id": 1,
+                "name":"WGS-4 (USA-233)",
+                "year launched": 2012,
+                "mission type": "communications",
+                "agency": "United Launch Alliance"
+            },
+            {
+                "id": 2,
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "year launched": 2012,
+                "mission type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
+            }
+        ]
+        
++ Response 204 (application/json)        
+        
+## Satellite by ID [/satellites/id]
+
+### Retrieve a Satellite by ID [GET]
+
++ Request (application/json)
+
+        {
+            "id": 2
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+    
+            Location: /satellites/2
+
+    + Body
+    
+            {
+                "id": 2,
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "year launched": 2012,
+                "mission type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
+            }
+
++ Response 204 (application/json)  
+
+## Satellite by Name [/satellites/name]
+
+### Retrieve a Satelllite by Name [GET]
+
++ Request (application/json)
+
+        {
+            "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /satellites/2
+
+    + Body
+
+            {
+                "id": 2,
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "year launched": 2012,
+                "mission type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
+            }       
+
++ Response 204 (application/json)
+
+## Planetoid Bodies Collection [/planetoids]
+
+### Retrieve All Planets [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
                 "dec": 33.835052,
                 "ra": 113.184212,
                 "picture": "HAT-P-33 b.png",
@@ -22,39 +105,13 @@ Space Cowboys is an API allowing users to get information about various celestia
                 "name": "HAT-P-33 b",
                 "diamter": 235739.892,
                 "temperature": 1782,
-                "mass": 1.446276e+27
-            }
-        ]
-
-### Create a New Planetoid Body [POST]
-
-You may create your own Planetoid Body using this action. It takes a JSON
-object.
-
-+ Request (application/json)
-
-        {
-            "dec": 18.104868,
-            "ra": 303.195342,
-            "picture": "HAT-P-34 b.png",
-            "host": "HAT-P-34",
-            "gravity": 0.06019932261381838,
-            "orbital_period": 5.452654,
-            "name": "HAT-P-34 b",
-            "diamter": 167366.934,
-            "temperature": 1520,
-            "mass": 6.316544e+27
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /planetoids/2
-
-    + Body
-
+                "mass": 1.446276e+27,
+                "host_id": null,
+                "star_id": 1,
+                "galaxy_id": 1
+            },
             {
+                "id": 2
                 "dec": 18.104868,
                 "ra": 303.195342,
                 "picture": "HAT-P-34 b.png",
@@ -64,45 +121,133 @@ object.
                 "name": "HAT-P-34 b",
                 "diamter": 167366.934,
                 "temperature": 1520,
-                "mass": 6.316544e+27
+                "mass": 6.316544e+27,
+                "host_id": 1,
+                "star_id": 1,
+                "galaxy_id": 1
             }
-            
+        ]
+
++ Response 204 (application/json)
+
+## Planetoid Body by ID [/planetoids/id]
+
+### Retrieve a Single Planet by ID [GET]
+
++ Request (application/json)
+
+        {
+            "id":2
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /planets/2
+
+    + Body
+
+            {
+                "id": 2
+                "dec": 18.104868,
+                "ra": 303.195342,
+                "picture": "HAT-P-34 b.png",
+                "host": "HAT-P-34",
+                "gravity": 0.06019932261381838,
+                "orbital_period": 5.452654,
+                "name": "HAT-P-34 b",
+                "diamter": 167366.934,
+                "temperature": 1520,
+                "mass": 6.316544e+27,
+                "host_id": 1,
+                "star_id": 1,
+                "galaxy_id": 1
+            }
+
++ Response 204 (application/json)
+
+## Planetoid Body by Name [/planetoids/name]
+
+### Retrieve a Single Planet by Name [GET]
+
++ Request (application/json)
+
+        {
+            "name": "HAT-P-34 b"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: /planets/2
+
+    + Body
+
+            {
+                "id": 2
+                "dec": 18.104868,
+                "ra": 303.195342,
+                "picture": "HAT-P-34 b.png",
+                "host": "HAT-P-34",
+                "gravity": 0.06019932261381838,
+                "orbital_period": 5.452654,
+                "name": "HAT-P-34 b",
+                "diamter": 167366.934,
+                "temperature": 1520,
+                "mass": 6.316544e+27,
+                "host_id": 1,
+                "star_id": 1,
+                "galaxy_id": 1
+            }
+
++ Response 204 (application/json)
+
 ## Stars Collection [/stars]
 
-### Retrieve A Star [GET]
+### Retrieve All Stars [GET]
 
 + Response 200 (application/json)
 
         [
             {
+                "id": 1,
                 "dec": 48.040234,
                 "ra": 288.793037,
                 "picture": "Kepler-117.png",
                 "name": "Kepler-117",
                 "distance": null,
                 "temperature": 6150.0,
-                "mass": 1.13
+                "mass": 1.13,
+                "galaxy_id": 1
+            },
+            {
+                "id": 2,
+                "dec": 33.835052,
+                "ra": 113.184212,
+                "picture": "HAT-P-33.png",
+                "name": "HAT-P-33",
+                "distance": null,
+                "temperature": 6446.0,
+                "mass": 1.38,
+                "galaxy_id": 1
             }
         ]
 
-### Create a New Star [POST]
++ Response 204 (application/json)
 
-You may create your own Star using this action. It takes a JSON
-object.
+## Star by ID [/stars/id]
+
+### Retrieve a Single Star by ID [GET]
 
 + Request (application/json)
 
         {
-            "dec": 33.835052,
-            "ra": 113.184212,
-            "picture": "HAT-P-33.png",
-            "name": "HAT-P-33",
-            "distance": null,
-            "temperature": 6446.0,
-            "mass": 1.38
+            "id": 2
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Headers
 
@@ -111,23 +256,60 @@ object.
     + Body
 
             {
+                "id": 2,
                 "dec": 33.835052,
                 "ra": 113.184212,
                 "picture": "HAT-P-33.png",
                 "name": "HAT-P-33",
                 "distance": null,
                 "temperature": 6446.0,
-                "mass": 1.38
+                "mass": 1.38,
+                "galaxy_id": 1
             }
-            
-## Galaxies Collection [/galaxies]
 
-### Retrieve A Galaxy [GET]
++ Response 204 (application/json)
+
+## Star by Name [/stars/name]
+
+### Retrieve a Single Star by Name [GET]
+
++ Request (application/json)
+
+        {
+            "name": "HAT-P-33"
+        }
 
 + Response 200 (application/json)
 
+    + Headers
+
+            Location: /stars/2
+
+    + Body
+
+            {
+                "id": 2,
+                "dec": 33.835052,
+                "ra": 113.184212,
+                "picture": "HAT-P-33.png",
+                "name": "HAT-P-33",
+                "distance": null,
+                "temperature": 6446.0,
+                "mass": 1.38,
+                "galaxy_id": 1
+            }
+
++ Response 204 (application/json)
+
+## Galaxies Collection [/galaxies]
+
+### Retrieve All Galaxies [GET]
+
++ Response 200 (application/json)
+    
         [
             {
+                "id": 1,
                 "name": "UGC 11693",
                 "image": "UGC 11693.png",
                 "ra": 317.819183,
@@ -135,28 +317,33 @@ object.
                 "type": "spiral",
                 "redshift": 0.093554,
                 "size":1.227
+            },
+            {
+                "id": 2,
+                "dec": 0,
+                "name": "UGC 11822",
+                "image": "UGC 11822.png",
+                "ra": 327.418700,
+                "dec":40.663325,
+                "type": "barred spiral",
+                "redshift": 0.014739,
+                "size": 1.170
             }
         ]
 
-### Create a New Galaxy [POST]
++ Response 204 (application/json)
 
-You may create your own Galaxy using this action. It takes a JSON
-object.
+## Galaxy by ID [/galaxies/id]
+
+### Retrieve a Single Galaxy by ID [GET]
 
 + Request (application/json)
 
         {
-            "dec": 0,
-            "name": "UGC 11822",
-            "image": "UGC 11822.png",
-            "ra": 327.418700,
-            "dec":40.663325,
-            "type": "barred spiral",
-            "redshift": 0.014739,
-            "size": 1.170
+            "id": 2
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Headers
 
@@ -165,6 +352,7 @@ object.
     + Body
 
             {
+                "id": 2,
                 "dec": 0,
                 "name": "UGC 11822",
                 "image": "UGC 11822.png",
@@ -175,46 +363,36 @@ object.
                 "size": 1.170
             }
             
-## Satellites Collection [/satellites]
++ Response 204 (application/json)
 
-### Retrieve A Satellite [GET]
+## Galaxy by Name [/galaxies/name]
 
-+ Response 200 (application/json)
-
-        [
-            {
-                "name":"WGS-4 (USA-233)",
-                "year launched": 2012,
-                "mission type": "communications",
-                "agency": "United Launch Alliance"
-            }
-        ]
-
-### Create a New Satellite [POST]
-
-You may create your own Satellite using this action. It takes a JSON
-object.
+### Retrieve a Single Galaxy by Name [GET]
 
 + Request (application/json)
 
         {
-            "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-            "year launched": 2012,
-            "mission type": "astrophysics",
-            "agency": "National Aeronautics and Space Administration"
+            "name": "UGC 11822"
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
     + Headers
 
-            Location: /satellites/2
+            Location: /galaxies/2
 
     + Body
 
             {
-                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-                "year launched": t2012,
-                "mission type": "astrophysics",
-                "agency": "National Aeronautics and Space Administration"
+                "id": 2,
+                "dec": 0,
+                "name": "UGC 11822",
+                "image": "UGC 11822.png",
+                "ra": 327.418700,
+                "dec":40.663325,
+                "type": "barred spiral",
+                "redshift": 0.014739,
+                "size": 1.170
             }
+            
++ Response 204 (application/json)
