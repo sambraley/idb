@@ -4,24 +4,98 @@ HOST: http://spacecowboys.me/
 # Space Cowboys
 
 Space Cowboys is an API allowing users to get information about various celestial objects.
-For all of these objects, you can retrieve the full collection of each or retrieve an individual object by id or name.
+For all of these objects, you can retrieve the full collection of each or retrieve an indivpidual object by pid or name.
 
-## Satellites Collection [/satellites]
+# Group Satellites
+
+## Satellite by ID [/satellites/{pid}]
+
++ Parameters
+    + pid (number) - pID of the Satellite in the form of an integer
+
+
+### Retrieve a Satellite by ID [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (object)
+        + pid: 2(number, required)
+        + name: Nuclear Spectroscopic Telescope Array NuSTAR (string)
+        + year launched: 2012(number)
+        + mission type: astrophysics(string)
+        + agency: National Aeronautics and Space Administration(string)
+
+
+    + Headers
+
+            Location: /satellites/2
+
+    + Body
+
+            {
+                "pid": 2,
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "year launched": 2012,
+                "mission type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
+            }     
+    
++ Response 204 (application/json)  
+
+## Satellite by Name [/satellites/{name}]
+
++ Parameters
+    + name (string) - name of the Satellite in the form of a string
+
+
+### Retrieve a Satelllite by Name [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (object)
+        + pid: 2(number)
+        + name: Nuclear Spectroscopic Telescope Array NuSTAR (string, required)
+        + year launched: 2012(number)
+        + mission type: astrophysics(string)
+        + agency: National Aeronautics and Space Administration(string)
+
+    + Headers
+
+            Location: /satellites/2
+
+    + Body
+
+            {
+                "pid": 2,
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "year launched": 2012,
+                "mission type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
+            }       
+
++ Response 204 (application/json)
+
+## Satellites Collection [/satellites{?limit}]
 
 ### Retrieve All Satellites [GET]
+
++ Parameters
+
+    + limit (number, optional) - The maximum number of results to return.
+        + Default: `10`
 
 + Response 200 (application/json)
 
         [
             {
-                "id": 1,
+                "pid": 1,
                 "name":"WGS-4 (USA-233)",
                 "year launched": 2012,
                 "mission type": "communications",
                 "agency": "United Launch Alliance"
             },
             {
-                "id": 2,
+                "pid": 2,
                 "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
                 "year launched": 2012,
                 "mission type": "astrophysics",
@@ -31,116 +105,36 @@ For all of these objects, you can retrieve the full collection of each or retrie
         
 + Response 204 (application/json)        
         
-## Satellite by ID [/satellites/id]
+# Group Planetopid Bodies
 
-### Retrieve a Satellite by ID [GET]
-
-+ Request (application/json)
-
-        {
-            "id": 2
-        }
-
-+ Response 200 (application/json)
-
-    + Headers
-    
-            Location: /satellites/2
-
-    + Body
-    
-            {
-                "id": 2,
-                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-                "year launched": 2012,
-                "mission type": "astrophysics",
-                "agency": "National Aeronautics and Space Administration"
-            }
-
-+ Response 204 (application/json)  
-
-## Satellite by Name [/satellites/name]
-
-### Retrieve a Satelllite by Name [GET]
-
-+ Request (application/json)
-
-        {
-            "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)"
-        }
-
-+ Response 200 (application/json)
-
-    + Headers
-
-            Location: /satellites/2
-
-    + Body
-
-            {
-                "id": 2,
-                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-                "year launched": 2012,
-                "mission type": "astrophysics",
-                "agency": "National Aeronautics and Space Administration"
-            }       
-
-+ Response 204 (application/json)
-
-## Planetoid Bodies Collection [/planetoids]
-
-### Retrieve All Planets [GET]
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "id": 1,
-                "dec": 33.835052,
-                "ra": 113.184212,
-                "picture": "HAT-P-33 b.png",
-                "host": "HAT-P-33",
-                "gravity": 0.006947625786270114,
-                "orbital_period": 3.474474,
-                "name": "HAT-P-33 b",
-                "diamter": 235739.892,
-                "temperature": 1782,
-                "mass": 1.446276e+27,
-                "host_id": null,
-                "star_id": 1,
-                "galaxy_id": 1
-            },
-            {
-                "id": 2
-                "dec": 18.104868,
-                "ra": 303.195342,
-                "picture": "HAT-P-34 b.png",
-                "host": "HAT-P-34",
-                "gravity": 0.06019932261381838,
-                "orbital_period": 5.452654,
-                "name": "HAT-P-34 b",
-                "diamter": 167366.934,
-                "temperature": 1520,
-                "mass": 6.316544e+27,
-                "host_id": 1,
-                "star_id": 1,
-                "galaxy_id": 1
-            }
-        ]
-
-+ Response 204 (application/json)
-
-## Planetoid Body by ID [/planetoids/id]
+## Planetopid Body by ID [/planetopids/pid]
 
 ### Retrieve a Single Planet by ID [GET]
 
 + Request (application/json)
 
         {
-            "id":2
+            "pid":2
         }
 
 + Response 200 (application/json)
+
+    + Attributes (object)
+        + pid: 2(number, required)
+        + name: HAT-P-34 b (string)
+        + dec: 18.104868 (number)
+        + ra: 303.195342 (number)
+        + picture: HAT-P-34 b.png (string)
+        + host: HAT-P-34 (string)
+        + gravity: 0.06019932261381838 (number)
+        + orbital_period: 5.452654 (number)
+        + name: HAT-P-34 b (string)updates
+        + diamter: 167366.934 (number)
+        + temperature: 1520 (number)
+        + mass: 6.316544e+27 (number)
+        + host_pid: 1 (number)
+        + star_pid: 1 (number)
+        + galaxy_pid: 1 (number)
 
     + Headers
 
@@ -149,7 +143,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Body
 
             {
-                "id": 2
+                "pid": 2
                 "dec": 18.104868,
                 "ra": 303.195342,
                 "picture": "HAT-P-34 b.png",
@@ -160,14 +154,14 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "diamter": 167366.934,
                 "temperature": 1520,
                 "mass": 6.316544e+27,
-                "host_id": 1,
-                "star_id": 1,
-                "galaxy_id": 1
+                "host_pid": 1,
+                "star_pid": 1,
+                "galaxy_pid": 1
             }
 
 + Response 204 (application/json)
 
-## Planetoid Body by Name [/planetoids/name]
+## Planetopid Body by Name [/planetopids/name]
 
 ### Retrieve a Single Planet by Name [GET]
 
@@ -186,7 +180,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Body
 
             {
-                "id": 2
+                "pid": 2
                 "dec": 18.104868,
                 "ra": 303.195342,
                 "picture": "HAT-P-34 b.png",
@@ -197,54 +191,71 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "diamter": 167366.934,
                 "temperature": 1520,
                 "mass": 6.316544e+27,
-                "host_id": 1,
-                "star_id": 1,
-                "galaxy_id": 1
+                "host_pid": 1,
+                "star_pid": 1,
+                "galaxy_pid": 1
             }
 
 + Response 204 (application/json)
 
-## Stars Collection [/stars]
+## Planetopid Bodies Collection [/planetopids{?limit}]
 
-### Retrieve All Stars [GET]
+### Retrieve All Planets [GET]
+
++ Parameters
+
+    + limit (number, optional) - The maximum number of results to return.
+        + Default: `10`
 
 + Response 200 (application/json)
 
         [
             {
-                "id": 1,
-                "dec": 48.040234,
-                "ra": 288.793037,
-                "picture": "Kepler-117.png",
-                "name": "Kepler-117",
-                "distance": null,
-                "temperature": 6150.0,
-                "mass": 1.13,
-                "galaxy_id": 1
-            },
-            {
-                "id": 2,
+                "pid": 1,
                 "dec": 33.835052,
                 "ra": 113.184212,
-                "picture": "HAT-P-33.png",
-                "name": "HAT-P-33",
-                "distance": null,
-                "temperature": 6446.0,
-                "mass": 1.38,
-                "galaxy_id": 1
+                "picture": "HAT-P-33 b.png",
+                "host": "HAT-P-33",
+                "gravity": 0.006947625786270114,
+                "orbital_period": 3.474474,
+                "name": "HAT-P-33 b",
+                "diamter": 235739.892,
+                "temperature": 1782,
+                "mass": 1.446276e+27,
+                "host_pid": null,
+                "star_pid": 1,
+                "galaxy_pid": 1
+            },
+            {
+                "pid": 2
+                "dec": 18.104868,
+                "ra": 303.195342,
+                "picture": "HAT-P-34 b.png",
+                "host": "HAT-P-34",
+                "gravity": 0.06019932261381838,
+                "orbital_period": 5.452654,
+                "name": "HAT-P-34 b",
+                "diamter": 167366.934,
+                "temperature": 1520,
+                "mass": 6.316544e+27,
+                "host_pid": 1,
+                "star_pid": 1,
+                "galaxy_pid": 1
             }
         ]
 
 + Response 204 (application/json)
 
-## Star by ID [/stars/id]
+# Group Stars
+
+## Star by ID [/stars/pid]
 
 ### Retrieve a Single Star by ID [GET]
 
 + Request (application/json)
 
         {
-            "id": 2
+            "pid": 2
         }
 
 + Response 200 (application/json)
@@ -256,7 +267,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Body
 
             {
-                "id": 2,
+                "pid": 2,
                 "dec": 33.835052,
                 "ra": 113.184212,
                 "picture": "HAT-P-33.png",
@@ -264,7 +275,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "distance": null,
                 "temperature": 6446.0,
                 "mass": 1.38,
-                "galaxy_id": 1
+                "galaxy_pid": 1
             }
 
 + Response 204 (application/json)
@@ -288,7 +299,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Body
 
             {
-                "id": 2,
+                "pid": 2,
                 "dec": 33.835052,
                 "ra": 113.184212,
                 "picture": "HAT-P-33.png",
@@ -296,51 +307,60 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "distance": null,
                 "temperature": 6446.0,
                 "mass": 1.38,
-                "galaxy_id": 1
+                "galaxy_pid": 1
             }
 
 + Response 204 (application/json)
 
-## Galaxies Collection [/galaxies]
+## Stars Collection [/stars{?limit}]
 
-### Retrieve All Galaxies [GET]
+### Retrieve All Stars [GET]
+
++ Parameters
+
+    + limit (number, optional) - The maximum number of results to return.
+        + Default: `10`
 
 + Response 200 (application/json)
-    
+
         [
             {
-                "id": 1,
-                "name": "UGC 11693",
-                "image": "UGC 11693.png",
-                "ra": 317.819183,
-                "dec": 37.884811,
-                "type": "spiral",
-                "redshift": 0.093554,
-                "size":1.227
+                "pid": 1,
+                "dec": 48.040234,
+                "ra": 288.793037,
+                "picture": "Kepler-117.png",
+                "name": "Kepler-117",
+                "distance": null,
+                "temperature": 6150.0,
+                "mass": 1.13,
+                "galaxy_pid": 1
             },
             {
-                "id": 2,
-                "dec": 0,
-                "name": "UGC 11822",
-                "image": "UGC 11822.png",
-                "ra": 327.418700,
-                "dec":40.663325,
-                "type": "barred spiral",
-                "redshift": 0.014739,
-                "size": 1.170
+                "pid": 2,
+                "dec": 33.835052,
+                "ra": 113.184212,
+                "picture": "HAT-P-33.png",
+                "name": "HAT-P-33",
+                "distance": null,
+                "temperature": 6446.0,
+                "mass": 1.38,
+                "galaxy_pid": 1
             }
         ]
 
 + Response 204 (application/json)
 
-## Galaxy by ID [/galaxies/id]
+
+# Group Galaxies
+
+## Galaxy by ID [/galaxies/pid]
 
 ### Retrieve a Single Galaxy by ID [GET]
 
 + Request (application/json)
 
         {
-            "id": 2
+            "pid": 2
         }
 
 + Response 200 (application/json)
@@ -352,7 +372,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Body
 
             {
-                "id": 2,
+                "pid": 2,
                 "dec": 0,
                 "name": "UGC 11822",
                 "image": "UGC 11822.png",
@@ -384,7 +404,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Body
 
             {
-                "id": 2,
+                "pid": 2,
                 "dec": 0,
                 "name": "UGC 11822",
                 "image": "UGC 11822.png",
@@ -395,4 +415,41 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "size": 1.170
             }
             
++ Response 204 (application/json)
+
+## Galaxies Collection [/galaxies{?limit}]
+
+### Retrieve All Galaxies [GET]
+
++ Parameters
+
+    + limit (number, optional) - The maximum number of results to return.
+        + Default: `10`
+
++ Response 200 (application/json)
+    
+        [
+            {
+                "pid": 1,
+                "name": "UGC 11693",
+                "image": "UGC 11693.png",
+                "ra": 317.819183,
+                "dec": 37.884811,
+                "type": "spiral",
+                "redshift": 0.093554,
+                "size":1.227
+            },
+            {
+                "pid": 2,
+                "dec": 0,
+                "name": "UGC 11822",
+                "image": "UGC 11822.png",
+                "ra": 327.418700,
+                "dec":40.663325,
+                "type": "barred spiral",
+                "redshift": 0.014739,
+                "size": 1.170
+            }
+        ]
+
 + Response 204 (application/json)
