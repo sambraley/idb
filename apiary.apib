@@ -1,80 +1,223 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://spacecowboys.me/
 
 # Space Cowboys
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Space Cowboys is an API allowing users to get information about various celestial objects.
 
-## Questions Collection [/questions]
+## Planetoid Bodies Collection [/planetoids]
 
-### List All Questions [GET]
+### Retrieve A Planetoid Body [GET]
 
 + Response 200 (application/json)
 
         [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
+                "dec": 33.835052,
+                "ra": 113.184212,
+                "picture": "HAT-P-33 b.png",
+                "host": "HAT-P-33",
+                "gravity": 0.006947625786270114,
+                "orbital_period": 3.474474,
+                "name": "HAT-P-33 b",
+                "diamter": 235739.892,
+                "temperature": 1782,
+                "mass": 1.446276e+27
             }
         ]
 
-### Create a New Question [POST]
+### Create a New Planetoid Body [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+You may create your own Planetoid Body using this action. It takes a JSON
+object.
 
 + Request (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+            "dec": 18.104868,
+            "ra": 303.195342,
+            "picture": "HAT-P-34 b.png",
+            "host": "HAT-P-34",
+            "gravity": 0.06019932261381838,
+            "orbital_period": 5.452654,
+            "name": "HAT-P-34 b",
+            "diamter": 167366.934,
+            "temperature": 1520,
+            "mass": 6.316544e+27
         }
 
 + Response 201 (application/json)
 
     + Headers
 
-            Location: /questions/2
+            Location: /planetoids/2
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+                "dec": 18.104868,
+                "ra": 303.195342,
+                "picture": "HAT-P-34 b.png",
+                "host": "HAT-P-34",
+                "gravity": 0.06019932261381838,
+                "orbital_period": 5.452654,
+                "name": "HAT-P-34 b",
+                "diamter": 167366.934,
+                "temperature": 1520,
+                "mass": 6.316544e+27
+            }
+            
+## Stars Collection [/stars]
+
+### Retrieve A Star [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "dec": 48.040234,
+                "ra": 288.793037,
+                "picture": "Kepler-117.png",
+                "name": "Kepler-117",
+                "distance": null,
+                "temperature": 6150.0,
+                "mass": 1.13
+            }
+        ]
+
+### Create a New Star [POST]
+
+You may create your own Star using this action. It takes a JSON
+object.
+
++ Request (application/json)
+
+        {
+            "dec": 33.835052,
+            "ra": 113.184212,
+            "picture": "HAT-P-33.png",
+            "name": "HAT-P-33",
+            "distance": null,
+            "temperature": 6446.0,
+            "mass": 1.38
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /stars/2
+
+    + Body
+
+            {
+                "dec": 33.835052,
+                "ra": 113.184212,
+                "picture": "HAT-P-33.png",
+                "name": "HAT-P-33",
+                "distance": null,
+                "temperature": 6446.0,
+                "mass": 1.38
+            }
+            
+## Galaxies Collection [/galaxies]
+
+### Retrieve A Galaxy [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "name": "UGC 11693",
+                "image": "UGC 11693.png",
+                "ra": 317.819183,
+                "dec": 37.884811,
+                "type": "spiral",
+                "redshift": 0.093554,
+                "size":1.227
+            }
+        ]
+
+### Create a New Galaxy [POST]
+
+You may create your own Galaxy using this action. It takes a JSON
+object.
+
++ Request (application/json)
+
+        {
+            "dec": 0,
+            "name": "UGC 11822",
+            "image": "UGC 11822.png",
+            "ra": 327.418700,
+            "dec":40.663325,
+            "type": "barred spiral",
+            "redshift": 0.014739,
+            "size": 1.170
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /galaxies/2
+
+    + Body
+
+            {
+                "dec": 0,
+                "name": "UGC 11822",
+                "image": "UGC 11822.png",
+                "ra": 327.418700,
+                "dec":40.663325,
+                "type": "barred spiral",
+                "redshift": 0.014739,
+                "size": 1.170
+            }
+            
+## Satellites Collection [/satellites]
+
+### Retrieve A Satellite [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "orbital_period": 3.474474,
+                "name": "Sat1",
+                "year_launched": 1960,
+                "type_of_mission": "unmanned",
+                "agency": "NASA"
+            }
+        ]
+
+### Create a New Satellite [POST]
+
+You may create your own Satellite using this action. It takes a JSON
+object.
+
++ Request (application/json)
+
+        {
+            "orbital_period": 5.64745,
+            "name": "Sat2",
+            "year_launched": 1967,
+            "type_of_mission": "manned",
+            "agency": "USSR"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /satellites/2
+
+    + Body
+
+            {
+                "orbital_period": 5.64745,
+                "name": "Sat2",
+                "year_launched": 1967,
+                "type_of_mission": "manned",
+                "agency": "USSR"
             }
