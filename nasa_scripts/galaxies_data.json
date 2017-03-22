@@ -1,0 +1,29 @@
+[
+	{
+		"name": "UGC 11693",
+		"image": "UGC 11693.png",
+		"ra": 317.819183,
+		"dec": 37.884811,
+		"type": "spiral",
+		"redshift": 0.093554,
+		"size":1.227 
+	},
+	{
+		"name": "UGC 11822",
+		"image": "UGC 11822.png",
+		"ra": 327.418700,
+		"dec":40.663325,
+		"type": "barred spiral",
+		"redshift": 0.014739,
+		"size": 1.170,
+	},
+	{
+		"name": "UGC 11891",
+		"image": "UGC 11891.png",
+		"ra": 330.8908,
+		"dec":43.7492,
+		"type": "irregular",
+		"redshift": 0.001538,
+		"size": 4.0,
+	}
+]	
