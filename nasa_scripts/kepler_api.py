@@ -24,14 +24,13 @@ out_format = "json"
 planet_attrs = ["pl_name", "pl_radj", "pl_massj", "pl_orbper", "pl_eqt"]
 
 # Stellar Attributes of output:
-#   hd_name - name of star as given by Henry Draper Catalog
 #   pl_hostname - stellar name most commonly used in literature
 #   st_rad - stellar radius in solar radii
 #   ra - right ascension in decimal degrees
 #   dec - declination in decimal degrees
 #   st_teff - effective temperature
 #   st_mass - stellar mass in solar mass
-stellar_attrs = ["hd_name", "pl_hostname", "st_rad", "ra", "dec", "st_teff", "st_mass"]
+stellar_attrs = ["pl_hostname", "st_rad", "ra", "dec", "st_teff", "st_mass"]
 
 # Build Request String
 request_str = base_url + "table=" + table + "&select="
@@ -105,9 +104,6 @@ stars = []
 for d in json_data :
     star = {}
     star["name"] = d["pl_hostname"]
-    if d["hd_name"] is not None :
-        star["name"] = d["hd_name"]
-
     star["ra"] = d["ra"]
     star["dec"] = d["dec"]
     star["temperature"] = d["st_teff"]
