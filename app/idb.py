@@ -10,9 +10,8 @@ app = Flask(__name__)
 models = {'planetoids': 'Planetoid Bodies', 'stars': 'Stars',
           'galaxies': 'Galaxies', 'satellites': 'Satellites'}
 
-headers = {'planetoids': ["Name", "Diameter", "Images",
-                          "Location", "Gravity", "Sol", "Orbital Period", "Age",
-                          "Surface Temperatures", "Body it Orbits"],
+headers = {'planetoids': ["Name", "Diameter", "Gravity", "Temperatures", "Mass",
+                           "Orbital Period"],
            'galaxies': ["Name", "Images", "Location", "Age",
                         "Year of Discovery", "Type"],
            'satellites': ["Name", "Orbital Period", "Year Launched",
@@ -38,6 +37,9 @@ member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits
                 'responsibilities': "Jack of all trades",
                 'bio': "I'm a cuddly wuddly teddy bear"}]
 
+planet1 = ["HAT-P-33 b", "235739.892", "0.006947625786270114", "1782", "1.446276e+27", "3.474474"]
+planet2 = ["HAT-P-33 b", "235739.892", "0.006947625786270114", "1782", "1.446276e+27", "3.474474"]
+planet3 = ["HAT-P-33 b", "235739.892", "0.006947625786270114", "1782", "1.446276e+27", "3.474474"]
 
 @app.route("/")
 def home():
@@ -51,7 +53,10 @@ def planetoid_table():
                            title='Planetoids',
                            model=models['planetoids'],
                            headers=headers['planetoids'],
-                           rows=headers['planetoids'])
+                           cols="col-md-2",
+                           row1=planet1,
+                           row2=planet2,
+                           row3=planet3)
 
 
 @app.route('/galaxies')
