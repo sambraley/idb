@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container model-container">
+  <div class="row">
+  	<div class="col-lg-12 text-center">
+  		<h1>{{star.name}}</h1>
+  	</div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 text-center" >
+      <img src="/static/images/{{star.images}}"> 
+    </div>
+    <div class="col-md-6 text-center">
+      <div class="col-md-12">
+        <h3>Temperature:</h3> 
+        <p>{{star.temperature}}</p>
+        <h3>Mass:</h3> 
+        <p>{{star.mass}}</p>
+        <h3>Right Ascension:</h3> 
+        <p>{{star.right_ascension}}</p>
+        <h3>Declination:</h3> 
+        <p>{{star.declination}}</p>
+        <h3>Planetoids:</h3> 
+        <a href="{{star.planetoid_bodies}}">Planetoids</a>
+        <h3>Satellites:</h3> 
+        <a href="{{star.satellites}}">Satellites</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

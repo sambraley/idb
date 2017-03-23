@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container model-container">
+  <div class="row">
+  	<div class="col-lg-12">
+  		<h1>{{satellite.name}}</h1>
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="col-lg-12">
+  		<!-- <img src="/static/images/UGC 11693.png"> --> 
+  	</div>
+    <div class="row">
+      <div class="col-md-6 text-center" style="padding-top:25px;">
+        <img src="/static/images/{{satellite.images}}"> 
+      </div>
+      <div class="col-md-6 text-center">
+        <div class="col-md-12">
+          <h3>Agency:</h3> 
+          <p>{{satellite.agency}}</p>
+          <h3>Type of Mission:</h3> 
+          <p>{{satellite.type_of_mission}}</p>
+          <h3>Launch Year:</h3> 
+          <p>{{satellite.year_launched}}</p>
+          <h3>Planetoids:</h3> 
+          <a href="{{satellite.planetoid_bodies}}">Planetoids</a>
+          <h3>Stars:</h3> 
+          <a href="{{satellite.stars}}">Stars</a>
+          <h3>Galaxy:</h3> 
+          <a href="{{satellite.galaxies}}">Galaxy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
