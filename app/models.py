@@ -7,10 +7,13 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from idb import app
 
-db = SQLAlchemy()
+db = SQLAlchemy(app)
+
 
 class Satellite(db.Model):
+
     """Models artificial satellites, tracking their name, agency, mission type,
     and year launched"""
 
@@ -18,7 +21,7 @@ class Satellite(db.Model):
     identifier = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True)
     agency = db.Column(db.String())
-    type_of_mission = db.Column(db.String())
+    mission = db.Column(db.String())
     year_launched = db.Column(db.Integer)
 
     # Relations
@@ -44,14 +47,14 @@ class Satellite(db.Model):
         self.type_of_mission = type_of_mission
         self.year_launched = year_launched
 
-    def __repr__(self):
-        return "Name: " + self.name +                      \
-            "\nAgency: " + self.agency +                   \
-            "\nType of Mission: " + self.type_of_mission + \
-            "\nYear Launched: " + self.year_launched
+    def dictionary(self):
+        return {
+            "name": self.name, "agency": self.agency, "mission": self.mission,
+            "year launched": self.year_launched}
 
 
 class Star(db.Model):
+
     """Models stars"""
 
     # Attributes
@@ -98,13 +101,12 @@ class Star(db.Model):
         self.planetoid_bodies = planetoid_bodies
         self.satellites = satellites
 
-    def __repr__(self):
-        return "Name: " + self.name +                      \
-            "\nImage: " + self.image +                     \
-            "\nTemperature: " + self.temperature +         \
-            "\nRight Ascension: " + self.right_ascension + \
-            "\nDeclination: " + self.declination +         \
-            "\nMass: " + self.mass
+    def dictionary(self):
+        return {
+            "name": self.name, "image": self.image, "temperature": self.temperature,
+            "right ascension": self.right_ascension, "declination": self.declination,
+            "mass": self.mass, "planetoid bodies": self.planetoid_bodies,
+            "satellites": self.satellites}
 
 
 class Galaxy(db.Model):
@@ -153,14 +155,12 @@ class Galaxy(db.Model):
         self.planetoid_bodies = planetoid_bodies
         self.satellites = satellites
 
-    def __repr__(self):
-        return "Name: " + self.name +                      \
-            "\nImage: " + self.image +                     \
-            "\nRight Ascension: " + self.right_ascension + \
-            "\nDeclination: " + self.declination +         \
-            "\nGalaxy Type: " + self.galaxy_type +         \
-            "\nRedshift: " + self.redshift +               \
-            "\nAngular Size: " + self.angular_size
+    def dictionary(self):
+        return {"name": self.name,
+                "image": self.image, "right ascension": self.right_ascension,
+                "declination": self.declination, "galaxy type": self.galaxy_type,
+                "redshift": self.redshift, "angular size": self.angular_size, "stars": self.stars,
+                "planetoid bodies": self.planetoid_bodies, "satellites": self.satellites}
 
 # Planets, moons, comets, asteroids ...
 
@@ -189,7 +189,7 @@ class PlanetoidBody(db.Model):
 
     # We could have many of these
     orbiting_bodies = db.relationship(
-        'PlanetoidBody', backref='host', lazy='dynamic')
+        'PlanetoidBody', backref='host', remote_side=identifier)
     satellites = db.relationship(
         'Satellite', backref='planetoid_body', lazy='dynamic')
 
@@ -222,13 +222,10 @@ class PlanetoidBody(db.Model):
         self.orbiting_bodies = orbiting_bodies
         self.satellites = satellites
 
-    def __repr__(self):
-        return "Name: " + self.name +                               \
-            "\nImage: " + self.image +                              \
-            "\nDiameter: " + self.diameter +                        \
-            "\nSurface Temperature: " + self.surface_temperature +  \
-            "\nRight Ascension: " + self.right_ascension +          \
-            "\nDeclination: " + self.declination +                  \
-            "\nMass: " + self.mass +                                \
-            "\nGravity: " + self.gravity +                          \
-            "\nOrbital Period: " + self.orbital_period
+    def dictionary(self):
+        return {
+            "name": self.name, "image": self.image, "diameter": self.diameter,
+            "temperature": self.surface_temperature, "right ascension": self.right_ascension,
+            "declination": self.declination, "mass": self.mass, "gravity": self.gravity,
+            "orbital period": self.orbital_period, "orbiting bodies": self.orbiting_bodies,
+            "satellites": self.satellites}
