@@ -1,28 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
+<div class="container model-container">
   <div class="row">
     <div class="col-lg-12">
       <h1>Planetoids</h1> 
     </div>
   </div>
   <div class="row">
-		<div class="col-md-2">Name</div>
-    <div class="col-md-2">Diameter</div>
-    <div class="col-md-2">Gravity</div>
-    <div class="col-md-2">Temperatures</div>
-    <div class="col-md-2">Mass</div>
-    <div class="col-md-2">Orbital Period</div>
+    {% for p in planetoid %}
+    <div class="col-md-4 text-center service-box">
+      <a href="{{p.link}}">
+        <img class="img-thumbnail about-image" src="/static/images/{{p.images}}">
+        <h3>{{p.name}}</h3>
+      </a>
+    </div>  
+    {% endfor %}
   </div>
-  {% for p in planetoid %}
-    <div class="row">
-      <div class="col-md-2"><a href="{{p.link}}">{{p.name}}</a></div>
-      <div class="col-md-2">{{p.diameter}}</div>
-      <div class="col-md-2">{{p.gravity}}</div>
-      <div class="col-md-2">{{p.surface_temperature}}</div>
-      <div class="col-md-2">{{p.mass}}</div>
-      <div class="col-md-2">{{p.orbital_period}}</div>
-    </div>
-  {% endfor %}
 </div>
 {% endblock %}

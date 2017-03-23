@@ -1,26 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
+<div class="container model-container">
   <div class="row">
     <div class="col-lg-12">
       <h1>Satellites</h1>
     </div>
   </div>
   <div class="row">
-		<div class="col-md-2">Name</div>
-    <div class="col-md-4">Agency</div>
-    <div class="col-md-2">Type of Mission</div>
-    <div class="col-md-2">Year Launched</div>
-    <div class="col-md-2">Orbital Period</div>
+    {% for s in satellite %}
+    <div class="col-md-4 text-center service-box">
+      <a href="{{s.link}}">
+        <img class="img-thumbnail about-image" src="/static/images/{{s.images}}">
+        <h3>{{s.name}}</h3>
+      </a>
+    </div>  
+    {% endfor %}
   </div>
-  {% for s in satellite %}
-    <div class="row">
-      <div class="col-md-2"><a href="{{s.link}}">{{s.name}}</a></div>
-      <div class="col-md-4">{{s.agency}}</div>
-      <div class="col-md-2">{{s.type_of_mission}}</div>
-      <div class="col-md-2">{{s.year_launched}}</div>
-      <div class="col-md-2">{{s.oribital_period}}</div>
-    </div>
-  {% endfor %}
 </div>
 {% endblock %}
