@@ -61,7 +61,7 @@ class Satellite(db.Model):
         """
         return {
             "name": self.name, "agency": self.agency, "mission": self.mission,
-            "year launched": self.year_launched}
+            "year_launched": self.year_launched}
 
 
 class Star(db.Model):
@@ -96,7 +96,7 @@ class Star(db.Model):
     # Methods
     def __init__(
             self, name, image, temperature, right_ascension, declination, mass,
-            planetoid_bodies=None, satellites=None):
+            planetoid_bodies=(), satellites=()):
         """
         name a str, image a str, temperature, right_ascension, declination, and mass
         are all floats. planetoid_bodies and satellites are to be iterables containing
@@ -125,8 +125,8 @@ class Star(db.Model):
         """
         return {
             "name": self.name, "image": self.image, "temperature": self.temperature,
-            "right ascension": self.right_ascension, "declination": self.declination,
-            "mass": self.mass, "planetoid bodies": self.planetoid_bodies,
+            "right_ascension": self.right_ascension, "declination": self.declination,
+            "mass": self.mass, "planetoid_bodies": self.planetoid_bodies,
             "satellites": self.satellites}
 
 
@@ -162,7 +162,7 @@ class Galaxy(db.Model):
     # of the respective classes which are within this galaxy
     def __init__(
             self, name, image, right_ascension, declination, galaxy_type, redshift,
-            angular_size, stars=None, planetoid_bodies=None, satellites=None):
+            angular_size, stars=(), planetoid_bodies=(), satellites=()):
         """
         name a str, image a str, right_ascension and declination floats, galaxy_type a str,
         redshift and angular_size floats. stars, planetoid_bodies, and satellites are to
@@ -193,10 +193,10 @@ class Galaxy(db.Model):
         Returns a dictionary representation of this model.
         """
         return {"name": self.name,
-                "image": self.image, "right ascension": self.right_ascension,
-                "declination": self.declination, "galaxy type": self.galaxy_type,
-                "redshift": self.redshift, "angular size": self.angular_size, "stars": self.stars,
-                "planetoid bodies": self.planetoid_bodies, "satellites": self.satellites}
+                "image": self.image, "right_ascension": self.right_ascension,
+                "declination": self.declination, "galaxy_type": self.galaxy_type,
+                "redshift": self.redshift, "angular_size": self.angular_size, "stars": self.stars,
+                "planetoid_bodies": self.planetoid_bodies, "satellites": self.satellites}
 
 # Planets, moons, comets, asteroids ...
 
@@ -241,7 +241,7 @@ class PlanetoidBody(db.Model):
     # classes which are within this galaxy
     def __init__(
             self, name, image, diameter, surface_temperature, right_ascension, declination,
-            mass, gravity, orbital_period, orbiting_bodies=None, satellites=None):
+            mass, gravity, orbital_period, orbiting_bodies=(), satellites=()):
         """
         name a str, image a str, diameter, surface_temperature, right_ascension, declination,
         mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be
@@ -276,7 +276,7 @@ class PlanetoidBody(db.Model):
         """
         return {
             "name": self.name, "image": self.image, "diameter": self.diameter,
-            "temperature": self.surface_temperature, "right ascension": self.right_ascension,
+            "temperature": self.surface_temperature, "right_ascension": self.right_ascension,
             "declination": self.declination, "mass": self.mass, "gravity": self.gravity,
-            "orbital period": self.orbital_period, "orbiting bodies": self.orbiting_bodies,
+            "orbital_period": self.orbital_period, "orbiting_bodies": self.orbiting_bodies,
             "satellites": self.satellites}
