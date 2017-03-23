@@ -40,7 +40,6 @@ endif
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
-	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > app/$@
 
 IDB.html: app/models.py
 	cd app; pydoc3 -w models; mv models.html ../IDB1.html
@@ -61,7 +60,7 @@ TestIDB.tmp: app/models.py app/test.py .pylintrc
 #	$(COVERAGE) report -m                      >> TestIDB.tmp 
 #	cat TestIDB.tmp
 
-check: IDB.log IDB.html
+check: IDB.log 
 	@not_found=0;                                 \
     for i in $(FILES);                            \
     do                                            \
@@ -83,7 +82,6 @@ check: IDB.log IDB.html
 clean:
 	rm -f  .coverage
 	rm -f  .pylintrc
-	rm -f  app/.pylintrc
 	rm -f  *.pyc
 	rm -f  TestIDB.tmp
 	rm -rf __pycache__
