@@ -37,8 +37,12 @@ member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits
                 'responsibilities': "Jack of all trades",
                 'bio': "I'm a cuddly wuddly teddy bear"}]
 
-planetoid =  {"HAT-P-33-b": {"name": "HAT-P-33 b", "right_ascension": "113.184212", "declination": "33.835052", "diameter": "235739.892", "mass": "1.446276e+27", "surface_temperature": "1782", "gravity": "0.006947625786270114", "orbital_period": "NULL", "orbiting_bodies": "NULL", "satellites": "NULL", "images": "HAT-P-33 b.png" } }
-star = {"HAT-P-33" : {"name": "HAT-P-33", "diameter": "NULL", "distance": "NULL", "mass": "1.38", "temperature": "6446.0", "right_ascension": "113.184212", "declination": "33.835052", "images": "HAT-P-33.png"}}
+planetoid =  [{ "link": "HAT-P-33-b", "name": "HAT-P-33 b", "right_ascension": "113.184212", "declination": "33.835052", "diameter": "235739.892", "mass": "1.446276e+27", "surface_temperature": "1782", "gravity": "0.006947625786270114", "orbital_period": "3.474474", "orbiting_bodies": "NULL", "satellites": "NULL", "images": "HAT-P-33 b.png", "host": "HAT-P-33" },
+              { "link": "HAT-P-34-b", "name": "HAT-P-34 b", "right_ascension": "303.195342", "declination": "18.104868", "diameter": "167366.934", "mass": "6.316544e+27", "surface_temperature": "1520", "gravity": "0.06019932261381838", "orbital_period": "5.452654", "orbiting_bodies": "NULL", "satellites": "NULL", "images": "HAT-P-34 b.png", "host": "HAT-P-34"},
+              { "link": "Kepler-117-b", "name": "Kepler-117 b", "right_ascension": "288.793037", "declination": "48.040234", "diameter": "100532.018", "mass": "1.7841199999999998e+26", "surface_temperature": "984", "gravity": "0.0047126659923379345", "orbital_period": "18.7959228", "orbiting_bodies": "NULL", "satellites": "NULL", "images": "Kepler-117 b.png", "host": "Kepler-117"} ]
+star = [{ "link": "HAT-P-33","name": "HAT-P-33", "diameter": "NULL", "distance": "NULL", "mass": "1.38", "temperature": "6446.0", "right_ascension": "303.195342", "declination": "33.835052", "images": "HAT-P-33.png"},
+        { "link": "HAT-P-34", "name": "HAT-P-34", "diameter": "NULL", "distance": "NULL", "mass": "1.39", "temperature": "6442.0", "right_ascension": "113.184212", "declination": "18.104868", "images": "HAT-P-34.png"},
+        { "link": "Kepler-117", "name": "Kepler-117", "diameter": "NULL", "distance": "NULL", "mass": "1.13", "temperature": "6150.0", "right_ascension": "288.793037", "declination": "48.040234", "images": "Kepler-117.png"}]
 
 
 
@@ -47,14 +51,23 @@ def home():
     return render_template('home.html',
                            title='Spacecowboys')
 
-
 @app.route('/planetoids')
 def planetoid_table():
-    return render_template('planetoids-grid.html')
+    return render_template('planetoids-grid.html', planetoid=planetoid)
 
 @app.route('/HAT-P-33-b')
-def planetoid_model():
-    return render_template('planetoid.html', planetoid=planetoid["HAT-P-33-b"])
+def planetoid_model1():
+    return render_template('planetoid.html', planetoid=planetoid[0])
+
+@app.route('/HAT-P-34-b')
+def planetoid_model2():
+    return render_template('planetoid.html', planetoid=planetoid[1])
+
+@app.route('/Kepler-117-b')
+def planetoid_model3():
+    return render_template('planetoid.html', planetoid=planetoid[2])
+
+
 
 @app.route('/galaxies')
 def galaxies_table():
@@ -76,11 +89,20 @@ def satellites_model():
 
 @app.route('/stars')
 def stars_table():
-    return render_template('stars-grid.html')
+    return render_template('stars-grid.html', star=star)
 
 @app.route('/HAT-P-33')
-def stars_model():
-    return render_template('star.html', star= star["HAT-P-33"])
+def stars_model1():
+    return render_template('star.html', star= star[0])
+
+@app.route('/HAT-P-34')
+def stars_model2():
+    return render_template('star.html', star= star[1])
+
+@app.route('/Kepler-117')
+def stars_model3():
+    return render_template('star.html', star= star[2])
+
 
 @app.route("/about")
 def about():

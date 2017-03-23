@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-  <h1>Planetoids</h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Planetoids</h1> 
+    </div>
+  </div>
   <div class="row">
 		<div class="col-md-2">Name</div>
     <div class="col-md-2">Diameter</div>
@@ -10,29 +14,15 @@
     <div class="col-md-2">Mass</div>
     <div class="col-md-2">Orbital Period</div>
   </div>
-  <div class="row">
-    <div class="col-md-2"><a href="HAT-P-33-b">HAT-P-33 b</a></div>
-    <div class="col-md-2">235739.892</div>
-    <div class="col-md-2">0.006947625786270114</div>
-    <div class="col-md-2">1782</div>
-    <div class="col-md-2">1.446276e+27</div>
-    <div class="col-md-2">3.474474</div>
-  </div>
-  <div class="row">
-    <div class="col-md-2"><a href="HAT-P-33-b">HAT-P-33 c</a></div>
-    <div class="col-md-2">235739.892</div>
-    <div class="col-md-2">0.006947625786270114</div>
-    <div class="col-md-2">1782</div>
-    <div class="col-md-2">1.446276e+27</div>
-    <div class="col-md-2">3.474474</div>
-  </div>
-  <div class="row">
-    <div class="col-md-2"><a href="HAT-P-33-b">HAT-P-33 d</a></div>
-    <div class="col-md-2">235739.892</div>
-    <div class="col-md-2">0.006947625786270114</div>
-    <div class="col-md-2">1782</div>
-    <div class="col-md-2">1.446276e+27</div>
-    <div class="col-md-2">3.474474</div>
-  </div>
+  {% for p in planetoid %}
+    <div class="row">
+      <div class="col-md-2"><a href="{{p.link}}">{{p.name}}</a></div>
+      <div class="col-md-2">{{p.diameter}}</div>
+      <div class="col-md-2">{{p.gravity}}</div>
+      <div class="col-md-2">{{p.surface_temperature}}</div>
+      <div class="col-md-2">{{p.mass}}</div>
+      <div class="col-md-2">{{p.orbital_period}}</div>
+    </div>
+  {% endfor %}
 </div>
 {% endblock %}

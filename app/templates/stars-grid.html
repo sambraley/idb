@@ -9,26 +9,14 @@
     <div class="col-md-2">Mass</div>
     <div class="col-md-2">Distance</div>
   </div>
+  {% for s in star %}
   <div class="row">
-    <div class="col-md-2"><a href="HAT-P-33">HAT-P-33</a></div>
-    <div class="col-md-2">N/A</div>
-    <div class="col-md-2">6446.0</div>
-    <div class="col-md-2">1.38</div>
-    <div class="col-md-2">Null</div>
+    <div class="col-md-2"><a href="{{s.link}}">{{s.name}}</a></div>
+    <div class="col-md-2">{{s.diameter}}</div>
+    <div class="col-md-2">{{s.temperature}}</div>
+    <div class="col-md-2">{{s.mass}}</div>
+    <div class="col-md-2">{{s.distance}}</div>
   </div>
-  <div class="row">
-    <div class="col-md-2"><a href="HAT-P-33">HAT-P-33</a></div>
-    <div class="col-md-2">N/A</div>
-    <div class="col-md-2">6446.0</div>
-    <div class="col-md-2">1.38</div>
-    <div class="col-md-2">Null</div>
-  </div>
-  <div class="row">
-    <div class="col-md-2"><a href="HAT-P-33">HAT-P-33</a></div>
-    <div class="col-md-2">N/A</div>
-    <div class="col-md-2">6446.0</div>
-    <div class="col-md-2">1.38</div>
-    <div class="col-md-2">Null</div>
-  </div>
+  {% endfor %}
 </div>
 {% endblock %}
