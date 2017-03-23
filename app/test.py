@@ -10,19 +10,21 @@ from idb import app
 
 class TestModels (TestCase):
 
-    def setUp(self):
-        app.testing = True
-        self.client = app.test_client()
-
     def tearDown(self):
+        """
+        Removes current Session associated wih test case.
+        """
         db.session.remove()
 
     def test_satellite_model(self):
+        """
+        Adds row to database to make sure it gets added properly.
+        """
         try:
             example = Satellite("WGS-4 (USA-233)", "United Launch Alliance", \
                                 "communications", 2012)
 
-            with self.client.test_request_context():
+            with app.test_request_context():
                 db.session.add(example)
                 db.session.commit()
 
@@ -37,27 +39,35 @@ class TestModels (TestCase):
             raise
 
     def test_satellite_dictionary(self):
+        """
+        Examines model's dictionary() method for correctness in content.
+        """
         example = Satellite("WGS-4 (USA-233)", "United Launch Alliance", \
                             "communications", 2012)
         actual = example.dictionary()
 
         self.assertEqual(actual["name"], "WGS-4 (USA-233)")
         self.assertEqual(actual["agency"], "United Launch Alliance")
-        self.assertEqual(actual["type_of_mission"], "communications")
+        self.assertEqual(actual["mission"], "communications")
         self.assertEqual(actual["year_launched"], 2012)
 
-
     def test_satellite_assert(self):
+        """
+        Makes sure precoditions are checked and assertion thrown.
+        """
         with self.assertRaises(AssertionError):
             Satellite("WGS-4 (USA-233)", "United Launch Alliance", \
                         "communications", 2012.0)
 
     def test_star_model(self):
+        """
+        Adds row to database to make sure it gets added properly.
+        """
         try:
             example = Star("HAT-P-33", "HAT-P-33.png", 6446.0,  \
                             113.184212, 33.835052, 1.38)
 
-            with self.client.test_request_context():
+            with app.test_request_context():
                 db.session.add(example)
                 db.session.commit()
 
@@ -72,6 +82,9 @@ class TestModels (TestCase):
             raise
 
     def test_star_dictionary(self):
+        """
+        Examines model's dictionary() method for correctness in content.
+        """
         example = Star("HAT-P-33", "HAT-P-33.png",  6446.0, \
                         113.184212, 33.835052, 1.38)
         actual = example.dictionary()
@@ -86,15 +99,21 @@ class TestModels (TestCase):
         self.assertEqual(actual["satellites"], None)
 
     def test_star_assert(self):
+        """
+        Makes sure precoditions are checked and assertion thrown.
+        """
         with self.assertRaises(AssertionError):
             Star("HAT-P-33", "HAT-P-33.png",  6446.0, 113, 33.835052, 1.38)
 
     def test_galaxy_model(self):
+        """
+        Adds row to database to make sure it gets added properly.
+        """
         try:
             example = Galaxy("UGC 11693", "UGC 11693.png", \
                             317.819183, 37.884811, "spiral", 0.093554, 1.227)
 
-            with self.client.test_request_context():
+            with app.test_request_context():
                 db.session.add(example)
                 db.session.commit()
 
@@ -109,6 +128,9 @@ class TestModels (TestCase):
             raise
 
     def test_galaxy_dictionary(self):
+        """
+        Examines model's dictionary() method for correctness in content.
+        """
         example = Galaxy("UGC 11693", "UGC 11693.png", \
                         317.819183, 37.884811, "spiral", 0.093554, 1.227)
         actual = example.dictionary()
@@ -125,17 +147,23 @@ class TestModels (TestCase):
         self.assertEqual(actual["satellites"], None)
 
     def test_galaxy_assert(self):
+        """
+        Makes sure precoditions are checked and assertion thrown.
+        """
         with self.assertRaises(AssertionError):
             Galaxy("UGC 11693", "UGC 11693.png", \
                     317.819183, 37.884811, 0, 0.093554, 1.227)
 
     def test_planetoidBody_model(self):
+        """
+        Adds row to database to make sure it gets added properly.
+        """
         try:
             example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, \
                                     984, 288.793037, 48.040234, 1.7841199999999998, \
                                     0.0047126659923379345, 18.7959228)
 
-            with self.client.test_request_context():
+            with app.test_request_context():
                 db.session.add(example)
                 db.session.commit()
 
@@ -151,6 +179,9 @@ class TestModels (TestCase):
             raise
 
     def test_planetoidBody_dictionary(self):
+        """
+        Examines model's dictionary() method for correctness in content.
+        """
         example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, \
                                 984, 288.793037, 48.040234, 1.7841199999999998, \
                                 0.0047126659923379345, 18.7959228)
@@ -169,6 +200,9 @@ class TestModels (TestCase):
         self.assertEqual(actual["satellites"], None)
 
     def test_planetoidBody_assert(self):
+        """
+        Makes sure precoditions are checked and assertion thrown.
+        """
         with self.assertRaises(AssertionError):
             PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, 984, 288.793037, \
                             48.040234, 1.7841199999999998, 0.0047126659923379345, 18)
