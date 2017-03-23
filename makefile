@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := test
+.DEFAULT_GOAL := RunIDB
 
 FILES :=                              \
     IDB1.html                         \
@@ -6,11 +6,7 @@ FILES :=                              \
     IDB1.pdf                          \
     app/idb.py                        \
     app/test.py                       \
-
-# uncomment these:
-#    .travis.yml                       \
-#    collatz-tests/EID-RunCollatz.in   \
-#    collatz-tests/EID-RunCollatz.out  \
+    .travis.yml                       \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -36,7 +32,7 @@ else ifeq ($(shell uname -p), unknown) # Docker
 else                                   # UTCS
     PYTHON   := python3
     PIP      := pip3
-    PYLINT   := pylint3
+    PYLINT   := pylint
     COVERAGE := coverage-3.5
     PYDOC    := pydoc3.5
     AUTOPEP8 := autopep8
@@ -45,9 +41,8 @@ endif
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
-
-IDB.html: app/idb.py
-	pydoc3 -w app/idb
+IDB.html: app/models.py
+	cd app; pydoc3 -w models; mv models.html ../IDB1.html
 
 IDB.log:
 	git log > IDB1.log
@@ -56,13 +51,16 @@ RunIDB: app/idb.py
 	-$(PYLINT) app/idb.py
 	$(PYTHON) app/idb.py
 
-TestIDB.tmp: app/test.py .pylintrc
+TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
-	$(COVERAGE) run    --branch test.py >  TestIDB.tmp 2>&1
-	$(COVERAGE) report -m                      >> TestIDB.tmp
-	cat TestIDB.tmp
+	-$(PYLINT) app/models.py
 
-check:
+# NOT PHASE 1
+#	$(COVERAGE) run    --branch test.py >  TestIDB.tmp 2>&1  
+#	$(COVERAGE) report -m                      >> TestIDB.tmp 
+#	cat TestIDB.tmp
+
+check: IDB.log 
 	@not_found=0;                                 \
     for i in $(FILES);                            \
     do                                            \
@@ -102,7 +100,7 @@ status:
 	git remote -v
 	git status
 
-test: IDB.html IDB.log TestIDB.tmp
+test: TestIDB.tmp
 	ls -al
 	make check
 

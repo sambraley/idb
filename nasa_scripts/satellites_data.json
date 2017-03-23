@@ -1,0 +1,22 @@
+[
+	{
+		"name":"WGS-4 (USA-233)",
+		"year launched": 2012,
+		"mission type": "communications",
+		"agency": "United Launch Alliance"
+	},
+	{
+		"name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+		"year launched": 2012,
+		"mission type": "astrophysics",
+		"agency": "National Aeronautics and Space Administration"
+	},
+	{
+		"name": "SARAL",
+		"year launched": 2013,
+		"mission type": "planetary science",
+		"agency": "Indian Space Research Organization"
+	}
+]
+	
+	

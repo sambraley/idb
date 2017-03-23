@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container model-container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Galaxies</h1> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="sort-container col-sm-2" id="sort-toolbar-container">
+          <select class="form-control" id="sort-dropdown" data-ui="sort-container">
+            <option value="title" data-ui="sort-item">Sort By</option>
+            <option value="title" data-ui="sort-item">A - Z</option>
+            <option value="title_r" data-ui="sort-item">Z - A</option>
+          </select>
+    </div>
+    <div class="sort-container col-sm-2" id="sort-toolbar-container">
+          <select class="form-control fsrVisible" id="filter-dropdown-control" data-ui="sort-container">
+            <option value="title" data-ui="sort-item">Filter By</option>
+            <option value="title" data-ui="sort-item">A - Z</option>
+            <option value="title_r" data-ui="sort-item">Z - A</option>
+          </select>
+    </div>
+  </div>
+  <div class="row">
+    {% for g in galaxies %}
+    <div class="col-md-4 text-center service-box">
+      <a href="{{g.link}}">
+        <img class="img-thumbnail about-image" src="/static/images/{{g.images}}">
+        <h3>{{g.name}}</h3>
+      </a>
+    </div>  
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

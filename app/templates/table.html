@@ -1,18 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
+<div class="container content-container">
   <h1>{{ model }}</h1>
-  <table class="table">
-  	<tr>
+  <div class="row">
   		{% for header in headers %}
-  			<th> {{header}} </th>
+  			<div class="{{cols}}" style="background-color:yellow;"> {{header}} </div>
 			{% endfor %}
-  	</tr>
-  	<tr>
-  		{% for row in rows %}
-  			<td > Text </td>
-			{% endfor %}
-  	</tr>
-  </table>
+  </div>
+  <div class="row">
+  		{% for row in row1 %}
+          <div class="{{cols}}" style="background-color:pink;">{{row}}</div>
+      {% endfor %}
+   </div>
+  <div class="row">
+      {% for row in row2 %}
+          <div class="{{cols}}" style="background-color:pink;">{{row}}</div>
+      {% endfor %}
+   </div>
+   <div class="row">
+      {% for row in row3 %}
+          <div class="{{cols}}" style="background-color:pink;">{{row}}</div>
+      {% endfor %}
+   </div>
 </div>
 {% endblock %}

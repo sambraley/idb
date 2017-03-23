@@ -1,6 +1,99 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-  <h1>About us!</h1>
+<div class="container content-container">
+	<h1 class="text-center">We are the Spacecowboys</h1>
+	<h3 class="text-center">Our goal is to communicate the findings of NASA and the Jet propulsion laboratory in an easy to read format that is enjoyable for the viewer.</h3>
+	<br>
+	<br>
+	<h1>Members</h1>
+  <div class="row">
+  	{% for member in member_info %}
+		<div class="col-md-4 text-center service-box">
+      <img class="img-thumbnail about-image" src="/static/images/{{member['image']}}">
+      <h3>{{member["name"]}}</h3>
+      <p class="text-muted">{{member["bio"]}}</p>
+      <p class="text-muted"><strong>Major Responsibilites:</strong> {{member["responsibilities"]}}</p>
+      <p class="text-muted"><strong>Commits:</strong> {{member["commits"]}}</p>
+      <p class="text-muted"><strong>Issues:</strong> {{member["issues"]}}</p>
+      <p class="text-muted"><strong>Unit tests:</strong> {{member["tests"]}}</p>
+  	</div>
+    {% endfor %}
+  </div>
+  <h1>Statistics</h1>
+  <div class="row">
+  	<div class="col-md-4 text-center">
+  		<h3><strong>Overall Commits:</strong> {{about_info['commits']}}</h3>
+  	</div>
+  	<div class="col-md-4 text-center">
+  		<h3><strong>Overall Issues:</strong> {{about_info['issues']}}</h3>
+  	</div>
+  	<div class="col-md-4 text-center">
+  		<h3><strong>Overall Tests:</strong> {{about_info['tests']}}</h3>
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="col-md-3 text-center">
+  		<a href="https://github.com/samuelbraley/idb">Repository</a>
+  	</div>
+  	<div class="col-md-3 text-center">
+  		<a href="https://github.com/samuelbraley/idb/issues">Issue Tracker</a>
+  	</div>
+  	<div class="col-md-3 text-center">
+  		<a href="http://docs.spacecowboys.apiary.io">Rest API</a>
+  	</div>
+  	<div class="col-md-3 text-center">
+  		<a href="http://docs.google.com/gview?url=https://github.com/samuelbraley/idb/raw/develop/TechnicalReport-Phase1.pdf&embedded=true">Technical report</a>
+  	</div>
+  </div>
+  <h1>Data</h1>
+  <div class="row">
+  	<div class="col-md-4 text-center">
+  		<h3><a href="https://launchlibrary.net/1.2/docs/api.html">launchlibrary.net</a></h3>
+  		<p>Catalog of Launches</p>
+  	</div>
+  	<div class="col-md-4 text-center">
+  		<h3><a href="http://simbad.u-strasbg.fr/simbad/">simbad.u-strasbg.fr</a></h3>
+  		<p>Astronomical Database</p>
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="col-md-4 text-center">
+  		<h3><a href="http://skyserver.sdss.org/dr1/en/">skyserver.sdss.org</a></h3>
+  		<p>Database of the Sloan Digital Sky Survey</p>
+  	</div>
+  	<div class="col-md-4 text-center">
+  		<h3><a href="http://aladin.u-strasbg.fr/AladinLite/">aladin.u-strasbg.fr</a></h3>
+  		<p>Collection of Star Maps and Pictures</p>
+  	</div>
+  </div>
+  <h1>Tools</h1>
+  <div class="row">
+  	<div class="col-md-3 text-center">
+  		<h3><a href="http://getbootstrap.com/">Bootstrap</a></h3>
+  		<p>Front End Styling</p>
+  	</div>
+  	<div class="col-md-3 text-center">
+  		<h3><a href="http://flask.pocoo.org/">Flask</a></h3>
+  		<p>Back End Server</p>
+  	</div>
+  	<div class="col-md-3 text-center">
+  		<h3><a href="https://cloud.google.com">Google Cloud Platform</a></h3>
+  		<p>Hosting Service</p>
+  	</div>
+  	<div class="col-md-3 text-center">
+  		<h3><a href="https://github.com/">GitHub</a></h3>
+  		<p>Code Repository</p>
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="col-md-3 text-center">
+  		<h3><a href="https://apiary.io/">Apiary</a></h3>
+  		<p>API Documentation</p>
+  	</div>
+  	<div class="col-md-3 text-center">
+  		<h3><a href="https://slack.com/">Slack</a></h3>
+  		<p>Team Communication</p>
+  	</div>
+  </div>
 </div>
 {% endblock %}
