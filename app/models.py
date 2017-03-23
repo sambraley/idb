@@ -4,8 +4,11 @@
 # pylint: disable = too-many-instance-attributes
 # pylint: disable = too-few-public-methods
 # pylint: disable = too-many-arguments
+"""
+This module is designed to model galaxies, stars, planetoid bodies, and satellites for
+use in a PostgreSQL database using Flask-SQLAlchemy.
+"""
 
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from idb import app
 
@@ -13,6 +16,7 @@ db = SQLAlchemy(app)
 
 
 class Satellite(db.Model):
+
     """
     Models artificial satellites. Attributes are: name, agency, mission type,
     and year launched. They may relate many-to-one to galaxies, stars, and planetoid bodies.
@@ -61,6 +65,7 @@ class Satellite(db.Model):
 
 
 class Star(db.Model):
+
     """
     Models stars. Attributes are: name, image, temperature, right_ascension,
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
@@ -94,7 +99,7 @@ class Star(db.Model):
             planetoid_bodies=None, satellites=None):
         """
         name a str, image a str, temperature, right_ascension, declination, and mass
-        are all floats. planetoid_bodies and satellites are to be iterables containing 
+        are all floats. planetoid_bodies and satellites are to be iterables containing
         instances of the respective classes which orbit this star.
         """
         # Check types
@@ -126,12 +131,13 @@ class Star(db.Model):
 
 
 class Galaxy(db.Model):
+
     """
     Models galaxies. Attributes are: name, image, right_ascension, declination,
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
     to satellites, stars, and planetoid bodies.
     """
-    
+
     # Attributes
     identifier = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True)
@@ -159,7 +165,7 @@ class Galaxy(db.Model):
             angular_size, stars=None, planetoid_bodies=None, satellites=None):
         """
         name a str, image a str, right_ascension and declination floats, galaxy_type a str,
-        redshift and angular_size floats. stars, planetoid_bodies, and satellites are to 
+        redshift and angular_size floats. stars, planetoid_bodies, and satellites are to
         be iterables containing instances of the respective classes which are in this galaxy.
         """
         # Check types
@@ -196,12 +202,13 @@ class Galaxy(db.Model):
 
 
 class PlanetoidBody(db.Model):
+
     """
     Models planetoids. Attributes are: name, image, diameter, right_ascension,
-    declination, gravity, orbital period, mass, and temperature. They may relate 
+    declination, gravity, orbital period, mass, and temperature. They may relate
     many-to-one to galaxies and stars, and one-to-many to satellites and other planetoid bodies.
     """
-    
+
     # Attributes
     identifier = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Integer, unique=True)
@@ -236,8 +243,8 @@ class PlanetoidBody(db.Model):
             self, name, image, diameter, surface_temperature, right_ascension, declination,
             mass, gravity, orbital_period, orbiting_bodies=None, satellites=None):
         """
-        name a str, image a str, diameter, surface_temperature, right_ascension, declination, 
-        mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be 
+        name a str, image a str, diameter, surface_temperature, right_ascension, declination,
+        mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be
         iterables containing instances of the respective classes which orbit this planetoid.
         """
         # Check types
