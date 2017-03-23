@@ -40,7 +40,7 @@ endif
 
 .pylintrc:
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
-
+	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > app/$@
 
 IDB.html: app/models.py
 	cd app; pydoc3 -w models; mv models.html ../IDB1.html
@@ -83,6 +83,7 @@ check: IDB.log IDB.html
 clean:
 	rm -f  .coverage
 	rm -f  .pylintrc
+	rm -f  app/.pylintrc
 	rm -f  *.pyc
 	rm -f  TestIDB.tmp
 	rm -rf __pycache__
