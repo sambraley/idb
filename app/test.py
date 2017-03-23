@@ -8,6 +8,8 @@ from unittest import main, TestCase
 from models import db, Satellite, Star, Galaxy, PlanetoidBody
 from idb import app
 
+db.create_all()
+
 class TestModels (TestCase):
 
     def tearDown(self):
@@ -21,7 +23,7 @@ class TestModels (TestCase):
         Adds row to database to make sure it gets added properly.
         """
         try:
-            example = Satellite("WGS-4 (USA-233)", "United Launch Alliance", \
+            example = Satellite("WGS-4 (USA-233)", "United Launch Alliance", 
                                 "communications", 2012)
 
             with app.test_request_context():
@@ -42,7 +44,7 @@ class TestModels (TestCase):
         """
         Examines model's dictionary() method for correctness in content.
         """
-        example = Satellite("WGS-4 (USA-233)", "United Launch Alliance", \
+        example = Satellite("WGS-4 (USA-233)", "United Launch Alliance", 
                             "communications", 2012)
         actual = example.dictionary()
 
@@ -56,15 +58,15 @@ class TestModels (TestCase):
         Makes sure precoditions are checked and assertion thrown.
         """
         with self.assertRaises(AssertionError):
-            Satellite("WGS-4 (USA-233)", "United Launch Alliance", \
-                        "communications", 2012.0)
+            Satellite("WGS-4 (USA-233)", "United Launch Alliance", 
+                      "communications", 2012.0)
 
     def test_star_model(self):
         """
         Adds row to database to make sure it gets added properly.
         """
         try:
-            example = Star("HAT-P-33", "HAT-P-33.png", 6446.0,  \
+            example = Star("HAT-P-33", "HAT-P-33.png", 6446.0,
                             113.184212, 33.835052, 1.38)
 
             with app.test_request_context():
@@ -85,18 +87,18 @@ class TestModels (TestCase):
         """
         Examines model's dictionary() method for correctness in content.
         """
-        example = Star("HAT-P-33", "HAT-P-33.png",  6446.0, \
+        example = Star("HAT-P-33", "HAT-P-33.png",  6446.0,
                         113.184212, 33.835052, 1.38)
         actual = example.dictionary()
 
         self.assertEqual(actual["name"], "HAT-P-33")
         self.assertEqual(actual["image"], "HAT-P-33.png")
         self.assertEqual(actual["temperature"], 6446.0)
-        self.assertEqual(actual["righ_ascension"], 113.184212)
+        self.assertEqual(actual["right_ascension"], 113.184212)
         self.assertEqual(actual["declination"], 33.835052)
         self.assertEqual(actual["mass"], 1.38)
-        self.assertEqual(actual["planetoid_bodies"], None)
-        self.assertEqual(actual["satellites"], None)
+        self.assertEqual(actual["planetoid_bodies"], ())
+        self.assertEqual(actual["satellites"], ())
 
     def test_star_assert(self):
         """
@@ -110,8 +112,8 @@ class TestModels (TestCase):
         Adds row to database to make sure it gets added properly.
         """
         try:
-            example = Galaxy("UGC 11693", "UGC 11693.png", \
-                            317.819183, 37.884811, "spiral", 0.093554, 1.227)
+            example = Galaxy("UGC 11693", "UGC 11693.png",
+                             317.819183, 37.884811, "spiral", 0.093554, 1.227)
 
             with app.test_request_context():
                 db.session.add(example)
@@ -119,7 +121,7 @@ class TestModels (TestCase):
 
                 galaxy = db.session.query(Galaxy).filter_by(name = "UGC 11693").first()
                 self.assertEqual(galaxy.name, "UGC 11693")
-                self.assertEqual(galaxy.size, 1.227)
+                self.assertEqual(galaxy.angular_size, 1.227)
 
                 db.session.delete(example)
                 db.session.commit()
@@ -131,27 +133,27 @@ class TestModels (TestCase):
         """
         Examines model's dictionary() method for correctness in content.
         """
-        example = Galaxy("UGC 11693", "UGC 11693.png", \
-                        317.819183, 37.884811, "spiral", 0.093554, 1.227)
+        example = Galaxy("UGC 11693", "UGC 11693.png",
+                         317.819183, 37.884811, "spiral", 0.093554, 1.227)
         actual = example.dictionary()
 
         self.assertEqual(actual["name"], "UGC 11693")
         self.assertEqual(actual["image"], "UGC 11693.png")
-        self.assertEqual(actual["righ_ascension"], 317.819183)
+        self.assertEqual(actual["right_ascension"], 317.819183)
         self.assertEqual(actual["declination"], 37.884811)
         self.assertEqual(actual["galaxy_type"], "spiral")
         self.assertEqual(actual["redshift"], 0.093554)
         self.assertEqual(actual["angular_size"], 0.093554)
-        self.assertEqual(actual["stars"], None)
-        self.assertEqual(actual["planetoid_bodies"], None)
-        self.assertEqual(actual["satellites"], None)
+        self.assertEqual(actual["stars"], ())
+        self.assertEqual(actual["planetoid_bodies"], ())
+        self.assertEqual(actual["satellites"], ())
 
     def test_galaxy_assert(self):
         """
         Makes sure precoditions are checked and assertion thrown.
         """
         with self.assertRaises(AssertionError):
-            Galaxy("UGC 11693", "UGC 11693.png", \
+            Galaxy("UGC 11693", "UGC 11693.png",
                     317.819183, 37.884811, 0, 0.093554, 1.227)
 
     def test_planetoidBody_model(self):
@@ -159,15 +161,15 @@ class TestModels (TestCase):
         Adds row to database to make sure it gets added properly.
         """
         try:
-            example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, \
-                                    984, 288.793037, 48.040234, 1.7841199999999998, \
+            example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018,
+                                    984, 288.793037, 48.040234, 1.7841199999999998,
                                     0.0047126659923379345, 18.7959228)
 
             with app.test_request_context():
                 db.session.add(example)
                 db.session.commit()
 
-                planetoidBody = db.session.query(PlanetoidBody).filter_by(name = \
+                planetoidBody = db.session.query(PlanetoidBody).filter_by(name = 
                                                             "Kepler-117 b").first()
                 self.assertEqual(planetoidBody.name, "Kepler-117 b")
                 self.assertEqual(planetoidBody.gravity, 0.0047126659923379345)
@@ -182,8 +184,8 @@ class TestModels (TestCase):
         """
         Examines model's dictionary() method for correctness in content.
         """
-        example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, \
-                                984, 288.793037, 48.040234, 1.7841199999999998, \
+        example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, 
+                                984, 288.793037, 48.040234, 1.7841199999999998, 
                                 0.0047126659923379345, 18.7959228)
         actual = example.dictionary()
 
@@ -191,20 +193,20 @@ class TestModels (TestCase):
         self.assertEqual(actual["image"], "Kepler-117 b.png")
         self.assertEqual(actual["diameter"], 100532.018)
         self.assertEqual(actual["temperature"], 984)
-        self.assertEqual(actual["righ_ascension"], 288.793037)
+        self.assertEqual(actual["right_ascension"], 288.793037)
         self.assertEqual(actual["declination"], 48.040234)
         self.assertEqual(actual["mass"], 1.7841199999999998)
         self.assertEqual(actual["gravity"], 0.0047126659923379345)
         self.assertEqual(actual["orbital_period"], 18.7959228)
-        self.assertEqual(actual["orbiting_bodies"], None)
-        self.assertEqual(actual["satellites"], None)
+        self.assertEqual(actual["orbiting_bodies"], ())
+        self.assertEqual(actual["satellites"], ())
 
     def test_planetoidBody_assert(self):
         """
         Makes sure precoditions are checked and assertion thrown.
         """
         with self.assertRaises(AssertionError):
-            PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, 984, 288.793037, \
+            PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, 984, 288.793037, 
                             48.040234, 1.7841199999999998, 0.0047126659923379345, 18)
 if __name__ == "__main__":  # pragma: no cover
     main()
