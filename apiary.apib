@@ -75,6 +75,35 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
 + Response 204 (application/json)
 
+## Satellites by Year [/satellites{year}]
+
+### Retrieve Satellites by Year [GET]
+
++ Parameters
+
+    + year (number, optional) - Returns all satellites launched in the given year.
+
++ Response 200 (application/json)
+
+        [
+            {
+                "pid": 1,
+                "name":"WGS-4 (USA-233)",
+                "year launched": 2012,
+                "mission type": "communications",
+                "agency": "United Launch Alliance"
+            },
+            {
+                "pid": 2,
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "year launched": 2012,
+                "mission type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
+            }
+        ]
+        
++ Response 204 (application/json)
+
 ## Satellites Collection [/satellites{?limit}]
 
 ### Retrieve All Satellites [GET]
@@ -107,7 +136,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
         
 # Group Planetopid Bodies
 
-## Planetopid Body by ID [/planetopids/pid]
+## Planetopid Body by ID [/planetoids/pid]
 
 ### Retrieve a Single Planet by ID [GET]
 
@@ -161,7 +190,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
 + Response 204 (application/json)
 
-## Planetopid Body by Name [/planetopids/name]
+## Planetopid Body by Name [/planetoids/name]
 
 ### Retrieve a Single Planet by Name [GET]
 
@@ -214,6 +243,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
             }
 
 + Response 204 (application/json)
+
 
 ## Planetopid Bodies Collection [/planetopids{?limit}]
 
