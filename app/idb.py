@@ -51,7 +51,6 @@ def planetoid_table():
 def planetoid_model():
     return render_template('planetoid.html')
 
-
 @app.route('/galaxies')
 def galaxies_table():
     return render_template('galaxies-grid.html')
