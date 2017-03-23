@@ -21,9 +21,10 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Attributes (object)
         + pid: 2(number, required)
         + name: Nuclear Spectroscopic Telescope Array NuSTAR (string)
-        + year launched: 2012(number)
-        + mission type: astrophysics(string)
-        + agency: National Aeronautics and Space Administration(string)
+        + image: sat.png (string)
+        + year_launched: 2012 (number)
+        + type: astrophysics (string)
+        + agency: National Aeronautics and Space Administration (string)
         + host_pid: 1 (number)
         + star_pid: 1 (number)
         + galaxy_pid: 1 (number)
@@ -38,8 +39,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
             {
                 "pid": 2,
                 "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-                "year launched": 2012,
-                "mission type": "astrophysics",
+                "image": "sat.png"
+                "year_launched": 2012,
+                "type": "astrophysics",
                 "agency": "National Aeronautics and Space Administration"
                 "host_pid": 1,
                 "star_pid": 1,
@@ -59,11 +61,12 @@ For all of these objects, you can retrieve the full collection of each or retrie
 + Response 200 (application/json)
 
     + Attributes (object)
-        + pid: 2(number)
-        + name: Nuclear Spectroscopic Telescope Array NuSTAR (string, required)
-        + year launched: 2012(number)
-        + mission type: astrophysics(string)
-        + agency: National Aeronautics and Space Administration(string)
+        + pid: 2(number, required)
+        + name: Nuclear Spectroscopic Telescope Array NuSTAR (string)
+        + image: sat.png (string)
+        + year_launched: 2012 (number)
+        + type: astrophysics (string)
+        + agency: National Aeronautics and Space Administration (string)
         + host_pid: 1 (number)
         + star_pid: 1 (number)
         + galaxy_pid: 1 (number)
@@ -77,8 +80,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
             {
                 "pid": 2,
                 "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-                "year launched": 2012,
-                "mission type": "astrophysics",
+                "image": "sat.png"
+                "year_launched": 2012,
+                "type": "astrophysics",
                 "agency": "National Aeronautics and Space Administration"
                 "host_pid": 1,
                 "star_pid": 1,
@@ -100,11 +104,12 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
         [
             {
-                "pid": 1,
-                "name":"WGS-4 (USA-233)",
-                "year launched": 2012,
-                "mission type": "communications",
-                "agency": "United Launch Alliance"
+                "pid": 2,
+                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
+                "image": "sat.png"
+                "year_launched": 2012,
+                "type": "astrophysics",
+                "agency": "National Aeronautics and Space Administration"
                 "host_pid": 1,
                 "star_pid": 1,
                 "galaxy_pid": 1
@@ -112,13 +117,14 @@ For all of these objects, you can retrieve the full collection of each or retrie
             {
                 "pid": 2,
                 "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-                "year launched": 2012,
-                "mission type": "astrophysics",
+                "image": "sat.png"
+                "year_launched": 2012,
+                "type": "astrophysics",
                 "agency": "National Aeronautics and Space Administration"
                 "host_pid": 1,
                 "star_pid": 1,
                 "galaxy_pid": 1
-            }
+            } 
         ]
         
 + Response 204 (application/json)        
@@ -140,11 +146,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + name: HAT P 34 b (string)
         + dec: 18.104868 (number)
         + ra: 303.195342 (number)
-        + picture: HAT P 34 b.png (string)
-        + host: HAT P 34 (string)
+        + image: HAT P 34 b.png (string)
         + gravity: 0.06019932261381838 (number)
         + orbital_period: 5.452654 (number)
-        + name: HAT-P-34 b (string)
         + diamter: 167366.934 (number)
         + temperature: 1520 (number)
         + mass: 6.316544e+27 (number)
@@ -160,13 +164,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
             {
                 "pid": 2
+                "name": "HAT-P-34 b",
                 "dec": 18.104868,
                 "ra": 303.195342,
-                "picture": "HAT-P-34 b.png",
+                "image": "HAT-P-34 b.png",
                 "host": "HAT-P-34",
                 "gravity": 0.06019932261381838,
                 "orbital_period": 5.452654,
-                "name": "HAT-P-34 b",
                 "diamter": 167366.934,
                 "temperature": 1520,
                 "mass": 6.316544e+27,
@@ -188,15 +192,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
 + Response 200 (application/json)
 
     + Attributes (object)
-        + pid: 2(number)
-        + name: HAT P 34 b (string, required)
+        + pid: 2(number, required)
+        + name: HAT P 34 b (string)
         + dec: 18.104868 (number)
         + ra: 303.195342 (number)
-        + picture: HAT P 34 b.png (string)
-        + host: HAT P 34 (string)
+        + image: HAT P 34 b.png (string)
         + gravity: 0.06019932261381838 (number)
         + orbital_period: 5.452654 (number)
-        + name: HAT-P-34 b (string)
         + diamter: 167366.934 (number)
         + temperature: 1520 (number)
         + mass: 6.316544e+27 (number)
@@ -212,13 +214,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
             {
                 "pid": 2
+                "name": "HAT-P-34 b",
                 "dec": 18.104868,
                 "ra": 303.195342,
-                "picture": "HAT-P-34 b.png",
+                "image": "HAT-P-34 b.png",
                 "host": "HAT-P-34",
                 "gravity": 0.06019932261381838,
                 "orbital_period": 5.452654,
-                "name": "HAT-P-34 b",
                 "diamter": 167366.934,
                 "temperature": 1520,
                 "mass": 6.316544e+27,
@@ -243,30 +245,30 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
         [
             {
-                "pid": 1,
-                "dec": 33.835052,
-                "ra": 113.184212,
-                "picture": "HAT-P-33 b.png",
-                "host": "HAT-P-33",
-                "gravity": 0.006947625786270114,
-                "orbital_period": 3.474474,
-                "name": "HAT-P-33 b",
-                "diamter": 235739.892,
-                "temperature": 1782,
-                "mass": 1.446276e+27,
-                "host_pid": null,
+                "pid": 2
+                "name": "HAT-P-34 b",
+                "dec": 18.104868,
+                "ra": 303.195342,
+                "image": "HAT-P-34 b.png",
+                "host": "HAT-P-34",
+                "gravity": 0.06019932261381838,
+                "orbital_period": 5.452654,
+                "diamter": 167366.934,
+                "temperature": 1520,
+                "mass": 6.316544e+27,
+                "host_pid": 1,
                 "star_pid": 1,
                 "galaxy_pid": 1
             },
             {
                 "pid": 2
+                "name": "HAT-P-34 b",
                 "dec": 18.104868,
                 "ra": 303.195342,
-                "picture": "HAT-P-34 b.png",
+                "image": "HAT-P-34 b.png",
                 "host": "HAT-P-34",
                 "gravity": 0.06019932261381838,
                 "orbital_period": 5.452654,
-                "name": "HAT-P-34 b",
                 "diamter": 167366.934,
                 "temperature": 1520,
                 "mass": 6.316544e+27,
@@ -295,10 +297,10 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + name: HAT P 33 (string)
         + dec: 33.835052 (number)
         + ra: 113.184212 (number)
-        + picture: HAT P 33.png (string)
+        + image: HAT P 33.png (string)
         + temperature: 6446.0 (number)
         + mass: 1.38 (number)
-        + distance: 0 (number)
+        + diameter: 1 (number)
         + galaxy_pid: 1 (number)
         
     + Headers
@@ -311,11 +313,11 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "pid": 2,
                 "dec": 33.835052,
                 "ra": 113.184212,
-                "picture": "HAT-P-33.png",
+                "image": "HAT-P-33.png",
                 "name": "HAT-P-33",
-                "distance": null,
                 "temperature": 6446.0,
                 "mass": 1.38,
+                "diameter": 1
                 "galaxy_pid": 1
             }
 
@@ -332,14 +334,14 @@ For all of these objects, you can retrieve the full collection of each or retrie
 + Response 200 (application/json)
 
     + Attributes (object)
-        + pid: 2(number)
-        + name: HAT P 33 (string, required)
+        + pid: 2(number, required)
+        + name: HAT P 33 (string)
         + dec: 33.835052 (number)
         + ra: 113.184212 (number)
-        + picture: HAT P 33.png (string)
+        + image: HAT P 33.png (string)
         + temperature: 6446.0 (number)
         + mass: 1.38 (number)
-        + distance: 0 (number)
+        + diameter: 1 (number)
         + galaxy_pid: 1 (number)
 
     + Headers
@@ -347,16 +349,16 @@ For all of these objects, you can retrieve the full collection of each or retrie
             Location: /stars/2
 
     + Body
-
+            
             {
                 "pid": 2,
                 "dec": 33.835052,
                 "ra": 113.184212,
-                "picture": "HAT-P-33.png",
+                "image": "HAT-P-33.png",
                 "name": "HAT-P-33",
-                "distance": null,
                 "temperature": 6446.0,
                 "mass": 1.38,
+                "diameter": 1
                 "galaxy_pid": 1
             }
 
@@ -375,25 +377,25 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
         [
             {
-                "pid": 1,
-                "dec": 48.040234,
-                "ra": 288.793037,
-                "picture": "Kepler-117.png",
-                "name": "Kepler-117",
-                "distance": null,
-                "temperature": 6150.0,
-                "mass": 1.13,
+                "pid": 2,
+                "dec": 33.835052,
+                "ra": 113.184212,
+                "image": "HAT-P-33.png",
+                "name": "HAT-P-33",
+                "temperature": 6446.0,
+                "mass": 1.38,
+                "diameter": 1
                 "galaxy_pid": 1
             },
             {
                 "pid": 2,
                 "dec": 33.835052,
                 "ra": 113.184212,
-                "picture": "HAT-P-33.png",
+                "image": "HAT-P-33.png",
                 "name": "HAT-P-33",
-                "distance": null,
                 "temperature": 6446.0,
                 "mass": 1.38,
+                "diameter": 1
                 "galaxy_pid": 1
             }
         ]
@@ -418,7 +420,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + name: UGC 11822 (string)
         + dec: 40.663325 (number)
         + ra: 327.418700 (number)
-        + picture: UGC 11822.png (string)
+        + image: UGC 11822.png (string)
         + type: barred spiral (string)
         + redshift: 0.014739 (number)
         + size: 1.170 (number)
@@ -453,11 +455,11 @@ For all of these objects, you can retrieve the full collection of each or retrie
 + Response 200 (application/json)
 
     + Attributes (object)
-        + pid: 2(number)
-        + name: UGC 11822 (string, required)
+        + pid: 2(number, required)
+        + name: UGC 11822 (string)
         + dec: 40.663325 (number)
         + ra: 327.418700 (number)
-        + picture: UGC 11822.png (string)
+        + image: UGC 11822.png (string)
         + type: barred spiral (string)
         + redshift: 0.014739 (number)
         + size: 1.170 (number)
@@ -473,7 +475,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "name": "UGC 11822",
                 "image": "UGC 11822.png",
                 "ra": 327.418700,
-                "dec":40.663325,
+                "dec": 40.663325,
                 "type": "barred spiral",
                 "redshift": 0.014739,
                 "size": 1.170
