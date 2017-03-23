@@ -8,7 +8,6 @@ from unittest import main, TestCase
 from models import db, Satellite, Star, Galaxy, PlanetoidBody
 from idb import app
 
-
 class TestModels (TestCase):
 
     def setUp(self):
@@ -37,16 +36,16 @@ class TestModels (TestCase):
             db.session.rollback()
             raise
 
-    def test_satellite_repr(self):
+    def test_satellite_dictionary(self):
         example = Satellite("WGS-4 (USA-233)", "United Launch Alliance", \
                             "communications", 2012)
-        actual = repr(example)
-        expected = "Name: " + "WGS-4 (USA-233)" +             \
-                    "\nAgency: " + "United Launch Alliance" + \
-                    "\nType of Mission: " + "communications"+ \
-                    "\nYear Launched: " + "2012"
+        actual = example.dictionary()
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(actual["name"], "WGS-4 (USA-233)")
+        self.assertEqual(actual["agency"], "United Launch Alliance")
+        self.assertEqual(actual["type_of_mission"], "communications")
+        self.assertEqual(actual["year_launched"], 2012)
+
 
     def test_satellite_assert(self):
         with self.assertRaises(AssertionError):
@@ -55,8 +54,8 @@ class TestModels (TestCase):
 
     def test_star_model(self):
         try:
-            example = Star("HAT-P-33", "HAT-P-33.png",  6446.0, 1.0, \
-                            113.184212, 33.835052, 1.38, None)
+            example = Star("HAT-P-33", "HAT-P-33.png", 6446.0,  \
+                            113.184212, 33.835052, 1.38)
 
             with self.client.test_request_context():
                 db.session.add(example)
@@ -64,7 +63,7 @@ class TestModels (TestCase):
 
                 star = db.session.query(Star).filter_by(name = "HAT-P-33").first()
                 self.assertEqual(star.name, "HAT-P-33")
-                self.assertEqual(star.mass, 1)
+                self.assertEqual(star.mass, 1.38)
 
                 db.session.delete(example)
                 db.session.commit()
@@ -72,23 +71,23 @@ class TestModels (TestCase):
             db.session.rollback()
             raise
 
-    def test_star_repr(self):
-        example = Star("HAT-P-33", "HAT-P-33.png",  6446.0, 1.0, \
-                        113.184212, 33.835052, 1.38, None)
-        actual = repr(example)
-        expected = "Name: " + "HAT-P-33" +                 \
-                    "\nTemperature: " + "6446.0" +         \
-                    "\nDiameter: " + "1.0" +               \
-                    "\nRight Ascension: " + "113.184212" + \
-                    "\nDeclination: " + "33.835052" +      \
-                    "\nMass: " + "1.38" +                  \
-                    "\nDistance: " + "None"
+    def test_star_dictionary(self):
+        example = Star("HAT-P-33", "HAT-P-33.png",  6446.0, \
+                        113.184212, 33.835052, 1.38)
+        actual = example.dictionary()
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(actual["name"], "HAT-P-33")
+        self.assertEqual(actual["image"], "HAT-P-33.png")
+        self.assertEqual(actual["temperature"], 6446.0)
+        self.assertEqual(actual["righ_ascension"], 113.184212)
+        self.assertEqual(actual["declination"], 33.835052)
+        self.assertEqual(actual["mass"], 1.38)
+        self.assertEqual(actual["planetoid_bodies"], None)
+        self.assertEqual(actual["satellites"], None)
 
     def test_star_assert(self):
         with self.assertRaises(AssertionError):
-            Star("HAT-P-33", "HAT-P-33.png",  6446.0, 1.0, 113, 33.835052, 1.38, None)
+            Star("HAT-P-33", "HAT-P-33.png",  6446.0, 113, 33.835052, 1.38)
 
     def test_galaxy_model(self):
         try:
@@ -109,17 +108,21 @@ class TestModels (TestCase):
             db.session.rollback()
             raise
 
-    def test_galaxy_repr(self):
+    def test_galaxy_dictionary(self):
         example = Galaxy("UGC 11693", "UGC 11693.png", \
                         317.819183, 37.884811, "spiral", 0.093554, 1.227)
-        actual = repr(example)
-        expected = "Name: " + "UGC 11693" +                \
-                    "\nRight Ascension: " + "317.819183" + \
-                    "\nDeclination: " + "37.884811" +      \
-                    "\nGalaxy Type: " + "spiral" +         \
-                    "\nRedshift: " + "0.093554" +          \
-                    "\nAngular Size: " + "1.227"
-        self.assertEqual(actual, expected)
+        actual = example.dictionary()
+
+        self.assertEqual(actual["name"], "UGC 11693")
+        self.assertEqual(actual["image"], "UGC 11693.png")
+        self.assertEqual(actual["righ_ascension"], 317.819183)
+        self.assertEqual(actual["declination"], 37.884811)
+        self.assertEqual(actual["galaxy_type"], "spiral")
+        self.assertEqual(actual["redshift"], 0.093554)
+        self.assertEqual(actual["angular_size"], 0.093554)
+        self.assertEqual(actual["stars"], None)
+        self.assertEqual(actual["planetoid_bodies"], None)
+        self.assertEqual(actual["satellites"], None)
 
     def test_galaxy_assert(self):
         with self.assertRaises(AssertionError):
@@ -147,21 +150,23 @@ class TestModels (TestCase):
             db.session.rollback()
             raise
 
-    def test_planetoidBody_repr(self):
+    def test_planetoidBody_dictionary(self):
         example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018, \
                                 984, 288.793037, 48.040234, 1.7841199999999998, \
                                 0.0047126659923379345, 18.7959228)
-        actual = repr(example)
-        expected = "Name: " + "Kepler-117 b"+                 \
-                    "\nDiameter: " + "100532.018"+            \
-                    "\nSurface Temperature: " + "984" +       \
-                    "\nRight Ascension: " + "288.793037"+     \
-                    "\nDeclination: " + "48.040234"+          \
-                    "\nMass: " + "1.7841199999999998" +       \
-                    "\nGravity: " + "0.0047126659923379345" + \
-                    "\nOrbital Period: " + "18.7959228"
+        actual = example.dictionary()
 
-        self.assertEqual(actual, expected)
+        self.assertEqual(actual["name"], "Kepler-117 b")
+        self.assertEqual(actual["image"], "Kepler-117 b.png")
+        self.assertEqual(actual["diameter"], 100532.018)
+        self.assertEqual(actual["temperature"], 984)
+        self.assertEqual(actual["righ_ascension"], 288.793037)
+        self.assertEqual(actual["declination"], 48.040234)
+        self.assertEqual(actual["mass"], 1.7841199999999998)
+        self.assertEqual(actual["gravity"], 0.0047126659923379345)
+        self.assertEqual(actual["orbital_period"], 18.7959228)
+        self.assertEqual(actual["orbiting_bodies"], None)
+        self.assertEqual(actual["satellites"], None)
 
     def test_planetoidBody_assert(self):
         with self.assertRaises(AssertionError):
