@@ -37,10 +37,6 @@ member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits
                 'responsibilities': "Jack of all trades",
                 'bio': "I'm a cuddly wuddly teddy bear"}]
 
-planet1 = ["HAT-P-33 b", "235739.892", "0.006947625786270114", "1782", "1.446276e+27", "3.474474"]
-planet2 = ["HAT-P-33 b", "235739.892", "0.006947625786270114", "1782", "1.446276e+27", "3.474474"]
-planet3 = ["HAT-P-33 b", "235739.892", "0.006947625786270114", "1782", "1.446276e+27", "3.474474"]
-
 @app.route("/")
 def home():
     return render_template('home.html',
@@ -49,42 +45,38 @@ def home():
 
 @app.route('/planetoids')
 def planetoid_table():
-    return render_template('table.html',
-                           title='Planetoids',
-                           model=models['planetoids'],
-                           headers=headers['planetoids'],
-                           cols="col-md-2",
-                           row1=planet1,
-                           row2=planet2,
-                           row3=planet3)
+    return render_template('planetoids-grid.html')
+
+@app.route('/HAT-P-33-b')
+def planetoid_model():
+    return render_template('planetoid.html')
 
 
 @app.route('/galaxies')
 def galaxies_table():
-    return render_template('table.html',
-                           title='Galaxies',
-                           model=models['galaxies'],
-                           headers=headers['galaxies'],
-                           rows=headers['galaxies'])
+    return render_template('galaxies-grid.html')
+
+@app.route('/UGC-11693')
+def galaxies_model():
+    return render_template('galaxy.html')
 
 
 @app.route('/satellites')
 def satellites_table():
-    return render_template('table.html',
-                           title='Satellites',
-                           model=models['satellites'],
-                           headers=headers['satellites'],
-                           rows=headers['satellites'])
+    return render_template('satellites-grid.html')
+
+@app.route('/WGS-4-USA-233')
+def satellites_model():
+    return render_template('satellite.html')
 
 
 @app.route('/stars')
 def stars_table():
-    return render_template('table.html',
-                           title='Stars',
-                           model=models['stars'],
-                           headers=headers['stars'],
-                           rows=headers['stars'])
+    return render_template('stars-grid.html')
 
+@app.route('/HAT-P-33')
+def stars_model():
+    return render_template('star.html')
 
 @app.route("/about")
 def about():
