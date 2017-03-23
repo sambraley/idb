@@ -211,7 +211,7 @@ class PlanetoidBody(db.Model):
 
     # Attributes
     identifier = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Integer, unique=True)
+    name = db.Column(db.String(), unique=True)
     image = db.Column(db.String())
     diameter = db.Column(db.Float)
     right_ascension = db.Column(db.Float)
