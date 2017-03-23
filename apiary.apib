@@ -24,6 +24,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + year launched: 2012(number)
         + mission type: astrophysics(string)
         + agency: National Aeronautics and Space Administration(string)
+        + host_pid: 1 (number)
+        + star_pid: 1 (number)
+        + galaxy_pid: 1 (number)
 
 
     + Headers
@@ -38,6 +41,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "year launched": 2012,
                 "mission type": "astrophysics",
                 "agency": "National Aeronautics and Space Administration"
+                "host_pid": 1,
+                "star_pid": 1,
+                "galaxy_pid": 1
             }     
     
 + Response 204 (application/json)  
@@ -58,6 +64,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + year launched: 2012(number)
         + mission type: astrophysics(string)
         + agency: National Aeronautics and Space Administration(string)
+        + host_pid: 1 (number)
+        + star_pid: 1 (number)
+        + galaxy_pid: 1 (number)
 
     + Headers
 
@@ -71,37 +80,11 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "year launched": 2012,
                 "mission type": "astrophysics",
                 "agency": "National Aeronautics and Space Administration"
+                "host_pid": 1,
+                "star_pid": 1,
+                "galaxy_pid": 1
             }       
 
-+ Response 204 (application/json)
-
-## Satellites by Year [/satellites{year}]
-
-### Retrieve Satellites by Year [GET]
-
-+ Parameters
-
-    + year (number, optional) - Returns all satellites launched in the given year.
-
-+ Response 200 (application/json)
-
-        [
-            {
-                "pid": 1,
-                "name":"WGS-4 (USA-233)",
-                "year launched": 2012,
-                "mission type": "communications",
-                "agency": "United Launch Alliance"
-            },
-            {
-                "pid": 2,
-                "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)",
-                "year launched": 2012,
-                "mission type": "astrophysics",
-                "agency": "National Aeronautics and Space Administration"
-            }
-        ]
-        
 + Response 204 (application/json)
 
 ## Satellites Collection [/satellites{?limit}]
@@ -122,6 +105,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "year launched": 2012,
                 "mission type": "communications",
                 "agency": "United Launch Alliance"
+                "host_pid": 1,
+                "star_pid": 1,
+                "galaxy_pid": 1
             },
             {
                 "pid": 2,
@@ -129,6 +115,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
                 "year launched": 2012,
                 "mission type": "astrophysics",
                 "agency": "National Aeronautics and Space Administration"
+                "host_pid": 1,
+                "star_pid": 1,
+                "galaxy_pid": 1
             }
         ]
         
@@ -136,15 +125,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
         
 # Group Planetopid Bodies
 
-## Planetopid Body by ID [/planetoids/pid]
+## Planetopid Body by ID [/planetoids/{pid}]
 
 ### Retrieve a Single Planet by ID [GET]
 
-+ Request (application/json)
-
-        {
-            "pid":2
-        }
++ Parameters
+    
+    + pid (number) - The primary id of the planetoid
 
 + Response 200 (application/json)
 
@@ -190,15 +177,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
 + Response 204 (application/json)
 
-## Planetopid Body by Name [/planetoids/name]
+## Planetopid Body by Name [/planetoids/{name}]
 
 ### Retrieve a Single Planet by Name [GET]
 
-+ Request (application/json)
-
-        {
-            "name": "HAT-P-34 b"
-        }
++ Parameters
+    
+    + name (string) - The name of the planet
 
 + Response 200 (application/json)
 
@@ -218,10 +203,10 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + host_pid: 1 (number)
         + star_pid: 1 (number)
         + galaxy_pid: 1 (number)
-
+        
     + Headers
 
-            Location: /planets/2
+            Location: /planetoids/2
 
     + Body
 
@@ -295,15 +280,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
 # Group Stars
 
-## Star by ID [/stars/pid]
+## Star by ID [/stars/{pid}]
 
 ### Retrieve a Single Star by ID [GET]
 
-+ Request (application/json)
++ Parameters 
 
-        {
-            "pid": 2
-        }
+    + pid (number) - The primary id of the star
 
 + Response 200 (application/json)
 
@@ -317,9 +300,9 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + mass: 1.38 (number)
         + distance: 0 (number)
         + galaxy_pid: 1 (number)
-
+        
     + Headers
-
+    
             Location: /stars/2
 
     + Body
@@ -338,15 +321,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
 + Response 204 (application/json)
 
-## Star by Name [/stars/name]
+## Star by Name [/stars/{name}]
 
 ### Retrieve a Single Star by Name [GET]
 
-+ Request (application/json)
++ Parameters
 
-        {
-            "name": "HAT-P-33"
-        }
+    + name (string) - The name of the star
 
 + Response 200 (application/json)
 
@@ -422,15 +403,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
 # Group Galaxies
 
-## Galaxy by ID [/galaxies/pid]
+## Galaxy by ID [/galaxies/{pid}]
 
 ### Retrieve a Single Galaxy by ID [GET]
 
-+ Request (application/json)
-
-        {
-            "pid": 2
-        }
++ Parameters 
+    
+    + pid (number) - The primary id of the galaxy
 
 + Response 200 (application/json)
 
@@ -463,15 +442,13 @@ For all of these objects, you can retrieve the full collection of each or retrie
             
 + Response 204 (application/json)
 
-## Galaxy by Name [/galaxies/name]
+## Galaxy by Name [/galaxies/{name}]
 
 ### Retrieve a Single Galaxy by Name [GET]
 
-+ Request (application/json)
++ Parameters
 
-        {
-            "name": "UGC 11822"
-        }
+    + name (string) - The name of the galaxy
 
 + Response 200 (application/json)
 
