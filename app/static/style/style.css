@@ -23,6 +23,16 @@ html, body {
 .item{
   height: 100%;
 }
+.carousel-content {
+  position: absolute;
+  bottom: 50%;
+  z-index: 20;
+  color: white;
+}
+.center {
+	text-align: center;
+	width: 100%;
+}
 
 .carousel-inner {
   height: 100%;
@@ -41,12 +51,4 @@ html, body {
 }
 .service-box {
 	min-height: 650px;
-}
-.btn-info {
-	margin: 20px;
-	background-color: #1e2430;
-	border-color: #1d1c23;
-}
-.btn-info:hover {
-	background-color: #777;
 }
