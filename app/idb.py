@@ -51,7 +51,7 @@ satellites = [ { "link": "satellites/1", "name": "WGS-4 (USA-233)", "agency": "U
                { "link": "satellites/3", "name": "SARAL", "agency": "Indian Space Research Organization", "type_of_mission": "planetary science", "year_launched": "2013", "oribital_period": "NULL", "images": "bpc_saral-illustration_p43253.jpg", "stars": "/stars", "planetoid_bodies": "/planetoids", "galaxies": "/galaxies"} ]
 
 galaxies = [{ "link": "galaxies/1", "name": "UGC 11693", "images": "UGC 11693.png", "right_ascension":"317.819183", "declination":"37.884811", "galaxy_type":"spiral", "redshift":"0.093554", "angular_size": "1.227", "stars": "/stars", "planetoid_bodies": "/planetoids", "satellites": "/satellites"},
-            { "link": "galaxies/2", "name": "UGC 11822", "images": "UGC 11822.png", "right_ascension":"327.418700", "declination":"40.663325", "galaxy_type":"barred spiral", "redshift":"0.014739", "angular_size": "1.170", "stars": "/stars", "planetoid_bodies": "/planetoids", "satellites": "/satellites"},
+            { "link": "galaxies/2", "name": "UGC 11822", "images": "UGC 11822.png", "right_ascension":"327.418700", "declination":"40.663325", "galaxy_type":"barred spiral", "redshift":"0.014739", "angular_size": "1.170", "/stars": "/stars", "planetoid_bodies": "/planetoids", "satellites": "/satellites"},
             { "link": "galaxies/3", "name": "UGC 11891", "images": "UGC 11891.png", "right_ascension":"330.8908", "declination":"43.7492", "galaxy_type": "irregular", "redshift":"0.001538", "angular_size": "4.0", "stars": "/stars", "planetoid_bodies": "/planetoids", "satellites": "/satellites"}]
 
 @app.route("/")
