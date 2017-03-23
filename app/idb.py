@@ -31,8 +31,8 @@ member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits
                 'responsibilities': "Jack of all trades",
                 'bio': "I'm a senior Computer Science student. I enjoy dancing and coding, but I'm not skilled enough to do both simultaneously."},
                {'name': 'Scott Farrior',  'image': 'sfarrior.jpg',      'commits': 5, 'issues': 1, 'tests': 1,
-                'responsibilities': "Jack of all trades",
-                'bio': "I'm a cuddly wuddly teddy bear"},
+                'responsibilities': "Server setup/administration and SQLAlchemy backend",
+                'bio': "I'm a Computer Science major. I work as a TA/Grader as well as Computer Lab technician for the community college, and would like to be an instructor one day."},
                {'name': 'David Ares',     'image': 'david.jpg',         'commits': 5, 'issues': 1, 'tests': 1,
                 'responsibilities': "Jack of all trades",
                 'bio': "I'm a cuddly wuddly teddy bear"}]
