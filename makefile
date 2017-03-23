@@ -42,8 +42,8 @@ endif
 	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
 
 
-IDB.html: app/idb.py
-	pydoc3 -w app/idb.py
+IDB.html: app/models.py
+	cd app; pydoc3 -w models; mv models.html ../IDB1.html
 
 IDB.log:
 	git log > IDB1.log
@@ -52,13 +52,16 @@ RunIDB: app/idb.py
 	-$(PYLINT) app/idb.py
 	$(PYTHON) app/idb.py
 
-TestIDB.tmp: app/test.py .pylintrc
+TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
-	$(COVERAGE) run    --branch test.py >  TestIDB.tmp 2>&1
-	$(COVERAGE) report -m                      >> TestIDB.tmp
-	cat TestIDB.tmp
+	-$(PYLINT) app/models.py
 
-check:
+# NOT PHASE 1
+#	$(COVERAGE) run    --branch test.py >  TestIDB.tmp 2>&1  
+#	$(COVERAGE) report -m                      >> TestIDB.tmp 
+#	cat TestIDB.tmp
+
+check: IDB.log IDB.html
 	@not_found=0;                                 \
     for i in $(FILES);                            \
     do                                            \
