@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Galaxies</h1> 
+    </div>
+  </div>
+  <div class="row">
+		<div class="col-md-2">Name</div>
+    <div class="col-md-2">Right Ascension</div>
+    <div class="col-md-2">Declination</div>
+    <div class="col-md-2">Galaxy Type</div>
+    <div class="col-md-2">Red Shift</div>
+    <div class="col-md-2">Angular Size</div>
+  </div>
+  {% for g in galaxies %}
+    <div class="row">
+      <div class="col-md-2"><a href="{{g.link}}">{{g.name}}</a></div>
+      <div class="col-md-2">{{g.right_ascension}}</div>
+      <div class="col-md-2">{{g.declination}}</div>
+      <div class="col-md-2">{{g.galaxy_type}}</div>
+      <div class="col-md-2">{{g.redshift}}</div>
+      <div class="col-md-2">{{g.angular_size}}</div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

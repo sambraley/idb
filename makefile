@@ -1,4 +1,4 @@
-.DEFAULT_GOAL := test
+.DEFAULT_GOAL := RunIDB
 
 FILES :=                              \
     IDB1.html                         \
@@ -6,11 +6,7 @@ FILES :=                              \
     IDB1.pdf                          \
     app/idb.py                        \
     app/test.py                       \
-
-# uncomment these:
-#    .travis.yml                       \
-#    collatz-tests/EID-RunCollatz.in   \
-#    collatz-tests/EID-RunCollatz.out  \
+    .travis.yml                       \
 
 ifeq ($(shell uname), Darwin)          # Apple
     PYTHON   := python3.5
@@ -36,7 +32,7 @@ else ifeq ($(shell uname -p), unknown) # Docker
 else                                   # UTCS
     PYTHON   := python3
     PIP      := pip3
-    PYLINT   := pylint3
+    PYLINT   := pylint
     COVERAGE := coverage-3.5
     PYDOC    := pydoc3.5
     AUTOPEP8 := autopep8
@@ -47,7 +43,7 @@ endif
 
 
 IDB.html: app/idb.py
-	pydoc3 -w app/idb
+	pydoc3 -w app/idb.py
 
 IDB.log:
 	git log > IDB1.log
@@ -102,7 +98,7 @@ status:
 	git remote -v
 	git status
 
-test: IDB.html IDB.log TestIDB.tmp
+test: TestIDB.tmp
 	ls -al
 	make check
 

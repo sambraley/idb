@@ -1,6 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-  <h1>About us!</h1>
+	<h1 class="text-center">We are the Spacecowboys</h1>
+	<br>
+	<br>
+  <div class="row">
+  	{% for member in member_info %}
+		<div class="col-md-4 text-center service-box">
+      <img class="img-thumbnail about-image" src="/static/images/{{member['image']}}">
+      <h3>{{member["name"]}}</h3>
+      <p class="text-muted">{{member["bio"]}}</p>
+      <p class="text-muted"><strong>Major Responsibilites:</strong> {{member["responsibilities"]}}</p>
+      <p class="text-muted"><strong>Commits:</strong> {{member["commits"]}}</p>
+      <p class="text-muted"><strong>Issues:</strong> {{member["issues"]}}</p>
+      <p class="text-muted"><strong>Unit tests:</strong> {{member["tests"]}}</p>
+  	</div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

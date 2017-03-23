@@ -1,0 +1,29 @@
+[
+	{
+		"dec": 33.835052,
+		"ra": 113.184212,
+		"picture": "HAT-P-33.png",
+		"name": "HAT-P-33",
+		"distance": null,
+		"temperature": 6446.0,
+		"mass": 1.38
+	},
+	{
+		"dec": 18.104868,
+		"ra": 303.195342,
+		"picture": "HAT-P-34.png",
+		"name": "HAT-P-34",
+		"distance": null,
+		"temperature": 6442.0,
+		"mass": 1.39
+	},
+	{
+		"dec": 48.040234,
+		"ra": 288.793037,
+		"picture": "Kepler-117.png",
+		"name": "Kepler-117",
+		"distance": null,
+		"temperature": 6150.0,
+		"mass": 1.13
+	}
+]
