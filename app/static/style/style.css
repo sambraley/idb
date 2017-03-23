@@ -52,3 +52,6 @@ html, body {
 .service-box {
 	min-height: 650px;
 }
+.container.model-container {
+	padding-top: 70px
+}

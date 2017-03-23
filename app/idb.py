@@ -46,9 +46,9 @@ stars = [{ "link": "stars/1","name": "HAT-P-33", "diameter": "NULL", "distance":
         { "link": "stars/2", "name": "HAT-P-34", "diameter": "NULL", "distance": "NULL", "mass": "1.39", "temperature": "6442.0", "right_ascension": "113.184212", "declination": "18.104868", "images": "HAT-P-34.png"},
         { "link": "stars/3", "name": "Kepler-117", "diameter": "NULL", "distance": "NULL", "mass": "1.13", "temperature": "6150.0", "right_ascension": "288.793037", "declination": "48.040234", "images": "Kepler-117.png"}]
 
-satellites = [ { "link": "satellites/1", "name": "WGS-4 (USA-233)", "agency": "United Launch Alliance", "type_of_mission": "communications", "year_launched": "2012", "oribital_period": "NULL"}, 
-              { "link": "satellites/2", "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)", "agency": "National Aeronautics and Space Administration", "type_of_mission": "astrophysics", "year_launched": "2012", "oribital_period": "NULL"}, 
-              { "link": "satellites/3", "name": "SARAL", "agency": "Indian Space Research Organization", "type_of_mission": "planetary science", "year_launched": "2013", "oribital_period": "NULL"} ]
+satellites = [ { "link": "satellites/1", "name": "WGS-4 (USA-233)", "agency": "United Launch Alliance", "type_of_mission": "communications", "year_launched": "2012", "oribital_period": "NULL", "images": ""}, 
+               { "link": "satellites/2", "name": "Nuclear Spectroscopic Telescope Array (NuSTAR)", "agency": "National Aeronautics and Space Administration", "type_of_mission": "astrophysics", "year_launched": "2012", "oribital_period": "NULL", "images": ""}, 
+               { "link": "satellites/3", "name": "SARAL", "agency": "Indian Space Research Organization", "type_of_mission": "planetary science", "year_launched": "2013", "oribital_period": "NULL", "images": ""} ]
 
 galaxies = [{ "link": "galaxies/1", "name": "UGC 11693", "images": "UGC 11693.png", "right_ascension":"317.819183", "declination":"37.884811", "galaxy_type":"spiral", "redshift":"0.093554", "angular_size": "1.227", "stars": "/stars", "planetoid_bodies": "/planetoids", "satellites": "/satellites"},
             { "link": "galaxies/2", "name": "UGC 11822", "images": "UGC 11822.png", "right_ascension":"327.418700", "declination":"40.663325", "galaxy_type":"barred spiral", "redshift":"0.014739", "angular_size": "1.170", "stars": "/stars", "planetoid_bodies": "/planetoids", "satellites": "/satellites"},
