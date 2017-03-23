@@ -13,9 +13,10 @@ db = SQLAlchemy(app)
 
 
 class Satellite(db.Model):
-
-    """Models artificial satellites, tracking their name, agency, mission type,
-    and year launched"""
+    """
+    Models artificial satellites. Attributes are: name, agency, mission type,
+    and year launched. They may relate many-to-one to galaxies, stars, and planetoid bodies.
+    """
 
     # Attributes
     identifier = db.Column(db.Integer, primary_key=True)
@@ -36,6 +37,9 @@ class Satellite(db.Model):
 
     # Methods
     def __init__(self, name, agency, type_of_mission, year_launched):
+        """
+        name a str, agency a str, type_of_mission a str, year_launched an int.
+        """
         # Check types
         assert isinstance(name, str)
         assert isinstance(agency, str)
@@ -48,14 +52,20 @@ class Satellite(db.Model):
         self.year_launched = year_launched
 
     def dictionary(self):
+        """
+        Returns a dictionary representation of this model.
+        """
         return {
             "name": self.name, "agency": self.agency, "mission": self.mission,
             "year launched": self.year_launched}
 
 
 class Star(db.Model):
-
-    """Models stars"""
+    """
+    Models stars. Attributes are: name, image, temperature, right_ascension,
+    declination, and mass. They may relate many-to-one to galaxies and one-to-many
+    to satellites and planetoid bodies.
+    """
 
     # Attributes
     identifier = db.Column(db.Integer, primary_key=True)
@@ -79,11 +89,14 @@ class Star(db.Model):
         'Satellite', backref='star', lazy='dynamic')
 
     # Methods
-    # planetoid_bodies and satellites are to be iterables containing instances of the respective
-    # classes which orbit this star
     def __init__(
             self, name, image, temperature, right_ascension, declination, mass,
             planetoid_bodies=None, satellites=None):
+        """
+        name a str, image a str, temperature, right_ascension, declination, and mass
+        are all floats. planetoid_bodies and satellites are to be iterables containing 
+        instances of the respective classes which orbit this star.
+        """
         # Check types
         assert isinstance(name, str)
         assert isinstance(image, str)
@@ -102,6 +115,9 @@ class Star(db.Model):
         self.satellites = satellites
 
     def dictionary(self):
+        """
+        Returns a dictionary representation of this model.
+        """
         return {
             "name": self.name, "image": self.image, "temperature": self.temperature,
             "right ascension": self.right_ascension, "declination": self.declination,
@@ -110,6 +126,12 @@ class Star(db.Model):
 
 
 class Galaxy(db.Model):
+    """
+    Models galaxies. Attributes are: name, image, right_ascension, declination,
+    galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
+    to satellites, stars, and planetoid bodies.
+    """
+    
     # Attributes
     identifier = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True)
@@ -135,6 +157,11 @@ class Galaxy(db.Model):
     def __init__(
             self, name, image, right_ascension, declination, galaxy_type, redshift,
             angular_size, stars=None, planetoid_bodies=None, satellites=None):
+        """
+        name a str, image a str, right_ascension and declination floats, galaxy_type a str,
+        redshift and angular_size floats. stars, planetoid_bodies, and satellites are to 
+        be iterables containing instances of the respective classes which are in this galaxy.
+        """
         # Check types
         assert isinstance(name, str)
         assert isinstance(image, str)
@@ -156,6 +183,9 @@ class Galaxy(db.Model):
         self.satellites = satellites
 
     def dictionary(self):
+        """
+        Returns a dictionary representation of this model.
+        """
         return {"name": self.name,
                 "image": self.image, "right ascension": self.right_ascension,
                 "declination": self.declination, "galaxy type": self.galaxy_type,
@@ -166,6 +196,12 @@ class Galaxy(db.Model):
 
 
 class PlanetoidBody(db.Model):
+    """
+    Models planetoids. Attributes are: name, image, diameter, right_ascension,
+    declination, gravity, orbital period, mass, and temperature. They may relate 
+    many-to-one to galaxies and stars, and one-to-many to satellites and other planetoid bodies.
+    """
+    
     # Attributes
     identifier = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Integer, unique=True)
@@ -199,6 +235,11 @@ class PlanetoidBody(db.Model):
     def __init__(
             self, name, image, diameter, surface_temperature, right_ascension, declination,
             mass, gravity, orbital_period, orbiting_bodies=None, satellites=None):
+        """
+        name a str, image a str, diameter, surface_temperature, right_ascension, declination, 
+        mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be 
+        iterables containing instances of the respective classes which orbit this planetoid.
+        """
         # Check types
         assert isinstance(name, str)
         assert isinstance(image, str)
@@ -207,7 +248,7 @@ class PlanetoidBody(db.Model):
         assert isinstance(right_ascension, float)
         assert isinstance(declination, float)
         assert isinstance(mass, float)
-        assert isinstance(gravity, str)
+        assert isinstance(gravity, float)
         assert isinstance(orbital_period, float)
 
         self.name = name
@@ -223,6 +264,9 @@ class PlanetoidBody(db.Model):
         self.satellites = satellites
 
     def dictionary(self):
+        """
+        Returns a dictionary representation of this model.
+        """
         return {
             "name": self.name, "image": self.image, "diameter": self.diameter,
             "temperature": self.surface_temperature, "right ascension": self.right_ascension,
