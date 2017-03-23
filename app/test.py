@@ -147,7 +147,7 @@ class TestModels (TestCase):
         self.assertEqual(actual["declination"], 37.884811)
         self.assertEqual(actual["galaxy_type"], "spiral")
         self.assertEqual(actual["redshift"], 0.093554)
-        self.assertEqual(actual["angular_size"], 0.093554)
+        self.assertEqual(actual["angular_size"], 1.227)
         self.assertEqual(actual["stars"], ())
         self.assertEqual(actual["planetoid_bodies"], ())
         self.assertEqual(actual["satellites"], ())
@@ -167,7 +167,7 @@ class TestModels (TestCase):
         try:
             example = PlanetoidBody(
                 "Kepler-117 b", "Kepler-117 b.png", 100532.018,
-                84, 288.793037, 48.040234, 1.7841199999999998,
+                84.0, 288.793037, 48.040234, 1.7841199999999998,
                 0.0047126659923379345, 18.7959228)
 
             with app.test_request_context():
@@ -190,21 +190,21 @@ class TestModels (TestCase):
         Examines model's dictionary() method for correctness in content.
         """
         example = PlanetoidBody("Kepler-117 b", "Kepler-117 b.png", 100532.018,
-                                984, 288.793037, 48.040234, 1.7841199999999998,
+                                984.0, 288.793037, 48.040234, 1.7841199999999998,
                                 0.0047126659923379345, 18.7959228)
         actual = example.dictionary()
 
         self.assertEqual(actual["name"], "Kepler-117 b")
         self.assertEqual(actual["image"], "Kepler-117 b.png")
         self.assertEqual(actual["diameter"], 100532.018)
-        self.assertEqual(actual["temperature"], 984)
+        self.assertEqual(actual["temperature"], 984.0)
         self.assertEqual(actual["right_ascension"], 288.793037)
         self.assertEqual(actual["declination"], 48.040234)
         self.assertEqual(actual["mass"], 1.7841199999999998)
         self.assertEqual(actual["gravity"], 0.0047126659923379345)
         self.assertEqual(actual["orbital_period"], 18.7959228)
-        self.assertEqual(actual["orbiting_bodies"], ())
-        self.assertEqual(actual["satellites"], ())
+        self.assertEqual(actual["orbiting_bodies"], None)
+        self.assertEqual(actual["satellites"], None)
 
     def test_planetoidBody_assert(self):
         """

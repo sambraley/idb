@@ -60,7 +60,7 @@ class Satellite(db.Model):
         Returns a dictionary representation of this model.
         """
         return {
-            "name": self.name, "agency": self.agency, "mission": self.mission,
+            "name": self.name, "agency": self.agency, "mission": self.type_of_mission,
             "year_launched": self.year_launched}
 
 
@@ -234,14 +234,14 @@ class PlanetoidBody(db.Model):
     orbiting_bodies = db.relationship(
         'PlanetoidBody', backref='host', remote_side=identifier)
     satellites = db.relationship(
-        'Satellite', backref='planetoid_body', lazy='dynamic')
+        'Satellite', backref='host', lazy='dynamic')
 
     # Methods
     # orbiting_bodies, and satellites are to be iterables containing instances of the respective
     # classes which are within this galaxy
     def __init__(
             self, name, image, diameter, surface_temperature, right_ascension, declination,
-            mass, gravity, orbital_period, orbiting_bodies=(), satellites=()):
+            mass, gravity, orbital_period, orbiting_bodies=None, satellites=()):
         """
         name a str, image a str, diameter, surface_temperature, right_ascension, declination,
         mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be
