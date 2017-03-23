@@ -37,6 +37,11 @@ member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits
                 'responsibilities': "Jack of all trades",
                 'bio': "I'm a cuddly wuddly teddy bear"}]
 
+planetoid =  {"HAT-P-33-b": {"name": "HAT-P-33 b", "right_ascension": "113.184212", "declination": "33.835052", "diameter": "235739.892", "mass": "1.446276e+27", "surface_temperature": "1782", "gravity": "0.006947625786270114", "orbital_period": "NULL", "orbiting_bodies": "NULL", "satellites": "NULL", "images": "HAT-P-33 b.png" } }
+star = {"HAT-P-33" : {"name": "HAT-P-33", "diameter": "NULL", "distance": "NULL", "mass": "1.38", "temperature": "6446.0", "right_ascension": "113.184212", "declination": "33.835052", "images": "HAT-P-33.png"}}
+
+
+
 @app.route("/")
 def home():
     return render_template('home.html',
@@ -49,7 +54,7 @@ def planetoid_table():
 
 @app.route('/HAT-P-33-b')
 def planetoid_model():
-    return render_template('planetoid.html')
+    return render_template('planetoid.html', planetoid=planetoid["HAT-P-33-b"])
 
 @app.route('/galaxies')
 def galaxies_table():
@@ -75,7 +80,7 @@ def stars_table():
 
 @app.route('/HAT-P-33')
 def stars_model():
-    return render_template('star.html')
+    return render_template('star.html', star= star["HAT-P-33"])
 
 @app.route("/about")
 def about():
