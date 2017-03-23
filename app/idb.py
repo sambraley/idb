@@ -20,7 +20,7 @@ headers = {'planetoids': ["Name", "Diameter", "Images",
            'stars': ["Name", "Diameter", "Images", "Location", "Age",
                      "Temperature", "Type"]}
 member_info = [{'name': 'Nick Kantor',    'image': 'nick_kantor.png',   'commits': 0, 'issues': 0, 'tests': 0,
-                'responsibilities': "Jack of all trades",
+                'responsibilities': "Front and back end design",
                 'bio': "I'm a Senior Computer Science student and tend to spend my free time playing my trumpet for the longhorn band. After I graduate I plan on pursuing a Master's degree in Computer Science."},
                {'name': 'Samuel Braley',  'image': 'samuel_braley.jpg', 'commits': 0, 'issues': 0, 'tests': 0,
                 'responsibilities': "Jack of all trades",
