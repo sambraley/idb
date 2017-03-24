@@ -16,6 +16,7 @@
       <p class="text-muted"><strong>Commits:</strong> {{member["commits"]}}</p>
       <p class="text-muted"><strong>Issues:</strong> {{member["issues"]}}</p>
       <p class="text-muted"><strong>Unit tests:</strong> {{member["tests"]}}</p>
+      {% if member["p0_lead"] %}<p class="text-muted"><strong>Project 0 Leader</strong></p>{% endif %}
   	</div>
     {% endfor %}
   </div>
