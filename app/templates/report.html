@@ -3,6 +3,13 @@
 <div class="container content-container">
 	<h1><strong>Introduction</strong></h1>
 	<div>
+		<h3><strong>Members</strong></h3>
+		<p>Nicholas Kantor</p>
+		<p>Taben Malik</p>
+		<p>Samuel Braley</p>
+		<p>Gustavo Osorio</p>
+		<p>David Ares</p>
+		<p>Scott Farrior</p>
 		<h3><strong>About our site</strong></h3>
 		<p>The knowledge we have about outer space is always changing and it is very useful for researchers and space enthusiasts to be able to view up to date information of the expansive realm that is outer space. Our goal is to provide is simple way for people to explore the many aspects of objects in space and their relationships to others. Currently this information is held in many different places. This makes it difficult for users to find information about the models we have chosen.</p>
 		<h3><strong>How we accomplish our goal</strong></h3>
@@ -15,9 +22,9 @@
 		<h3><strong>Frontend</strong></h3>
 		<p>For our frontend we used bootstrap, css, and jquery to make our site look beautiful. Each page consists of a navbar used for navigation between pages and page specific data. For the splash page we implemented a simple carousel to welcome visitors and invite them to explore. For the each of the model pages we created a grid based off of the data provided in our json files. Each element in the grid also links to a page where one can learn more about that specific item. Elements that are associated to other elements, such as a star that is the host of several planets, has a link to that element’s grid page with a filter. We created templates for each model. The data on each page is populated by the model that is passed into the template which was rendered by our backend. The about page displays information about each of the team members, the tools and APIs that are being used, and the statistics about the development of the website.</p>
 		<h3><strong>Backend</strong></h3>
-		<p>Our backend uses python Flask to render dynamic templates.  These templates take in a dictionary with the keys matching the attributes of the model.</p>
+		<p>Our backend uses python Flask to render dynamic templates.  These templates take in a dictionary with the keys matching the attributes of the model. The models are represented by classes using Flask-SQLAlchemy, designed for a PostgreSQL database. A few notable features of each were used. We take advantage of the fact that you don’t need to specify a length for strings in PostgreSQL in all of our string columns in our models. As for Flask-SQLAlchemy, we take advantage of backreferences, which with our one-to-many relations automatically create a many-to-one relation in the child object. We also take advantage of auto-incrementing primary keys, and using our class names as our table names.</p>
 		<h3><strong>Future features</strong></h3>
-		<p>In the future we hope to make our site and Rest API dynamic in that we do not have to manually scrape the data for new models found by researchers. We would also like to implement searching and sorting capabilities based on the attributes and relationships of our models. This can and will be done using Angular2 or React. The only reason that searching and sorting is not available yet is because Angular2 and React have a high learning curve and we decided that our time would be better spent finishing the overall design and look first.</p>
+		<p>In the future we hope to make our site and Rest API dynamic in that we do not have to manually scrape the data for new models found by researchers. We would also like to implement searching and sorting capabilities based on the attributes and relationships of our models. This can and will be done using React. The only reason that searching and sorting is not available yet is because React has a high learning curve, and we decided that our time would be better spent finishing the overall design and look first. During the next phase, we will be moving towards a Single-Page Application with dynamic rendering. This will allow us to better separate concerns between our frontend and backend teams.</p>
 	</div>
 	<h1><strong>Hosting</strong></h1>
 	<div>
@@ -49,10 +56,41 @@
  		<br>
 		<code>gunicorn==19.7.0</code>
  		<br>
-		<p>Once these two files are in place with the rest of your code, you can deploy your app by opening the cloud shell, navigating to the same directory as your app.yaml, and issuing the command: <code>gcloud app deploy [-v &lt;version name&gt;]</code> The -v &lt;version name&gt; is optional, but without it the name of your deployment will just be a timestamp. If you specify a name of an existing version, GCP will go ahead and overwrite that version for you.</p>
+		<p>Once these two files are in place with the rest of your code, you can deploy your app by opening the cloud shell, navigating to the <strong>same directory</strong> as your app.yaml, and issuing the command: <code>gcloud app deploy [-v &lt;version name&gt;]</code> The -v &lt;version name&gt; is optional, but without it the name of your deployment will just be a timestamp. If you specify a name of an existing version, GCP will go ahead and overwrite that version for you.</p>
 		<p>After 5-10 minutes, your deployment should be up and running, and you can see it in: Main Menu &gt; App Engine &gt; Versions</p>
  		<p>From this screen you can also do things like stop a version, delete a version, and also migrate traffic. You can click on the version name to pull up the web page that version is currently serving.</p>
 		<p>Which version users are sent to when they navigate to your domain name depends on your traffic allocation. You can split traffic among multiple versions, but for this project, that is not particularly useful. What may be useful is to migrate traffic from one version to another. To do this, click the checkbox next to the version you want to receive traffic, and click the migrate traffic button.</p>
+	</div>
+	<h1><strong>Tools</strong></h1>
+	<div>
+		<h3><strong>Data Sources</strong></h3>
+		<p>Data used on our website comes from several different APIs and databases. Each source is for a particular set of elements. The amount of different sources shows why we are creating this site. As mentioned in our goal, we strive to have a simple way to access astronomical information. Unfortunately, the APIs that exist for astronomical data are old and complex. Here are the APIs we use and the data we use from them:</p>
+		<h5><strong>Exoplanet Archive</strong></h5>
+		<p>The Exoplanet Archive is an extensive database of exoplanets and objects of interest discovered by the Kepler Space Telescope. The database is hosted by Caltech and is open to the public. Therefore, an API key or account is not required for the exoplanet archive. The archive is our source for exoplanets and stars that the exoplanets orbit.</p>
+		<h5><strong>SIMBAD</strong></h5>
+		<p>SIMBAD is an astronomical database containing information from several sources of satellites and research. SIMBAD has a restful API that allows users to search for astrophysical elements in the database. No API key or account is required to pull the information. For our project, SIMBAD is used to gather information on galaxies and stars. Despite it being a RESTful architecture, SIMBAD is rather old and doesn’t return json data. All data requested comes in plain ascii form. This requires some extra file manipulation in order to collect the data.</p>
+		<h5><strong>Aladin Lite</strong></h5>
+		<p>Aladin Lite is a star mapping tool that allows users to find pictures of stars, galaxies, and arbitrary locations. This service is used in our website as the main source of pictures for stars and galaxies. In the future, Aladin Lite will be embedded as a javascript package into the pages to allow users more interactivity with the images.</p>
+		<h5><strong>SDSS SkyServer</strong></h5>
+		<p>The SDSS SkyServer is a database containing the collection of star maps and astrophysical information from the Sloan Digital Sky Survey mission. SkyServer is also a public database and API with no account required. SkyServer is our secondary source for photos and star information.</p>
+		<h5><strong>Launch Library</strong></h5>
+		<p>Launch Library is an API dedicated to pulling information on rocket launches. The API is public and no account is needed to access the information. While their main purpose is to supply data on all rocket launches, we use their database to find information on satellites.</p>
+		<h3><strong>Limitations</strong></h3>
+		<p>With the provided APIs, there are some limitations to the data we can gather. Unfortunately, there is no database and API that provides information on the planets inside our solar system. Since there are only eight (or nine) instances of planets inside our solar system, it seems impractical to host a dedicated database for just those eight instances. Other databases that have information on planets always focus on exoplanets (planets outside the solar system). Also, any database with information about objects in our solar system focus on elements that have a large quantity such as asteroids and comets. Therefore any information regarding this solar system’s planets have to be hardcoded.</p>
+	</div>
+	<h1><strong>RESTful API</strong></h1>
+	<div>
+		<p>Our API Apiary page can be found at <a href="http://docs.spacecowboys.apiary.io/#reference">http://docs.spacecowboys.apiary.io/#reference</a>. We currently have planned to allow for each model (galaxies, planetoid bodies, stars, and satellites) to have three different GET calls for each of them.</p>
+		<br>
+		<p>The first is a GET by ID, where the PID, or primary ID is a parameter in the query and then the response is either a singular instance of that model with the matching ID in JSON format or a 204 response code, to signify that the request was received but no instance was found.</p>
+		<br>
+		<p>The second is a GET by name. Normally, we wouldn’t be able to do this, but the satellites, stars, planetoid bodies, and galaxies all have unique names, so we can use their names as a secondary key. Similar to the GET by id, a single model instance in JSON format will be returned, or a 204 response code if there is no instance matching the given name.</p>
+		<br>
+		<p>The final GET returns the entire collection of a given model, and takes a single parameter. This parameter is an integer, and it specifies how many instances to return from the collection (so that the GET doesn’t have to return all 3000+ exoplanets, for example).</p>
+		<br>
+		<p>We’ll likely add additional GETs later, like being able to return a collection of satellites given the PID or name of the planetoid body they orbit (or orbited) around. For example, if you did this GET and gave it Mars, it’d return every rover mission and satellite we’ve sent to Mars. Another GET we’ll likely add is being able to provide a galaxy and finding every planetoid body, satellite or star contained in that galaxy.</p>
+		<br>
+		<p>We decided to not have any POST or DELETE queries because we don’t want anyone to add or remove stars, galaxies, planetoid bodies, or satellites from our database. A lot of these celestial objects are well documented and we can really only allow trusted sources (like NASA) to supply any data for us. We’d like to avoid letting someone add the whole Star Wars universe to our database.</p>
 	</div>
 </div>
 {% endblock %}
