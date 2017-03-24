@@ -17,8 +17,9 @@
     <div class="sort-container col-sm-2" id="sort-toolbar-container">
           <select class="form-control fsrVisible" id="filter-dropdown-control" data-ui="sort-container">
             <option value="title" data-ui="sort-item">Filter By</option>
-            <option value="title" data-ui="sort-item">A - Z</option>
-            <option value="title_r" data-ui="sort-item">Z - A</option>
+            <option value="title" data-ui="sort-item">Name</option>
+            <option value="title_r" data-ui="sort-item">Agency</option>
+            <option value="title" data-ui="sort-item">Launch Year</option>
           </select>
     </div>
   </div>
@@ -26,7 +27,7 @@
     {% for s in satellite %}
     <div class="col-md-4 text-center service-box">
       <a href="{{s.link}}">
-        <img class="img-thumbnail about-image" src="/static/images/{{s.images}}">
+        <img class="img-thumbnail" src="/static/images/{{s.images}}">
         <h3>{{s.name}}</h3>
       </a>
     </div>  
