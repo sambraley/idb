@@ -92,6 +92,7 @@ config:
 format:
 	$(AUTOPEP8) -i app/idb.py
 	$(AUTOPEP8) -i app/test.py
+	$(AUTOPEP8) -i app/models.py
 
 status:
 	make clean

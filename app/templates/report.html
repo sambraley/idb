@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container content-container">
+	<h1><strong>Introduction</strong></h1>
+	<div>
+		<h3><strong>About our site</strong></h3>
+		<p>The knowledge we have about outer space is always changing and it is very useful for researchers and space enthusiasts to be able to view up to date information of the expansive realm that is outer space. Our goal is to provide is simple way for people to explore the many aspects of objects in space and their relationships to others. Currently this information is held in many different places. This makes it difficult for users to find information about the models we have chosen.</p>
+		<h3><strong>How we accomplish our goal</strong></h3>
+		<p>We accomplished our goal by going out and scraping data from APIs that provide current information about our models. The names and descriptions of the APIs we used are located at <a href="http://spacecowboys.me/about">http://spacecowboys.me/about</a>. After scraping the data we stored them in json files so that we could read and render their data using python flask.</p>
+	</div>
+	<h1><strong>Design</strong></h1>
+	<div>
+		<h3><strong>Space and UML Associations Explained</strong></h3>
+		<p>Our models, although for the most part simple enough to understand on their own, still require a bit of astronomy 101 knowledge to fully grasp our setup. Planetoid body, for starters, refers to any substantial body in space that has characteristics similar to a planet. However, this would not only include the planets themselves, but also dwarf planets, moons, and asteroids. It is worth mentioning that stars do not fall under this category. As a result, planetoid bodies can have at most one star since they need something to orbit and it’s typically a star. This is true in the case of planets, comets and most asteroids. Still, you also have moons and some asteroids that orbit other planetoid bodies, hence the recursive association for the planetoid body model. A planetoid body will also usually be within a galaxy along with satellites and stars. However, there are instances when planets and stars get ejected from their respective galaxy and end up somewhere in between two different galaxies. These are typically referred to as stellar outcasts and rogue planets. This is why we represented these multiplicities as aggregation with an open diamond to galaxy as there can be one or no stars associated with these models. Another aspect of our models worth mentioning is that our model satellite refers to the man made kind. This should not be confused with natural ones like the moon which also orbit planets. Satellite is also the only model that has a many to many relation with stars, planetoids and galaxies. This makes sense because a star and planet can have several satellites in is orbit and of course a galaxy will contain all of those.</p>
+		<h3><strong>Frontend</strong></h3>
+		<p>For our frontend we used bootstrap, css, and jquery to make our site look beautiful. Each page consists of a navbar used for navigation between pages and page specific data. For the splash page we implemented a simple carousel to welcome visitors and invite them to explore. For the each of the model pages we created a grid based off of the data provided in our json files. Each element in the grid also links to a page where one can learn more about that specific item. Elements that are associated to other elements, such as a star that is the host of several planets, has a link to that element’s grid page with a filter. We created templates for each model. The data on each page is populated by the model that is passed into the template which was rendered by our backend. The about page displays information about each of the team members, the tools and APIs that are being used, and the statistics about the development of the website.</p>
+		<h3><strong>Backend</strong></h3>
+		<p>Our backend uses python Flask to render dynamic templates.  These templates take in a dictionary with the keys matching the attributes of the model.</p>
+		<h3><strong>Future features</strong></h3>
+		<p>In the future we hope to make our site and Rest API dynamic in that we do not have to manually scrape the data for new models found by researchers. We would also like to implement searching and sorting capabilities based on the attributes and relationships of our models. This can and will be done using Angular2 or React. The only reason that searching and sorting is not available yet is because Angular2 and React have a high learning curve and we decided that our time would be better spent finishing the overall design and look first.</p>
+	</div>
+	<h1><strong>Hosting</strong></h1>
+	<div>
+		<p>We elected to use the <a href="https://cloud.google.com/">Google Cloud Platform’s</a> app engine as our host for our site. This allows us to do our development in a Docker-esque environment with easy version control/deployment, git integration, and DNS management. There is one big downside, however, and that is you will need <strong>patience</strong>. It can take between five and ten minutes to deploy a new version (or to tell if your deployment failed) and trying to do things while GCP is processing something is a good way to get poorly-defined error messages.</p>
+		<h3><strong>Initial Setup</strong></h3>
+		<p>Make sure not to use an @utexas.edu account, you won’t have the permissions required to create projects under that organization. Register a new account and give everyone in the team access to it. If you have a coupon for GCP, you can use it on that account -- you don’t have to use the coupon on the account it was given to. To use the app engine, you will want to set up a “Hello World” page in the flexible environment, following <a href="https://cloud.google.com/appengine/docs/flexible/python/quickstart">this tutorial</a>. This will initialize the application engine, setting up whatever google needs to have running under the hood for your app to run.</p>
+		<h3><strong>Setting up DNS</strong></h3>
+		<p>Now that you have a hello world web app up and running, you might as well link the DNS. Register a domain using <a href="https://www.namecheap.com/">https://www.namecheap.com/</a> (.me domains are free – ours is <a href="http://www.spacecowboys.me/">spacecowboys.me</a>). You’ll then want to set it as a custom domain using <a href="https://cloud.google.com/appengine/docs/standard/python/console/using-custom-domains-and-ssl">this tutorial</a>. You can stop once you reach the end of the “adding a custom domain for your application” section. Following this, you need to set things up on the namecheap side. You’ll want to navigate to <a href="https://ap.www.namecheap.com/">the management page</a> &gt; manage &gt; advanced DNS. Here is where you’ll want to create then entries stated in the google tutorial, using the host of “@” for all but the cname record, which has a host named “www”.</p>
+ 		<h3><strong>Connecting to GitHub</strong></h3>
+		GCP can connect to a few source control platforms, and the one we used was GitHub. To link your repository, go to the main menu (upper-left-hand corner) &gt; Development &gt; Repositories &gt; Create Repository. You’ll need to be the administrator of the GitHub repo you want to link, not just a collaborator. After your repository is linked, you can use it in the app engine by opening the google cloud shell, which is the button in the upper-right-hand corner that looks like a command prompt (alternatively you can use the google cloud sdk, which is not browser based) and issuing the command: <code>gcloud source repos clone &lt;repo name&gt;</code> <strong>NOTE:</strong> Even though your repository might be automatically mirrored to the google cloud source control, it is NOT automatically mirrored to the shell. You will still need to use git pull to fast-forward before deploying an app.
+		<h3><strong>Deploying an App</strong></h3>
+		<p>You need two main files to deploy an app: app.yaml and requirements.txt. They should both be located at the root directory of your application (where your program entry point is). The app.yaml tells the app engine what runtime you’re using, if you’re using the standard or flexible environment, your program entry point, and many other possible options, <a href="https://cloud.google.com/appengine/docs/standard/python/config/appref">located here</a>. Our app.yaml is as follows:</p>
+		<code>runtime: python</code>
+ 		<br>
+		<code>env: flex</code>
+ 		<br>
+		<code>entrypoint: gunicorn -b :$PORT idb:app</code>
+ 		<br>
+		<code>runtime_config:</code>
+ 		<br>
+  	<code>python_version: 3</code>
+ 		<br>
+		<p>Which is pretty much the standard yaml found <a href="https://cloud.google.com/appengine/docs/flexible/python/configuring-your-app-with-app-yaml">here</a>, but with the name of the application changed from main to idb.</p>
+ 		<br>
+ 		<p>requirements.txt contains a list of libraries that GCP will automatically install upon deployment using pip. The format used is &lt;package name&gt;==&lt;version&gt; Our requirements.txt is as follows:</p>
+		<code>Flask==0.12</code>
+ 		<br>
+		<code>Flask-SQLAlchemy==2.2</code>
+ 		<br>
+		<code>gunicorn==19.7.0</code>
+ 		<br>
+		<p>Once these two files are in place with the rest of your code, you can deploy your app by opening the cloud shell, navigating to the same directory as your app.yaml, and issuing the command: <code>gcloud app deploy [-v &lt;version name&gt;]</code> The -v &lt;version name&gt; is optional, but without it the name of your deployment will just be a timestamp. If you specify a name of an existing version, GCP will go ahead and overwrite that version for you.</p>
+		<p>After 5-10 minutes, your deployment should be up and running, and you can see it in: Main Menu &gt; App Engine &gt; Versions</p>
+ 		<p>From this screen you can also do things like stop a version, delete a version, and also migrate traffic. You can click on the version name to pull up the web page that version is currently serving.</p>
+		<p>Which version users are sent to when they navigate to your domain name depends on your traffic allocation. You can split traffic among multiple versions, but for this project, that is not particularly useful. What may be useful is to migrate traffic from one version to another. To do this, click the checkbox next to the version you want to receive traffic, and click the migrate traffic button.</p>
+	</div>
+</div>
+{% endblock %}
