@@ -31,9 +31,9 @@ planetoids = [
     {"link": "planetoids/3", "name": "Kepler-117 b", "right_ascension": "288.793037", "declination": "48.040234", "diameter": "100532.018", "mass": "1.7841199999999998e+26", "surface_temperature": "984", "gravity": "0.0047126659923379345", "orbital_period": "18.7959228", "orbiting_bodies": "NULL", "satellites": "Satellites", "images": "Kepler-117 b.png", "host": "Kepler-117"}]
 
 stars = [
-    {"link": "stars/1", "name": "HAT-P-33", "diameter": "NULL", "distance": "NULL", "mass": "1.38", "temperature": "6446.0", "right_ascension": "303.195342","declination": "33.835052", "images": "HAT-P-33.png", "planetoid_bodies": "/planetoids", "satellites": "satellites", "galaxies": "/galaxies"},
-    {"link": "stars/2", "name": "HAT-P-34", "diameter": "NULL", "distance": "NULL", "mass": "1.39", "temperature": "6442.0", "right_ascension": "113.184212","declination": "18.104868", "images": "HAT-P-34.png", "planetoid_bodies": "/planetoids", "satellites": "satellites", "galaxies": "/galaxies"},
-    {"link": "stars/3", "name": "Kepler-117", "diameter": "NULL", "distance": "NULL", "mass": "1.13", "temperature": "6150.0", "right_ascension": "288.793037", "declination": "48.040234", "images": "Kepler-117.png", "planetoid_bodies": "/planetoids", "satellites": "satellites", "galaxies": "/galaxies"}]
+    {"link": "stars/1", "name": "HAT-P-33", "diameter": "NULL", "distance": "NULL", "mass": "1.38", "temperature": "6446.0", "right_ascension": "303.195342","declination": "33.835052", "images": "HAT-P-33.png", "planetoid_bodies": "/planetoids", "satellites": "/satellites", "galaxies": "/galaxies"},
+    {"link": "stars/2", "name": "HAT-P-34", "diameter": "NULL", "distance": "NULL", "mass": "1.39", "temperature": "6442.0", "right_ascension": "113.184212","declination": "18.104868", "images": "HAT-P-34.png", "planetoid_bodies": "/planetoids", "satellites": "/satellites", "galaxies": "/galaxies"},
+    {"link": "stars/3", "name": "Kepler-117", "diameter": "NULL", "distance": "NULL", "mass": "1.13", "temperature": "6150.0", "right_ascension": "288.793037", "declination": "48.040234", "images": "Kepler-117.png", "planetoid_bodies": "/planetoids", "satellites": "/satellites", "galaxies": "/galaxies"}]
 
 satellites = [
     {"link": "satellites/1", "name": "WGS-4 (USA-233)", "agency": "United Launch Alliance", "type_of_mission": "communications", "year_launched":"2012", "oribital_period": "NULL", "images": "wideband-gapfi_l.jpg", "stars": "/stars", "planetoid_bodies": "/planetoids", "galaxies": "/galaxies"},
