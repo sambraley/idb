@@ -104,6 +104,11 @@ def about():
                            member_info=member_info,
                            about_info=about_info)
 
+@app.route("/report")
+def report():
+    return render_template('report.html',
+                           title='Report')
+
 
 if __name__ == "__main__":
     app.run()
