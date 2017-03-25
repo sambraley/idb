@@ -1,7 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container content-container">
-	<h1><strong>Introduction</strong></h1>
+	<h1><strong>Table of Contents</strong></h1>
+	<div class="row border">
+		<div class="col-lg-3">
+			<a href="#intro">Introduction</a>
+		</div>
+		<div class="col-lg-3">
+			<a href="#hosting">Hosting</a>
+		</div>	
+		<div class="col-lg-3">
+			<a href="#tools">Tools</a>
+		</div>	
+		<div class="col-lg-3">
+			<a href="#api">API</a>
+		</div>		
+	</div>
+
+	<h1 id="intro"><strong>Introduction</strong></h1>
 	<div>
 		<h3><strong>Members</strong></h3>
 		<p>Nicholas Kantor</p>
@@ -26,7 +42,7 @@
 		<h3><strong>Future features</strong></h3>
 		<p>In the future we hope to make our site and Rest API dynamic in that we do not have to manually scrape the data for new models found by researchers. We would also like to implement searching and sorting capabilities based on the attributes and relationships of our models. This can and will be done using React. The only reason that searching and sorting is not available yet is because React has a high learning curve, and we decided that our time would be better spent finishing the overall design and look first. During the next phase, we will be moving towards a Single-Page Application with dynamic rendering. This will allow us to better separate concerns between our frontend and backend teams.</p>
 	</div>
-	<h1><strong>Hosting</strong></h1>
+	<h1 id="hosting"><strong>Hosting</strong></h1>
 	<div>
 		<p>We elected to use the <a href="https://cloud.google.com/">Google Cloud Platform’s</a> app engine as our host for our site. This allows us to do our development in a Docker-esque environment with easy version control/deployment, git integration, and DNS management. There is one big downside, however, and that is you will need <strong>patience</strong>. It can take between five and ten minutes to deploy a new version (or to tell if your deployment failed) and trying to do things while GCP is processing something is a good way to get poorly-defined error messages.</p>
 		<h3><strong>Initial Setup</strong></h3>
@@ -61,7 +77,7 @@
  		<p>From this screen you can also do things like stop a version, delete a version, and also migrate traffic. You can click on the version name to pull up the web page that version is currently serving.</p>
 		<p>Which version users are sent to when they navigate to your domain name depends on your traffic allocation. You can split traffic among multiple versions, but for this project, that is not particularly useful. What may be useful is to migrate traffic from one version to another. To do this, click the checkbox next to the version you want to receive traffic, and click the migrate traffic button.</p>
 	</div>
-	<h1><strong>Tools</strong></h1>
+	<h1 id="tools"><strong>Tools</strong></h1>
 	<div>
 		<h3><strong>Data Sources</strong></h3>
 		<p>Data used on our website comes from several different APIs and databases. Each source is for a particular set of elements. The amount of different sources shows why we are creating this site. As mentioned in our goal, we strive to have a simple way to access astronomical information. Unfortunately, the APIs that exist for astronomical data are old and complex. Here are the APIs we use and the data we use from them:</p>
@@ -78,7 +94,7 @@
 		<h3><strong>Limitations</strong></h3>
 		<p>With the provided APIs, there are some limitations to the data we can gather. Unfortunately, there is no database and API that provides information on the planets inside our solar system. Since there are only eight (or nine) instances of planets inside our solar system, it seems impractical to host a dedicated database for just those eight instances. Other databases that have information on planets always focus on exoplanets (planets outside the solar system). Also, any database with information about objects in our solar system focus on elements that have a large quantity such as asteroids and comets. Therefore any information regarding this solar system’s planets have to be hardcoded.</p>
 	</div>
-	<h1><strong>RESTful API</strong></h1>
+	<h1 id="api"><strong>RESTful API</strong></h1>
 	<div>
 		<p>Our API Apiary page can be found at <a href="http://docs.spacecowboys.apiary.io/#reference">http://docs.spacecowboys.apiary.io/#reference</a>. We currently have planned to allow for each model (galaxies, planetoid bodies, stars, and satellites) to have three different GET calls for each of them.</p>
 		<br>
