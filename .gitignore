@@ -91,3 +91,6 @@ ENV/
 .pylintrc
 TestIDB.tmp
 *.swp
+node_modules/
+app/static/bower_components/
+app/static/js/

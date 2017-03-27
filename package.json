@@ -1,0 +1,27 @@
+{
+  "name": "idb",
+  "version": "1.0.0",
+  "description": "This is the public repo for our website, which can be found at [spacecowboys.me](spacecowboys.me). Our API documentation can be found at [http://docs.spacecowboys.apiary.io/](http://docs.spacecowboys.apiary.io/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelbraley/idb.git"
+  },
+  "author": "Nick Kantor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelbraley/idb/issues"
+  },
+  "homepage": "https://github.com/samuelbraley/idb#readme",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-browser": "^2.1.4",
+    "gulp-size": "^2.1.0",
+    "reactify": "^1.1.1"
+  }
+}
