@@ -4,8 +4,8 @@ import sys
 
 required_attrs = ["pl_name", "pl_radj", "pl_massj", "pl_orbper", "pl_eqt", \
                   "pl_hostname", "st_rad", "ra", "dec", "st_teff", "st_mass", "st_rad"]
-
-def scrape(w) :
+                  
+def scrape(w) : 
     json = request_data()
     json = filter_data(json)
     json = transform_data(json)
@@ -31,37 +31,29 @@ def implode(i, delimeter) :
     imploded = imploded[:-len(delimeter)]
     return imploded
 
-def transform_data(json) : 
-    radj = 69911
-    G = 6.67408 * (10 ** -20)
-    massj = 1.898 * (10 ** 27)
+def transform_data(json) :
+    sol_rad = 695700
 
-    planets = []
+    stars = []
     for d in json :
-        planet = {}
-        planet["pid"] = -1
-        planet["name"] = d["pl_name"]
-        planet["diamter"] = 2 * d["pl_radj"] * radj
-        planet["image"] = ""
-        planet["ra"] = d["ra"]
-        planet["dec"] = d["dec"]
-        planet["gravity"] = (G * d["pl_massj"] * massj) / (( d["pl_radj"] * radj) ** 2)
-        planet["orbital_period"] = d["pl_orbper"]
-        planet["mass"] = d["pl_massj"] * massj
-        planet["temperature"] = d["pl_eqt"]
-        planet["host_pid"] = -1
-        planet["star_pid"] = -1
-        planet["galaxy_pid"] = -1
+        star = {}
+        star["pid"] = -1
+        star["name"] = d["pl_hostname"]
+        star["diamter"] = sol_rad * d["st_rad"] * 2
+        star["image"] = ""
+        star["ra"] = d["ra"]
+        star["dec"] = d["dec"]
+        star["temperature"] = d["st_teff"]
+        star["mass"] = d["st_mass"]
+        star["galaxy_pid"] = -1
+        stars.append(star)
 
-        planets.append(planet)
-
-    return planets
-
+    return stars
 
 def filter_data(json) :
     return list(filter(lambda d : has_attrs(d, required_attrs), json))
 
-def has_attrs (d, attrs) :
+def has_attrs(d, attrs) :
     for attr in attrs :
         if attr not in d or d[attr] is None :
             return False
@@ -69,3 +61,4 @@ def has_attrs (d, attrs) :
 
 def write_data(w, data) :
     json.dump(data, w, indent="\t")
+
