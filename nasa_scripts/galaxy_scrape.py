@@ -2,11 +2,11 @@ import json
 import urllib.request
 import sys
 
-def scrape(w) :
+def galaxy_scrape() :
     data = request_data()
     data = filter_data(data)
     data = transform_data(data)
-    write_data(w, data)
+    return data
 
 def request_data() : 
     base = "http://simbad.u-strasbg.fr/simbad/sim-sam?"
@@ -85,5 +85,3 @@ def has_attrs(d, attrs) :
             return False
     return True
 
-def write_data(w, data) :
-    json.dump(data, w, indent="\t")

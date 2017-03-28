@@ -5,11 +5,11 @@ import sys
 required_attrs = ["pl_name", "pl_radj", "pl_massj", "pl_orbper", "pl_eqt", \
                   "pl_hostname", "st_rad", "ra", "dec", "st_teff", "st_mass", "st_rad"]
                   
-def scrape(w) : 
+def star_scrape() : 
     json = request_data()
     json = filter_data(json)
     json = transform_data(json)
-    write_data(w, json)
+    return json
 
 def request_data() :
     base = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?"
@@ -61,7 +61,3 @@ def has_attrs(d, attrs) :
             return False
     return True
 
-def write_data(w, data) :
-    json.dump(data, w, indent="\t")
-
-scrape(sys.stdout)

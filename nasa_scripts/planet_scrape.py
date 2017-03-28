@@ -5,11 +5,11 @@ import sys
 required_attrs = ["pl_name", "pl_radj", "pl_massj", "pl_orbper", "pl_eqt", \
                   "pl_hostname", "st_rad", "ra", "dec", "st_teff", "st_mass", "st_rad"]
 
-def scrape(w) :
+def planet_scrape() :
     json = request_data()
     json = filter_data(json)
     json = transform_data(json)
-    write_data(w, json)
+    return json
 
 def request_data() :
     base = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?"
@@ -49,6 +49,7 @@ def transform_data(json) :
         planet["orbital_period"] = d["pl_orbper"]
         planet["mass"] = d["pl_massj"] * massj
         planet["temperature"] = d["pl_eqt"]
+        planet["hostname"] = d["pl_hostname"]
         planet["host_pid"] = -1
         planet["star_pid"] = -1
         planet["galaxy_pid"] = -1
@@ -67,5 +68,3 @@ def has_attrs (d, attrs) :
             return False
     return True
 
-def write_data(w, data) :
-    json.dump(data, w, indent="\t")

@@ -2,11 +2,11 @@ import json
 import urllib.request
 import sys
 
-def scrape(w) : 
+def satellite_scrape() : 
     data = request_data()
     data = filter_data(data)
-    data = transform(data)
-    write_data(w, data)
+    data = transform_data(data)
+    return data
 
 def request_data() : 
     base = "https://launchlibrary.net/1.2/mission"
@@ -39,7 +39,7 @@ def filter_data(data) :
     attrs = ["name", "launch", "typeName", "agencies"]
     data = list({attr:d[attr] for attr in attrs} for d in data)
     data = list(filter(lambda d : has_attrs(d, attrs), data))
-
+    
     for d in data :
         d["year_launched"] = d["launch"]["windowstart"].split(" ")[2]
         d.pop("launch", None)
@@ -55,7 +55,19 @@ def has_attrs(d, attrs) :
     return True
 
 def transform_data(d) : 
-    return d
+    satellites = []
 
-def write_data(w, d) : 
-    json.dump(d, w, indent="\t")
+    for e in d :
+        satellite = {}
+        satellite["pid"] = -1
+        satellite["name"] = e["name"]
+        satellite["image"] = ""
+        satellite["year_launched"] = e["year_launched"]
+        satellite["type"] = e["typeName"]
+        satellite["agency"] = e["agency"]
+        satellite["host_pid"] = -1
+        satellite["star_pid"] = -1
+        satellite["galaxy_pid"] = -1
+        satellites.append(satellite)
+
+    return satellites
