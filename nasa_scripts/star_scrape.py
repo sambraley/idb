@@ -51,7 +51,9 @@ def transform_data(json) :
     return stars
 
 def filter_data(json) :
-    return list(filter(lambda d : has_attrs(d, required_attrs), json))
+    data = list(filter(lambda d : has_attrs(d, required_attrs), json))
+    unique_data = list({d["pl_hostname"] : d for d in data}.values())
+    return unique_data
 
 def has_attrs(d, attrs) :
     for attr in attrs :
@@ -62,3 +64,4 @@ def has_attrs(d, attrs) :
 def write_data(w, data) :
     json.dump(data, w, indent="\t")
 
+scrape(sys.stdout)
