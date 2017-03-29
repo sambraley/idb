@@ -12,6 +12,8 @@ use in a PostgreSQL database using Flask-SQLAlchemy.
 from flask_sqlalchemy import SQLAlchemy
 from idb import app
 
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost/dummy"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
