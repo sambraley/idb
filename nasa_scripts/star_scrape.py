@@ -1,63 +1,108 @@
 import urllib.request
 import json
+import Spacecowboy
+from Spacecowboy import implode
 import sys
-
-required_attrs = ["pl_name", "pl_radj", "pl_massj", "pl_orbper", "pl_eqt", \
-                  "pl_hostname", "st_rad", "ra", "dec", "st_teff", "st_mass", "st_rad"]
                   
-def star_scrape() : 
-    json = request_data()
-    json = filter_data(json)
-    json = transform_data(json)
-    return json
+def star_scrape() :
+    """
+    Calls the Kepler data api and returns a set of stars
+    returns a list of dictionaries that contains all attrs of the star model
+    """
+    web_table_attrs = ["pl_name", 
+                   "pl_radj", 
+                   "pl_massj",
+                   "pl_orbper", 
+                   "pl_eqt",
+                   "pl_hostname",
+                   "st_rad", 
+                   "ra", 
+                   "dec", 
+                   "st_teff", 
+                   "st_mass", 
+                   "st_rad"]
 
-def request_data() :
-    base = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?"
-    table = "exoplanets"
-    output_format = "json"
+    url_fields = ["table=exoplanets",
+                  "format=json",
+                  "select=" + implode(web_table_attrs, ",")]
+
+    url_base = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?"
     
-    # Build Request String
-    attr_query = implode(required_attrs, ",")
-    request_str = base + "table=" + table + "&select=" + attr_query + "&format=" + output_format
+    web_table = request_data(url_base + implode(url_fields, "&"))
+    spacecowboy_table = translate_table(web_table)
 
-    raw = urllib.request.urlopen(request_str).read().decode("utf-8")
+    return spacecowboy_table
+
+def request_data(url_str) :
+    raw = urllib.request.urlopen(url_str).read().decode("utf-8")
     return json.loads(raw)
 
-def implode(i, delimeter) :
-    imploded = "";
-    for e in i :
-        imploded += e + delimeter
+#####################
+# Translators
+#####################
 
-    imploded = imploded[:-len(delimeter)]
-    return imploded
-
-def transform_data(json) :
-    sol_rad = 695700
-
+def translate_table(web_table) :
+    """
+    Given a table from the kepler data, translates the table
+    into a table for spacecowboys
+    """
     stars = []
-    for d in json :
-        star = {}
-        star["pid"] = -1
-        star["name"] = d["pl_hostname"]
-        star["diameter"] = sol_rad * d["st_rad"] * 2
-        star["image"] = ""
-        star["ra"] = d["ra"]
-        star["dec"] = d["dec"]
-        star["temperature"] = d["st_teff"]
-        star["mass"] = d["st_mass"]
-        star["galaxy_pid"] = -1
-        stars.append(star)
+    
+    for web_star in web_table :
+        if all(web_star.values()) :
+            stars.append(translate_star(web_star))
 
-    return stars
+    return filter_stars(stars)
 
-def filter_data(json) :
-    data = list(filter(lambda d : has_attrs(d, required_attrs), json))
-    unique_data = list({d["pl_hostname"] : d for d in data}.values())
-    return unique_data
+def translate_star(web_star) :
+    """
+    Translates a star from the kepler data to a spacecowboy star
+    """
+    translators = [t_pid, t_name, t_diameter, t_image, t_ra, t_dec, t_temp, t_mass, t_galaxy]
+    return dict([t(web_star) for t in translators])
 
-def has_attrs(d, attrs) :
-    for attr in attrs :
-        if attr not in d or d[attr] is None :
-            return False
-    return True
+pid = 0
+def t_pid(web_star) :
+    global pid
+    pid += 1
+    return ("pid",pid)
 
+def t_name(web_star) :
+    return ("name",web_star["pl_hostname"])
+
+def t_diameter(web_star) :
+    diameter = Spacecowboy.sol_rad * web_star["st_rad"] * 2
+    return ("diameter",diameter)
+
+def t_image(web_star) :
+    return ("image","star.png")
+
+def t_ra(web_star) :
+    return ("ra",web_star["ra"])
+
+def t_dec(web_star) :
+    return ("dec",web_star["dec"])
+
+def t_temp(web_star) :
+    return ("temperature",web_star["st_teff"])
+
+def t_mass(web_star) :
+    return ("mass",web_star["st_mass"])
+
+def t_galaxy(web_star) :
+    return ("galaxy_pid",-1)
+
+def filter_stars(stars) :
+    """
+    Filters a table of stars removing any entries that have 
+    empty attrs or are not unique
+    """
+    stars = list(filter(lambda star : all(star.values()), stars))
+    unique_stars = list({star["name"] : star for star in stars}.values())
+
+    i = 1
+    for star in unique_stars :
+        star["pid"] = i
+        i += 1
+
+    return unique_stars

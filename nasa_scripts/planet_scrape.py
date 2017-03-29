@@ -1,70 +1,126 @@
 import urllib.request
 import json
 import sys
+import Spacecowboy
+from Spacecowboy import implode
 
-required_attrs = ["pl_name", "pl_radj", "pl_massj", "pl_orbper", "pl_eqt", \
-                  "pl_hostname", "st_rad", "ra", "dec", "st_teff", "st_mass", "st_rad"]
+def planet_scrape(stars) :
+    """
+    Calls the kepler data api and returns a set of planets
+    returns a list of dictionaries of the spacecowboy planet model
+    stars a list of stars to connect the planets to
+    """
+    web_table_attrs = ["pl_name", 
+                   "pl_radj", 
+                   "pl_massj",
+                   "pl_orbper", 
+                   "pl_eqt",
+                   "pl_hostname",
+                   "st_rad", 
+                   "ra", 
+                   "dec", 
+                   "st_teff", 
+                   "st_mass", 
+                   "st_rad"]
 
-def planet_scrape() :
-    json = request_data()
-    json = filter_data(json)
-    json = transform_data(json)
-    return json
+    url_fields = ["table=exoplanets",
+                  "format=json",
+                  "select=" + implode(web_table_attrs, ",")]
 
-def request_data() :
-    base = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?"
-    table = "exoplanets"
-    output_format = "json"
+    url_base = "http://exoplanetarchive.ipac.caltech.edu/cgi-bin/nstedAPI/nph-nstedAPI?"
     
-    # Build Request String
-    attr_query = implode(required_attrs, ",")
-    request_str = base + "table=" + table + "&select=" + attr_query + "&format=" + output_format
+    web_table = request_data(url_base + implode(url_fields, "&"))
+    spacecowboy_table = translate_table(web_table, stars)
 
-    raw = urllib.request.urlopen(request_str).read().decode("utf-8")
+    return spacecowboy_table
+
+
+def request_data(url_str) :
+    raw = urllib.request.urlopen(url_str).read().decode("utf-8")
     return json.loads(raw)
-
-def implode(i, delimeter) :
-    imploded = "";
-    for e in i :
-        imploded += e + delimeter
-
-    imploded = imploded[:-len(delimeter)]
-    return imploded
-
-def transform_data(json) : 
-    radj = 69911
-    G = 6.67408 * (10 ** -20)
-    massj = 1.898 * (10 ** 27)
-
+    
+#####################
+# Translators
+#####################
+def translate_table(web_table, stars) :
+    """
+    Given a table from the kepler data, translates the table
+    into a table for spacecowboys
+    """
     planets = []
-    for d in json :
-        planet = {}
-        planet["pid"] = -1
-        planet["name"] = d["pl_name"]
-        planet["diameter"] = 2 * d["pl_radj"] * radj
-        planet["image"] = ""
-        planet["ra"] = d["ra"]
-        planet["dec"] = d["dec"]
-        planet["gravity"] = (G * d["pl_massj"] * massj) / (( d["pl_radj"] * radj) ** 2)
-        planet["orbital_period"] = d["pl_orbper"]
-        planet["mass"] = d["pl_massj"] * massj
-        planet["temperature"] = d["pl_eqt"]
-        planet["hostname"] = d["pl_hostname"]
-        planet["host_pid"] = -1
-        planet["star_pid"] = -1
-        planet["galaxy_pid"] = -1
+    for web_planet in web_table :
+        if all(web_planet.values()) :
+            planets.append(translate_planet(web_planet, stars))
 
-        planets.append(planet)
+    return filter_planets(planets)
 
+def translate_planet(web_planet, stars) :
+    """
+    Translates a planet from the kepler data to a spacecowboy planet
+    """
+    translators = [t_pid, t_name, t_diameter, t_image, t_ra, t_dec, t_gravity, t_op, t_temp, t_mass, t_hpid, t_spid, t_gpid]
+    return dict([t(web_planet, stars) for t in translators])
+
+pid = 0
+def t_pid(web_planet, stars) :
+    global pid
+    pid += 1
+    return ("pid", pid)
+
+def t_name(web_planet, stars) : 
+    return ("name", web_planet["pl_name"])
+
+def t_diameter(web_planet, stars) : 
+    diameter = 2 * web_planet["pl_radj"] * Spacecowboy.radj
+    return ("diameter", diameter)
+
+def t_image(web_planet, stars) : 
+    return ("image","planet.png")
+
+def t_ra(web_planet, stars) : 
+    return ("ra",web_planet["ra"])
+
+def t_dec(web_planet, stars) : 
+    return ("dec", web_planet["dec"])
+
+def t_gravity(web_planet, stars) : 
+    mass = web_planet["pl_massj"] * Spacecowboy.massj
+    radius = web_planet["pl_radj"] * Spacecowboy.radj
+    gravity = (Spacecowboy.G * mass) / (radius ** 2)
+    return ("gravity",gravity)
+
+def t_op(web_planet, stars) : 
+    return ("orbital_period", web_planet["pl_orbper"])
+
+def t_mass(web_planet, stars) : 
+    mass = web_planet["pl_massj"] * Spacecowboy.massj
+    return ("mass", mass)
+
+def t_temp(web_planet, stars) : 
+    return ("temperature", web_planet["pl_eqt"])
+
+def t_hpid(web_planet, stars) : 
+    return ("host_pid", -1)
+
+def t_spid(web_planet, stars) : 
+    spid = -1
+    for star in stars :
+      if star["name"] == web_planet["pl_hostname"] :
+          spid = star["pid"]
+          break
+            
+    return ("star_pid", spid)
+
+def t_gpid(web_planet, stars) : 
+    return ("galaxy_pid", -1)
+
+
+def filter_planets(planets) :
+    planets = list(filter(lambda p : all(p.values()), planets))
+    
+    i = 1
+    for p in planets :
+        p["pid"] = i
+        i += 1
+        
     return planets
-
-
-def filter_data(json) :
-    return list(filter(lambda d : has_attrs(d, required_attrs), json))
-
-def has_attrs (d, attrs) :
-    for attr in attrs :
-        if attr not in d or d[attr] is None :
-            return False
-    return True
-

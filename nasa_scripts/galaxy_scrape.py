@@ -1,57 +1,49 @@
 import json
 import urllib.request
 import sys
+from Spacecowboy import implode
 
 def galaxy_scrape() :
-    data = request_data()
-    data = filter_data(data)
-    data = transform_data(data)
-    return data
+    web_table_search = ["otype=%27G%27"]
+    
+    url_fields = ["OutputMode=LIST",
+                  "maxObject=1000",
+                  "Criteria=" + implode(web_table_search, " & "),
+                  "output.format=ASCII",
+                  "list.otypesel=on",
+                  "otypedisp=3",
+                  "list.coo1=on",
+                  "frame1=ICRS",
+                  "coodisp1=d2",
+                  "list.rvsel=on",
+                  "rvDisplay=Z",
+                  "list.mtsel=on",
+                  "list.sizesel=on",
+                  "list.fluxsel=off",
+                  "list.bibsel=off",
+                  "list.notesel=off",
+                  "list.spsel=off"]
+                  
+    url_base = "http://simbad.u-strasbg.fr/simbad/sim-sam?"
+    web_table = request_data(url_base + implode(url_fields, "&"))
+    spacecowboy_table = translate_table(web_table)
+    return spacecowboy_table
 
-def request_data() : 
-    base = "http://simbad.u-strasbg.fr/simbad/sim-sam?"
-    mode = "OutputMode=LIST"
-    limit = "maxObject=1000"
-    criteria = "Criteria=otype=%27G%27"
-    output_format="output.format=ASCII"
-    object_type = "list.otypesel=on"
-    object_type_disp = "otypedisp=3"
-    coor = "list.coo1=on"
-    frame = "frame1=ICRS"
-    coor_disp = "coodisp1=d2"
-    redshift = "list.rvsel=on"
-    redshift_disp = "rvDisplay=Z"
-    morph_type = "list.mtsel=on"
-    size = "list.sizesel=on"
-    flux = "list.fluxsel=off"
-    bib = "list.bibsel=off"
-    notes = "list.notesel=off"
-
-    attrs = [mode, limit, criteria, output_format, object_type, object_type_disp, \
-             coor, frame, coor_disp, redshift, redshift_disp, morph_type, size, flux, bib, notes]
-
-    request_str = base + implode(attrs, "&")
-    raw = urllib.request.urlopen(request_str).read().decode("utf-8")
+def request_data(url_str) : 
+    raw = urllib.request.urlopen(url_str).read().decode("utf-8")
     return ascii_to_json(raw)
     
-
-def implode(i, delimeter) :
-    imploded = "";
-    for e in i :
-        imploded += e + delimeter
-
-    imploded = imploded[:-len(delimeter)]
-    return imploded
-
-
 def ascii_to_json(ascii_data) :
+    # skip titles etc.
     i = iter(ascii_data.splitlines())
     for _ in range(0, 7) :
         next(i)
     
+    # get table attr names and skip next line
     keys = [key.strip() for key in next(i).split("|")]
     next(i)
 
+    # turn data into json form
     data = []
     for line in i :
         if "|" in line :
@@ -60,28 +52,69 @@ def ascii_to_json(ascii_data) :
             data.append(datum)
     return data
     
-def transform_data(data) : 
+def translate_table(web_table) :
+    """
+    Given a table from the simbad data, translates the table
+    into a table for spacecowboys
+    """
     galaxies = []
-    for datum in data :
-        galaxy = {}
-        galaxy["pid"] = -1
-        galaxy["name"] = datum["identifier"]
-        galaxy["image"] = ""
-        galaxy["ra"] = float(datum["coord1 (ICRS,J2000/2000)"].split(" ")[0])
-        galaxy["dec"] = float(datum["coord1 (ICRS,J2000/2000)"].split(" ")[0][1:])
-        galaxy["type"] = datum["morph. type"]
-        galaxy["redshift"] = datum["redshift"]
-        galaxy["size"] = datum["ang. size"]
-        galaxies.append(galaxy)
+    for web_galaxy in web_table :
+        if all(web_galaxy.values()) :
+            galaxies.append(translate_galaxy(web_galaxy))
+
+    return filter_galaxies(galaxies)
+
+def translate_galaxy(web_galaxy) :
+    """
+    Translates a galaxy from the simbad data to a spacecowboy galaxy
+    """
+    translators = [t_pid, t_name, t_image, t_ra, t_dec, t_type, t_redshift, t_size]
+    return dict([t(web_galaxy) for t in translators])
+
+pid = 0
+def t_pid(web_galaxy) : 
+    global pid
+    pid += 1
+    return ("pid",pid)
+    
+def t_name(web_galaxy) : 
+    return ("name",web_galaxy["identifier"])
+
+def t_image(web_galaxy) : 
+    return ("image", "galaxy.png")
+
+def t_ra(web_galaxy) : 
+    return ("ra", web_galaxy["coord1 (ICRS,J2000/2000)"].split(" ")[0])
+
+def t_dec(web_galaxy) : 
+    return ("dec", web_galaxy["coord1 (ICRS,J2000/2000)"].split(" ")[1])
+
+def t_type(web_galaxy) : 
+    type = ""
+    
+    if "SB" in web_galaxy["morph. type"] :
+        type = "Barred Spiral"
+    elif "S" in web_galaxy["morph. type"] :
+        type = "Spiral"
+    elif "I" in web_galaxy["morph. type"] :
+        type = "Irregular"
+    elif "E" in web_galaxy["morph. type"] :
+        type = "Elliptical"
+    return ("type", type)
+    
+
+def t_redshift(web_galaxy) : 
+    return ("redshift", web_galaxy["redshift"])
+
+def t_size(web_galaxy) : 
+    return ("size", web_galaxy["ang. size"].split(" ")[0])
+
+def filter_galaxies(galaxies) : 
+    galaxies = list(filter(lambda galaxy : all(galaxy.values()), galaxies))
+
+    i = 1
+    for galaxy in galaxies :
+        galaxy["pid"] = i
+        i += 1
+        
     return galaxies
-
-def filter_data(data) : 
-    required_attrs = ["identifier","coord1 (ICRS,J2000/2000)","redshift", "morph. type", "ang. size"]
-    return list(filter(lambda d : has_attrs(d, required_attrs), data))
-
-def has_attrs(d, attrs) :
-    for attr in attrs :
-        if attr not in d or d[attr] == "" :
-            return False
-    return True
-

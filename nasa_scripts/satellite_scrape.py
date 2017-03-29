@@ -1,73 +1,100 @@
 import json
 import urllib.request
 import sys
+from Spacecowboy import implode
 
 def satellite_scrape() : 
-    data = request_data()
-    data = filter_data(data)
-    data = transform_data(data)
-    return data
-
-def request_data() : 
-    base = "https://launchlibrary.net/1.2/mission"
-    limit = "limit=100"
-    offset = "offset=1"
-    request_str = base + "?" + implode([limit, offset], "&")
-
-    raw = urllib.request.urlopen(request_str).read().decode("utf-8")
+    """
+    Calls the launch library api and returns a set of satellites
+    returns a list of dictionaries that contains all attrs of the satellite model
+    """
+    url_fields = ["limit=100",
+                  "offset=1"]
+    
+    url_base = "https://launchlibrary.net/1.2/mission"
+    web_table = request_data(url_base + "?" + implode(url_fields, "&"), url_base)
+    
+    spacecowboy_table = translate_table(web_table)
+    
+    return spacecowboy_table
+    
+def request_data(url_str, url_base) : 
+    raw = urllib.request.urlopen(url_str).read().decode("utf-8")
     mission_list = json.loads(raw)["missions"]
     missions = []
 
     for e in mission_list :
-        request_str = base + "/" + str(e["id"])
-        raw = urllib.request.urlopen(request_str).read().decode("utf-8")
+        url_str = url_base + "/" + str(e["id"])
+        raw = urllib.request.urlopen(url_str).read().decode("utf-8")
         mission = json.loads(raw)["missions"][0]
+        mission.pop("events")
+        mission.pop("description")
+        mission.pop("infoURL")
+        mission.pop("wikiURL")
+        mission.pop("infoURLs")
         missions.append(mission)
 
     return missions
-
-def implode(i, delimeter) :
-    imploded = "";
-    for e in i :
-        imploded += e + delimeter
-
-    imploded = imploded[:-len(delimeter)]
-    return imploded
-
-
-def filter_data(data) : 
-    attrs = ["name", "launch", "typeName", "agencies"]
-    data = list({attr:d[attr] for attr in attrs} for d in data)
-    data = list(filter(lambda d : has_attrs(d, attrs), data))
     
-    for d in data :
-        d["year_launched"] = d["launch"]["windowstart"].split(" ")[2]
-        d.pop("launch", None)
-        d["agency"] = d["agencies"][0]["name"]
-        d.pop("agencies", None)
-
-    return data
-
-def has_attrs(d, attrs) :
-    for attr in attrs :
-        if attr not in d or not d[attr] :
-            return False
-    return True
-
-def transform_data(d) : 
+def translate_table(web_table) :
+    """
+    Given a table from the launch library data, translates the table
+    into a table for spacecowboys
+    """
     satellites = []
+    
+    for web_sat in web_table :
+        if all(web_sat.values()) :
+            satellites.append(translate_sat(web_sat))
+    return filter_sats(satellites)
 
-    for e in d :
-        satellite = {}
-        satellite["pid"] = -1
-        satellite["name"] = e["name"]
-        satellite["image"] = ""
-        satellite["year_launched"] = e["year_launched"]
-        satellite["type"] = e["typeName"]
-        satellite["agency"] = e["agency"]
-        satellite["host_pid"] = -1
-        satellite["star_pid"] = -1
-        satellite["galaxy_pid"] = -1
-        satellites.append(satellite)
+def translate_sat(web_sat) :
+    """
+    Translates a satellite from the launch data to a spacecowboy satellite
+    """
+    translators = [t_pid, t_name, t_image, t_year, t_agency, t_type, t_hpid, t_spid, t_gpid]
+    return dict([t(web_sat) for t in translators])
 
-    return satellites
+pid = 0
+def t_pid(web_sat) :
+    global pid
+    pid += 1
+    return ("pid", pid)
+    
+def t_name(web_sat) : 
+    return ("name",web_sat["name"])
+
+def t_image(web_sat) : 
+    return ("image","satellite.png")
+
+def t_year(web_sat) : 
+    return ("year_launched", web_sat["launch"]["windowstart"].split(" ")[2])
+
+def t_agency(web_sat) : 
+    return ("agency", web_sat["agencies"][0]["name"])
+
+def t_type(web_sat) : 
+    return ("type", web_sat["typeName"])
+
+def t_hpid(web_sat) : 
+    return ("host_pid", -1)
+
+def t_spid(web_sat) : 
+    return ("star_pid", -1)
+
+def t_gpid(web_sat) : 
+    return ("galaxy_pid", -1)
+    
+
+def filter_sats(sats) : 
+    sats = list(filter(lambda sat : all(sat.values()) and sat["type"] != "Human Exploration" and sat["type"] != "Resupply" and sat["type"] != "Communications", sats))
+    
+    i = 1
+    for sat in sats :
+        sat["pid"] = i
+        i += 1
+    
+    return sats
+
+
+
