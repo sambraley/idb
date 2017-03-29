@@ -55,7 +55,6 @@ RunIDB: app/idb.py
 install:
 	$(PIP) install -r app/requirements.txt
 	npm install
-	bower install
 
 
 TestIDB.tmp: app/models.py app/test.py .pylintrc
@@ -92,7 +91,6 @@ clean:
 	rm -f  *.pyc
 	rm -f  TestIDB.tmp
 	rm -rf __pycache__
-	rm -rf app/static/bower_components
 	rm -rf app/static/js
 	rm -rf node_modules
 
