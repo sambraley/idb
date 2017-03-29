@@ -1,0 +1,866 @@
+commit a06d1b1005e06e9bc6d877a05c253e9c6a6773f8
+Merge: db01424 d78029e
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Mar 23 21:27:43 2017 -0500
+
+    Merge pull request #30 from samuelbraley/develop
+    
+    Develop
+
+commit d78029e4b625c3e9a3ee34fc127fc75ca17e04e2
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 21:24:28 2017 -0500
+
+    Re-made IDB1.html
+
+commit db014242aad62655d15136f8e7816b1d1a107c11
+Author: Samuel Braley <samuelbraley@users.noreply.github.com>
+Date:   Thu Mar 23 21:22:18 2017 -0500
+
+    Update README.md
+
+commit f6391bc9c4616f882e385a96528a0891864de92b
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 21:21:59 2017 -0500
+
+    makefile variable change
+
+commit 81b55cf7057f5478efcc073adfeac23820a3590c
+Merge: 10bf115 4bee7a8
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 21:18:47 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 10bf1159f5a08ba578c3b9654fddb1cf59e7fb6e
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 21:18:31 2017 -0500
+
+    Finialized the report and about page.
+
+commit 4bee7a8041700e81b986f92059494ac6a5bc6e15
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 21:18:17 2017 -0500
+
+    Adds final IDB1.html
+
+commit 5930453f156bbd2b75d61cea3781acebde439729
+Merge: b6c79f7 ecb2ec8
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 20:49:21 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit b6c79f717f501cb71c5d0c6fce6416229df707cb
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 20:49:07 2017 -0500
+
+    Latest changes to the report.
+
+commit ecb2ec8757908f5c9d4f535ae49d55ec62ca10e5
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 20:45:50 2017 -0500
+
+    fixing broken links
+
+commit 3d6c3d86c850416462b4316dbd0ae3ebe649567a
+Merge: e12683c 0ac8447
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Mar 23 20:41:36 2017 -0500
+
+    Merge pull request #29 from samuelbraley/develop
+    
+    Develop
+
+commit 0ac8447f58318e1efa29825caca41ec46e49c991
+Merge: 2a301fc a53b4c4
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 20:35:21 2017 -0500
+
+    Merge branch 'develop' of github.com:samuelbraley/idb into develop
+
+commit 2a301fca25015cfa175a2aa7dcbbd9467e98b56b
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 20:34:40 2017 -0500
+
+    formatting
+
+commit c38a08d58f4aec719b6b84069c15f280e2b75185
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 20:27:50 2017 -0500
+
+    Added report page. Not done yet.
+
+commit 18944c5dea47ae50ebbc3e5478c167174e4f04fc
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Thu Mar 23 20:24:21 2017 -0500
+
+    Changed attribute names to match official model.
+
+commit 62f11eef8b6edac67055607c7eb28b04dbc35758
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 20:10:41 2017 -0500
+
+    added changes to the about page
+
+commit 25086e18297ea9652e3b992246f3894383a658b6
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 20:03:55 2017 -0500
+
+    Fixed app.yaml
+
+commit 0476ff2c11f34b67b3eaf5c83c71e224a3e691e1
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 19:53:31 2017 -0500
+
+    Updated app.yaml to try to save us some credits
+
+commit 902eba456f6ca79febc272ed3364839e57d8c970
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 18:59:57 2017 -0500
+
+    added better formatted picture
+
+commit e295ac7614b7ea57ce02dac5440d6f25afe1f70a
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Mar 23 18:50:39 2017 -0500
+
+    Added satellite pictures
+
+commit 4aa80ac90ba20cb4ba347e845b0007c462c9f43d
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Mar 23 18:48:19 2017 -0500
+
+    Fixed small error in UML diagram
+
+commit ac8f208b9af4e10489fe2967669218ace7689db2
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 18:42:41 2017 -0500
+
+    Fixed a typo in models.py
+
+commit d3391b75385bf177d408a4adef12cd57ce4afd85
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 16:58:14 2017 -0500
+
+    Added sfarrior bio
+
+commit a53b4c49b469ffbea0b621bd797c5c170c24abbd
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 20:34:40 2017 -0500
+
+    formatting
+
+commit e12683c6577043e315c7d7f7f6522257dc77a7bd
+Author: Samuel Braley <samuelbraley@users.noreply.github.com>
+Date:   Thu Mar 23 20:31:44 2017 -0500
+
+    Update README.md
+
+commit fab93c196323cea29f0316079c1d975502f0183b
+Author: Samuel Braley <samuelbraley@users.noreply.github.com>
+Date:   Thu Mar 23 20:31:10 2017 -0500
+
+    Create README.md
+
+commit 21a03dd0068e1767a9725f761544c5ef5ccb0c35
+Merge: ba1754e 0a32ac0
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 20:28:02 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit ba1754e83959e9728a0162728b580e02bf2c9967
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 20:27:50 2017 -0500
+
+    Added report page. Not done yet.
+
+commit 0a32ac085210ea73c44eca45533d7353c552e4d3
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Thu Mar 23 20:24:21 2017 -0500
+
+    Changed attribute names to match official model.
+
+commit 926abea1391949d1d798452fe5d10ee5a1510128
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 20:10:41 2017 -0500
+
+    added changes to the about page
+
+commit f5d5f9179d0aa480d1d00b35db54ed47c3becb9e
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 20:03:55 2017 -0500
+
+    Fixed app.yaml
+
+commit 3a7690b0885cd6a0a0b705c8dd6121e62675f841
+Merge: 5d0ea04 71d342d
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 19:54:56 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 5d0ea04436e3550f0fcdc5f4ce251531491a9e91
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 19:53:31 2017 -0500
+
+    Updated app.yaml to try to save us some credits
+
+commit 71d342d98a32ea72f791bb5bb1dc1f51e0e2fdf2
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 18:59:57 2017 -0500
+
+    added better formatted picture
+
+commit 93e2279bb8a87fcc062ecec4e1e521acdb3e3fc4
+Merge: a00f183 dd13177
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Mar 23 18:51:09 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit a00f183eaeef5028dc5c5ecae4f2a6a50d5dba7e
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Mar 23 18:50:39 2017 -0500
+
+    Added satellite pictures
+
+commit dd13177268855526663e0e882888a23562a7ccce
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Mar 23 18:48:19 2017 -0500
+
+    Fixed small error in UML diagram
+
+commit 2c2df5b22d050e5c5af9ecbae63f649111306377
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 18:42:41 2017 -0500
+
+    Fixed a typo in models.py
+
+commit 87c619c4bccd11de8998e817fd5e23810305bc2f
+Merge: db28145 6538549
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 17:39:49 2017 -0500
+
+    Merge branch 'develop' of github.com:samuelbraley/idb into develop
+
+commit db2814571b9afea78dd049cfd0d3441dc40df455
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 16:58:14 2017 -0500
+
+    Added sfarrior bio
+
+commit e5d1decff79c8926956b80b3eb104f82c4cccd1f
+Merge: 8ddb960 8768304
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Mar 23 17:37:26 2017 -0500
+
+    Merge pull request #28 from samuelbraley/dev-david-css
+    
+    Dev david css
+
+commit 6538549bb15f8bbb29b1910ee1ad7e9355de605b
+Merge: c7531ad 8768304
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Mar 23 17:34:37 2017 -0500
+
+    Merge pull request #27 from samuelbraley/dev-david-css
+    
+    model list grids are finished
+
+commit 8768304b3f23d3c61264f21b2163346dfe05eeed
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 17:31:38 2017 -0500
+
+    updated picture
+
+commit 1a3b72bb8d48fcb3c914a539a50ba49ffa809b33
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 17:26:00 2017 -0500
+
+    reformatted model's html pages with css
+
+commit 8ddb9600cbcd5f97bb8497978bd8450892614878
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Thu Mar 23 17:21:05 2017 -0500
+
+    Synched model attribute names
+
+commit c7531ade0a027ca10c84badb522348e6ea447522
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 16:58:14 2017 -0500
+
+    Added sfarrior bio
+
+commit 296ac3259f1b953ff4b074f89dca45a87f1e33d6
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Thu Mar 23 16:58:11 2017 -0500
+
+    Finished Apiary API Documentation. Fixes #2
+
+commit 5315d8743cb4fea63e93504d8a46756afc202f7a
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 16:12:11 2017 -0500
+
+    model list grids are finished
+
+commit 2b190a57717cb5dfa2e707ea73518a9ee34024cd
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Thu Mar 23 15:56:33 2017 -0500
+
+    Update Apairy with new requests
+
+commit 9e211adf8a978282638c0b1b745ce7fe3b618c48
+Merge: 9b832eb 2c6efa1
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Mar 23 15:24:21 2017 -0500
+
+    Merge pull request #25 from samuelbraley/dev-david-css
+    
+    added css to main tables
+
+commit 2c6efa141de132343e184125569c92310fa021d6
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 15:22:06 2017 -0500
+
+    added css to main tables
+
+commit 9b832eb9850e963e025798b197f1c211c94f6a85
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Mar 23 14:58:45 2017 -0500
+
+    Added descriptions in about page
+
+commit 70ad9064c5b6d3722adf076a79218066ecac701b
+Merge: 7097c89 81afb5b
+Author: Taben <tabenjmalik@gmail.com>
+Date:   Thu Mar 23 13:58:25 2017 -0500
+
+    Merge pull request #24 from samuelbraley/dev-david-models-page
+    
+    Dev david models page
+
+commit 81afb5b1708b4e005295ba1e414a45288b071b8d
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Mar 23 13:44:26 2017 -0500
+
+    added galaxy and satellite models
+
+commit 7097c89151a29f2a318fc90f94af7755fa26c61a
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 13:25:13 2017 -0500
+
+    Updated makefile again, html target not part of make test any more
+
+commit 3f07db3cb02ea107b6311f206d2426c3e5a9e455
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 13:20:05 2017 -0500
+
+    Forced a pylintrc to see if I could make the build not fail
+
+commit e03aeea615faea0aaef8fcf5485f4a7399a3cb80
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Mar 23 13:17:00 2017 -0500
+
+    completed planets and stars
+
+commit bb6088d95317676133ddf5cff8e19730669804f0
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 13:06:51 2017 -0500
+
+    Makefile creates pylintrc in app folder as well
+
+commit 1883e86d97859ca4510a1ee2042d86b5bea354de
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 12:59:32 2017 -0500
+
+    Updates makefile to not run coverage, create IDB1.html and .log
+
+commit 496be4f764f3be73eccc6e66662389f7db3f6235
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 12:57:39 2017 -0500
+
+    Adds pydoc output for models.py
+
+commit fb0b4cb872bd2bab453b04eda8e552f6c0dda1ad
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 12:54:40 2017 -0500
+
+    Further removes value and type errors from models and tests
+
+commit 6f9bb961f08611e2c8db33481d06fd61f024a249
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 12:19:26 2017 -0500
+
+    Updated test.py to pylint standards and ran autopep8
+
+commit 0e554167f1386ece2dd6b50bf47cdf9a6ed7596f
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 12:06:08 2017 -0500
+
+    Updates test.py to not have any value errors
+
+commit f6b8de087628eacb54e8473cf6897e7b057940b6
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 12:04:58 2017 -0500
+
+    Changed keys in models.py to have underscores, also updated their default parameters for iterables from None to empty tuples
+
+commit d8c359199980de62df7012653a9228f1508c8a6b
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 11:48:30 2017 -0500
+
+    Added module docstring, ran autopep8, made pylint stop complaining
+
+commit ff0a4720d817ade94293a9cd8742ac129896522d
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 11:39:08 2017 -0500
+
+    variablized html template for two models
+
+commit ef099eebc58de3cf8d9056a23453b06095a5bcbe
+Merge: 72773fc 0ab6c19
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 11:08:30 2017 -0500
+
+    merge conflicts
+
+commit 72773fcb7775120e919bac8fdaed893f562a4ca9
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Thu Mar 23 10:59:27 2017 -0500
+
+    created grid htmls for each model type - no css yet
+
+commit 2022179129df0655147d3df19918849871150cca
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Wed Mar 22 15:45:51 2017 -0500
+
+    changed table to grid
+
+commit ab3a55893b61026788ce74317eab68c3f929ae28
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Wed Mar 22 13:57:20 2017 -0500
+
+    Adds sqlalchemy to travis.yml
+
+commit a88929a26b8106ddebb8fa6af598adb5995c2683
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Wed Mar 22 03:46:37 2017 -0500
+
+    Added 12 test cases for models
+
+commit 2f988011cb4dc3036f8a965298c7137032532e7f
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Wed Mar 22 00:33:45 2017 -0500
+
+    Hot fix for satellite json data format
+
+commit 792e1821183181809ec2724bdaa0ab7224c2fc5f
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Wed Mar 22 00:20:38 2017 -0500
+
+    Added 3 satellite instances and photos
+
+commit 371ca6fa86d07101c8c55fa8e1a41fa549b4fb0f
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 23:57:24 2017 -0500
+
+    Added 3 galaxy instances
+
+commit 4fff77546bff1ba59fbb41595686be4ffb7ce784
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 21:06:52 2017 -0500
+
+    Added photos for stars and planets
+
+commit 2e0683aaa32bffdf3942eb2754cb36751407438b
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 19:27:58 2017 -0500
+
+    Adds the model for planetoid bodies
+
+commit 4841e4c40d3b369b74299ddd98f0e352fb5199b1
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 18:48:05 2017 -0500
+
+    Created 3 instances of stars and planets
+
+commit 46dba32211bf3eda9b3451317a74c1d36992ee47
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 17:11:24 2017 -0500
+
+    Adds the model for galaxies
+
+commit d8a8655062fd8493757c353e71e37a185dc35728
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 16:56:03 2017 -0500
+
+    Updated stars and satellites to match Taben's changes
+
+commit b686d4877a46db9dc49b6852037d374fa5c31a49
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 09:14:23 2017 -0500
+
+    Exoplanet archive script. Some attributes need to be calculated
+
+commit 6fdfc6b4737a158030fa1ad6032f2c0e0280dc84
+Merge: 404bda5 4de833e
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 09:44:47 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 404bda5854f1113f07985c7c4ebb147e38ab4199
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Mar 23 09:44:32 2017 -0500
+
+    Updated the technical report and my bio.
+
+commit 4de833ee3010e5d32bb464a76b088e108e6c86e5
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Thu Mar 23 05:24:45 2017 -0500
+
+    Added bio and updated UML
+
+commit b36029570b792239ce895f6d589edfba22dcc6e5
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Thu Mar 23 02:10:27 2017 -0500
+
+    Added comments closes #7
+
+commit 2267cb36dfc118b3f9225b64a49389a4036ace5d
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 23 01:11:28 2017 -0500
+
+    Added comments to models.py for pydoc
+
+commit c8d9c4ead1cdf34b38a922e846f61cac82b325e2
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Thu Mar 23 00:35:37 2017 -0500
+
+    Changed tests  dictionary()
+
+commit af03c6ca15252061788b744f7743684e95ca4c3f
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 23:54:03 2017 -0500
+
+    Changed the Carousel and finished the design of the about page, including embeding the technical report.
+
+commit c953c97a13ef7b37b9b1308f683b57c542a4c6e7
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 23:43:56 2017 -0500
+
+    Adding the technical report for embeding purposes.
+
+commit 7ba6d1df66973a6138586777c9e39cf2c11ce3c3
+Merge: 82440d6 5685e40
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 23:43:03 2017 -0500
+
+    Resolving merge conflict.
+
+commit 5685e409b90436fa44f81ecffa920f20f342102a
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Wed Mar 22 23:37:25 2017 -0500
+
+    Adding the UML pdf before we forget
+
+commit 82440d6be4b4a374f14c4743e5c707ec4749287b
+Merge: 01c4880 35f2bcb
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 23:36:55 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 01c48801869bc43e6ff60e13aea2014e4d689585
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 23:36:41 2017 -0500
+
+    Added the technical report so I can embed it.
+
+commit 35f2bcb5e83b84e4fb15cd79d9f895eeb7fe55ca
+Merge: ac9b705 691d053
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Wed Mar 22 20:23:17 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit ac9b70521c5da8a58c4ab92eff80acaf41e0a84a
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Wed Mar 22 20:22:18 2017 -0500
+
+    Fixed some pylint errors on test.py
+
+commit 691d0539fd9c304bdc8e1d133b6d5842ee61b8c7
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Wed Mar 22 19:23:57 2017 -0500
+
+    Changes __repr__() to dictionary() in models.py
+
+commit d8e042367413fdadb8e168394b5bff2e7f1fd10e
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 16:25:31 2017 -0500
+
+    Resolved merge.
+
+commit b4cdb217c507538f385bbe054a893eb13f05c1aa
+Merge: d5b18b8 5228962
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 16:23:22 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit d5b18b868f1f0e61e39fbfac505101755c3dbf96
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 22 16:23:17 2017 -0500
+
+    Fixed the carousel and the about page.
+
+commit 0ab6c193f5803581a0343214632f10e4bfa9e4c3
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Wed Mar 22 15:45:51 2017 -0500
+
+    changed table to grid
+
+commit 7bc42ecae8cc6889279b17fac30ef46ce87e79a1
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Wed Mar 22 15:43:23 2017 -0500
+
+    added attributes for all models
+
+commit 6e970f12ecd60f5397c9ce1142b8058fa26f2cea
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Wed Mar 22 15:31:17 2017 -0500
+
+    tiny update
+
+commit d912dda3fba25d037df3b0645fbbfa904f4c9fe3
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Wed Mar 22 15:28:48 2017 -0500
+
+    More API documentation updates
+
+commit 522896223162d6209df7cc1ded873c4264b7f534
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Wed Mar 22 14:55:17 2017 -0500
+
+    Updates models to match json and makes pylint not complain so much
+
+commit da081cf457371b8d6ee7268a0c45bc2a0273bf7f
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Wed Mar 22 14:11:28 2017 -0500
+
+    Updated API documentation
+
+commit 3bf071759867b072418eaed23ee13b0094a81c63
+Merge: f9ed2b0 84b6c3e
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Wed Mar 22 13:57:41 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit f9ed2b01393029f1028823a85fa84c0c4597ad57
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Wed Mar 22 13:57:20 2017 -0500
+
+    Adds sqlalchemy to travis.yml
+
+commit 84b6c3e9e17425a17a927cd92163c6cf136251f8
+Merge: 7e43684 3ad6336
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Wed Mar 22 12:48:45 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop-taben-models
+
+commit 7e43684e3ae546e8fc207561e47c7f1694a5460f
+Merge: 6f4d06d 92bf3b2
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Wed Mar 22 12:47:04 2017 -0500
+
+    Merge branch 'develop-taben-models' of https://github.com/samuelbraley/idb into develop-taben-models
+
+commit 3ad63368d293a68d75a409fc6f0433e1d2ecee0c
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Wed Mar 22 03:46:37 2017 -0500
+
+    Added 12 test cases for models
+
+commit 92bf3b226c3c78c70722a78bc6f0ade008694f5b
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Wed Mar 22 00:33:45 2017 -0500
+
+    Hot fix for satellite json data format
+
+commit 1b573990de397c6884fced6a6c05fda99099d525
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Wed Mar 22 00:32:57 2017 -0500
+
+    additional push
+
+commit bcd2caae5cb9c07c6f4dda7a2546c2de80b072c3
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Wed Mar 22 00:32:00 2017 -0500
+
+    Added satellite example API calls
+
+commit c9988a222b82e0aca4e77322ee5cea8212ad7d4e
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Wed Mar 22 00:20:38 2017 -0500
+
+    Added 3 satellite instances and photos
+
+commit da7c67bb6f5f6417d0e43e47e9bbd498d4be3a69
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Wed Mar 22 00:10:57 2017 -0500
+
+    Transferring API Description file from Apiary.io - added API examples for everything except satellites
+
+commit 7ff4a388e2358752a693d41617ca1c993a8aa204
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 23:57:24 2017 -0500
+
+    Added 3 galaxy instances
+
+commit 0fde120fe1c2a0790db0596b8177541c39d38747
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 21:06:52 2017 -0500
+
+    Added photos for stars and planets
+
+commit cfe8f47b2f46a91ebf0023178ce202f15ebfbeb9
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 19:27:58 2017 -0500
+
+    Adds the model for planetoid bodies
+
+commit 6f4d06dcf91853dfd0d930e8d9189737a4488fa4
+Merge: 631ad3b a497180
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 18:52:57 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop-taben-models
+
+commit 631ad3b557fc7d3c56f54b96df204ad539b81293
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 18:48:05 2017 -0500
+
+    Created 3 instances of stars and planets
+
+commit a497180859da229bf36c662170384084a04f6d65
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 17:11:24 2017 -0500
+
+    Adds the model for galaxies
+
+commit 12f73327d51ca9e16260fe559b77b0aad921447d
+Merge: cfac3ab 8783647
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 17:10:45 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 8783647fdc9b68170d38dd4c6ce1ab4670ee5766
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 17:00:24 2017 -0500
+
+    Added taben's bio
+
+commit cfac3ab57aa6fc638810afdb3c090b2c5b75e1fc
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 16:56:03 2017 -0500
+
+    Updated stars and satellites to match Taben's changes
+
+commit 3bb238f1d718d8cd4939d44d74a1126b67d7108e
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 14:13:52 2017 -0500
+
+    Updates satellite and adds star to models
+
+commit 22e113f2361dcea9018672ae9a7ae6cc1cd499ee
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 12:16:56 2017 -0500
+
+    Adds the model for satellites
+
+commit 538e93887435b675eb144bf5a89c8e6ace5878ce
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 21 10:16:28 2017 -0500
+
+    Adds sqlalchemy to the required pip packages
+
+commit 74ccd4068bc7b0deda59a93bfab8fd53e2f1c3a4
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Mar 21 09:14:23 2017 -0500
+
+    Exoplanet archive script. Some attributes need to be calculated
+
+commit 2d9c1ddad455d34fc12bc547349f07e768a5aac7
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Mon Mar 20 23:04:41 2017 -0500
+
+    Modified the about page. Not quite done though.
+
+commit 26013d763a7ffef4f31aebd767b57c8576f5403a
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Mon Mar 20 16:45:38 2017 -0500
+
+    Updated the makefile and cleaned up the code.
+
+commit 7b066cda6f7da916126438a757cc101eb2d0b544
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Mon Mar 20 13:32:53 2017 -0500
+
+    Adds files required to run our app on GCP appengine
+
+commit 7ae97999adf578c342658999f61db497025db28f
+Merge: 36ea0b7 262a22c
+Author: David Ares <davidares7@gmail.com>
+Date:   Mon Mar 20 13:26:04 2017 -0500
+
+    Merge pull request #19 from samuelbraley/dev
+    
+    Dev
+
+commit 36ea0b7b23f63b339e946a694db67ce0b4287c3d
+Author: Space Cowboys <spacecowboys373@gmail.com>
+Date:   Mon Mar 20 12:12:41 2017 -0500
+
+    hello world commit for apiary integration
+
+commit 262a22c9fe21f23f513aaae2f6d0e01c38398adf
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Sun Mar 19 23:44:54 2017 -0500
+
+    Added the splash carousel.
+
+commit 9a650a499f3bf2a8c040b612b0b0a61bb4f97399
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Sun Mar 19 15:27:26 2017 -0500
+
+    added about.html and link to it in nav bar
+
+commit ba4c5288ab90e435df76dc501e0ed063b482f7a8
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Sun Mar 19 02:01:31 2017 -0500
+
+    Added bootstrap and made it look a little nicer.
+
+commit 85111a29485cad4281b3f0ec2ea5bcf55ae20bd2
+Author: david Ares <dares23@cs.utexas.edu>
+Date:   Sat Mar 18 18:14:30 2017 -0500
+
+    added html temple to render tables for each model
+
+commit 9fb13f220902b58c18d45dfff64db06400fea6b0
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Sun Mar 12 20:34:11 2017 -0500
+
+    Base commit. Hello world flask app.
+
+commit 78916a59dd3eea8138c6bcf112866e26d214c60c
+Author: Samuel Braley <samuelbraley@users.noreply.github.com>
+Date:   Fri Mar 10 12:27:11 2017 -0600
+
+    Initial commit
