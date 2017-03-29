@@ -41,7 +41,7 @@ def transform_data(json) :
         planet = {}
         planet["pid"] = -1
         planet["name"] = d["pl_name"]
-        planet["diamter"] = 2 * d["pl_radj"] * radj
+        planet["diameter"] = 2 * d["pl_radj"] * radj
         planet["image"] = ""
         planet["ra"] = d["ra"]
         planet["dec"] = d["dec"]

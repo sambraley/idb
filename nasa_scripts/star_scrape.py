@@ -39,7 +39,7 @@ def transform_data(json) :
         star = {}
         star["pid"] = -1
         star["name"] = d["pl_hostname"]
-        star["diamter"] = sol_rad * d["st_rad"] * 2
+        star["diameter"] = sol_rad * d["st_rad"] * 2
         star["image"] = ""
         star["ra"] = d["ra"]
         star["dec"] = d["dec"]
