@@ -56,7 +56,7 @@ install:
 	$(PIP) install -r app/requirements.txt
 	npm install
 
-data : nasa_scripts/scraper.py
+data: nasa_scripts/scraper.py
 	$(PYTHON) nasa_scripts/scraper.py
 
 TestIDB.tmp: app/models.py app/test.py .pylintrc

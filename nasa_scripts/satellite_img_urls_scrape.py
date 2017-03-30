@@ -9,15 +9,15 @@ url_base = "https://en.wikipedia.org/w/api.php?"
 
 
 
-def satellite_image_scrape():
+def satellite_image_scrape(satellites):
 	#read in from satellite json file
-	satellites = json.loads(open('satellites.json').read())
+	#satellites = json.loads(open('satellites.json').read())
 	
 	satellite_img_urls = dict()
 	for satellite in satellites:
 		name = satellite["name"]
 		satellite_img_urls[name] = [] 
-		search_fields = {'action': 'query', 'format': 'json', 'list':'search', 'srsearch':name}
+		search_fields = {'action': 'query', 'format': 'json', 'list':'search', 'srsearch':name + "-Satellite"}
 
 		url_str = url_base + urllib.parse.urlencode(search_fields)
 		
@@ -36,6 +36,7 @@ def satellite_image_scrape():
 		for page in pages.values():
 			if "images" in page:
 				#not all satellites have images
+				first_image = True;
 				for img in page["images"]:
 					img_title = img["title"]
 					img_info_fields = {'action': 'query', 'format': 'json', 'titles':img_title, 'prop':'imageinfo', 'iiprop': 'url'}
@@ -46,9 +47,10 @@ def satellite_image_scrape():
 
 					satellite_img_urls[name].append({"title" : img_title, "url": url})
 
+					if first_image :
+							satellite["image"] = url
+							first_image = False
 
-	satellite_img_urls_file = open ("satellite_img_urls.json", "w")
+	satellite_img_urls_file = open("data/satellite_img_urls.json", "w")
 	json.dump(satellite_img_urls, satellite_img_urls_file, indent="\t")
 
-
-satellite_image_scrape()

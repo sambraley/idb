@@ -58,7 +58,7 @@ def translate_star(web_star) :
     """
     Translates a star from the kepler data to a spacecowboy star
     """
-    translators = [t_pid, t_name, t_diameter, t_image, t_ra, t_dec, t_temp, t_mass, t_galaxy]
+    translators = [t_pid, t_name, t_diameter, t_ra, t_dec, t_temp, t_mass, t_galaxy]
     return dict([t(web_star) for t in translators])
 
 pid = 0
@@ -73,9 +73,6 @@ def t_name(web_star) :
 def t_diameter(web_star) :
     diameter = Spacecowboy.sol_rad * web_star["st_rad"] * 2
     return ("diameter",diameter)
-
-def t_image(web_star) :
-    return ("image","star.png")
 
 def t_ra(web_star) :
     return ("ra",web_star["ra"])

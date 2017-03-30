@@ -68,7 +68,7 @@ def translate_galaxy(web_galaxy) :
     """
     Translates a galaxy from the simbad data to a spacecowboy galaxy
     """
-    translators = [t_pid, t_name, t_image, t_ra, t_dec, t_type, t_redshift, t_size]
+    translators = [t_pid, t_name, t_ra, t_dec, t_type, t_redshift, t_size]
     return dict([t(web_galaxy) for t in translators])
 
 pid = 0
@@ -79,9 +79,6 @@ def t_pid(web_galaxy) :
     
 def t_name(web_galaxy) : 
     return ("name",web_galaxy["identifier"])
-
-def t_image(web_galaxy) : 
-    return ("image", "galaxy.png")
 
 def t_ra(web_galaxy) : 
     return ("ra", web_galaxy["coord1 (ICRS,J2000/2000)"].split(" ")[0])

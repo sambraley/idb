@@ -30,7 +30,6 @@ def request_data(url_str, url_base) :
         mission.pop("events")
         mission.pop("description")
         mission.pop("infoURL")
-        mission.pop("wikiURL")
         mission.pop("infoURLs")
         missions.append(mission)
 
@@ -52,7 +51,7 @@ def translate_sat(web_sat) :
     """
     Translates a satellite from the launch data to a spacecowboy satellite
     """
-    translators = [t_pid, t_name, t_image, t_year, t_agency, t_type, t_hpid, t_spid, t_gpid]
+    translators = [t_pid, t_name, t_image, t_year, t_agency, t_info, t_type, t_ppid, t_spid, t_gpid]
     return dict([t(web_sat) for t in translators])
 
 pid = 0
@@ -73,11 +72,14 @@ def t_year(web_sat) :
 def t_agency(web_sat) : 
     return ("agency", web_sat["agencies"][0]["name"])
 
+def t_info(web_sat) :
+    return ("info_url", web_sat["wikiURL"])
+
 def t_type(web_sat) : 
     return ("type", web_sat["typeName"])
 
-def t_hpid(web_sat) : 
-    return ("host_pid", -1)
+def t_ppid(web_sat) : 
+    return ("planet_pid", -1)
 
 def t_spid(web_sat) : 
     return ("star_pid", -1)
@@ -87,7 +89,7 @@ def t_gpid(web_sat) :
     
 
 def filter_sats(sats) : 
-    sats = list(filter(lambda sat : all(sat.values()) and sat["type"] != "Human Exploration" and sat["type"] != "Resupply" and sat["type"] != "Communications", sats))
+    sats = list(filter(lambda sat : all(sat.values()) and sat["type"] != "Human Exploration" and sat["type"] != "Resupply" and sat["type"] != "Government/Top Secret", sats))
     
     i = 1
     for sat in sats :
