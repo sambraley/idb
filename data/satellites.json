@@ -1,6 +1,6 @@
 [
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/2/2f/US-Satellite.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/en/7/72/MC-2941_Wideband_Global_SATCOM_Satellite.png",
 		"year_launched": "2012",
 		"name": "WGS-4 (USA-233)",
 		"star_pid": 271,
@@ -12,7 +12,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/RocketSunIcon.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/TDRS-K_satellite_before_launch.jpg", 
 		"year_launched": "2013",
 		"name": "TDRS-K",
 		"star_pid": 271,
@@ -24,7 +24,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/en/1/17/SARAL.jpg",
 		"year_launched": "2013",
 		"name": "SARAL",
 		"star_pid": 271,
@@ -36,7 +36,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/4/4a/Commons-logo.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Launch_of_Falcon_9_carrying_ABS-EUTELSAT_%2816510241270%29.jpg",
 		"year_launched": "2015",
 		"name": "Eutelsat 115 West B & ABS-3A",
 		"star_pid": 271,
@@ -48,7 +48,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/d/d6/RocketSunIcon.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/6/69/MAKS_Airshow_2013_%28Ramenskoye_Airport%2C_Russia%29_%28525-06%29.jpg",
 		"year_launched": "2013",
 		"name": "Resurs-P No.1",
 		"star_pid": 271,
@@ -60,7 +60,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "satellite.png",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/CBERS_line_draw.jpeg",
 		"year_launched": "2013",
 		"name": "CBERS-3",
 		"star_pid": 271,
@@ -72,7 +72,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/4/4a/Commons-logo.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/en/7/7b/Swarm_spacecraft.jpg",
 		"year_launched": "2013",
 		"name": "Swarm A, B, C",
 		"star_pid": 271,
@@ -84,7 +84,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Nasa_swift_satellite.jpg",
+	    "image": "https://upload.wikimedia.org/wikipedia/en/7/7b/Proba-V_satellite.jpg",
 		"year_launched": "2013",
 		"name": "Proba-V and VNREDSat 1A",
 		"star_pid": 271,
@@ -108,7 +108,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/A_Slice_of_Light_How_IRIS_Observes_the_Sun.webm",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/c/ca/IRIS_%28Explorer%29.jpg",
 		"year_launched": "2013",
 		"name": "Interface Region Imaging Spectrograph (IRIS)",
 		"star_pid": 271,
@@ -132,7 +132,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Telstar.jpg",
+		"image": "https://upload.wikimedia.org/wikipedia/en/7/72/MC-2941_Wideband_Global_SATCOM_Satellite.png",
 		"year_launched": "2013",
 		"name": "WGS-6 (USA-244)",
 		"star_pid": 271,
@@ -144,7 +144,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "satellite.png",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Falcon_9_carrying_SES-8_%2804%29.jpg",
 		"year_launched": "2013",
 		"name": "SES-8",
 		"star_pid": 271,
@@ -156,7 +156,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/0/00/2006_Austria_25_Euro_European_Satellite_Navigation_back.jpg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/5/54/Galileo_launch_on_Soyuz%2C_21_Oct_2011_%286266227357%29.jpg",
 		"year_launched": "2014",
 		"name": "Galileo FOC-1 & Galileo FOC-2",
 		"star_pid": 271,
@@ -192,7 +192,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/4/4a/Commons-logo.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/en/0/01/Gaia_spacecraft.jpg",
 		"year_launched": "2013",
 		"name": "Gaia",
 		"star_pid": 271,
@@ -216,7 +216,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Navstar-2F.jpg",
 		"year_launched": "2012",
 		"name": "GPS IIF-3 (USA-239)",
 		"star_pid": 271,
@@ -228,7 +228,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/2001_mars_odyssey_wizja.jpg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/MAVEN_Transparent.png",
 		"year_launched": "2013",
 		"name": "MAVEN",
 		"star_pid": 271,
@@ -240,7 +240,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Telstar.jpg",
+		"image": "https://upload.wikimedia.org/wikipedia/en/7/72/MC-2941_Wideband_Global_SATCOM_Satellite.png",
 		"year_launched": "2013",
 		"name": "WGS-5 (USA-243)",
 		"star_pid": 271,
@@ -252,7 +252,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Navstar-2F.jpg",
 		"year_launched": "2014",
 		"name": "GPS IIF-5",
 		"star_pid": 271,
@@ -288,7 +288,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/4/4a/Commons-logo.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Sentinel_1-IMG_5874-white.jpg",
 		"year_launched": "2014",
 		"name": "Sentinel-1A",
 		"star_pid": 271,
@@ -300,19 +300,19 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Navstar-2F.jpg",
 		"year_launched": "2014",
 		"name": "GPS IIF-6",
 		"star_pid": 271,
 		"type": "Communications",
-		"info_url": "GPS IIF-11 is a next-generation GPS satellite which provides navigational assistance for U.S. military operations on land, at sea, and in the air.",
+		"info_url": "https://en.wikipedia.org/wiki/GPS_Block_IIF",
 		"pid": 26,
 		"planet_pid": 299,
 		"agency": "United Launch Alliance",
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Flag_of_Kazakhstan.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/9/92/Launch_of_Falcon_9_carrying_ASIASAT_6_%2816169087563%29.jpg",
 		"year_launched": "2014",
 		"name": "AsiaSat 6",
 		"star_pid": 271,
@@ -336,7 +336,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Navstar-2F.jpg",
 		"year_launched": "2014",
 		"name": "GPS IIF-8",
 		"star_pid": 271,
@@ -348,7 +348,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/4/4a/Commons-logo.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sentinel_2-IMG_5873-white_%28crop%29.jpg",
 		"year_launched": "2017",
 		"name": "Sentinel-2A",
 		"star_pid": 271,
@@ -360,7 +360,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Navstar-2F.jpg",
 		"year_launched": "2015",
 		"name": "GPS IIF-10",
 		"star_pid": 271,
@@ -384,7 +384,7 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/commons/5/51/Apollo_7_photographed_in_flight_by_ALOTS_%2868-HC-641%29.jpg",
+		"image": "https://upload.wikimedia.org/wikipedia/en/7/72/MC-2941_Wideband_Global_SATCOM_Satellite.png",
 		"year_launched": "2015",
 		"name": "WGS-7 (USA-263)",
 		"star_pid": 271,
@@ -408,12 +408,12 @@
 		"galaxy_pid": 143
 	},
 	{
-		"image": "https://upload.wikimedia.org/wikipedia/en/4/4a/Commons-logo.svg",
+		"image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Inmarsat-3.gif",
 		"year_launched": "2015",
 		"name": "Inmarsat 5-F3",
 		"star_pid": 271,
 		"type": "Communications",
-		"info_url": "https://en.wikipedia.org/wiki/Briz-M",
+		"info_url": "https://en.wikipedia.org/wiki/Inmarsat", 
 		"pid": 35,
 		"planet_pid": 299,
 		"agency": "Russian Federal Space Agency (ROSCOSMOS)",
