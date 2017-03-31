@@ -161,14 +161,13 @@ class Galaxy(db.Model):
     """
 
     # Attributes
-    pid = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(), unique=True)
-    image = db.Column(db.String())
-    right_ascension = db.Column(db.Float)
-    declination = db.Column(db.Float)
-    galaxy_type = db.Column(db.String())
     redshift = db.Column(db.Float)
-    angular_size = db.Column(db.Float)
+    name = db.Column(db.String(), unique=True)
+    galaxy_type = db.Column(db.String())
+    size = db.Column(db.Float)
+    pid = db.Column(db.Integer, primary_key=True)
+    declination = db.Column(db.Float)
+    right_ascension = db.Column(db.Float)
 
     # Relations
 
@@ -183,29 +182,27 @@ class Galaxy(db.Model):
     # stars, planets, and satellites are to be iterables containing instances
     # of the respective classes which are within this galaxy
     def __init__(
-            self, name, image, right_ascension, declination, galaxy_type, redshift,
-            angular_size, stars=(), planets=(), satellites=()):
+            self, redshift, name, galaxy_type, size, declination, right_ascension,
+            stars=(), planets=(), satellites=()):
         """
         name a str, image a str, right_ascension and declination floats, galaxy_type a str,
         redshift and angular_size floats. stars, planets, and satellites are to
         be iterables containing instances of the respective classes which are in this galaxy.
         """
         # Check types
-        assert isinstance(name, str)
-        assert isinstance(image, str)
-        assert isinstance(right_ascension, float)
-        assert isinstance(declination, float)
-        assert isinstance(galaxy_type, str)
         assert isinstance(redshift, float)
-        assert isinstance(angular_size, float)
+        assert isinstance(name, str)
+        assert isinstance(galaxy_type, str)
+        assert isinstance(size, float)
+        assert isinstance(declination, float)
+        assert isinstance(right_ascension, float)
 
-        self.name = name
-        self.image = image
-        self.right_ascension = right_ascension
-        self.declination = declination
-        self.galaxy_type = galaxy_type
         self.redshift = redshift
-        self.angular_size = angular_size
+        self.name = name
+        self.galaxy_type = galaxy_type
+        self.size = size
+        self.declination = declination
+        self.right_ascension = right_ascension
         self.stars = stars
         self.planets = planets
         self.satellites = satellites
@@ -214,13 +211,14 @@ class Galaxy(db.Model):
         """
         Returns a dictionary representation of this model.
         """
-        return {"name": self.name,
-                "image": self.image, "right_ascension": self.right_ascension,
-                "declination": self.declination, "galaxy_type": self.galaxy_type,
-                "redshift": self.redshift, "angular_size": self.angular_size, "stars": self.stars,
-                "planets": self.planets, "satellites": self.satellites}
-
-# Planets, moons, comets, asteroids ...
+        return {
+            "redshift": self.redshift,
+            "name": self.name,
+            "type": self.galaxy_type,
+            "size": self.size,
+            "dec": self.declination,
+            "ra": self.right_ascension
+        }
 
 
 class Planet(db.Model):
@@ -251,8 +249,6 @@ class Planet(db.Model):
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # We could have many of these
-    orbiting_bodies = db.relationship(
-        'Planet', backref='host', remote_side=pid)
     satellites = db.relationship(
         'Satellite', backref='host', lazy='dynamic')
 
@@ -302,6 +298,5 @@ class Planet(db.Model):
             "dec": self.declination,
             "ra": self.right_ascension,
             "galaxy_pid": self.galaxy_pid,
-            "gravity": self.gravity,
-            "orbiting_bodies": self.orbiting_bodies,
+            "gravity": self.gravity
         }
