@@ -44,24 +44,26 @@ class Satellite(db.Model):
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # Methods
-    def __init__(self, image, year_launched, name, type_of_mission, info_url, agency):
-        """
-        name a str, agency a str, type_of_mission a str, year_launched an int.
-        """
-        # Check types
-        assert isinstance(image, str)
-        assert isinstance(year_launched, str)  # type coming in from json
-        assert isinstance(name, str)
-        assert isinstance(type_of_mission, str)
-        assert isinstance(info_url, str)
-        assert isinstance(agency, str)
-
-        self.image = image
-        self.year_launched = int(
-            year_launched)  # will raise exception if malformed
-        self.name = name
-        self.type_of_mission = type_of_mission
-        self.agency = agency
+#    def __init__(self, image, year_launched, name, type_of_mission, info_url, agency, **kwargs):
+#        """
+#        name a str, agency a str, type_of_mission a str, year_launched an int.
+#        """
+#        # Check types
+#        assert isinstance(image, str)
+#        assert isinstance(year_launched, str)  # type coming in from json
+#        assert isinstance(name, str)
+#        assert isinstance(type_of_mission, str)
+#        assert isinstance(info_url, str)
+#        assert isinstance(agency, str)
+#
+#        self.image = image
+#        self.year_launched = int(
+#            year_launched)  # will raise exception if malformed
+#        self.name = name
+#        self.type_of_mission = type_of_mission
+#        self.agency = agency
+#
+#        super(Satellite, self).__init__(**kwargs)
 
     def dictionary(self):
         """
@@ -111,30 +113,30 @@ class Star(db.Model):
         'Satellite', backref='star', lazy='dynamic')
 
     # Methods
-    def __init__(
-            self, temperature, diameter, name, mass, declination, right_ascension,
-            planets=(), satellites=()):
-        """
-        name a str, image a str, temperature, right_ascension, declination, and mass
-        are all floats. planets and satellites are to be iterables containing
-        instances of the respective classes which orbit this star.
-        """
-        # Check types
-        assert isinstance(temperature, float)
-        assert isinstance(diameter, float)
-        assert isinstance(name, str)
-        assert isinstance(mass, float)
-        assert isinstance(declination, float)
-        assert isinstance(right_ascension, float)
-
-        self.temperature = temperature
-        self.diameter = diameter
-        self.name = name
-        self.mass = mass
-        self.declination = declination
-        self.right_ascension = right_ascension
-        self.planets = planets
-        self.satellites = satellites
+#    def __init__(
+#            self, temperature, diameter, name, mass, declination, right_ascension,
+#            planets=(), satellites=()):
+#        """
+#        name a str, image a str, temperature, right_ascension, declination, and mass
+#        are all floats. planets and satellites are to be iterables containing
+#        instances of the respective classes which orbit this star.
+#        """
+#        # Check types
+#        assert isinstance(temperature, float)
+#        assert isinstance(diameter, float)
+#        assert isinstance(name, str)
+#        assert isinstance(mass, float)
+#        assert isinstance(declination, float)
+#        assert isinstance(right_ascension, float)
+#
+#        self.temperature = temperature
+#        self.diameter = diameter
+#        self.name = name
+#        self.mass = mass
+#        self.declination = declination
+#        self.right_ascension = right_ascension
+#        self.planets = planets
+#        self.satellites = satellites
 
     def dictionary(self):
         """
@@ -181,31 +183,31 @@ class Galaxy(db.Model):
     # Methods
     # stars, planets, and satellites are to be iterables containing instances
     # of the respective classes which are within this galaxy
-    def __init__(
-            self, redshift, name, galaxy_type, size, declination, right_ascension,
-            stars=(), planets=(), satellites=()):
-        """
-        name a str, image a str, right_ascension and declination floats, galaxy_type a str,
-        redshift and angular_size floats. stars, planets, and satellites are to
-        be iterables containing instances of the respective classes which are in this galaxy.
-        """
-        # Check types
-        assert isinstance(redshift, float)
-        assert isinstance(name, str)
-        assert isinstance(galaxy_type, str)
-        assert isinstance(size, float)
-        assert isinstance(declination, float)
-        assert isinstance(right_ascension, float)
-
-        self.redshift = redshift
-        self.name = name
-        self.galaxy_type = galaxy_type
-        self.size = size
-        self.declination = declination
-        self.right_ascension = right_ascension
-        self.stars = stars
-        self.planets = planets
-        self.satellites = satellites
+#    def __init__(
+#            self, redshift, name, galaxy_type, size, declination, right_ascension,
+#            stars=(), planets=(), satellites=()):
+#        """
+#        name a str, image a str, right_ascension and declination floats, galaxy_type a str,
+#        redshift and angular_size floats. stars, planets, and satellites are to
+#        be iterables containing instances of the respective classes which are in this galaxy.
+#        """
+#        # Check types
+#        assert isinstance(redshift, float)
+#        assert isinstance(name, str)
+#        assert isinstance(galaxy_type, str)
+#        assert isinstance(size, float)
+#        assert isinstance(declination, float)
+#        assert isinstance(right_ascension, float)
+#
+#        self.redshift = redshift
+#        self.name = name
+#        self.galaxy_type = galaxy_type
+#        self.size = size
+#        self.declination = declination
+#        self.right_ascension = right_ascension
+#        self.stars = stars
+#        self.planets = planets
+#        self.satellites = satellites
 
     def dictionary(self):
         """
@@ -255,33 +257,33 @@ class Planet(db.Model):
     # Methods
     # orbiting_bodies, and satellites are to be iterables containing instances of the respective
     # classes which are within this galaxy
-    def __init__(
-            self, temperature, diameter, name, orbital_period, mass, declination,
-            right_ascension, gravity, satellites=()):
-        """
-        name a str, image a str, diameter, surface_temperature, right_ascension, declination,
-        mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be
-        iterables containing instances of the respective classes which orbit this planet.
-        """
-        # Check types
-        assert isinstance(temperature, float)
-        assert isinstance(diameter, float)
-        assert isinstance(name, str)
-        assert isinstance(orbital_period, float)
-        assert isinstance(mass, float)
-        assert isinstance(declination, float)
-        assert isinstance(right_ascension, float)
-        assert isinstance(gravity, float)
-
-        self.temperature = temperature
-        self.diameter = diameter
-        self.name = name
-        self.orbital_period = orbital_period
-        self.mass = mass
-        self.declination = declination
-        self.right_ascension = right_ascension
-        self.gravity = gravity
-        self.satellites = satellites
+#    def __init__(
+#            self, temperature, diameter, name, orbital_period, mass, declination,
+#            right_ascension, gravity, satellites=()):
+#        """
+#        name a str, image a str, diameter, surface_temperature, right_ascension, declination,
+#        mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be
+#        iterables containing instances of the respective classes which orbit this planet.
+#        """
+#        # Check types
+#        assert isinstance(temperature, float)
+#        assert isinstance(diameter, float)
+#        assert isinstance(name, str)
+#        assert isinstance(orbital_period, float)
+#        assert isinstance(mass, float)
+#        assert isinstance(declination, float)
+#        assert isinstance(right_ascension, float)
+#        assert isinstance(gravity, float)
+#
+#        self.temperature = temperature
+#        self.diameter = diameter
+#        self.name = name
+#        self.orbital_period = orbital_period
+#        self.mass = mass
+#        self.declination = declination
+#        self.right_ascension = right_ascension
+#        self.gravity = gravity
+#        self.satellites = satellites
 
     def dictionary(self):
         """
