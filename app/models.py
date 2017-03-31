@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-class Satellite(db.Model):
+class Satellites(db.Model):
 
     """
     Models artificial satellites. Attributes are: name, agency, mission type,
@@ -25,21 +25,23 @@ class Satellite(db.Model):
     """
 
     # Attributes
-    identifier = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(), unique=True)
-    agency = db.Column(db.String())
-    mission = db.Column(db.String())
+    image = db.Column(db.String())
     year_launched = db.Column(db.Integer)
+    name = db.Column(db.String(), unique=True)
+    mission = db.Column(db.String())
+    info_url = db.Column(db.String())
+    pid = db.Column(db.Integer, primary_key=True)
+    agency = db.Column(db.String())
 
     # Relations
     # Satellite has a pointer to its star, planetoid body, and galaxy (should they exist)
     # via backreferences.
 
     # We have at most one of each of these
-    star_id = db.Column(db.Integer, db.ForeignKey('star.identifier'))
-    planetoid_id = db.Column(
-        db.Integer, db.ForeignKey('planetoid_body.identifier'))
-    galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.identifier'))
+    star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
+    planet_pid = db.Column(
+        db.Integer, db.ForeignKey('planet.pid'))
+    galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # Methods
     def __init__(self, name, agency, type_of_mission, year_launched):
@@ -62,8 +64,17 @@ class Satellite(db.Model):
         Returns a dictionary representation of this model.
         """
         return {
-            "name": self.name, "agency": self.agency, "mission": self.type_of_mission,
-            "year_launched": self.year_launched}
+            "image": self.image,
+            "year_launched": self.year_launched,
+            "name": self.name,
+            "star_pid": self.star_pid,
+            "type": self.mission,
+            "info_url": self.info_url,
+            "pid": self.pid,
+            "planet_pid": self.planet_pid,
+            "agency": self.agency,
+            "galaxy_pid": self.galaxy_pid
+            }
 
 
 class Star(db.Model):
@@ -75,7 +86,7 @@ class Star(db.Model):
     """
 
     # Attributes
-    identifier = db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True)
     image = db.Column(db.String())
     temperature = db.Column(db.Float)
@@ -87,7 +98,7 @@ class Star(db.Model):
     # Stars have a pointer to their galaxy via backreference
 
     # We have at most one of these
-    galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.identifier'))
+    galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # We could have many of these
     planetoid_bodies = db.relationship(
@@ -141,7 +152,7 @@ class Galaxy(db.Model):
     """
 
     # Attributes
-    identifier = db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True)
     image = db.Column(db.String())
     right_ascension = db.Column(db.Float)
@@ -212,7 +223,7 @@ class PlanetoidBody(db.Model):
     """
 
     # Attributes
-    identifier = db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), unique=True)
     image = db.Column(db.String())
     diameter = db.Column(db.Float)
@@ -228,13 +239,13 @@ class PlanetoidBody(db.Model):
     # via backreference
 
     # We have at most one of these
-    host_id = db.Column(db.Integer, db.ForeignKey('planetoid_body.identifier'))
-    star_id = db.Column(db.Integer, db.ForeignKey('star.identifier'))
-    galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.identifier'))
+    host_id = db.Column(db.Integer, db.ForeignKey('planetoid_body.pid'))
+    star_id = db.Column(db.Integer, db.ForeignKey('star.pid'))
+    galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # We could have many of these
     orbiting_bodies = db.relationship(
-        'PlanetoidBody', backref='host', remote_side=identifier)
+        'PlanetoidBody', backref='host', remote_side=pid)
     satellites = db.relationship(
         'Satellite', backref='host', lazy='dynamic')
 
