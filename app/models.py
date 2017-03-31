@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-class Satellites(db.Model):
+class Satellite(db.Model):
 
     """
     Models artificial satellites. Attributes are: name, agency, mission type,
@@ -44,20 +44,24 @@ class Satellites(db.Model):
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # Methods
-    def __init__(self, name, agency, type_of_mission, year_launched):
+    def __init__(self, image, year_launched, name, type_of_mission, info_url, agency):
         """
         name a str, agency a str, type_of_mission a str, year_launched an int.
         """
         # Check types
+        assert isinstance(image, str)
+        assert isinstance(year_launched, str)  # type coming in from json
         assert isinstance(name, str)
-        assert isinstance(agency, str)
         assert isinstance(type_of_mission, str)
-        assert isinstance(year_launched, int)
+        assert isinstance(info_url, str)
+        assert isinstance(agency, str)
 
+        self.image = image
+        self.year_launched = int(
+            year_launched)  # will raise exception if malformed
         self.name = name
-        self.agency = agency
         self.type_of_mission = type_of_mission
-        self.year_launched = year_launched
+        self.agency = agency
 
     def dictionary(self):
         """
@@ -74,7 +78,7 @@ class Satellites(db.Model):
             "planet_pid": self.planet_pid,
             "agency": self.agency,
             "galaxy_pid": self.galaxy_pid
-            }
+        }
 
 
 class Star(db.Model):
@@ -86,19 +90,19 @@ class Star(db.Model):
     """
 
     # Attributes
-    pid = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(), unique=True)
-    image = db.Column(db.String())
     temperature = db.Column(db.Float)
-    right_ascension = db.Column(db.Float)
-    declination = db.Column(db.Float)
+    diameter = db.Column(db.Float)
+    name = db.Column(db.String(), unique=True)
     mass = db.Column(db.Float)
+    pid = db.Column(db.Integer, primary_key=True)
+    declination = db.Column(db.Float)
+    right_ascension = db.Column(db.Float)
 
     # Relations
     # Stars have a pointer to their galaxy via backreference
 
     # We have at most one of these
-    galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
+    galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # We could have many of these
     planetoid_bodies = db.relationship(
@@ -108,7 +112,7 @@ class Star(db.Model):
 
     # Methods
     def __init__(
-            self, name, image, temperature, right_ascension, declination, mass,
+            self, temperature, diameter, name, mass, declination, right_ascension,
             planetoid_bodies=(), satellites=()):
         """
         name a str, image a str, temperature, right_ascension, declination, and mass
@@ -116,19 +120,19 @@ class Star(db.Model):
         instances of the respective classes which orbit this star.
         """
         # Check types
-        assert isinstance(name, str)
-        assert isinstance(image, str)
         assert isinstance(temperature, float)
-        assert isinstance(right_ascension, float)
-        assert isinstance(declination, float)
+        assert isinstance(diameter, float)
+        assert isinstance(name, str)
         assert isinstance(mass, float)
+        assert isinstance(declination, float)
+        assert isinstance(right_ascension, float)
 
-        self.name = name
-        self.image = image
         self.temperature = temperature
-        self.right_ascension = right_ascension
-        self.declination = declination
+        self.diameter = diameter
+        self.name = name
         self.mass = mass
+        self.declination = declination
+        self.right_ascension = right_ascension
         self.planetoid_bodies = planetoid_bodies
         self.satellites = satellites
 
@@ -137,10 +141,15 @@ class Star(db.Model):
         Returns a dictionary representation of this model.
         """
         return {
-            "name": self.name, "image": self.image, "temperature": self.temperature,
-            "right_ascension": self.right_ascension, "declination": self.declination,
-            "mass": self.mass, "planetoid_bodies": self.planetoid_bodies,
-            "satellites": self.satellites}
+            "temperature": self.temperature,
+            "diameter": self.diameter,
+            "name": self.name,
+            "mass": self.mass,
+            "pid": self.pid,
+            "dec": self.declination,
+            "ra": self.right_ascension,
+            "galaxy_pid": self.galaxy_pid
+        }
 
 
 class Galaxy(db.Model):
