@@ -5,7 +5,7 @@
 # pylint: disable = too-few-public-methods
 # pylint: disable = too-many-arguments
 """
-This module is designed to model galaxies, stars, planetoid bodies, and satellites for
+This module is designed to model galaxies, stars, planets, and satellites for
 use in a PostgreSQL database using Flask-SQLAlchemy.
 """
 
@@ -21,7 +21,7 @@ class Satellite(db.Model):
 
     """
     Models artificial satellites. Attributes are: name, agency, mission type,
-    and year launched. They may relate many-to-one to galaxies, stars, and planetoid bodies.
+    and year launched. They may relate many-to-one to galaxies, stars, and planets.
     """
 
     # Attributes
@@ -34,7 +34,7 @@ class Satellite(db.Model):
     agency = db.Column(db.String())
 
     # Relations
-    # Satellite has a pointer to its star, planetoid body, and galaxy (should they exist)
+    # Satellite has a pointer to its star, planet, and galaxy (should they exist)
     # via backreferences.
 
     # We have at most one of each of these
@@ -86,7 +86,7 @@ class Star(db.Model):
     """
     Models stars. Attributes are: name, image, temperature, right_ascension,
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
-    to satellites and planetoid bodies.
+    to satellites and planets.
     """
 
     # Attributes
@@ -105,18 +105,18 @@ class Star(db.Model):
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # We could have many of these
-    planetoid_bodies = db.relationship(
-        'PlanetoidBody', backref='star', lazy='dynamic')
+    planets = db.relationship(
+        'Planet', backref='star', lazy='dynamic')
     satellites = db.relationship(
         'Satellite', backref='star', lazy='dynamic')
 
     # Methods
     def __init__(
             self, temperature, diameter, name, mass, declination, right_ascension,
-            planetoid_bodies=(), satellites=()):
+            planets=(), satellites=()):
         """
         name a str, image a str, temperature, right_ascension, declination, and mass
-        are all floats. planetoid_bodies and satellites are to be iterables containing
+        are all floats. planets and satellites are to be iterables containing
         instances of the respective classes which orbit this star.
         """
         # Check types
@@ -133,7 +133,7 @@ class Star(db.Model):
         self.mass = mass
         self.declination = declination
         self.right_ascension = right_ascension
-        self.planetoid_bodies = planetoid_bodies
+        self.planets = planets
         self.satellites = satellites
 
     def dictionary(self):
@@ -157,7 +157,7 @@ class Galaxy(db.Model):
     """
     Models galaxies. Attributes are: name, image, right_ascension, declination,
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
-    to satellites, stars, and planetoid bodies.
+    to satellites, stars, and planets.
     """
 
     # Attributes
@@ -174,20 +174,20 @@ class Galaxy(db.Model):
 
     # We could have many of all of these
     stars = db.relationship('Star', backref='galaxy', lazy='dynamic')
-    planetoid_bodies = db.relationship(
-        'PlanetoidBody', backref='galaxy', lazy='dynamic')
+    planets = db.relationship(
+        'Planet', backref='galaxy', lazy='dynamic')
     satellites = db.relationship(
         'Satellite', backref='galaxy', lazy='dynamic')
 
     # Methods
-    # stars, planetoid_bodies, and satellites are to be iterables containing instances
+    # stars, planets, and satellites are to be iterables containing instances
     # of the respective classes which are within this galaxy
     def __init__(
             self, name, image, right_ascension, declination, galaxy_type, redshift,
-            angular_size, stars=(), planetoid_bodies=(), satellites=()):
+            angular_size, stars=(), planets=(), satellites=()):
         """
         name a str, image a str, right_ascension and declination floats, galaxy_type a str,
-        redshift and angular_size floats. stars, planetoid_bodies, and satellites are to
+        redshift and angular_size floats. stars, planets, and satellites are to
         be iterables containing instances of the respective classes which are in this galaxy.
         """
         # Check types
@@ -207,7 +207,7 @@ class Galaxy(db.Model):
         self.redshift = redshift
         self.angular_size = angular_size
         self.stars = stars
-        self.planetoid_bodies = planetoid_bodies
+        self.planets = planets
         self.satellites = satellites
 
     def dictionary(self):
@@ -218,43 +218,41 @@ class Galaxy(db.Model):
                 "image": self.image, "right_ascension": self.right_ascension,
                 "declination": self.declination, "galaxy_type": self.galaxy_type,
                 "redshift": self.redshift, "angular_size": self.angular_size, "stars": self.stars,
-                "planetoid_bodies": self.planetoid_bodies, "satellites": self.satellites}
+                "planets": self.planets, "satellites": self.satellites}
 
 # Planets, moons, comets, asteroids ...
 
 
-class PlanetoidBody(db.Model):
+class Planet(db.Model):
 
     """
-    Models planetoids. Attributes are: name, image, diameter, right_ascension,
+    Models planets. Attributes are: name, image, diameter, right_ascension,
     declination, gravity, orbital period, mass, and temperature. They may relate
-    many-to-one to galaxies and stars, and one-to-many to satellites and other planetoid bodies.
+    many-to-one to galaxies and stars, and one-to-many to satellites and other planets.
     """
 
     # Attributes
-    pid = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(), unique=True)
-    image = db.Column(db.String())
+    temperature = db.Column(db.Float)
     diameter = db.Column(db.Float)
-    right_ascension = db.Column(db.Float)
-    declination = db.Column(db.Float)
-    gravity = db.Column(db.Float)
+    name = db.Column(db.String(), unique=True)
     orbital_period = db.Column(db.Float)
     mass = db.Column(db.Float)
-    surface_temperature = db.Column(db.Float)
+    pid = db.Column(db.Integer, primary_key=True)
+    declination = db.Column(db.Float)
+    right_ascension = db.Column(db.Float)
+    gravity = db.Column(db.Float)
 
     # Relations
-    # Planetoid Bodies have pointers to their galaxies, stars, and host (planetoid body they orbit)
+    # Planets have pointers to their galaxies, stars, and host (planet body they orbit)
     # via backreference
 
     # We have at most one of these
-    host_id = db.Column(db.Integer, db.ForeignKey('planetoid_body.pid'))
-    star_id = db.Column(db.Integer, db.ForeignKey('star.pid'))
-    galaxy_id = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
+    star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
+    galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
 
     # We could have many of these
     orbiting_bodies = db.relationship(
-        'PlanetoidBody', backref='host', remote_side=pid)
+        'Planet', backref='host', remote_side=pid)
     satellites = db.relationship(
         'Satellite', backref='host', lazy='dynamic')
 
@@ -262,34 +260,31 @@ class PlanetoidBody(db.Model):
     # orbiting_bodies, and satellites are to be iterables containing instances of the respective
     # classes which are within this galaxy
     def __init__(
-            self, name, image, diameter, surface_temperature, right_ascension, declination,
-            mass, gravity, orbital_period, orbiting_bodies=None, satellites=()):
+            self, temperature, diameter, name, orbital_period, mass, declination,
+            right_ascension, gravity, satellites=()):
         """
         name a str, image a str, diameter, surface_temperature, right_ascension, declination,
         mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be
-        iterables containing instances of the respective classes which orbit this planetoid.
+        iterables containing instances of the respective classes which orbit this planet.
         """
         # Check types
-        assert isinstance(name, str)
-        assert isinstance(image, str)
+        assert isinstance(temperature, float)
         assert isinstance(diameter, float)
-        assert isinstance(surface_temperature, float)
-        assert isinstance(right_ascension, float)
-        assert isinstance(declination, float)
-        assert isinstance(mass, float)
-        assert isinstance(gravity, float)
+        assert isinstance(name, str)
         assert isinstance(orbital_period, float)
+        assert isinstance(mass, float)
+        assert isinstance(declination, float)
+        assert isinstance(right_ascension, float)
+        assert isinstance(gravity, float)
 
-        self.name = name
-        self.image = image
+        self.temperature = temperature
         self.diameter = diameter
-        self.surface_temperature = surface_temperature
-        self.right_ascension = right_ascension
-        self.declination = declination
-        self.mass = mass
-        self.gravity = gravity
+        self.name = name
         self.orbital_period = orbital_period
-        self.orbiting_bodies = orbiting_bodies
+        self.mass = mass
+        self.declination = declination
+        self.right_ascension = right_ascension
+        self.gravity = gravity
         self.satellites = satellites
 
     def dictionary(self):
@@ -297,8 +292,16 @@ class PlanetoidBody(db.Model):
         Returns a dictionary representation of this model.
         """
         return {
-            "name": self.name, "image": self.image, "diameter": self.diameter,
-            "temperature": self.surface_temperature, "right_ascension": self.right_ascension,
-            "declination": self.declination, "mass": self.mass, "gravity": self.gravity,
-            "orbital_period": self.orbital_period, "orbiting_bodies": self.orbiting_bodies,
-            "satellites": self.satellites}
+            "temperature": self.temperature,
+            "diameter": self.diameter,
+            "name": self.name,
+            "orbital_period": self.orbital_period,
+            "mass": self.mass,
+            "star_pid": self.star_pid,
+            "pid": self.pid,
+            "dec": self.declination,
+            "ra": self.right_ascension,
+            "galaxy_pid": self.galaxy_pid,
+            "gravity": self.gravity,
+            "orbiting_bodies": self.orbiting_bodies,
+        }
