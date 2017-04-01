@@ -3879,7 +3879,6 @@
 		"orbital_period": 365,
 		"mass": 5.972e+24,
 		"dec": 0,
-		"host_pid": -1,
 		"temperature": 287,
 		"star_pid": 271,
 		"pid": 299,
