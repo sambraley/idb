@@ -112,7 +112,7 @@ class Star(db.Model):
 
     # Methods
     def __init__(
-            self, temperature, diameter, name, mass, declination, right_ascension,
+            self, temperature, diameter, name, mass, dec, ra,
             planets=(), satellites=()):
         """
         name a str, image a str, temperature, right_ascension, declination, and mass
@@ -120,19 +120,19 @@ class Star(db.Model):
         instances of the respective classes which orbit this star.
         """
         # Check types
-        assert isinstance(temperature, float)
-        assert isinstance(diameter, float)
+        # assert isinstance(temperature, float)
+        # assert isinstance(diameter, float)
         assert isinstance(name, str)
-        assert isinstance(mass, float)
-        assert isinstance(declination, float)
-        assert isinstance(right_ascension, float)
+        # assert isinstance(mass, float)
+        assert isinstance(dec, float)
+        assert isinstance(ra, float)
 
         self.temperature = temperature
         self.diameter = diameter
         self.name = name
         self.mass = mass
-        self.declination = declination
-        self.right_ascension = right_ascension
+        self.dec = dec
+        self.ra = ra
         self.planets = planets
         self.satellites = satellites
 
@@ -146,8 +146,8 @@ class Star(db.Model):
             "name": self.name,
             "mass": self.mass,
             "pid": self.pid,
-            "dec": self.declination,
-            "ra": self.right_ascension,
+            "dec": self.dec,
+            "ra": self.ra,
             "galaxy_pid": self.galaxy_pid
         }
 
@@ -182,7 +182,7 @@ class Galaxy(db.Model):
     # stars, planets, and satellites are to be iterables containing instances
     # of the respective classes which are within this galaxy
     def __init__(
-            self, redshift, name, galaxy_type, size, declination, right_ascension,
+            self, redshift, name, galaxy_type, size, dec, ra,
             stars=(), planets=(), satellites=()):
         """
         name a str, image a str, right_ascension and declination floats, galaxy_type a str,
@@ -190,19 +190,19 @@ class Galaxy(db.Model):
         be iterables containing instances of the respective classes which are in this galaxy.
         """
         # Check types
-        assert isinstance(redshift, float)
-        assert isinstance(name, str)
-        assert isinstance(galaxy_type, str)
-        assert isinstance(size, float)
-        assert isinstance(declination, float)
-        assert isinstance(right_ascension, float)
+        # assert isinstance(redshift, float)
+        # assert isinstance(name, str)
+        # assert isinstance(galaxy_type, str)
+        # assert isinstance(size, float)
+        # assert isinstance(dec, float)
+        # assert isinstance(ra, float)
 
         self.redshift = redshift
         self.name = name
         self.galaxy_type = galaxy_type
         self.size = size
-        self.declination = declination
-        self.right_ascension = right_ascension
+        self.dec = dec
+        self.ra = ra
         self.stars = stars
         self.planets = planets
         self.satellites = satellites
@@ -216,8 +216,8 @@ class Galaxy(db.Model):
             "name": self.name,
             "type": self.galaxy_type,
             "size": self.size,
-            "dec": self.declination,
-            "ra": self.right_ascension
+            "dec": self.dec,
+            "ra": self.ra
         }
 
 
@@ -256,30 +256,30 @@ class Planet(db.Model):
     # orbiting_bodies, and satellites are to be iterables containing instances of the respective
     # classes which are within this galaxy
     def __init__(
-            self, temperature, diameter, name, orbital_period, mass, declination,
-            right_ascension, gravity, satellites=()):
+            self, temperature, diameter, name, orbital_period, mass, dec,
+            ra, gravity, satellites=()):
         """
         name a str, image a str, diameter, surface_temperature, right_ascension, declination,
         mass, gravity, orbital_period are all floats. orbiting_bodies and satellites are to be
         iterables containing instances of the respective classes which orbit this planet.
         """
         # Check types
-        assert isinstance(temperature, float)
-        assert isinstance(diameter, float)
-        assert isinstance(name, str)
-        assert isinstance(orbital_period, float)
-        assert isinstance(mass, float)
-        assert isinstance(declination, float)
-        assert isinstance(right_ascension, float)
-        assert isinstance(gravity, float)
+        # assert isinstance(temperature, float)
+        # assert isinstance(diameter, float)
+        # assert isinstance(name, str)
+        # assert isinstance(orbital_period, float)
+        # assert isinstance(mass, float)
+        # assert isinstance(dec, float)
+        # assert isinstance(ra, float)
+        # assert isinstance(gravity, float)
 
         self.temperature = temperature
         self.diameter = diameter
         self.name = name
         self.orbital_period = orbital_period
         self.mass = mass
-        self.declination = declination
-        self.right_ascension = right_ascension
+        self.dec = dec
+        self.ra = ra
         self.gravity = gravity
         self.satellites = satellites
 
@@ -295,8 +295,8 @@ class Planet(db.Model):
             "mass": self.mass,
             "star_pid": self.star_pid,
             "pid": self.pid,
-            "dec": self.declination,
-            "ra": self.right_ascension,
+            "dec": self.dec,
+            "ra": self.ra,
             "galaxy_pid": self.galaxy_pid,
             "gravity": self.gravity
         }
