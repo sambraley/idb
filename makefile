@@ -48,7 +48,6 @@ IDB.log:
 	git log > IDB1.log
 
 RunIDB: app/idb.py
-	gulp
 	-$(PYLINT) app/idb.py
 	$(PYTHON) app/idb.py
 

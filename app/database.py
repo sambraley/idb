@@ -18,7 +18,7 @@ def connect_db(flask_app, db_URI):
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite://"
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(flask_app)
-        with flask_app.app_context() : load_test_db()
+        with flask_app.app_context() : load_db()
     else :
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_URI
         db.init_app(flask_app)
@@ -44,10 +44,10 @@ def load_db():
     #Creates tables based on models.py
     db.create_all()
 
-    planets_json = json.loads(open('../data/planets.json').read())
-    galaxies_json = json.loads(open('../data/galaxies.json').read())
-    satellites_json = json.loads(open('../data/satellites.json').read())
-    stars_json = json.loads(open('../data/stars.json').read())
+    planets_json = json.loads(open('./data/planets.json').read())
+    galaxies_json = json.loads(open('./data/galaxies.json').read())
+    satellites_json = json.loads(open('./data/satellites.json').read())
+    stars_json = json.loads(open('./data/stars.json').read())
     
     galaxies = create_galaxy_objs(galaxies_json)
     insert_into_db(galaxies)
