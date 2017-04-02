@@ -101,48 +101,6 @@ def galaxies_table():
 def galaxy_instance(galaxy_id):
     return render_template('galaxy.html', galaxy=Galaxy.query.get(galaxy_id))
     
-################
-# API Routing
-################
-
-@app.route('/api/v1/satellites')
-def api_satellites(): 
-    return jsonify([sat.to_dict() for sat in Satellite.query.all()])
-
-@app.route('/api/v1/satellites/<int:satellite_id>')
-def api_satellite(satellite_id) :
-    return jsonify(Satellite.query.get_or_404(satellite_id).to_dict())
-
-@app.route('/api/v1/planets')
-def api_planets(): 
-    return jsonify([planet.to_dict() for planet in Planet.query.all()])
-
-@app.route('/api/v1/planets/<int:planet_id>')
-def api_planet(planet_id):
-    return jsonify(Planet.query.get_or_404(planet_id).to_dict())
-
-@app.route('/api/v1/stars')
-def api_stars():
-    return jsonify([star.to_dict() for star in Star.query.all()])
-    
-@app.route('/api/v1/stars/<int:star_id>')
-def api_star(star_id):
-    return jsonify(Star.query.get_or_404(star_id).to_dict())
-
-@app.route('/api/v1/galaxies')
-def api_galaxies(): 
-    return jsonify([galaxy.to_dict() for galaxy in Galaxy.query.all()])
-    
-@app.route('/api/v1/galaxies/<int:galaxy_id>')
-def api_galaxy(galaxy_id):
-    return jsonify(Galaxy.query.get_or_404(galaxy_id).to_dict())
-
-@app.errorhandler(404)
-def not_found(error) :
-    response = jsonify({'code':404, 'message': 'The requested data does not exist'})
-    response.status_code = 404
-    return response
-
 
 if __name__ == "__main__":
     app.run()
