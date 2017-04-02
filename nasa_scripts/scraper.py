@@ -12,35 +12,34 @@ satellites = satellite_scrape()
 satellite_image_scrape(satellites)
 
 # hardcode elements
-earth = {"pid":planets[len(planets)-1]["pid"] + 1,\
-         "name":"Earth",\
-         "diameter":12742,\
-         "ra":0,\
-         "dec":0,\
-         "gravity":9.81,\
-         "orbital_period":365,\
-         "mass":5.972 * (10 ** 24),\
-         "temperature":287,\
-         "host_pid":-1,\
-         "star_pid":stars[len(stars)-1]["pid"] + 1,\
+earth = {"pid":planets[len(planets)-1]["pid"] + 1,
+         "name":"Earth",
+         "diameter":float(12742),
+         "ra":0.0,
+         "dec":0.0,
+         "gravity":9.81,
+         "orbital_period":float(365),
+         "mass":float(5.972 * (10 ** 24)),
+         "temperature":287,
+         "star_pid":stars[len(stars)-1]["pid"] + 1,
          "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1 }
 
-sun = {"pid":stars[len(stars)-1]["pid"] + 1,\
-       "name":"Sun",\
-       "diameter":1.3914 * (10 **6),\
-       "ra":0.49288194,\
-       "dec":3.1928926,\
-       "temperature":5778,\
-       "mass":1,\
+sun = {"pid":stars[len(stars)-1]["pid"] + 1,
+       "name":"Sun",
+       "diameter":1.3914 * (10 **6),
+       "ra":0.49288194,
+       "dec":3.1928926,
+       "temperature":5778,
+       "mass":1.0,
        "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1}
 
-milky_way = {"pid":galaxies[len(galaxies)-1]["pid"] + 1,\
-             "name": "Milky Way",\
-             "ra":17.7533,\
-             "dec":-47.2833,\
-             "type":"Spiral",\
-             "redshift":0,\
-             "size":360}
+milky_way = {"pid":galaxies[len(galaxies)-1]["pid"] + 1,
+             "name": "Milky Way",
+             "ra":17.7533,
+             "dec":-47.2833,
+             "morph_type":"Spiral",
+             "redshift":0.0,
+             "size":360.0}
 
 planets.append(earth)
 stars.append(sun)

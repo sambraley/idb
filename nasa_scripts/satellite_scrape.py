@@ -61,22 +61,22 @@ def t_pid(web_sat) :
     return ("pid", pid)
     
 def t_name(web_sat) : 
-    return ("name",web_sat["name"])
+    return ("name", str(web_sat["name"]))
 
 def t_image(web_sat) : 
-    return ("image","satellite.png")
+    return ("image", "satellite.png")
 
 def t_year(web_sat) : 
-    return ("year_launched", web_sat["launch"]["windowstart"].split(" ")[2])
+    return ("year_launched", int(web_sat["launch"]["windowstart"].split(" ")[2]))
 
 def t_agency(web_sat) : 
-    return ("agency", web_sat["agencies"][0]["name"])
+    return ("agency", str(web_sat["agencies"][0]["name"]))
 
 def t_info(web_sat) :
-    return ("info_url", web_sat["wikiURL"])
+    return ("info_url", str(web_sat["wikiURL"]))
 
 def t_type(web_sat) : 
-    return ("type", web_sat["typeName"])
+    return ("mission_type", str(web_sat["typeName"]))
 
 def t_ppid(web_sat) : 
     return ("planet_pid", -1)
@@ -89,7 +89,13 @@ def t_gpid(web_sat) :
     
 
 def filter_sats(sats) : 
-    sats = list(filter(lambda sat : all(sat.values()) and sat["type"] != "Human Exploration" and sat["type"] != "Resupply" and sat["type"] != "Government/Top Secret", sats))
+    def correct_mission(sat) :
+        correct = sat["mission_type"] == "Earth Science"
+        correct = correct or sat["mission_type"] == "Planetary Science"
+        correct = correct or sat["mission_type"] == "Heliophysics"
+        return correct
+        
+    sats = list(filter(lambda sat : all(sat.values()) and correct_mission(sat), sats))
     
     i = 1
     for sat in sats :

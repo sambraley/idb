@@ -78,33 +78,33 @@ def t_pid(web_galaxy) :
     return ("pid",pid)
     
 def t_name(web_galaxy) : 
-    return ("name",web_galaxy["identifier"])
+    return ("name", str(web_galaxy["identifier"]))
 
 def t_ra(web_galaxy) : 
-    return ("ra", web_galaxy["coord1 (ICRS,J2000/2000)"].split(" ")[0])
+    return ("ra", float(web_galaxy["coord1 (ICRS,J2000/2000)"].split(" ")[0]))
 
 def t_dec(web_galaxy) : 
-    return ("dec", web_galaxy["coord1 (ICRS,J2000/2000)"].split(" ")[1])
+    return ("dec", float(web_galaxy["coord1 (ICRS,J2000/2000)"].split(" ")[1]))
 
 def t_type(web_galaxy) : 
-    type = ""
+    morph_type = ""
     
     if "SB" in web_galaxy["morph. type"] :
-        type = "Barred Spiral"
+        morph_type = "Barred Spiral"
     elif "S" in web_galaxy["morph. type"] :
-        type = "Spiral"
+        morph_type = "Spiral"
     elif "I" in web_galaxy["morph. type"] :
-        type = "Irregular"
+        morph_type = "Irregular"
     elif "E" in web_galaxy["morph. type"] :
-        type = "Elliptical"
-    return ("type", type)
+        morph_type = "Elliptical"
+    return ("morph_type", morph_type)
     
 
 def t_redshift(web_galaxy) : 
-    return ("redshift", web_galaxy["redshift"])
+    return ("redshift", float(web_galaxy["redshift"]))
 
 def t_size(web_galaxy) : 
-    return ("size", web_galaxy["ang. size"].split(" ")[0])
+    return ("size", float(web_galaxy["ang. size"].split(" ")[0]))
 
 def filter_galaxies(galaxies) : 
     galaxies = list(filter(lambda galaxy : all(galaxy.values()), galaxies))
