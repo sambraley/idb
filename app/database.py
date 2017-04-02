@@ -22,6 +22,8 @@ def connect_db(flask_app, db_URI):
     else :
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_URI
         db.init_app(flask_app)
+        
+    return db
 
     
 def load_test_db():

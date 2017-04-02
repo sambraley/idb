@@ -5,17 +5,14 @@
 # pylint: disable = missing-docstring
 # pylint: disable = line-too-long
 import flask
-import flask_restless
 from flask import Flask, render_template, jsonify
-from database import connect_db, Satellite, Planet, Star, Galaxy, db
+
+from database import connect_db, Satellite, Planet, Star, Galaxy
+from api import api_setup
 
 app = Flask(__name__)
-connect_db(app, "")
-manager = flask_restless.APIManager(app, flask_sqlalchemy_db=db)
-manager.create_api(Satellite, exclude_columns=["planet","star","galaxy"], methods=["GET"])
-manager.create_api(Planet, methods=["GET"])
-manager.create_api(Star, methods=["GET"])
-manager.create_api(Galaxy, methods=["GET"])
+db = connect_db(app, "")
+api_setup(app, db)
 
 headers = {'planetoids': ["Name", "Diameter", "Gravity", "Temperatures", "Mass", "Orbital Period"],
            'galaxies': ["Name", "Images", "Location", "Age", "Year of Discovery", "Type"],

@@ -66,6 +66,7 @@ class Satellite(db.Model):
         self.image = image
         self.year_launched = year_launched  
         self.mission_type = mission_type
+        self.info_url = info_url
         self.agency = agency
         self.planet = planet
         self.star = star
