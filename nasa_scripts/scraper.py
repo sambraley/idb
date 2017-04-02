@@ -21,7 +21,6 @@ earth = {"pid":planets[len(planets)-1]["pid"] + 1,\
          "orbital_period":365,\
          "mass":5.972 * (10 ** 24),\
          "temperature":287,\
-         "host_pid":-1,\
          "star_pid":stars[len(stars)-1]["pid"] + 1,\
          "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1 }
 
