@@ -5,7 +5,7 @@ class Carousel extends React.Component {
 		constructor(props) {
 			super(props);
 			this.urls = [];
-			this.urls.push(parseJSON("testing"));
+			this.urls.push(this.parseJSON("testing"));
 		}
 		parseJSON(json) {
 			// TODO
