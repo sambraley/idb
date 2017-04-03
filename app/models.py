@@ -81,7 +81,7 @@ class Satellite(db.Model):
             "name": self.name,
             "image": self.image,
             "year_launched": self.year_launched,
-            "type": self.mission_type,
+            "mission_type": self.mission_type,
             "info_url": self.info_url,
             "agency": self.agency,
             "planet_pid": self.planet_pid,
