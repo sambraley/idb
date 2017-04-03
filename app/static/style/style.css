@@ -23,17 +23,6 @@ html, body {
 .item{
   height: 100%;
 }
-.carousel-content {
-  position: absolute;
-  bottom: 50%;
-  z-index: 20;
-  color: white;
-}
-.center {
-	text-align: center;
-	width: 100%;
-}
-
 .carousel-inner {
   height: 100%;
 }
