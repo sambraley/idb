@@ -1,2712 +1,2712 @@
 [
 	{
-		"temperature": 5510.0,
-		"diameter": 1460970.0,
-		"name": "WASP-83",
-		"mass": 1.11,
-		"pid": 1,
-		"dec": -19.284243,
-		"ra": 190.152085,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5200.0,
-		"diameter": 1238346.0,
-		"name": "Kepler-75",
-		"mass": 0.91,
-		"pid": 2,
-		"dec": 36.577386,
-		"ra": 291.137593,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5171.0,
-		"diameter": 1207735.2,
-		"name": "TrES-5",
-		"mass": 0.9,
-		"pid": 3,
-		"dec": 59.448788,
-		"ra": 305.221841,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4925.0,
-		"diameter": 890496.0,
-		"name": "Kepler-62",
-		"mass": 0.69,
-		"pid": 4,
-		"dec": 45.349865,
-		"ra": 283.212747,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6003.0,
-		"diameter": 2060663.4000000001,
-		"name": "KELT-15",
-		"mass": 1.18,
-		"pid": 5,
-		"dec": -52.120453,
-		"ra": 117.415037,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5000.0,
-		"diameter": 1099206.0,
-		"name": "WASP-52",
-		"mass": 0.87,
-		"pid": 6,
-		"dec": 8.761262,
-		"ra": 348.494748,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4699.0,
-		"diameter": 1082509.2,
-		"name": "HD 219134",
-		"mass": 0.81,
-		"pid": 7,
-		"dec": 57.168354,
-		"ra": 348.32074,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5667.0,
-		"diameter": 2170584.0,
-		"name": "Kepler-101",
-		"mass": 1.17,
-		"pid": 8,
-		"dec": 48.355228,
-		"ra": 283.255489,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6407.0,
-		"diameter": 2412687.6,
-		"name": "PH1",
-		"mass": 1.53,
-		"pid": 9,
-		"dec": 39.955104,
-		"ra": 298.215108,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5227.0,
-		"diameter": 1249477.2,
-		"name": "HATS-2",
-		"mass": 0.88,
-		"pid": 10,
-		"dec": -22.562992,
-		"ra": 176.739094,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5310.0,
-		"diameter": 1113120.0,
-		"name": "WASP-139",
-		"mass": 0.92,
-		"pid": 11,
-		"dec": -41.302147,
-		"ra": 49.562229,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6096.0,
-		"diameter": 1996659.0,
-		"name": "HAT-P-35",
-		"mass": 1.24,
-		"pid": 12,
-		"dec": 4.787023,
-		"ra": 123.250764,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4143.0,
-		"diameter": 815360.3999999999,
-		"name": "WASP-80",
-		"mass": 0.58,
-		"pid": 13,
-		"dec": -2.144208,
-		"ra": 303.167407,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6132.0,
-		"diameter": 2123276.4,
-		"name": "K2-34",
-		"mass": 1.28,
-		"pid": 14,
-		"dec": 22.235908,
-		"ra": 127.57877,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5498.0,
-		"diameter": 1282870.8,
-		"name": "HATS-28",
-		"mass": 0.93,
-		"pid": 15,
-		"dec": -49.13847,
-		"ra": 284.399685,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5540.0,
-		"diameter": 1460970.0,
-		"name": "WASP-96",
-		"mass": 1.06,
-		"pid": 16,
-		"dec": -47.360626,
-		"ra": 1.046351,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5440.0,
-		"diameter": 1391400,
-		"name": "CoRoT-18",
-		"mass": 0.95,
-		"pid": 17,
-		"dec": -0.031586,
-		"ra": 98.17241,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5079.0,
-		"diameter": 1096423.2,
-		"name": "HAT-P-26",
-		"mass": 0.82,
-		"pid": 18,
-		"dec": 4.059997,
-		"ra": 213.156383,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6600.0,
-		"diameter": 2042575.2,
-		"name": "HAT-P-14",
-		"mass": 1.39,
-		"pid": 19,
-		"dec": 38.242165,
-		"ra": 260.116169,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5275.0,
-		"diameter": 1175733.0,
-		"name": "K2-32",
-		"mass": 0.86,
-		"pid": 20,
-		"dec": -19.542821,
-		"ra": 252.426083,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5750.0,
-		"diameter": 1794906.0,
-		"name": "Kepler-41",
-		"mass": 1.15,
-		"pid": 21,
-		"dec": 45.981644,
-		"ra": 294.513229,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5600.0,
-		"diameter": 1193821.2,
-		"name": "WASP-46",
-		"mass": 0.83,
-		"pid": 22,
-		"dec": -55.87178,
-		"ra": 318.736981,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5630.0,
-		"diameter": 1572281.9999999998,
-		"name": "WASP-95",
-		"mass": 1.11,
-		"pid": 23,
-		"dec": -48.003086,
-		"ra": 337.457189,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4390.0,
-		"diameter": 858493.8,
-		"name": "HAT-P-54",
-		"mass": 0.65,
-		"pid": 24,
-		"dec": 25.48254,
-		"ra": 99.898,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6210.0,
-		"diameter": 1836648.0,
-		"name": "OGLE-TR-132",
-		"mass": 1.3,
-		"pid": 25,
-		"dec": -61.957194,
-		"ra": 162.644667,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6180.0,
-		"diameter": 2448864.0,
-		"name": "WASP-99",
-		"mass": 1.48,
-		"pid": 26,
-		"dec": -50.008003,
-		"ra": 39.897688,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5980.0,
-		"diameter": 1633503.5999999999,
-		"name": "HAT-P-1",
-		"mass": 1.15,
-		"pid": 27,
-		"dec": 38.674953,
-		"ra": 344.445104,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6206.0,
-		"diameter": 2230414.2,
-		"name": "KELT-4 A",
-		"mass": 1.2,
-		"pid": 28,
-		"dec": 25.573189,
-		"ra": 157.062546,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5545.0,
-		"diameter": 1210518.0,
-		"name": "WASP-41",
-		"mass": 0.93,
-		"pid": 29,
-		"dec": -30.63987,
-		"ra": 190.618736,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5820.0,
-		"diameter": 1324612.8,
-		"name": "Kepler-539",
-		"mass": 1.05,
-		"pid": 30,
-		"dec": 41.86676,
-		"ra": 299.122454,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4650.0,
-		"diameter": 975371.3999999999,
-		"name": "HAT-P-12",
-		"mass": 0.73,
-		"pid": 31,
-		"dec": 43.493534,
-		"ra": 209.389489,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6050.0,
-		"diameter": 2601918.0,
-		"name": "HATS-31",
-		"mass": 1.27,
-		"pid": 32,
-		"dec": -24.427364,
-		"ra": 191.702789,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6055.0,
-		"diameter": 1938220.2,
-		"name": "WASP-106",
-		"mass": 1.19,
-		"pid": 33,
-		"dec": -5.079412,
-		"ra": 166.429747,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6290.0,
-		"diameter": 2281896.0,
-		"name": "HAT-P-2",
-		"mass": 1.36,
-		"pid": 34,
-		"dec": 41.048084,
-		"ra": 245.151489,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6200.0,
-		"diameter": 2198412.0,
-		"name": "HAT-P-8",
-		"mass": 1.28,
-		"pid": 35,
-		"dec": 35.447109,
-		"ra": 343.041067,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5311.0,
-		"diameter": 1282870.8,
-		"name": "HATS-15",
-		"mass": 0.87,
-		"pid": 36,
-		"dec": -19.43751,
-		"ra": 311.091961,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6305.0,
-		"diameter": 2646442.8,
-		"name": "Kepler-21",
-		"mass": 1.41,
-		"pid": 37,
-		"dec": 38.714016,
-		"ra": 287.361816,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5900.0,
-		"diameter": 1586195.9999999998,
-		"name": "WASP-60",
-		"mass": 1.08,
-		"pid": 38,
-		"dec": 31.155935,
-		"ra": 356.666564,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6182.0,
-		"diameter": 2114928.0,
-		"name": "KOI-94",
-		"mass": 1.28,
-		"pid": 39,
-		"dec": 41.891117,
-		"ra": 297.333057,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 2559.0,
-		"diameter": 162793.80000000002,
-		"name": "TRAPPIST-1",
-		"mass": 0.08,
-		"pid": 40,
-		"dec": -5.041274,
-		"ra": 346.622013,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5781.0,
-		"diameter": 1460970.0,
-		"name": "Kepler-17",
-		"mass": 1.16,
-		"pid": 41,
-		"dec": 47.815006,
-		"ra": 298.395274,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5679.0,
-		"diameter": 1511060.4000000001,
-		"name": "HATS-8",
-		"mass": 1.06,
-		"pid": 42,
-		"dec": -25.748318,
-		"ra": 294.941746,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5246.0,
-		"diameter": 1165993.2,
-		"name": "HAT-P-17",
-		"mass": 0.86,
-		"pid": 43,
-		"dec": 30.488716,
-		"ra": 324.536396,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6071.0,
-		"diameter": 2838456.0,
-		"name": "HATS-26",
-		"mass": 1.3,
-		"pid": 44,
-		"dec": -28.58559,
-		"ra": 144.926863,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6010.0,
-		"diameter": 2281896.0,
-		"name": "WASP-142",
-		"mass": 1.33,
-		"pid": 45,
-		"dec": -23.946169,
-		"ra": 140.506393,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6295.0,
-		"diameter": 2518434.0,
-		"name": "TrES-4",
-		"mass": 1.45,
-		"pid": 46,
-		"dec": 37.211849,
-		"ra": 268.304354,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5939.0,
-		"diameter": 1580630.4,
-		"name": "CoRoT-22",
-		"mass": 1.1,
-		"pid": 47,
-		"dec": 6.219136,
-		"ra": 280.667115,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5600.0,
-		"diameter": 2532348.0,
-		"name": "Kepler-87",
-		"mass": 1.1,
-		"pid": 48,
-		"dec": 46.96513,
-		"ra": 297.916877,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6350.0,
-		"diameter": 1947959.9999999998,
-		"name": "Kepler-39",
-		"mass": 1.29,
-		"pid": 49,
-		"dec": 46.034298,
-		"ra": 296.960265,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5500.0,
-		"diameter": 1220257.8,
-		"name": "HAT-P-37",
-		"mass": 0.93,
-		"pid": 50,
-		"dec": 51.269138,
-		"ra": 284.296064,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5700.0,
-		"diameter": 2003616.0,
-		"name": "WASP-133",
-		"mass": 1.16,
-		"pid": 51,
-		"dec": -35.796555,
-		"ra": 314.575373,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5808.0,
-		"diameter": 1406705.4,
-		"name": "HAT-P-55",
-		"mass": 1.01,
-		"pid": 52,
-		"dec": 25.731186,
-		"ra": 264.273447,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6490.0,
-		"diameter": 3033252.0,
-		"name": "WASP-82",
-		"mass": 1.63,
-		"pid": 53,
-		"dec": 1.893921,
-		"ra": 72.660671,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5309.0,
-		"diameter": 1099206.0,
-		"name": "Kepler-46",
-		"mass": 0.9,
-		"pid": 54,
-		"dec": 42.604176,
-		"ra": 289.268744,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6250.0,
-		"diameter": 2407122.0,
-		"name": "WASP-76",
-		"mass": 1.46,
-		"pid": 55,
-		"dec": 2.700539,
-		"ra": 26.632746,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5568.0,
-		"diameter": 1502712.0,
-		"name": "HAT-P-15",
-		"mass": 1.01,
-		"pid": 56,
-		"dec": 39.460636,
-		"ra": 66.248026,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4595.0,
-		"diameter": 965631.6,
-		"name": "HAT-P-20",
-		"mass": 0.76,
-		"pid": 57,
-		"dec": 24.33663,
-		"ra": 111.916469,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6410.0,
-		"diameter": 2359814.4,
-		"name": "WASP-118",
-		"mass": 1.32,
-		"pid": 58,
-		"dec": 2.702824,
-		"ra": 19.550543,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 3820.0,
-		"diameter": 765270.0000000001,
-		"name": "Kepler-45",
-		"mass": 0.59,
-		"pid": 59,
-		"dec": 41.064261,
-		"ra": 292.8729,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5870.0,
-		"diameter": 1444273.2,
-		"name": "HATS-1",
-		"mass": 0.99,
-		"pid": 60,
-		"dec": -23.354836,
-		"ra": 175.525336,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5645.0,
-		"diameter": 1534714.2,
-		"name": "HAT-P-43",
-		"mass": 1.05,
-		"pid": 61,
-		"dec": 10.206653,
-		"ra": 128.925737,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5474.0,
-		"diameter": 2434950.0,
-		"name": "K2-108",
-		"mass": 1.12,
-		"pid": 62,
-		"dec": 16.419609,
-		"ra": 123.381875,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6304.0,
-		"diameter": 1690551.0,
-		"name": "HAT-P-30",
-		"mass": 1.24,
-		"pid": 63,
-		"dec": 5.836719,
-		"ra": 123.949894,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5700.0,
-		"diameter": 1526365.8,
-		"name": "HATS-32",
-		"mass": 1.1,
-		"pid": 64,
-		"dec": -21.271938,
-		"ra": 346.075073,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6038.0,
-		"diameter": 1627938.0,
-		"name": "WASP-117",
-		"mass": 1.13,
-		"pid": 65,
-		"dec": -50.284519,
-		"ra": 36.775432,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5885.0,
-		"diameter": 1515234.5999999999,
-		"name": "HAT-P-23",
-		"mass": 1.1,
-		"pid": 66,
-		"dec": 16.762152,
-		"ra": 306.123854,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5800.0,
-		"diameter": 1878390.0000000002,
-		"name": "Kepler-427",
-		"mass": 0.96,
-		"pid": 67,
-		"dec": 43.704868,
-		"ra": 288.25458,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6065.0,
+		"dec": 26.426662,
+		"galaxy_pid": 143,
 		"diameter": 1892304.0000000002,
+		"temperature": 6065,
+		"ra": 271.537705,
 		"name": "HAT-P-31",
 		"mass": 1.22,
-		"pid": 68,
-		"dec": 26.426662,
-		"ra": 271.537705,
-		"galaxy_pid": 143
+		"pid": 1
 	},
 	{
-		"temperature": 5950.0,
-		"diameter": 1544454.0000000002,
-		"name": "CoRoT-1",
-		"mass": 0.95,
-		"pid": 69,
-		"dec": -3.102147,
-		"ra": 102.079885,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5800.0,
-		"diameter": 1878390.0000000002,
-		"name": "Kepler-44",
-		"mass": 1.12,
-		"pid": 70,
-		"dec": 45.762142,
-		"ra": 300.102352,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5230.0,
-		"diameter": 1122859.8,
-		"name": "TrES-1",
-		"mass": 0.88,
-		"pid": 71,
-		"dec": 36.632629,
-		"ra": 286.041062,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6153.0,
-		"diameter": 1746206.9999999998,
-		"name": "WASP-22",
-		"mass": 1.25,
-		"pid": 72,
-		"dec": -23.819702,
-		"ra": 52.818043,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5058.0,
-		"diameter": 1025461.7999999999,
-		"name": "Kepler-78",
-		"mass": 0.76,
-		"pid": 73,
-		"dec": 44.44833,
-		"ra": 293.74169,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6441.0,
-		"diameter": 2560176.0,
-		"name": "HAT-P-7",
-		"mass": 1.47,
-		"pid": 74,
-		"dec": 47.969513,
-		"ra": 292.24731,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6250.0,
-		"diameter": 1600109.9999999998,
-		"name": "WTS-1",
-		"mass": 1.2,
-		"pid": 75,
-		"dec": 36.290325,
-		"ra": 293.9932,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5590.0,
-		"diameter": 2490606.0,
-		"name": "CoRoT-26",
-		"mass": 1.09,
-		"pid": 76,
-		"dec": 6.969787,
-		"ra": 279.750514,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5380.0,
-		"diameter": 1363572.0,
-		"name": "HATS-34",
-		"mass": 0.95,
-		"pid": 77,
-		"dec": -62.469341,
-		"ra": 0.774485,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5013.0,
-		"diameter": 1117294.2,
-		"name": "Qatar-1",
-		"mass": 0.84,
-		"pid": 78,
-		"dec": 65.162041,
-		"ra": 303.381672,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6190.0,
-		"diameter": 1627938.0,
-		"name": "CoRoT-4",
-		"mass": 1.16,
-		"pid": 79,
-		"dec": -0.672774,
-		"ra": 102.194663,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5725.0,
-		"diameter": 1280088.0,
-		"name": "Kepler-426",
-		"mass": 0.91,
-		"pid": 80,
-		"dec": 49.4734,
-		"ra": 289.434628,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5754.0,
-		"diameter": 2323638.0,
-		"name": "KELT-8",
-		"mass": 1.21,
-		"pid": 81,
-		"dec": 24.12738,
-		"ra": 283.30551,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 3724.0,
-		"diameter": 793097.9999999999,
-		"name": "HATS-6",
-		"mass": 0.57,
-		"pid": 82,
-		"dec": -19.031656,
-		"ra": 88.146797,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5933.0,
-		"diameter": 2735492.4,
-		"name": "Kepler-7",
-		"mass": 1.36,
-		"pid": 83,
-		"dec": 41.0898,
-		"ra": 288.581516,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6236.0,
-		"diameter": 1892304.0000000002,
-		"name": "KELT-16",
-		"mass": 1.21,
-		"pid": 84,
-		"dec": 31.661034,
-		"ra": 314.268494,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6100.0,
-		"diameter": 1753164.0,
-		"name": "WASP-75",
-		"mass": 1.14,
-		"pid": 85,
-		"dec": -10.67556,
-		"ra": 342.385707,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5740.0,
-		"diameter": 1787949.0,
-		"name": "WASP-123",
-		"mass": 1.17,
-		"pid": 86,
-		"dec": -32.86113,
-		"ra": 289.478676,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6408.0,
-		"diameter": 3074994.0,
-		"name": "HATS-12",
-		"mass": 1.49,
-		"pid": 87,
-		"dec": -19.355908,
-		"ra": 289.202397,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5200.0,
-		"diameter": 1168776.0,
-		"name": "WASP-2",
-		"mass": 0.89,
-		"pid": 88,
-		"dec": 6.429536,
-		"ra": 307.725542,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6153.0,
-		"diameter": 2254068.0,
-		"name": "WASP-94 A",
-		"mass": 1.45,
-		"pid": 89,
-		"dec": -34.135555,
-		"ra": 313.783098,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5780.0,
-		"diameter": 1668288.6,
-		"name": "HATS-23",
-		"mass": 1.12,
-		"pid": 90,
-		"dec": -50.067352,
-		"ra": 286.366699,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5659.0,
-		"diameter": 1422010.8,
-		"name": "HATS-33",
-		"mass": 1.06,
-		"pid": 91,
-		"dec": -55.330105,
-		"ra": 294.633636,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5248.0,
-		"diameter": 1231389.0,
-		"name": "K2-27",
-		"mass": 0.87,
-		"pid": 92,
-		"dec": 1.230738,
-		"ra": 171.515165,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6346.0,
-		"diameter": 1630720.7999999998,
-		"name": "HATS-24",
-		"mass": 1.21,
-		"pid": 93,
-		"dec": -61.747311,
-		"ra": 268.890686,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5766.0,
-		"diameter": 1291219.2,
-		"name": "BD+20 594",
-		"mass": 0.96,
-		"pid": 94,
-		"dec": 20.599232,
-		"ra": 53.650966,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4990.0,
-		"diameter": 1140948.0,
-		"name": "HAT-P-19",
-		"mass": 0.84,
-		"pid": 95,
-		"dec": 34.711575,
-		"ra": 9.516742,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6390.0,
-		"diameter": 2341726.2,
-		"name": "HAT-P-41",
-		"mass": 1.42,
-		"pid": 96,
-		"dec": 4.672421,
-		"ra": 297.322651,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6120.0,
-		"diameter": 1824125.4,
-		"name": "EPIC 211391664",
-		"mass": 1.07,
-		"pid": 97,
-		"dec": 11.511145,
-		"ra": 126.488289,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5500.0,
-		"diameter": 1334352.5999999999,
-		"name": "HAT-P-25",
-		"mass": 1.01,
-		"pid": 98,
-		"dec": 25.197405,
-		"ra": 48.435419,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6446.0,
-		"diameter": 2277721.8,
-		"name": "HAT-P-33",
-		"mass": 1.38,
-		"pid": 99,
-		"dec": 33.835052,
-		"ra": 113.184212,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5314.0,
-		"diameter": 1040767.2,
-		"name": "WASP-84",
-		"mass": 0.84,
-		"pid": 100,
-		"dec": 1.860033,
-		"ra": 131.107099,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5625.0,
-		"diameter": 1335744.0,
-		"name": "WASP-130",
-		"mass": 1.04,
-		"pid": 101,
-		"dec": -42.475273,
-		"ra": 203.105988,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 3652.0,
-		"diameter": 667872.0,
-		"name": "GJ 3470",
-		"mass": 0.51,
-		"pid": 102,
-		"dec": 15.391492,
-		"ra": 119.774349,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5970.0,
-		"diameter": 2281896.0,
-		"name": "WASP-74",
-		"mass": 1.48,
-		"pid": 103,
-		"dec": -1.075676,
-		"ra": 304.538823,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6442.0,
-		"diameter": 2135799.0,
-		"name": "HAT-P-34",
-		"mass": 1.39,
-		"pid": 104,
-		"dec": 18.104868,
-		"ra": 303.195342,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5750.0,
-		"diameter": 1790731.7999999998,
-		"name": "Kepler-412",
-		"mass": 1.17,
-		"pid": 105,
-		"dec": 43.680958,
-		"ra": 286.110327,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5304.0,
-		"diameter": 1211909.4,
-		"name": "HATS-5",
-		"mass": 0.94,
-		"pid": 106,
-		"dec": -21.481916,
-		"ra": 67.222871,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5700.0,
-		"diameter": 1431750.5999999999,
-		"name": "WASP-5",
-		"mass": 0.96,
-		"pid": 107,
-		"dec": -41.277149,
-		"ra": 359.348991,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5940.0,
-		"diameter": 1936828.7999999998,
-		"name": "WASP-20",
-		"mass": 1.2,
-		"pid": 108,
-		"dec": -23.935728,
-		"ra": 5.160559,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6280.0,
-		"diameter": 1865867.4,
-		"name": "WASP-92",
-		"mass": 1.19,
-		"pid": 109,
-		"dec": 51.041115,
-		"ra": 246.692108,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5473.0,
-		"diameter": 1031027.4,
-		"name": "WASP-98",
-		"mass": 0.81,
-		"pid": 110,
-		"dec": -34.328194,
-		"ra": 58.428794,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5449.0,
-		"diameter": 1448447.4,
-		"name": "HAT-P-51",
-		"mass": 0.98,
-		"pid": 111,
-		"dec": 32.810764,
-		"ra": 21.06519,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6431.0,
-		"diameter": 2894112.0,
-		"name": "WASP-88",
-		"mass": 1.45,
-		"pid": 112,
-		"dec": -48.462067,
-		"ra": 309.511192,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4645.0,
-		"diameter": 1079726.4000000001,
-		"name": "Qatar-2",
-		"mass": 0.74,
-		"pid": 113,
-		"dec": -6.804028,
-		"ra": 207.655866,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5911.0,
-		"diameter": 2351466.0,
-		"name": "WASP-68",
-		"mass": 1.24,
-		"pid": 114,
-		"dec": -19.31468,
-		"ra": 305.095785,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6440.0,
-		"diameter": 1906218.0000000002,
-		"name": "CoRoT-11",
-		"mass": 1.27,
-		"pid": 115,
-		"dec": 5.937688,
-		"ra": 280.687263,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6110.0,
-		"diameter": 1998050.4,
-		"name": "WASP-103",
-		"mass": 1.22,
-		"pid": 116,
-		"dec": 7.183352,
-		"ra": 249.314868,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6059.0,
-		"diameter": 3144563.9999999995,
-		"name": "WASP-71",
-		"mass": 1.56,
-		"pid": 117,
-		"dec": 0.758834,
-		"ra": 29.263338,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5075.0,
-		"diameter": 1099206.0,
-		"name": "CoRoT-10",
-		"mass": 0.89,
-		"pid": 118,
-		"dec": 0.746143,
-		"ra": 291.063708,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6050.0,
-		"diameter": 1896478.2,
-		"name": "OGLE-TR-056",
-		"mass": 1.23,
-		"pid": 119,
-		"dec": -29.539222,
-		"ra": 269.147958,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6360.0,
-		"diameter": 2305549.8,
-		"name": "WASP-12",
-		"mass": 1.43,
-		"pid": 120,
-		"dec": 29.672291,
-		"ra": 97.63664,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5560.0,
-		"diameter": 1321830.0,
-		"name": "Kepler-423",
-		"mass": 0.85,
-		"pid": 121,
-		"dec": 46.391178,
-		"ra": 292.855742,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5295.0,
-		"diameter": 1320438.5999999999,
-		"name": "HAT-P-44",
-		"mass": 0.94,
-		"pid": 122,
-		"dec": 47.014687,
-		"ra": 213.144074,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6018.0,
-		"diameter": 1307916.0,
-		"name": "Kepler-51",
-		"mass": 1.04,
-		"pid": 123,
-		"dec": 49.937683,
-		"ra": 296.479776,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5670.0,
-		"diameter": 1492972.2,
-		"name": "HATS-29",
-		"mass": 1.03,
-		"pid": 124,
-		"dec": -54.893192,
-		"ra": 285.096424,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5130.0,
-		"diameter": 1224432.0,
-		"name": "WASP-89",
-		"mass": 0.92,
-		"pid": 125,
-		"dec": -18.971106,
-		"ra": 313.899962,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5977.0,
-		"diameter": 1920131.9999999998,
-		"name": "Kepler-434",
-		"mass": 1.2,
-		"pid": 126,
-		"dec": 42.928913,
-		"ra": 293.586381,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4775.0,
-		"diameter": 1029636.0,
-		"name": "WASP-132",
-		"mass": 0.8,
-		"pid": 127,
-		"dec": -46.15918,
-		"ra": 217.609131,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5680.0,
-		"diameter": 1534714.2,
-		"name": "HAT-P-28",
-		"mass": 1.02,
-		"pid": 128,
-		"dec": 34.728413,
-		"ra": 13.000766,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6158.0,
-		"diameter": 1721161.8,
-		"name": "HAT-P-16",
-		"mass": 1.22,
-		"pid": 129,
-		"dec": 42.463078,
-		"ra": 9.573181,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5600.0,
-		"diameter": 1419228.0,
-		"name": "HATS-18",
-		"mass": 1.04,
-		"pid": 130,
-		"dec": -29.156012,
-		"ra": 173.957397,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6297.0,
-		"diameter": 2494780.1999999997,
-		"name": "Kepler-5",
-		"mass": 1.37,
-		"pid": 131,
-		"dec": 44.035046,
-		"ra": 299.407009,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6080.0,
-		"diameter": 3069428.4,
-		"name": "HAT-P-40",
-		"mass": 1.51,
-		"pid": 132,
-		"dec": 45.457378,
-		"ra": 335.512861,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5403.0,
-		"diameter": 1287045.0,
-		"name": "HATS-4",
-		"mass": 1.0,
-		"pid": 133,
-		"dec": -22.546885,
-		"ra": 94.112075,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 3270.0,
-		"diameter": 288019.8,
-		"name": "GJ 1132",
-		"mass": 0.18,
-		"pid": 134,
-		"dec": -47.156727,
-		"ra": 153.715737,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6306.0,
-		"diameter": 2048140.8,
-		"name": "KELT-3",
-		"mass": 1.28,
-		"pid": 135,
-		"dec": 40.388069,
-		"ra": 148.643324,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5763.0,
-		"diameter": 1690551.0,
-		"name": "WASP-70 A",
-		"mass": 1.11,
-		"pid": 136,
-		"dec": -13.433218,
-		"ra": 315.476951,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5720.0,
-		"diameter": 2114928.0,
-		"name": "KELT-14",
-		"mass": 1.24,
-		"pid": 137,
-		"dec": -42.409744,
-		"ra": 108.301485,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5675.0,
-		"diameter": 1552802.4000000001,
-		"name": "CoRoT-12",
-		"mass": 1.08,
-		"pid": 138,
-		"dec": -1.296439,
-		"ra": 100.765677,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6438.0,
-		"diameter": 2421036.0,
-		"name": "HATS-27",
-		"mass": 1.42,
-		"pid": 139,
-		"dec": -46.587715,
-		"ra": 193.55256,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5600.0,
-		"diameter": 1289827.8,
-		"name": "WASP-57",
-		"mass": 0.89,
-		"pid": 140,
-		"dec": -2.057665,
-		"ra": 223.820104,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5940.0,
-		"diameter": 1989702.0,
-		"name": "WASP-114",
-		"mass": 1.29,
-		"pid": 141,
-		"dec": 10.463482,
-		"ra": 327.664437,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5900.0,
-		"diameter": 1502712.0,
-		"name": "CoRoT-27",
-		"mass": 1.05,
-		"pid": 142,
-		"dec": 5.538462,
-		"ra": 278.495813,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5170.0,
-		"diameter": 1196604.0,
-		"name": "Kepler-425",
-		"mass": 0.93,
-		"pid": 143,
-		"dec": 40.567738,
-		"ra": 290.358009,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5700.0,
-		"diameter": 1294002.0,
-		"name": "WASP-34",
-		"mass": 1.01,
-		"pid": 144,
-		"dec": -23.860636,
-		"ra": 165.399561,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6000.0,
-		"diameter": 1558368.0000000002,
-		"name": "Kepler-74",
-		"mass": 1.18,
-		"pid": 145,
-		"dec": 41.355523,
-		"ra": 293.092525,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6350.0,
-		"diameter": 1836648.0,
-		"name": "HAT-P-9",
-		"mass": 1.28,
-		"pid": 146,
-		"dec": 37.140652,
-		"ra": 110.168529,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6100.0,
-		"diameter": 1650200.4,
-		"name": "CoRoT-5",
-		"mass": 1.0,
-		"pid": 147,
-		"dec": 0.815239,
-		"ra": 101.277254,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4912.0,
-		"diameter": 4076802.0,
-		"name": "K2-39",
-		"mass": 1.19,
-		"pid": 148,
-		"dec": -9.022769,
-		"ra": 338.368392,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5943.0,
-		"diameter": 1476275.4,
-		"name": "HATS-30",
-		"mass": 1.09,
-		"pid": 149,
-		"dec": -59.942551,
-		"ra": 5.618693,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5600.0,
-		"diameter": 1547236.8,
-		"name": "WASP-56",
-		"mass": 1.02,
-		"pid": 150,
-		"dec": 23.055698,
-		"ra": 183.366285,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6000.0,
-		"diameter": 2113536.6,
-		"name": "WASP-48",
-		"mass": 1.06,
-		"pid": 151,
-		"dec": 55.47316,
-		"ra": 291.16233,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5000.0,
-		"diameter": 1046332.8,
-		"name": "WTS-2",
-		"mass": 0.82,
-		"pid": 152,
-		"dec": 36.815491,
-		"ra": 293.732796,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6041.0,
-		"diameter": 1975788.0,
-		"name": "Kepler-43",
-		"mass": 1.32,
-		"pid": 153,
-		"dec": 46.668255,
-		"ra": 285.240856,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5900.0,
-		"diameter": 2240154.0,
-		"name": "CoRoT-23",
-		"mass": 1.14,
-		"pid": 154,
-		"dec": 4.357806,
-		"ra": 279.782615,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6430.0,
-		"diameter": 2261025.0,
-		"name": "HAT-P-39",
-		"mass": 1.4,
-		"pid": 155,
-		"dec": 17.830082,
-		"ra": 113.758247,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4803.0,
-		"diameter": 1042158.6,
-		"name": "HAT-P-18",
-		"mass": 0.77,
-		"pid": 156,
-		"dec": 33.012512,
-		"ra": 256.346473,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4550.0,
-		"diameter": 8765820.0,
-		"name": "Kepler-91",
-		"mass": 1.31,
-		"pid": 157,
-		"dec": 44.116734,
-		"ra": 285.672872,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5911.0,
-		"diameter": 2262416.4,
-		"name": "Kepler-36",
-		"mass": 1.07,
-		"pid": 158,
-		"dec": 49.231827,
-		"ra": 291.250191,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5259.0,
-		"diameter": 1140948.0,
-		"name": "CoRoT-7",
-		"mass": 0.91,
-		"pid": 159,
-		"dec": -1.063033,
-		"ra": 100.956125,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6360.0,
-		"diameter": 3144563.9999999995,
-		"name": "Kepler-433",
-		"mass": 1.46,
-		"pid": 160,
-		"dec": 40.977268,
-		"ra": 297.593651,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5945.0,
-		"diameter": 1405314.0,
-		"name": "CoRoT-13",
-		"mass": 1.09,
-		"pid": 161,
-		"dec": -5.086445,
-		"ra": 102.721137,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6040.0,
-		"diameter": 1655766.0,
-		"name": "CoRoT-25",
-		"mass": 1.09,
-		"pid": 162,
-		"dec": 6.513829,
-		"ra": 280.629662,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5650.0,
-		"diameter": 1669680.0,
-		"name": "WASP-119",
-		"mass": 1.02,
-		"pid": 163,
-		"dec": -65.193855,
-		"ra": 55.933441,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6070.0,
-		"diameter": 1533322.8,
-		"name": "WASP-55",
-		"mass": 1.16,
-		"pid": 164,
-		"dec": -17.503464,
-		"ra": 203.758114,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5743.0,
-		"diameter": 2128842.0,
-		"name": "HAT-P-42",
-		"mass": 1.18,
-		"pid": 165,
-		"dec": 6.09723,
-		"ra": 135.344391,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5738.0,
-		"diameter": 1722553.2,
-		"name": "HATS-16",
-		"mass": 0.97,
-		"pid": 166,
-		"dec": -30.012999,
-		"ra": 358.55871,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5890.0,
-		"diameter": 2237371.2,
-		"name": "WASP-113",
-		"mass": 1.32,
-		"pid": 167,
-		"dec": 46.960117,
-		"ra": 224.872776,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5640.0,
-		"diameter": 1474884.0,
-		"name": "WASP-97",
-		"mass": 1.12,
-		"pid": 168,
-		"dec": -55.772083,
-		"ra": 24.604338,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6002.0,
-		"diameter": 2617223.4,
-		"name": "HAT-P-66",
-		"mass": 1.25,
-		"pid": 169,
-		"dec": 53.950863,
-		"ra": 150.572632,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6450.0,
-		"diameter": 2601918.0,
-		"name": "WASP-120",
-		"mass": 1.39,
-		"pid": 170,
-		"dec": -45.89822,
-		"ra": 62.616051,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4953.0,
-		"diameter": 1110337.2,
-		"name": "WASP-53",
-		"mass": 0.84,
-		"pid": 171,
-		"dec": -20.661839,
-		"ra": 31.909203,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6566.0,
-		"diameter": 1986919.2,
-		"name": "HAT-P-56",
-		"mass": 1.3,
-		"pid": 172,
-		"dec": 27.252293,
-		"ra": 100.848038,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4950.0,
-		"diameter": 1196604.0,
-		"name": "CoRoT-24",
-		"mass": 0.91,
-		"pid": 173,
-		"dec": -3.719301,
-		"ra": 101.922547,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5846.0,
-		"diameter": 1518017.4,
-		"name": "HATS-17",
-		"mass": 1.13,
-		"pid": 174,
-		"dec": -47.613693,
-		"ra": 192.189799,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5600.0,
-		"diameter": 1405314.0,
-		"name": "WASP-65",
-		"mass": 0.93,
-		"pid": 175,
-		"dec": 8.523038,
-		"ra": 133.324304,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5740.0,
-		"diameter": 2212326.0,
-		"name": "CoRoT-17",
-		"mass": 1.04,
-		"pid": 176,
-		"dec": -6.612234,
-		"ra": 278.699254,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5100.0,
-		"diameter": 1275913.8,
-		"name": "WASP-45",
-		"mass": 0.9,
-		"pid": 177,
-		"dec": -35.99826,
-		"ra": 5.237497,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5947.0,
-		"diameter": 2063446.2000000002,
-		"name": "Kepler-12",
-		"mass": 1.17,
-		"pid": 178,
-		"dec": 50.040382,
-		"ra": 286.243425,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5647.0,
-		"diameter": 1935437.4,
-		"name": "Kepler-6",
-		"mass": 1.21,
-		"pid": 179,
-		"dec": 48.239964,
-		"ra": 296.837254,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5475.0,
-		"diameter": 1339918.2,
-		"name": "WASP-104",
-		"mass": 1.08,
-		"pid": 180,
-		"dec": 7.435026,
-		"ra": 160.602432,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5588.0,
-		"diameter": 1537497.0,
-		"name": "HAT-P-21",
-		"mass": 0.95,
-		"pid": 181,
-		"dec": 41.027954,
-		"ra": 171.274955,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 3830.0,
-		"diameter": 793097.9999999999,
-		"name": "K2-22",
-		"mass": 0.6,
-		"pid": 182,
-		"dec": 2.61907,
-		"ra": 169.482818,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5838.0,
-		"diameter": 1577847.5999999999,
-		"name": "WASP-157",
-		"mass": 1.26,
-		"pid": 183,
-		"dec": -8.31756,
-		"ra": 201.655192,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6400.0,
-		"diameter": 1794906.0,
-		"name": "WASP-101",
-		"mass": 1.34,
-		"pid": 184,
-		"dec": -23.48621,
-		"ra": 98.351102,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5366.0,
-		"diameter": 2091274.2,
-		"name": "HATS-9",
-		"mass": 1.03,
-		"pid": 185,
-		"dec": -20.166317,
-		"ra": 290.810104,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6213.0,
-		"diameter": 2067620.4,
-		"name": "Kepler-8",
-		"mass": 1.21,
-		"pid": 186,
-		"dec": 42.45108,
-		"ra": 281.288118,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5627.0,
-		"diameter": 1481841.0,
-		"name": "Kepler-10",
-		"mass": 0.91,
-		"pid": 187,
-		"dec": 50.241299,
-		"ra": 285.679394,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5520.0,
-		"diameter": 1377486.0,
-		"name": "Kepler-77",
-		"mass": 0.95,
-		"pid": 188,
-		"dec": 44.345425,
-		"ra": 289.607956,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6510.0,
-		"diameter": 2963682.0,
-		"name": "Kepler-40",
-		"mass": 1.48,
-		"pid": 189,
-		"dec": 47.526608,
-		"ra": 296.81369,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6050.0,
-		"diameter": 1419228.0,
-		"name": "WASP-124",
-		"mass": 1.07,
-		"pid": 190,
-		"dec": -30.749672,
-		"ra": 332.714323,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6036.0,
-		"diameter": 2880198.0,
-		"name": "WASP-73",
-		"mass": 1.34,
-		"pid": 191,
-		"dec": -58.148876,
-		"ra": 319.94961,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5430.0,
-		"diameter": 1572281.9999999998,
-		"name": "XO-5",
-		"mass": 1.04,
-		"pid": 192,
-		"dec": 39.094578,
-		"ra": 116.716527,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6087.0,
-		"diameter": 1703073.5999999999,
-		"name": "HAT-P-29",
-		"mass": 1.21,
-		"pid": 193,
-		"dec": 51.778759,
-		"ra": 33.131142,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6120.0,
-		"diameter": 1942394.4,
-		"name": "HAT-P-46",
-		"mass": 1.28,
-		"pid": 194,
-		"dec": -2.970947,
-		"ra": 270.444201,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5150.0,
-		"diameter": 1113120.0,
-		"name": "Kepler-428",
-		"mass": 0.87,
-		"pid": 195,
-		"dec": 40.5774,
-		"ra": 290.581722,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5669.0,
-		"diameter": 1278696.6,
-		"name": "Kepler-93",
-		"mass": 0.91,
-		"pid": 196,
-		"dec": 38.672354,
-		"ra": 291.418281,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5623.0,
-		"diameter": 2437732.8,
-		"name": "Kepler-38",
-		"mass": 0.94,
-		"pid": 197,
-		"dec": 42.279205,
-		"ra": 286.830353,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6150.0,
-		"diameter": 2234588.4,
-		"name": "Kepler-117",
-		"mass": 1.13,
-		"pid": 198,
-		"dec": 48.040234,
-		"ra": 288.793037,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6373.0,
-		"diameter": 1832473.7999999998,
-		"name": "HAT-P-24",
-		"mass": 1.19,
-		"pid": 199,
-		"dec": 14.262599,
-		"ra": 108.825058,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5495.0,
-		"diameter": 1341170.46,
-		"name": "Kepler-20",
-		"mass": 0.95,
-		"pid": 200,
-		"dec": 42.338726,
-		"ra": 287.698004,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6250.0,
-		"diameter": 2754972.0,
-		"name": "WASP-72",
-		"mass": 1.39,
-		"pid": 201,
-		"dec": -30.169039,
-		"ra": 41.039999,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5800.0,
-		"diameter": 1767078.0,
-		"name": "WASP-126",
-		"mass": 1.12,
-		"pid": 202,
-		"dec": -69.226807,
-		"ra": 63.373865,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4780.0,
-		"diameter": 1043550.0,
-		"name": "HAT-P-11",
-		"mass": 0.81,
-		"pid": 203,
-		"dec": 48.080856,
-		"ra": 297.709351,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4715.0,
-		"diameter": 1131208.2,
-		"name": "WASP-69",
-		"mass": 0.83,
-		"pid": 204,
-		"dec": -5.094404,
-		"ra": 315.025778,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6030.0,
-		"diameter": 2476692.0,
-		"name": "K2-107",
-		"mass": 1.3,
-		"pid": 205,
-		"dec": -22.293402,
-		"ra": 284.985378,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6820.0,
-		"diameter": 2550436.1999999997,
-		"name": "HAT-P-49",
-		"mass": 1.54,
-		"pid": 206,
-		"dec": 26.692652,
-		"ra": 305.441397,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 7650.0,
-		"diameter": 2421036.0,
-		"name": "KOI-13",
-		"mass": 1.72,
-		"pid": 207,
-		"dec": 46.868362,
-		"ra": 286.971199,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6150.0,
-		"diameter": 1522191.6,
-		"name": "WASP-28",
-		"mass": 1.02,
-		"pid": 208,
-		"dec": -1.580064,
-		"ra": 353.616152,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5850.0,
-		"diameter": 1391400,
-		"name": "TrES-2",
-		"mass": 0.98,
-		"pid": 209,
-		"dec": 49.316402,
-		"ra": 286.808473,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5948.0,
-		"diameter": 1682202.6,
-		"name": "KELT-10",
-		"mass": 1.11,
-		"pid": 210,
-		"dec": -47.003242,
-		"ra": 284.548373,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4675.0,
-		"diameter": 971197.2,
-		"name": "WASP-10",
-		"mass": 0.75,
-		"pid": 211,
-		"dec": 31.462852,
-		"ra": 348.992912,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5900.0,
-		"diameter": 1252260.0,
-		"name": "WASP-129",
-		"mass": 1.0,
-		"pid": 212,
-		"dec": -42.063927,
-		"ra": 176.298965,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5330.0,
-		"diameter": 1284262.2,
-		"name": "HAT-P-38",
-		"mass": 0.89,
-		"pid": 213,
-		"dec": 32.246151,
-		"ra": 35.383234,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5500.0,
-		"diameter": 1558368.0000000002,
-		"name": "K2-60",
-		"mass": 0.97,
-		"pid": 214,
-		"dec": -13.731702,
-		"ra": 338.606184,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6600.0,
-		"diameter": 2128842.0,
-		"name": "WASP-79",
-		"mass": 1.38,
-		"pid": 215,
-		"dec": -30.600445,
-		"ra": 66.370903,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6789.0,
-		"diameter": 2409904.8,
-		"name": "KELT-7",
-		"mass": 1.53,
-		"pid": 216,
-		"dec": 33.318165,
-		"ra": 78.295532,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5959.0,
-		"diameter": 1370529.0,
-		"name": "WASP-36",
-		"mass": 1.08,
-		"pid": 217,
-		"dec": -8.026946,
-		"ra": 131.580405,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5757.0,
-		"diameter": 1530540.0000000002,
-		"name": "K2-38",
-		"mass": 1.07,
-		"pid": 218,
-		"dec": -23.189288,
-		"ra": 240.033579,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6650.0,
-		"diameter": 2187280.8000000003,
-		"name": "WASP-17",
-		"mass": 1.31,
-		"pid": 219,
-		"dec": -28.061733,
-		"ra": 239.962306,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5880.0,
-		"diameter": 1537497.0,
-		"name": "HATS-10",
-		"mass": 1.1,
-		"pid": 220,
-		"dec": -22.204477,
-		"ra": 294.306813,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5800.0,
-		"diameter": 1627938.0,
-		"name": "WASP-58",
-		"mass": 0.94,
-		"pid": 221,
-		"dec": 45.172016,
-		"ra": 274.701064,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5131.0,
-		"diameter": 1242520.2,
-		"name": "HAT-P-52",
-		"mass": 0.89,
-		"pid": 222,
-		"dec": 29.022396,
-		"ra": 42.721679,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6351.0,
-		"diameter": 1953525.5999999999,
-		"name": "HATS-3",
-		"mass": 1.21,
-		"pid": 223,
-		"dec": -24.428793,
-		"ra": 312.45744,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5870.0,
-		"diameter": 1785166.2,
-		"name": "WASP-81",
-		"mass": 1.08,
-		"pid": 224,
-		"dec": 3.29405,
-		"ra": 304.207886,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6035.0,
-		"diameter": 1683594.0,
-		"name": "CoRoT-14",
-		"mass": 1.13,
-		"pid": 225,
-		"dec": -5.536037,
-		"ra": 103.424211,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5089.0,
-		"diameter": 996242.3999999999,
-		"name": "HIP 116454",
-		"mass": 0.78,
-		"pid": 226,
-		"dec": 0.445516,
-		"ra": 353.955353,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5400.0,
-		"diameter": 1472101.2000000002,
-		"name": "WASP-64",
-		"mass": 1.0,
-		"pid": 227,
-		"dec": -32.858402,
-		"ra": 101.115041,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5260.0,
-		"diameter": 1210518.0,
-		"name": "WASP-140",
-		"mass": 0.9,
-		"pid": 228,
-		"dec": -20.451092,
-		"ra": 60.38562,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5900.0,
-		"diameter": 1906218.0000000002,
-		"name": "WASP-141",
-		"mass": 1.25,
-		"pid": 229,
-		"dec": -17.115154,
-		"ra": 71.824409,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5346.0,
-		"diameter": 1298176.2000000002,
-		"name": "HATS-14",
-		"mass": 0.97,
-		"pid": 230,
-		"dec": -25.687334,
-		"ra": 313.215479,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6409.0,
-		"diameter": 1836648.0,
-		"name": "Kepler-76",
-		"mass": 1.2,
-		"pid": 231,
-		"dec": 39.619003,
-		"ra": 294.192118,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6272.0,
-		"diameter": 1892304.0000000002,
-		"name": "WASP-138",
-		"mass": 1.22,
-		"pid": 232,
-		"dec": -0.463922,
-		"ra": 41.639084,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5560.0,
-		"diameter": 1524974.4000000001,
-		"name": "HAT-P-36",
-		"mass": 1.02,
-		"pid": 233,
-		"dec": 44.915352,
-		"ra": 188.266255,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6430.0,
-		"diameter": 2754972.0,
-		"name": "WASP-90",
-		"mass": 1.55,
-		"pid": 234,
-		"dec": 7.056235,
-		"ra": 315.531971,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5956.0,
-		"diameter": 1682202.6,
-		"name": "HAT-P-53",
-		"mass": 1.09,
-		"pid": 235,
-		"dec": 38.968147,
-		"ra": 21.871105,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5375.0,
-		"diameter": 1202169.6,
-		"name": "WASP-6",
-		"mass": 0.84,
-		"pid": 236,
-		"dec": -22.673937,
-		"ra": 348.157246,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 2300.0,
-		"diameter": 161402.4,
-		"name": "2MASS J21402931+1625183 A",
-		"mass": 0.08,
-		"pid": 237,
-		"dec": 16.421759,
-		"ra": 325.122159,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5880.0,
-		"diameter": 1419228.0,
-		"name": "CoRoT-20",
-		"mass": 1.14,
-		"pid": 238,
-		"dec": 0.226919,
-		"ra": 97.720408,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5425.0,
-		"diameter": 1174341.5999999999,
-		"name": "K2-30",
-		"mass": 0.9,
-		"pid": 239,
-		"dec": 22.299405,
-		"ra": 52.341962,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6100.0,
-		"diameter": 2543479.2,
-		"name": "WASP-54",
-		"mass": 1.21,
-		"pid": 240,
-		"dec": -0.128076,
-		"ra": 205.454308,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5835.0,
-		"diameter": 2588004.0,
-		"name": "HAT-P-65",
-		"mass": 1.21,
-		"pid": 241,
-		"dec": 11.989404,
-		"ra": 315.905487,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6300.0,
-		"diameter": 1993876.2000000002,
-		"name": "HATS-35",
-		"mass": 1.32,
-		"pid": 242,
-		"dec": -63.565609,
-		"ra": 296.688263,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5302.0,
-		"diameter": 1447056.0,
-		"name": "HAT-P-22",
-		"mass": 0.92,
-		"pid": 243,
-		"dec": 50.128345,
-		"ra": 155.681719,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6161.0,
-		"diameter": 4466394.0,
-		"name": "Kepler-435",
-		"mass": 1.54,
-		"pid": 244,
-		"dec": 43.197281,
-		"ra": 292.287328,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5860.0,
-		"diameter": 2229022.8000000003,
-		"name": "HAT-P-4",
-		"mass": 1.26,
-		"pid": 245,
-		"dec": 36.229664,
-		"ra": 229.991354,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5520.0,
-		"diameter": 1572281.9999999998,
-		"name": "Kepler-420",
-		"mass": 0.99,
-		"pid": 246,
-		"dec": 44.927383,
-		"ra": 291.22518,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 7500.0,
-		"diameter": 2087100.0,
-		"name": "HAT-P-57",
-		"mass": 1.47,
-		"pid": 247,
-		"dec": 10.597294,
-		"ra": 274.743421,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6720.0,
-		"diameter": 2685402.0,
-		"name": "XO-6",
-		"mass": 1.47,
-		"pid": 248,
-		"dec": 73.827682,
-		"ra": 94.793282,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6090.0,
-		"diameter": 1426184.9999999998,
-		"name": "CoRoT-6",
-		"mass": 1.05,
-		"pid": 249,
-		"dec": 6.663194,
-		"ra": 281.072525,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5518.0,
-		"diameter": 1362180.5999999999,
-		"name": "Kepler-22",
-		"mass": 0.97,
-		"pid": 250,
-		"dec": 47.884464,
-		"ra": 289.217484,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6330.0,
-		"diameter": 1835256.5999999999,
-		"name": "HAT-P-45",
-		"mass": 1.26,
-		"pid": 251,
-		"dec": -3.381036,
-		"ra": 274.373238,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5315.0,
-		"diameter": 1241128.8,
-		"name": "WASP-42",
-		"mass": 0.95,
-		"pid": 252,
-		"dec": -42.073608,
-		"ra": 192.981545,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5568.0,
-		"diameter": 1396965.6,
-		"name": "WASP-19",
-		"mass": 0.9,
-		"pid": 253,
-		"dec": -45.659191,
-		"ra": 148.417002,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5857.0,
-		"diameter": 2069011.8,
-		"name": "Kepler-4",
-		"mass": 1.22,
-		"pid": 254,
-		"dec": 50.135754,
-		"ra": 285.615322,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6112.0,
+		"dec": 6.563726,
+		"galaxy_pid": 143,
 		"diameter": 1300959.0,
+		"temperature": 6112,
+		"ra": 175.90838,
 		"name": "WASP-85 A",
 		"mass": 1.09,
-		"pid": 255,
-		"dec": 6.563726,
-		"ra": 175.90838,
-		"galaxy_pid": 143
+		"pid": 2
 	},
 	{
-		"temperature": 5715.0,
-		"diameter": 1540279.8,
-		"name": "HATS-25",
-		"mass": 0.99,
-		"pid": 256,
-		"dec": -23.781174,
-		"ra": 207.907777,
-		"galaxy_pid": 143
+		"dec": 16.421759,
+		"galaxy_pid": 143,
+		"diameter": 161402.4,
+		"temperature": 2300,
+		"ra": 325.122159,
+		"name": "2MASS J21402931+1625183 A",
+		"mass": 0.08,
+		"pid": 3
 	},
 	{
-		"temperature": 4803.0,
-		"diameter": 958674.6,
-		"name": "HATS-22",
-		"mass": 0.76,
-		"pid": 257,
-		"dec": -29.543312,
-		"ra": 174.00972,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5620.0,
-		"diameter": 1934045.9999999998,
-		"name": "WASP-127",
-		"mass": 1.08,
-		"pid": 258,
-		"dec": -3.835064,
-		"ra": 160.55867,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5436.0,
-		"diameter": 1280088.0,
-		"name": "WASP-4",
-		"mass": 0.89,
-		"pid": 259,
-		"dec": -42.061428,
-		"ra": 353.562841,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 4650.0,
-		"diameter": 852928.2,
-		"name": "WASP-59",
-		"mass": 0.72,
-		"pid": 260,
-		"dec": 24.88929,
-		"ra": 349.623126,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6459.0,
-		"diameter": 2028661.2,
-		"name": "WASP-121",
-		"mass": 1.35,
-		"pid": 261,
-		"dec": -39.097393,
-		"ra": 107.600275,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6260.0,
-		"diameter": 3074994.0,
-		"name": "WASP-136",
-		"mass": 1.41,
-		"pid": 262,
-		"dec": -8.926325,
-		"ra": 0.32575,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 7454.0,
-		"diameter": 2288853.0,
-		"name": "KELT-17",
-		"mass": 1.64,
-		"pid": 263,
-		"dec": 13.735319,
-		"ra": 125.617523,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6030.0,
-		"diameter": 2128842.0,
-		"name": "WASP-131",
-		"mass": 1.06,
-		"pid": 264,
-		"dec": -30.583567,
-		"ra": 210.193542,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6700.0,
-		"diameter": 2120493.6,
-		"name": "WASP-93",
-		"mass": 1.33,
-		"pid": 265,
-		"dec": 51.288761,
-		"ra": 9.458792,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6060.0,
-		"diameter": 2009181.5999999999,
-		"name": "HATS-11",
-		"mass": 1.0,
-		"pid": 266,
-		"dec": -22.389926,
-		"ra": 289.400759,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 5358.0,
-		"diameter": 1196604.0,
-		"name": "K2-29",
-		"mass": 0.94,
-		"pid": 267,
-		"dec": 24.402043,
-		"ra": 62.670647,
-		"galaxy_pid": 143
-	},
-	{
-		"temperature": 6090.0,
+		"dec": -0.170681,
+		"galaxy_pid": 143,
 		"diameter": 2295810.0,
+		"temperature": 6090,
+		"ra": 97.033582,
 		"name": "CoRoT-19",
 		"mass": 1.21,
-		"pid": 268,
-		"dec": -0.170681,
-		"ra": 97.033582,
-		"galaxy_pid": 143
+		"pid": 4
 	},
 	{
-		"temperature": 6280.0,
-		"diameter": 2362597.1999999997,
-		"name": "HAT-P-50",
+		"dec": 32.810764,
+		"galaxy_pid": 143,
+		"diameter": 1448447.4,
+		"temperature": 5449,
+		"ra": 21.06519,
+		"name": "HAT-P-51",
+		"mass": 0.98,
+		"pid": 5
+	},
+	{
+		"dec": 41.048084,
+		"galaxy_pid": 143,
+		"diameter": 2281896.0,
+		"temperature": 6290,
+		"ra": 245.151489,
+		"name": "HAT-P-2",
+		"mass": 1.36,
+		"pid": 6
+	},
+	{
+		"dec": 41.0898,
+		"galaxy_pid": 143,
+		"diameter": 2735492.4,
+		"temperature": 5933,
+		"ra": 288.581516,
+		"name": "Kepler-7",
+		"mass": 1.36,
+		"pid": 7
+	},
+	{
+		"dec": 45.172016,
+		"galaxy_pid": 143,
+		"diameter": 1627938.0,
+		"temperature": 5800,
+		"ra": 274.701064,
+		"name": "WASP-58",
+		"mass": 0.94,
+		"pid": 8
+	},
+	{
+		"dec": -30.583567,
+		"galaxy_pid": 143,
+		"diameter": 2128842.0,
+		"temperature": 6030,
+		"ra": 210.193542,
+		"name": "WASP-131",
+		"mass": 1.06,
+		"pid": 9
+	},
+	{
+		"dec": 46.960117,
+		"galaxy_pid": 143,
+		"diameter": 2237371.2,
+		"temperature": 5890,
+		"ra": 224.872776,
+		"name": "WASP-113",
+		"mass": 1.32,
+		"pid": 10
+	},
+	{
+		"dec": 27.252293,
+		"galaxy_pid": 143,
+		"diameter": 1986919.2,
+		"temperature": 6566,
+		"ra": 100.848038,
+		"name": "HAT-P-56",
+		"mass": 1.3,
+		"pid": 11
+	},
+	{
+		"dec": -21.481916,
+		"galaxy_pid": 143,
+		"diameter": 1211909.4,
+		"temperature": 5304,
+		"ra": 67.222871,
+		"name": "HATS-5",
+		"mass": 0.94,
+		"pid": 12
+	},
+	{
+		"dec": -23.354836,
+		"galaxy_pid": 143,
+		"diameter": 1444273.2,
+		"temperature": 5870,
+		"ra": 175.525336,
+		"name": "HATS-1",
+		"mass": 0.99,
+		"pid": 13
+	},
+	{
+		"dec": -47.156727,
+		"galaxy_pid": 143,
+		"diameter": 288019.8,
+		"temperature": 3270,
+		"ra": 153.715737,
+		"name": "GJ 1132",
+		"mass": 0.18,
+		"pid": 14
+	},
+	{
+		"dec": 43.680958,
+		"galaxy_pid": 143,
+		"diameter": 1790731.7999999998,
+		"temperature": 5750,
+		"ra": 286.110327,
+		"name": "Kepler-412",
+		"mass": 1.17,
+		"pid": 15
+	},
+	{
+		"dec": -32.86113,
+		"galaxy_pid": 143,
+		"diameter": 1787949.0,
+		"temperature": 5740,
+		"ra": 289.478676,
+		"name": "WASP-123",
+		"mass": 1.17,
+		"pid": 16
+	},
+	{
+		"dec": 5.937688,
+		"galaxy_pid": 143,
+		"diameter": 1906218.0000000002,
+		"temperature": 6440,
+		"ra": 280.687263,
+		"name": "CoRoT-11",
 		"mass": 1.27,
-		"pid": 269,
-		"dec": 12.13941,
-		"ra": 118.063411,
-		"galaxy_pid": 143
+		"pid": 17
 	},
 	{
-		"temperature": 5523.0,
+		"dec": -46.587715,
+		"galaxy_pid": 143,
+		"diameter": 2421036.0,
+		"temperature": 6438,
+		"ra": 193.55256,
+		"name": "HATS-27",
+		"mass": 1.42,
+		"pid": 18
+	},
+	{
+		"dec": -8.926325,
+		"galaxy_pid": 143,
+		"diameter": 3074994.0,
+		"temperature": 6260,
+		"ra": 0.32575,
+		"name": "WASP-136",
+		"mass": 1.41,
+		"pid": 19
+	},
+	{
+		"dec": 46.391178,
+		"galaxy_pid": 143,
+		"diameter": 1321830.0,
+		"temperature": 5560,
+		"ra": 292.855742,
+		"name": "Kepler-423",
+		"mass": 0.85,
+		"pid": 20
+	},
+	{
+		"dec": 2.700539,
+		"galaxy_pid": 143,
+		"diameter": 2407122.0,
+		"temperature": 6250,
+		"ra": 26.632746,
+		"name": "WASP-76",
+		"mass": 1.46,
+		"pid": 21
+	},
+	{
+		"dec": 50.040382,
+		"galaxy_pid": 143,
+		"diameter": 2063446.2000000002,
+		"temperature": 5947,
+		"ra": 286.243425,
+		"name": "Kepler-12",
+		"mass": 1.17,
+		"pid": 22
+	},
+	{
+		"dec": 37.211849,
+		"galaxy_pid": 143,
+		"diameter": 2518434.0,
+		"temperature": 6295,
+		"ra": 268.304354,
+		"name": "TrES-4",
+		"mass": 1.45,
+		"pid": 23
+	},
+	{
+		"dec": -3.719301,
+		"galaxy_pid": 143,
+		"diameter": 1196604.0,
+		"temperature": 4950,
+		"ra": 101.922547,
+		"name": "CoRoT-24",
+		"mass": 0.91,
+		"pid": 24
+	},
+	{
+		"dec": 50.241299,
+		"galaxy_pid": 143,
+		"diameter": 1481841.0,
+		"temperature": 5627,
+		"ra": 285.679394,
+		"name": "Kepler-10",
+		"mass": 0.91,
+		"pid": 25
+	},
+	{
+		"dec": -42.073608,
+		"galaxy_pid": 143,
+		"diameter": 1241128.8,
+		"temperature": 5315,
+		"ra": 192.981545,
+		"name": "WASP-42",
+		"mass": 0.95,
+		"pid": 26
+	},
+	{
+		"dec": 55.47316,
+		"galaxy_pid": 143,
+		"diameter": 2113536.6,
+		"temperature": 6000,
+		"ra": 291.16233,
+		"name": "WASP-48",
+		"mass": 1.06,
+		"pid": 27
+	},
+	{
+		"dec": 51.269138,
+		"galaxy_pid": 143,
+		"diameter": 1220257.8,
+		"temperature": 5500,
+		"ra": 284.296064,
+		"name": "HAT-P-37",
+		"mass": 0.93,
+		"pid": 28
+	},
+	{
+		"dec": 40.567738,
+		"galaxy_pid": 143,
+		"diameter": 1196604.0,
+		"temperature": 5170,
+		"ra": 290.358009,
+		"name": "Kepler-425",
+		"mass": 0.93,
+		"pid": 29
+	},
+	{
+		"dec": -0.463922,
+		"galaxy_pid": 143,
+		"diameter": 1892304.0000000002,
+		"temperature": 6272,
+		"ra": 41.639084,
+		"name": "WASP-138",
+		"mass": 1.22,
+		"pid": 30
+	},
+	{
+		"dec": 14.262599,
+		"galaxy_pid": 143,
+		"diameter": 1832473.7999999998,
+		"temperature": 6373,
+		"ra": 108.825058,
+		"name": "HAT-P-24",
+		"mass": 1.19,
+		"pid": 31
+	},
+	{
+		"dec": -3.381036,
+		"galaxy_pid": 143,
+		"diameter": 1835256.5999999999,
+		"temperature": 6330,
+		"ra": 274.373238,
+		"name": "HAT-P-45",
+		"mass": 1.26,
+		"pid": 32
+	},
+	{
+		"dec": 33.835052,
+		"galaxy_pid": 143,
+		"diameter": 2277721.8,
+		"temperature": 6446,
+		"ra": 113.184212,
+		"name": "HAT-P-33",
+		"mass": 1.38,
+		"pid": 33
+	},
+	{
+		"dec": 65.162041,
+		"galaxy_pid": 143,
+		"diameter": 1117294.2,
+		"temperature": 5013,
+		"ra": 303.381672,
+		"name": "Qatar-1",
+		"mass": 0.84,
+		"pid": 34
+	},
+	{
+		"dec": 40.977268,
+		"galaxy_pid": 143,
+		"diameter": 3144563.9999999995,
+		"temperature": 6360,
+		"ra": 297.593651,
+		"name": "Kepler-433",
+		"mass": 1.46,
+		"pid": 35
+	},
+	{
+		"dec": -32.858402,
+		"galaxy_pid": 143,
+		"diameter": 1472101.2000000002,
+		"temperature": 5400,
+		"ra": 101.115041,
+		"name": "WASP-64",
+		"mass": 1.0,
+		"pid": 36
+	},
+	{
+		"dec": 5.538462,
+		"galaxy_pid": 143,
+		"diameter": 1502712.0,
+		"temperature": 5900,
+		"ra": 278.495813,
+		"name": "CoRoT-27",
+		"mass": 1.05,
+		"pid": 37
+	},
+	{
+		"dec": -19.284243,
+		"galaxy_pid": 143,
+		"diameter": 1460970.0,
+		"temperature": 5510,
+		"ra": 190.152085,
+		"name": "WASP-83",
+		"mass": 1.11,
+		"pid": 38
+	},
+	{
+		"dec": 6.663194,
+		"galaxy_pid": 143,
+		"diameter": 1426184.9999999998,
+		"temperature": 6090,
+		"ra": 281.072525,
+		"name": "CoRoT-6",
+		"mass": 1.05,
+		"pid": 39
+	},
+	{
+		"dec": 29.022396,
+		"galaxy_pid": 143,
+		"diameter": 1242520.2,
+		"temperature": 5131,
+		"ra": 42.721679,
+		"name": "HAT-P-52",
+		"mass": 0.89,
+		"pid": 40
+	},
+	{
+		"dec": -1.580064,
+		"galaxy_pid": 143,
+		"diameter": 1522191.6,
+		"temperature": 6150,
+		"ra": 353.616152,
+		"name": "WASP-28",
+		"mass": 1.02,
+		"pid": 41
+	},
+	{
+		"dec": 59.448788,
+		"galaxy_pid": 143,
+		"diameter": 1207735.2,
+		"temperature": 5171,
+		"ra": 305.221841,
+		"name": "TrES-5",
+		"mass": 0.9,
+		"pid": 42
+	},
+	{
+		"dec": -47.003242,
+		"galaxy_pid": 143,
+		"diameter": 1682202.6,
+		"temperature": 5948,
+		"ra": 284.548373,
+		"name": "KELT-10",
+		"mass": 1.11,
+		"pid": 43
+	},
+	{
+		"dec": -41.277149,
+		"galaxy_pid": 143,
+		"diameter": 1431750.5999999999,
+		"temperature": 5700,
+		"ra": 359.348991,
+		"name": "WASP-5",
+		"mass": 0.96,
+		"pid": 44
+	},
+	{
+		"dec": 38.674953,
+		"galaxy_pid": 143,
+		"diameter": 1633503.5999999999,
+		"temperature": 5980,
+		"ra": 344.445104,
+		"name": "HAT-P-1",
+		"mass": 1.15,
+		"pid": 45
+	},
+	{
+		"dec": 31.155935,
+		"galaxy_pid": 143,
+		"diameter": 1586195.9999999998,
+		"temperature": 5900,
+		"ra": 356.666564,
+		"name": "WASP-60",
+		"mass": 1.08,
+		"pid": 46
+	},
+	{
+		"dec": -29.539222,
+		"galaxy_pid": 143,
+		"diameter": 1896478.2,
+		"temperature": 6050,
+		"ra": 269.147958,
+		"name": "OGLE-TR-056",
+		"mass": 1.23,
+		"pid": 47
+	},
+	{
+		"dec": 2.702824,
+		"galaxy_pid": 143,
+		"diameter": 2359814.4,
+		"temperature": 6410,
+		"ra": 19.550543,
+		"name": "WASP-118",
+		"mass": 1.32,
+		"pid": 48
+	},
+	{
+		"dec": 40.5774,
+		"galaxy_pid": 143,
+		"diameter": 1113120.0,
+		"temperature": 5150,
+		"ra": 290.581722,
+		"name": "Kepler-428",
+		"mass": 0.87,
+		"pid": 49
+	},
+	{
+		"dec": -28.58559,
+		"galaxy_pid": 143,
+		"diameter": 2838456.0,
+		"temperature": 6071,
+		"ra": 144.926863,
+		"name": "HATS-26",
+		"mass": 1.3,
+		"pid": 50
+	},
+	{
+		"dec": 47.884464,
+		"galaxy_pid": 143,
+		"diameter": 1362180.5999999999,
+		"temperature": 5518,
+		"ra": 289.217484,
+		"name": "Kepler-22",
+		"mass": 0.97,
+		"pid": 51
+	},
+	{
+		"dec": 53.950863,
+		"galaxy_pid": 143,
+		"diameter": 2617223.4,
+		"temperature": 6002,
+		"ra": 150.572632,
+		"name": "HAT-P-66",
+		"mass": 1.25,
+		"pid": 52
+	},
+	{
+		"dec": 43.493534,
+		"galaxy_pid": 143,
+		"diameter": 975371.3999999999,
+		"temperature": 4650,
+		"ra": 209.389489,
+		"name": "HAT-P-12",
+		"mass": 0.73,
+		"pid": 53
+	},
+	{
+		"dec": 38.242165,
+		"galaxy_pid": 143,
+		"diameter": 2042575.2,
+		"temperature": 6600,
+		"ra": 260.116169,
+		"name": "HAT-P-14",
+		"mass": 1.39,
+		"pid": 54
+	},
+	{
+		"dec": -50.008003,
+		"galaxy_pid": 143,
+		"diameter": 2448864.0,
+		"temperature": 6180,
+		"ra": 39.897688,
+		"name": "WASP-99",
+		"mass": 1.48,
+		"pid": 55
+	},
+	{
+		"dec": 42.928913,
+		"galaxy_pid": 143,
+		"diameter": 1920131.9999999998,
+		"temperature": 5977,
+		"ra": 293.586381,
+		"name": "Kepler-434",
+		"mass": 1.2,
+		"pid": 56
+	},
+	{
+		"dec": -58.148876,
+		"galaxy_pid": 143,
+		"diameter": 2880198.0,
+		"temperature": 6036,
+		"ra": 319.94961,
+		"name": "WASP-73",
+		"mass": 1.34,
+		"pid": 57
+	},
+	{
+		"dec": 11.989404,
+		"galaxy_pid": 143,
+		"diameter": 2588004.0,
+		"temperature": 5835,
+		"ra": 315.905487,
+		"name": "HAT-P-65",
+		"mass": 1.21,
+		"pid": 58
+	},
+	{
+		"dec": -19.542821,
+		"galaxy_pid": 143,
+		"diameter": 1175733.0,
+		"temperature": 5275,
+		"ra": 252.426083,
+		"name": "K2-32",
+		"mass": 0.86,
+		"pid": 59
+	},
+	{
+		"dec": 46.96513,
+		"galaxy_pid": 143,
+		"diameter": 2532348.0,
+		"temperature": 5600,
+		"ra": 297.916877,
+		"name": "Kepler-87",
+		"mass": 1.1,
+		"pid": 60
+	},
+	{
+		"dec": -34.328194,
+		"galaxy_pid": 143,
+		"diameter": 1031027.4,
+		"temperature": 5473,
+		"ra": 58.428794,
+		"name": "WASP-98",
+		"mass": 0.81,
+		"pid": 61
+	},
+	{
+		"dec": 45.457378,
+		"galaxy_pid": 143,
+		"diameter": 3069428.4,
+		"temperature": 6080,
+		"ra": 335.512861,
+		"name": "HAT-P-40",
+		"mass": 1.51,
+		"pid": 62
+	},
+	{
+		"dec": 0.445516,
+		"galaxy_pid": 143,
+		"diameter": 996242.3999999999,
+		"temperature": 5089,
+		"ra": 353.955353,
+		"name": "HIP 116454",
+		"mass": 0.78,
+		"pid": 63
+	},
+	{
+		"dec": 73.827682,
+		"galaxy_pid": 143,
+		"diameter": 2685402.0,
+		"temperature": 6720,
+		"ra": 94.793282,
+		"name": "XO-6",
+		"mass": 1.47,
+		"pid": 64
+	},
+	{
+		"dec": -0.031586,
+		"galaxy_pid": 143,
+		"diameter": 1391400.0,
+		"temperature": 5440,
+		"ra": 98.17241,
+		"name": "CoRoT-18",
+		"mass": 0.95,
+		"pid": 65
+	},
+	{
+		"dec": 26.692652,
+		"galaxy_pid": 143,
+		"diameter": 2550436.1999999997,
+		"temperature": 6820,
+		"ra": 305.441397,
+		"name": "HAT-P-49",
+		"mass": 1.54,
+		"pid": 66
+	},
+	{
+		"dec": -22.389926,
+		"galaxy_pid": 143,
+		"diameter": 2009181.5999999999,
+		"temperature": 6060,
+		"ra": 289.400759,
+		"name": "HATS-11",
+		"mass": 1.0,
+		"pid": 67
+	},
+	{
+		"dec": 42.45108,
+		"galaxy_pid": 143,
+		"diameter": 2067620.4,
+		"temperature": 6213,
+		"ra": 281.288118,
+		"name": "Kepler-8",
+		"mass": 1.21,
+		"pid": 68
+	},
+	{
+		"dec": -62.469341,
+		"galaxy_pid": 143,
+		"diameter": 1363572.0,
+		"temperature": 5380,
+		"ra": 0.774485,
+		"name": "HATS-34",
+		"mass": 0.95,
+		"pid": 69
+	},
+	{
+		"dec": 40.388069,
+		"galaxy_pid": 143,
+		"diameter": 2048140.8,
+		"temperature": 6306,
+		"ra": 148.643324,
+		"name": "KELT-3",
+		"mass": 1.28,
+		"pid": 70
+	},
+	{
+		"dec": -6.804028,
+		"galaxy_pid": 143,
+		"diameter": 1079726.4000000001,
+		"temperature": 4645,
+		"ra": 207.655866,
+		"name": "Qatar-2",
+		"mass": 0.74,
+		"pid": 71
+	},
+	{
+		"dec": -2.057665,
+		"galaxy_pid": 143,
+		"diameter": 1289827.8,
+		"temperature": 5600,
+		"ra": 223.820104,
+		"name": "WASP-57",
+		"mass": 0.89,
+		"pid": 72
+	},
+	{
+		"dec": -61.957194,
+		"galaxy_pid": 143,
+		"diameter": 1836648.0,
+		"temperature": 6210,
+		"ra": 162.644667,
+		"name": "OGLE-TR-132",
+		"mass": 1.3,
+		"pid": 73
+	},
+	{
+		"dec": 25.573189,
+		"galaxy_pid": 143,
+		"diameter": 2230414.2,
+		"temperature": 6206,
+		"ra": 157.062546,
+		"name": "KELT-4 A",
+		"mass": 1.2,
+		"pid": 74
+	},
+	{
+		"dec": -42.063927,
+		"galaxy_pid": 143,
+		"diameter": 1252260.0,
+		"temperature": 5900,
+		"ra": 176.298965,
+		"name": "WASP-129",
+		"mass": 1.0,
+		"pid": 75
+	},
+	{
+		"dec": 42.604176,
+		"galaxy_pid": 143,
+		"diameter": 1099206.0,
+		"temperature": 5309,
+		"ra": 289.268744,
+		"name": "Kepler-46",
+		"mass": 0.9,
+		"pid": 76
+	},
+	{
+		"dec": 41.891117,
+		"galaxy_pid": 143,
+		"diameter": 2114928.0,
+		"temperature": 6182,
+		"ra": 297.333057,
+		"name": "KOI-94",
+		"mass": 1.28,
+		"pid": 77
+	},
+	{
+		"dec": 43.704868,
+		"galaxy_pid": 143,
+		"diameter": 1878390.0000000002,
+		"temperature": 5800,
+		"ra": 288.25458,
+		"name": "Kepler-427",
+		"mass": 0.96,
+		"pid": 78
+	},
+	{
+		"dec": -48.462067,
+		"galaxy_pid": 143,
+		"diameter": 2894112.0,
+		"temperature": 6431,
+		"ra": 309.511192,
+		"name": "WASP-88",
+		"mass": 1.45,
+		"pid": 79
+	},
+	{
+		"dec": -1.296439,
+		"galaxy_pid": 143,
+		"diameter": 1552802.4000000001,
+		"temperature": 5675,
+		"ra": 100.765677,
+		"name": "CoRoT-12",
+		"mass": 1.08,
+		"pid": 80
+	},
+	{
+		"dec": 36.632629,
+		"galaxy_pid": 143,
+		"diameter": 1122859.8,
+		"temperature": 5230,
+		"ra": 286.041062,
+		"name": "TrES-1",
+		"mass": 0.88,
+		"pid": 81
+	},
+	{
+		"dec": 48.080856,
+		"galaxy_pid": 143,
+		"diameter": 1043550.0,
+		"temperature": 4780,
+		"ra": 297.709351,
+		"name": "HAT-P-11",
+		"mass": 0.81,
+		"pid": 82
+	},
+	{
+		"dec": -50.067352,
+		"galaxy_pid": 143,
+		"diameter": 1668288.6,
+		"temperature": 5780,
+		"ra": 286.366699,
+		"name": "HATS-23",
+		"mass": 1.12,
+		"pid": 83
+	},
+	{
+		"dec": -34.135555,
+		"galaxy_pid": 143,
+		"diameter": 2254068.0,
+		"temperature": 6153,
+		"ra": 313.783098,
+		"name": "WASP-94 A",
+		"mass": 1.45,
+		"pid": 84
+	},
+	{
+		"dec": 6.429536,
+		"galaxy_pid": 143,
+		"diameter": 1168776.0,
+		"temperature": 5200,
+		"ra": 307.725542,
+		"name": "WASP-2",
+		"mass": 0.89,
+		"pid": 85
+	},
+	{
+		"dec": -22.293402,
+		"galaxy_pid": 143,
+		"diameter": 2476692.0,
+		"temperature": 6030,
+		"ra": 284.985378,
+		"name": "K2-107",
+		"mass": 1.3,
+		"pid": 86
+	},
+	{
+		"dec": 50.135754,
+		"galaxy_pid": 143,
+		"diameter": 2069011.8,
+		"temperature": 5857,
+		"ra": 285.615322,
+		"name": "Kepler-4",
+		"mass": 1.22,
+		"pid": 87
+	},
+	{
+		"dec": -19.355908,
+		"galaxy_pid": 143,
+		"diameter": 3074994.0,
+		"temperature": 6408,
+		"ra": 289.202397,
+		"name": "HATS-12",
+		"mass": 1.49,
+		"pid": 88
+	},
+	{
+		"dec": 45.981644,
+		"galaxy_pid": 143,
+		"diameter": 1794906.0,
+		"temperature": 5750,
+		"ra": 294.513229,
+		"name": "Kepler-41",
+		"mass": 1.15,
+		"pid": 89
+	},
+	{
+		"dec": 49.937683,
+		"galaxy_pid": 143,
+		"diameter": 1307916.0,
+		"temperature": 6018,
+		"ra": 296.479776,
+		"name": "Kepler-51",
+		"mass": 1.04,
+		"pid": 90
+	},
+	{
+		"dec": 48.239964,
+		"galaxy_pid": 143,
+		"diameter": 1935437.4,
+		"temperature": 5647,
+		"ra": 296.837254,
+		"name": "Kepler-6",
+		"mass": 1.21,
+		"pid": 91
+	},
+	{
+		"dec": 39.460636,
+		"galaxy_pid": 143,
+		"diameter": 1502712.0,
+		"temperature": 5568,
+		"ra": 66.248026,
+		"name": "HAT-P-15",
+		"mass": 1.01,
+		"pid": 92
+	},
+	{
+		"dec": 36.229664,
+		"galaxy_pid": 143,
+		"diameter": 2229022.8000000003,
+		"temperature": 5860,
+		"ra": 229.991354,
+		"name": "HAT-P-4",
+		"mass": 1.26,
+		"pid": 93
+	},
+	{
+		"dec": -42.409744,
+		"galaxy_pid": 143,
+		"diameter": 2114928.0,
+		"temperature": 5720,
+		"ra": 108.301485,
+		"name": "KELT-14",
+		"mass": 1.24,
+		"pid": 94
+	},
+	{
+		"dec": -13.731702,
+		"galaxy_pid": 143,
+		"diameter": 1558368.0000000002,
+		"temperature": 5500,
+		"ra": 338.606184,
+		"name": "K2-60",
+		"mass": 0.97,
+		"pid": 95
+	},
+	{
+		"dec": 6.09723,
+		"galaxy_pid": 143,
+		"diameter": 2128842.0,
+		"temperature": 5743,
+		"ra": 135.344391,
+		"name": "HAT-P-42",
+		"mass": 1.18,
+		"pid": 96
+	},
+	{
+		"dec": 50.128345,
+		"galaxy_pid": 143,
+		"diameter": 1447056.0,
+		"temperature": 5302,
+		"ra": 155.681719,
+		"name": "HAT-P-22",
+		"mass": 0.92,
+		"pid": 97
+	},
+	{
+		"dec": 18.104868,
+		"galaxy_pid": 143,
+		"diameter": 2135799.0,
+		"temperature": 6442,
+		"ra": 303.195342,
+		"name": "HAT-P-34",
+		"mass": 1.39,
+		"pid": 98
+	},
+	{
+		"dec": 0.815239,
+		"galaxy_pid": 143,
+		"diameter": 1650200.4,
+		"temperature": 6100,
+		"ra": 101.277254,
+		"name": "CoRoT-5",
+		"mass": 1.0,
+		"pid": 99
+	},
+	{
+		"dec": -26.096655,
+		"galaxy_pid": 143,
 		"diameter": 1234171.8,
+		"temperature": 5523,
+		"ra": 316.961465,
 		"name": "HATS-13",
 		"mass": 0.96,
-		"pid": 270,
-		"dec": -26.096655,
-		"ra": 316.961465,
-		"galaxy_pid": 143
+		"pid": 100
 	},
 	{
-		"temperature": 5778,
+		"dec": -22.673937,
+		"galaxy_pid": 143,
+		"diameter": 1202169.6,
+		"temperature": 5375,
+		"ra": 348.157246,
+		"name": "WASP-6",
+		"mass": 0.84,
+		"pid": 101
+	},
+	{
+		"dec": 0.758834,
+		"galaxy_pid": 143,
+		"diameter": 3144563.9999999995,
+		"temperature": 6059,
+		"ra": 29.263338,
+		"name": "WASP-71",
+		"mass": 1.56,
+		"pid": 102
+	},
+	{
+		"dec": -20.661839,
+		"galaxy_pid": 143,
+		"diameter": 1110337.2,
+		"temperature": 4953,
+		"ra": 31.909203,
+		"name": "WASP-53",
+		"mass": 0.84,
+		"pid": 103
+	},
+	{
+		"dec": 30.488716,
+		"galaxy_pid": 143,
+		"diameter": 1165993.2,
+		"temperature": 5246,
+		"ra": 324.536396,
+		"name": "HAT-P-17",
+		"mass": 0.86,
+		"pid": 104
+	},
+	{
+		"dec": 10.597294,
+		"galaxy_pid": 143,
+		"diameter": 2087100.0,
+		"temperature": 7500,
+		"ra": 274.743421,
+		"name": "HAT-P-57",
+		"mass": 1.47,
+		"pid": 105
+	},
+	{
+		"dec": -1.063033,
+		"galaxy_pid": 143,
+		"diameter": 1140948.0,
+		"temperature": 5259,
+		"ra": 100.956125,
+		"name": "CoRoT-7",
+		"mass": 0.91,
+		"pid": 106
+	},
+	{
+		"dec": 38.714016,
+		"galaxy_pid": 143,
+		"diameter": 2646442.8,
+		"temperature": 6305,
+		"ra": 287.361816,
+		"name": "Kepler-21",
+		"mass": 1.41,
+		"pid": 107
+	},
+	{
+		"dec": -9.022769,
+		"galaxy_pid": 143,
+		"diameter": 4076802.0,
+		"temperature": 4912,
+		"ra": 338.368392,
+		"name": "K2-39",
+		"mass": 1.19,
+		"pid": 108
+	},
+	{
+		"dec": 34.711575,
+		"galaxy_pid": 143,
+		"diameter": 1140948.0,
+		"temperature": 4990,
+		"ra": 9.516742,
+		"name": "HAT-P-19",
+		"mass": 0.84,
+		"pid": 109
+	},
+	{
+		"dec": 47.815006,
+		"galaxy_pid": 143,
+		"diameter": 1460970.0,
+		"temperature": 5781,
+		"ra": 298.395274,
+		"name": "Kepler-17",
+		"mass": 1.16,
+		"pid": 110
+	},
+	{
+		"dec": -5.094404,
+		"galaxy_pid": 143,
+		"diameter": 1131208.2,
+		"temperature": 4715,
+		"ra": 315.025778,
+		"name": "WASP-69",
+		"mass": 0.83,
+		"pid": 111
+	},
+	{
+		"dec": -42.475273,
+		"galaxy_pid": 143,
+		"diameter": 1335744.0,
+		"temperature": 5625,
+		"ra": 203.105988,
+		"name": "WASP-130",
+		"mass": 1.04,
+		"pid": 112
+	},
+	{
+		"dec": 31.661034,
+		"galaxy_pid": 143,
+		"diameter": 1892304.0000000002,
+		"temperature": 6236,
+		"ra": 314.268494,
+		"name": "KELT-16",
+		"mass": 1.21,
+		"pid": 113
+	},
+	{
+		"dec": 36.577386,
+		"galaxy_pid": 143,
+		"diameter": 1238346.0,
+		"temperature": 5200,
+		"ra": 291.137593,
+		"name": "Kepler-75",
+		"mass": 0.91,
+		"pid": 114
+	},
+	{
+		"dec": 36.815491,
+		"galaxy_pid": 143,
+		"diameter": 1046332.8,
+		"temperature": 5000,
+		"ra": 293.732796,
+		"name": "WTS-2",
+		"mass": 0.82,
+		"pid": 115
+	},
+	{
+		"dec": 51.041115,
+		"galaxy_pid": 143,
+		"diameter": 1865867.4,
+		"temperature": 6280,
+		"ra": 246.692108,
+		"name": "WASP-92",
+		"mass": 1.19,
+		"pid": 116
+	},
+	{
+		"dec": 4.059997,
+		"galaxy_pid": 143,
+		"diameter": 1096423.2,
+		"temperature": 5079,
+		"ra": 213.156383,
+		"name": "HAT-P-26",
+		"mass": 0.82,
+		"pid": 117
+	},
+	{
+		"dec": -30.012999,
+		"galaxy_pid": 143,
+		"diameter": 1722553.2,
+		"temperature": 5738,
+		"ra": 358.55871,
+		"name": "HATS-16",
+		"mass": 0.97,
+		"pid": 118
+	},
+	{
+		"dec": 4.672421,
+		"galaxy_pid": 143,
+		"diameter": 2341726.2,
+		"temperature": 6390,
+		"ra": 297.322651,
+		"name": "HAT-P-41",
+		"mass": 1.42,
+		"pid": 119
+	},
+	{
+		"dec": 39.094578,
+		"galaxy_pid": 143,
+		"diameter": 1572281.9999999998,
+		"temperature": 5430,
+		"ra": 116.716527,
+		"name": "XO-5",
+		"mass": 1.04,
+		"pid": 120
+	},
+	{
+		"dec": 57.168354,
+		"galaxy_pid": 143,
+		"diameter": 1082509.2,
+		"temperature": 4699,
+		"ra": 348.32074,
+		"name": "HD 219134",
+		"mass": 0.81,
+		"pid": 121
+	},
+	{
+		"dec": 34.728413,
+		"galaxy_pid": 143,
+		"diameter": 1534714.2,
+		"temperature": 5680,
+		"ra": 13.000766,
+		"name": "HAT-P-28",
+		"mass": 1.02,
+		"pid": 122
+	},
+	{
+		"dec": -5.086445,
+		"galaxy_pid": 143,
+		"diameter": 1405314.0,
+		"temperature": 5945,
+		"ra": 102.721137,
+		"name": "CoRoT-13",
+		"mass": 1.09,
+		"pid": 123
+	},
+	{
+		"dec": 51.778759,
+		"galaxy_pid": 143,
+		"diameter": 1703073.5999999999,
+		"temperature": 6087,
+		"ra": 33.131142,
+		"name": "HAT-P-29",
+		"mass": 1.21,
+		"pid": 124
+	},
+	{
+		"dec": 24.12738,
+		"galaxy_pid": 143,
+		"diameter": 2323638.0,
+		"temperature": 5754,
+		"ra": 283.30551,
+		"name": "KELT-8",
+		"mass": 1.21,
+		"pid": 125
+	},
+	{
+		"dec": 24.33663,
+		"galaxy_pid": 143,
+		"diameter": 965631.6,
+		"temperature": 4595,
+		"ra": 111.916469,
+		"name": "HAT-P-20",
+		"mass": 0.76,
+		"pid": 126
+	},
+	{
+		"dec": 29.672291,
+		"galaxy_pid": 143,
+		"diameter": 2305549.8,
+		"temperature": 6360,
+		"ra": 97.63664,
+		"name": "WASP-12",
+		"mass": 1.43,
+		"pid": 127
+	},
+	{
+		"dec": 13.735319,
+		"galaxy_pid": 143,
+		"diameter": 2288853.0,
+		"temperature": 7454,
+		"ra": 125.617523,
+		"name": "KELT-17",
+		"mass": 1.64,
+		"pid": 128
+	},
+	{
+		"dec": 4.357806,
+		"galaxy_pid": 143,
+		"diameter": 2240154.0,
+		"temperature": 5900,
+		"ra": 279.782615,
+		"name": "CoRoT-23",
+		"mass": 1.14,
+		"pid": 129
+	},
+	{
+		"dec": 38.968147,
+		"galaxy_pid": 143,
+		"diameter": 1682202.6,
+		"temperature": 5956,
+		"ra": 21.871105,
+		"name": "HAT-P-53",
+		"mass": 1.09,
+		"pid": 130
+	},
+	{
+		"dec": -55.772083,
+		"galaxy_pid": 143,
+		"diameter": 1474884.0,
+		"temperature": 5640,
+		"ra": 24.604338,
+		"name": "WASP-97",
+		"mass": 1.12,
+		"pid": 131
+	},
+	{
+		"dec": 1.230738,
+		"galaxy_pid": 143,
+		"diameter": 1231389.0,
+		"temperature": 5248,
+		"ra": 171.515165,
+		"name": "K2-27",
+		"mass": 0.87,
+		"pid": 132
+	},
+	{
+		"dec": -63.565609,
+		"galaxy_pid": 143,
+		"diameter": 1993876.2000000002,
+		"temperature": 6300,
+		"ra": 296.688263,
+		"name": "HATS-35",
+		"mass": 1.32,
+		"pid": 133
+	},
+	{
+		"dec": -8.31756,
+		"galaxy_pid": 143,
+		"diameter": 1577847.5999999999,
+		"temperature": 5838,
+		"ra": 201.655192,
+		"name": "WASP-157",
+		"mass": 1.26,
+		"pid": 134
+	},
+	{
+		"dec": -45.89822,
+		"galaxy_pid": 143,
+		"diameter": 2601918.0,
+		"temperature": 6450,
+		"ra": 62.616051,
+		"name": "WASP-120",
+		"mass": 1.39,
+		"pid": 135
+	},
+	{
+		"dec": 0.746143,
+		"galaxy_pid": 143,
+		"diameter": 1099206.0,
+		"temperature": 5075,
+		"ra": 291.063708,
+		"name": "CoRoT-10",
+		"mass": 0.89,
+		"pid": 136
+	},
+	{
+		"dec": -22.562992,
+		"galaxy_pid": 143,
+		"diameter": 1249477.2,
+		"temperature": 5227,
+		"ra": 176.739094,
+		"name": "HATS-2",
+		"mass": 0.88,
+		"pid": 137
+	},
+	{
+		"dec": -24.428793,
+		"galaxy_pid": 143,
+		"diameter": 1953525.5999999999,
+		"temperature": 6351,
+		"ra": 312.45744,
+		"name": "HATS-3",
+		"mass": 1.21,
+		"pid": 138
+	},
+	{
+		"dec": 5.836719,
+		"galaxy_pid": 143,
+		"diameter": 1690551.0,
+		"temperature": 6304,
+		"ra": 123.949894,
+		"name": "HAT-P-30",
+		"mass": 1.24,
+		"pid": 139
+	},
+	{
+		"dec": 32.246151,
+		"galaxy_pid": 143,
+		"diameter": 1284262.2,
+		"temperature": 5330,
+		"ra": 35.383234,
+		"name": "HAT-P-38",
+		"mass": 0.89,
+		"pid": 140
+	},
+	{
+		"dec": -35.99826,
+		"galaxy_pid": 143,
+		"diameter": 1275913.8,
+		"temperature": 5100,
+		"ra": 5.237497,
+		"name": "WASP-45",
+		"mass": 0.9,
+		"pid": 141
+	},
+	{
+		"dec": -25.748318,
+		"galaxy_pid": 143,
+		"diameter": 1511060.4000000001,
+		"temperature": 5679,
+		"ra": 294.941746,
+		"name": "HATS-8",
+		"mass": 1.06,
+		"pid": 142
+	},
+	{
+		"dec": -5.536037,
+		"galaxy_pid": 143,
+		"diameter": 1683594.0,
+		"temperature": 6035,
+		"ra": 103.424211,
+		"name": "CoRoT-14",
+		"mass": 1.13,
+		"pid": 143
+	},
+	{
+		"dec": 31.462852,
+		"galaxy_pid": 143,
+		"diameter": 971197.2,
+		"temperature": 4675,
+		"ra": 348.992912,
+		"name": "WASP-10",
+		"mass": 0.75,
+		"pid": 144
+	},
+	{
+		"dec": 6.219136,
+		"galaxy_pid": 143,
+		"diameter": 1580630.4,
+		"temperature": 5939,
+		"ra": 280.667115,
+		"name": "CoRoT-22",
+		"mass": 1.1,
+		"pid": 145
+	},
+	{
+		"dec": 24.88929,
+		"galaxy_pid": 143,
+		"diameter": 852928.2,
+		"temperature": 4650,
+		"ra": 349.623126,
+		"name": "WASP-59",
+		"mass": 0.72,
+		"pid": 146
+	},
+	{
+		"dec": 47.969513,
+		"galaxy_pid": 143,
+		"diameter": 2560176.0,
+		"temperature": 6441,
+		"ra": 292.24731,
+		"name": "HAT-P-7",
+		"mass": 1.47,
+		"pid": 147
+	},
+	{
+		"dec": -61.747311,
+		"galaxy_pid": 143,
+		"diameter": 1630720.7999999998,
+		"temperature": 6346,
+		"ra": 268.890686,
+		"name": "HATS-24",
+		"mass": 1.21,
+		"pid": 148
+	},
+	{
+		"dec": -0.672774,
+		"galaxy_pid": 143,
+		"diameter": 1627938.0,
+		"temperature": 6190,
+		"ra": 102.194663,
+		"name": "CoRoT-4",
+		"mass": 1.16,
+		"pid": 149
+	},
+	{
+		"dec": 44.44833,
+		"galaxy_pid": 143,
+		"diameter": 1025461.7999999999,
+		"temperature": 5058,
+		"ra": 293.74169,
+		"name": "Kepler-78",
+		"mass": 0.76,
+		"pid": 150
+	},
+	{
+		"dec": -19.031656,
+		"galaxy_pid": 143,
+		"diameter": 793097.9999999999,
+		"temperature": 3724,
+		"ra": 88.146797,
+		"name": "HATS-6",
+		"mass": 0.57,
+		"pid": 151
+	},
+	{
+		"dec": 45.349865,
+		"galaxy_pid": 143,
+		"diameter": 890496.0,
+		"temperature": 4925,
+		"ra": 283.212747,
+		"name": "Kepler-62",
+		"mass": 0.69,
+		"pid": 152
+	},
+	{
+		"dec": 51.288761,
+		"galaxy_pid": 143,
+		"diameter": 2120493.6,
+		"temperature": 6700,
+		"ra": 9.458792,
+		"name": "WASP-93",
+		"mass": 1.33,
+		"pid": 153
+	},
+	{
+		"dec": 37.140652,
+		"galaxy_pid": 143,
+		"diameter": 1836648.0,
+		"temperature": 6350,
+		"ra": 110.168529,
+		"name": "HAT-P-9",
+		"mass": 1.28,
+		"pid": 154
+	},
+	{
+		"dec": 6.969787,
+		"galaxy_pid": 143,
+		"diameter": 2490606.0,
+		"temperature": 5590,
+		"ra": 279.750514,
+		"name": "CoRoT-26",
+		"mass": 1.09,
+		"pid": 155
+	},
+	{
+		"dec": 7.056235,
+		"galaxy_pid": 143,
+		"diameter": 2754972.0,
+		"temperature": 6430,
+		"ra": 315.531971,
+		"name": "WASP-90",
+		"mass": 1.55,
+		"pid": 156
+	},
+	{
+		"dec": -22.204477,
+		"galaxy_pid": 143,
+		"diameter": 1537497.0,
+		"temperature": 5880,
+		"ra": 294.306813,
+		"name": "HATS-10",
+		"mass": 1.1,
+		"pid": 157
+	},
+	{
+		"dec": 8.523038,
+		"galaxy_pid": 143,
+		"diameter": 1405314.0,
+		"temperature": 5600,
+		"ra": 133.324304,
+		"name": "WASP-65",
+		"mass": 0.93,
+		"pid": 158
+	},
+	{
+		"dec": 45.762142,
+		"galaxy_pid": 143,
+		"diameter": 1878390.0000000002,
+		"temperature": 5800,
+		"ra": 300.102352,
+		"name": "Kepler-44",
+		"mass": 1.12,
+		"pid": 159
+	},
+	{
+		"dec": -69.226807,
+		"galaxy_pid": 143,
+		"diameter": 1767078.0,
+		"temperature": 5800,
+		"ra": 63.373865,
+		"name": "WASP-126",
+		"mass": 1.12,
+		"pid": 160
+	},
+	{
+		"dec": -23.189288,
+		"galaxy_pid": 143,
+		"diameter": 1530540.0000000002,
+		"temperature": 5757,
+		"ra": 240.033579,
+		"name": "K2-38",
+		"mass": 1.07,
+		"pid": 161
+	},
+	{
+		"dec": -6.612234,
+		"galaxy_pid": 143,
+		"diameter": 2212326.0,
+		"temperature": 5740,
+		"ra": 278.699254,
+		"name": "CoRoT-17",
+		"mass": 1.04,
+		"pid": 162
+	},
+	{
+		"dec": 35.447109,
+		"galaxy_pid": 143,
+		"diameter": 2198412.0,
+		"temperature": 6200,
+		"ra": 343.041067,
+		"name": "HAT-P-8",
+		"mass": 1.28,
+		"pid": 163
+	},
+	{
+		"dec": -23.935728,
+		"galaxy_pid": 143,
+		"diameter": 1936828.7999999998,
+		"temperature": 5940,
+		"ra": 5.160559,
+		"name": "WASP-20",
+		"mass": 1.2,
+		"pid": 164
+	},
+	{
+		"dec": -30.169039,
+		"galaxy_pid": 143,
+		"diameter": 2754972.0,
+		"temperature": 6250,
+		"ra": 41.039999,
+		"name": "WASP-72",
+		"mass": 1.39,
+		"pid": 165
+	},
+	{
+		"dec": 49.316402,
+		"galaxy_pid": 143,
 		"diameter": 1391400.0,
-		"name": "Sun",
-		"mass": 1,
-		"pid": 271,
+		"temperature": 5850,
+		"ra": 286.808473,
+		"name": "TrES-2",
+		"mass": 0.98,
+		"pid": 166
+	},
+	{
+		"dec": 20.599232,
+		"galaxy_pid": 143,
+		"diameter": 1291219.2,
+		"temperature": 5766,
+		"ra": 53.650966,
+		"name": "BD+20 594",
+		"mass": 0.96,
+		"pid": 167
+	},
+	{
+		"dec": -19.43751,
+		"galaxy_pid": 143,
+		"diameter": 1282870.8,
+		"temperature": 5311,
+		"ra": 311.091961,
+		"name": "HATS-15",
+		"mass": 0.87,
+		"pid": 168
+	},
+	{
+		"dec": 10.206653,
+		"galaxy_pid": 143,
+		"diameter": 1534714.2,
+		"temperature": 5645,
+		"ra": 128.925737,
+		"name": "HAT-P-43",
+		"mass": 1.05,
+		"pid": 169
+	},
+	{
+		"dec": 0.226919,
+		"galaxy_pid": 143,
+		"diameter": 1419228.0,
+		"temperature": 5880,
+		"ra": 97.720408,
+		"name": "CoRoT-20",
+		"mass": 1.14,
+		"pid": 170
+	},
+	{
+		"dec": -55.330105,
+		"galaxy_pid": 143,
+		"diameter": 1422010.8,
+		"temperature": 5659,
+		"ra": 294.633636,
+		"name": "HATS-33",
+		"mass": 1.06,
+		"pid": 171
+	},
+	{
+		"dec": -17.115154,
+		"galaxy_pid": 143,
+		"diameter": 1906218.0000000002,
+		"temperature": 5900,
+		"ra": 71.824409,
+		"name": "WASP-141",
+		"mass": 1.25,
+		"pid": 172
+	},
+	{
+		"dec": 49.231827,
+		"galaxy_pid": 143,
+		"diameter": 2262416.4,
+		"temperature": 5911,
+		"ra": 291.250191,
+		"name": "Kepler-36",
+		"mass": 1.07,
+		"pid": 173
+	},
+	{
+		"dec": 33.012512,
+		"galaxy_pid": 143,
+		"diameter": 1042158.6,
+		"temperature": 4803,
+		"ra": 256.346473,
+		"name": "HAT-P-18",
+		"mass": 0.77,
+		"pid": 174
+	},
+	{
+		"dec": -22.546885,
+		"galaxy_pid": 143,
+		"diameter": 1287045.0,
+		"temperature": 5403,
+		"ra": 94.112075,
+		"name": "HATS-4",
+		"mass": 1.0,
+		"pid": 175
+	},
+	{
+		"dec": 15.391492,
+		"galaxy_pid": 143,
+		"diameter": 667872.0,
+		"temperature": 3652,
+		"ra": 119.774349,
+		"name": "GJ 3470",
+		"mass": 0.51,
+		"pid": 176
+	},
+	{
+		"dec": 6.513829,
+		"galaxy_pid": 143,
+		"diameter": 1655766.0,
+		"temperature": 6040,
+		"ra": 280.629662,
+		"name": "CoRoT-25",
+		"mass": 1.09,
+		"pid": 177
+	},
+	{
+		"dec": -2.144208,
+		"galaxy_pid": 143,
+		"diameter": 815360.3999999999,
+		"temperature": 4143,
+		"ra": 303.167407,
+		"name": "WASP-80",
+		"mass": 0.58,
+		"pid": 178
+	},
+	{
+		"dec": 25.197405,
+		"galaxy_pid": 143,
+		"diameter": 1334352.5999999999,
+		"temperature": 5500,
+		"ra": 48.435419,
+		"name": "HAT-P-25",
+		"mass": 1.01,
+		"pid": 179
+	},
+	{
+		"dec": 48.355228,
+		"galaxy_pid": 143,
+		"diameter": 2170584.0,
+		"temperature": 5667,
+		"ra": 283.255489,
+		"name": "Kepler-101",
+		"mass": 1.17,
+		"pid": 180
+	},
+	{
+		"dec": -47.360626,
+		"galaxy_pid": 143,
+		"diameter": 1460970.0,
+		"temperature": 5540,
+		"ra": 1.046351,
+		"name": "WASP-96",
+		"mass": 1.06,
+		"pid": 181
+	},
+	{
+		"dec": -30.63987,
+		"galaxy_pid": 143,
+		"diameter": 1210518.0,
+		"temperature": 5545,
+		"ra": 190.618736,
+		"name": "WASP-41",
+		"mass": 0.93,
+		"pid": 182
+	},
+	{
+		"dec": 1.860033,
+		"galaxy_pid": 143,
+		"diameter": 1040767.2,
+		"temperature": 5314,
+		"ra": 131.107099,
+		"name": "WASP-84",
+		"mass": 0.84,
+		"pid": 183
+	},
+	{
+		"dec": -20.166317,
+		"galaxy_pid": 143,
+		"diameter": 2091274.2,
+		"temperature": 5366,
+		"ra": 290.810104,
+		"name": "HATS-9",
+		"mass": 1.03,
+		"pid": 184
+	},
+	{
+		"dec": -0.128076,
+		"galaxy_pid": 143,
+		"diameter": 2543479.2,
+		"temperature": 6100,
+		"ra": 205.454308,
+		"name": "WASP-54",
+		"mass": 1.21,
+		"pid": 185
+	},
+	{
+		"dec": -42.061428,
+		"galaxy_pid": 143,
+		"diameter": 1280088.0,
+		"temperature": 5436,
+		"ra": 353.562841,
+		"name": "WASP-4",
+		"mass": 0.89,
+		"pid": 186
+	},
+	{
+		"dec": -3.102147,
+		"galaxy_pid": 143,
+		"diameter": 1544454.0000000002,
+		"temperature": 5950,
+		"ra": 102.079885,
+		"name": "CoRoT-1",
+		"mass": 0.95,
+		"pid": 187
+	},
+	{
+		"dec": 8.761262,
+		"galaxy_pid": 143,
+		"diameter": 1099206.0,
+		"temperature": 5000,
+		"ra": 348.494748,
+		"name": "WASP-52",
+		"mass": 0.87,
+		"pid": 188
+	},
+	{
+		"dec": -10.67556,
+		"galaxy_pid": 143,
+		"diameter": 1753164.0,
+		"temperature": 6100,
+		"ra": 342.385707,
+		"name": "WASP-75",
+		"mass": 1.14,
+		"pid": 189
+	},
+	{
+		"dec": -25.687334,
+		"galaxy_pid": 143,
+		"diameter": 1298176.2000000002,
+		"temperature": 5346,
+		"ra": 313.215479,
+		"name": "HATS-14",
+		"mass": 0.97,
+		"pid": 190
+	},
+	{
+		"dec": 43.197281,
+		"galaxy_pid": 143,
+		"diameter": 4466394.0,
+		"temperature": 6161,
+		"ra": 292.287328,
+		"name": "Kepler-435",
+		"mass": 1.54,
+		"pid": 191
+	},
+	{
+		"dec": -18.971106,
+		"galaxy_pid": 143,
+		"diameter": 1224432.0,
+		"temperature": 5130,
+		"ra": 313.899962,
+		"name": "WASP-89",
+		"mass": 0.92,
+		"pid": 192
+	},
+	{
+		"dec": -29.543312,
+		"galaxy_pid": 143,
+		"diameter": 958674.6,
+		"temperature": 4803,
+		"ra": 174.00972,
+		"name": "HATS-22",
+		"mass": 0.76,
+		"pid": 193
+	},
+	{
+		"dec": -2.970947,
+		"galaxy_pid": 143,
+		"diameter": 1942394.4,
+		"temperature": 6120,
+		"ra": 270.444201,
+		"name": "HAT-P-46",
+		"mass": 1.28,
+		"pid": 194
+	},
+	{
+		"dec": 41.064261,
+		"galaxy_pid": 143,
+		"diameter": 765270.0000000001,
+		"temperature": 3820,
+		"ra": 292.8729,
+		"name": "Kepler-45",
+		"mass": 0.59,
+		"pid": 195
+	},
+	{
+		"dec": 7.183352,
+		"galaxy_pid": 143,
+		"diameter": 1998050.4,
+		"temperature": 6110,
+		"ra": 249.314868,
+		"name": "WASP-103",
+		"mass": 1.22,
+		"pid": 196
+	},
+	{
+		"dec": 44.035046,
+		"galaxy_pid": 143,
+		"diameter": 2494780.1999999997,
+		"temperature": 6297,
+		"ra": 299.407009,
+		"name": "Kepler-5",
+		"mass": 1.37,
+		"pid": 197
+	},
+	{
+		"dec": -54.893192,
+		"galaxy_pid": 143,
+		"diameter": 1492972.2,
+		"temperature": 5670,
+		"ra": 285.096424,
+		"name": "HATS-29",
+		"mass": 1.03,
+		"pid": 198
+	},
+	{
+		"dec": -5.041274,
+		"galaxy_pid": 143,
+		"diameter": 162793.80000000002,
+		"temperature": 2559,
+		"ra": 346.622013,
+		"name": "TRAPPIST-1",
+		"mass": 0.08,
+		"pid": 199
+	},
+	{
+		"dec": 39.955104,
+		"galaxy_pid": 143,
+		"diameter": 2412687.6,
+		"temperature": 6407,
+		"ra": 298.215108,
+		"name": "PH1",
+		"mass": 1.53,
+		"pid": 200
+	},
+	{
+		"dec": -30.749672,
+		"galaxy_pid": 143,
+		"diameter": 1419228.0,
+		"temperature": 6050,
+		"ra": 332.714323,
+		"name": "WASP-124",
+		"mass": 1.07,
+		"pid": 201
+	},
+	{
+		"dec": -17.503464,
+		"galaxy_pid": 143,
+		"diameter": 1533322.8,
+		"temperature": 6070,
+		"ra": 203.758114,
+		"name": "WASP-55",
+		"mass": 1.16,
+		"pid": 202
+	},
+	{
+		"dec": -24.427364,
+		"galaxy_pid": 143,
+		"diameter": 2601918.0,
+		"temperature": 6050,
+		"ra": 191.702789,
+		"name": "HATS-31",
+		"mass": 1.27,
+		"pid": 203
+	},
+	{
+		"dec": -19.31468,
+		"galaxy_pid": 143,
+		"diameter": 2351466.0,
+		"temperature": 5911,
+		"ra": 305.095785,
+		"name": "WASP-68",
+		"mass": 1.24,
+		"pid": 204
+	},
+	{
+		"dec": -8.026946,
+		"galaxy_pid": 143,
+		"diameter": 1370529.0,
+		"temperature": 5959,
+		"ra": 131.580405,
+		"name": "WASP-36",
+		"mass": 1.08,
+		"pid": 205
+	},
+	{
+		"dec": 41.86676,
+		"galaxy_pid": 143,
+		"diameter": 1324612.8,
+		"temperature": 5820,
+		"ra": 299.122454,
+		"name": "Kepler-539",
+		"mass": 1.05,
+		"pid": 206
+	},
+	{
+		"dec": 46.668255,
+		"galaxy_pid": 143,
+		"diameter": 1975788.0,
+		"temperature": 6041,
+		"ra": 285.240856,
+		"name": "Kepler-43",
+		"mass": 1.32,
+		"pid": 207
+	},
+	{
+		"dec": 46.034298,
+		"galaxy_pid": 143,
+		"diameter": 1947959.9999999998,
+		"temperature": 6350,
+		"ra": 296.960265,
+		"name": "Kepler-39",
+		"mass": 1.29,
+		"pid": 208
+	},
+	{
+		"dec": 38.672354,
+		"galaxy_pid": 143,
+		"diameter": 1278696.6,
+		"temperature": 5669,
+		"ra": 291.418281,
+		"name": "Kepler-93",
+		"mass": 0.91,
+		"pid": 209
+	},
+	{
+		"dec": -30.600445,
+		"galaxy_pid": 143,
+		"diameter": 2128842.0,
+		"temperature": 6600,
+		"ra": 66.370903,
+		"name": "WASP-79",
+		"mass": 1.38,
+		"pid": 210
+	},
+	{
+		"dec": 42.338726,
+		"galaxy_pid": 143,
+		"diameter": 1341170.46,
+		"temperature": 5495,
+		"ra": 287.698004,
+		"name": "Kepler-20",
+		"mass": 0.95,
+		"pid": 211
+	},
+	{
+		"dec": -23.946169,
+		"galaxy_pid": 143,
+		"diameter": 2281896.0,
+		"temperature": 6010,
+		"ra": 140.506393,
+		"name": "WASP-142",
+		"mass": 1.33,
+		"pid": 212
+	},
+	{
+		"dec": 44.116734,
+		"galaxy_pid": 143,
+		"diameter": 8765820.0,
+		"temperature": 4550,
+		"ra": 285.672872,
+		"name": "Kepler-91",
+		"mass": 1.31,
+		"pid": 213
+	},
+	{
+		"dec": 24.402043,
+		"galaxy_pid": 143,
+		"diameter": 1196604.0,
+		"temperature": 5358,
+		"ra": 62.670647,
+		"name": "K2-29",
+		"mass": 0.94,
+		"pid": 214
+	},
+	{
+		"dec": -45.659191,
+		"galaxy_pid": 143,
+		"diameter": 1396965.6,
+		"temperature": 5568,
+		"ra": 148.417002,
+		"name": "WASP-19",
+		"mass": 0.9,
+		"pid": 215
+	},
+	{
+		"dec": 22.235908,
+		"galaxy_pid": 143,
+		"diameter": 2123276.4,
+		"temperature": 6132,
+		"ra": 127.57877,
+		"name": "K2-34",
+		"mass": 1.28,
+		"pid": 216
+	},
+	{
+		"dec": -48.003086,
+		"galaxy_pid": 143,
+		"diameter": 1572281.9999999998,
+		"temperature": 5630,
+		"ra": 337.457189,
+		"name": "WASP-95",
+		"mass": 1.11,
+		"pid": 217
+	},
+	{
+		"dec": -35.796555,
+		"galaxy_pid": 143,
+		"diameter": 2003616.0,
+		"temperature": 5700,
+		"ra": 314.575373,
+		"name": "WASP-133",
+		"mass": 1.16,
+		"pid": 218
+	},
+	{
+		"dec": 10.463482,
+		"galaxy_pid": 143,
+		"diameter": 1989702.0,
+		"temperature": 5940,
+		"ra": 327.664437,
+		"name": "WASP-114",
+		"mass": 1.29,
+		"pid": 219
+	},
+	{
+		"dec": 36.290325,
+		"galaxy_pid": 143,
+		"diameter": 1600109.9999999998,
+		"temperature": 6250,
+		"ra": 293.9932,
+		"name": "WTS-1",
+		"mass": 1.2,
+		"pid": 220
+	},
+	{
+		"dec": -52.120453,
+		"galaxy_pid": 143,
+		"diameter": 2060663.4000000001,
+		"temperature": 6003,
+		"ra": 117.415037,
+		"name": "KELT-15",
+		"mass": 1.18,
+		"pid": 221
+	},
+	{
+		"dec": -20.451092,
+		"galaxy_pid": 143,
+		"diameter": 1210518.0,
+		"temperature": 5260,
+		"ra": 60.38562,
+		"name": "WASP-140",
+		"mass": 0.9,
+		"pid": 222
+	},
+	{
+		"dec": -59.942551,
+		"galaxy_pid": 143,
+		"diameter": 1476275.4,
+		"temperature": 5943,
+		"ra": 5.618693,
+		"name": "HATS-30",
+		"mass": 1.09,
+		"pid": 223
+	},
+	{
+		"dec": -29.156012,
+		"galaxy_pid": 143,
+		"diameter": 1419228.0,
+		"temperature": 5600,
+		"ra": 173.957397,
+		"name": "HATS-18",
+		"mass": 1.04,
+		"pid": 224
+	},
+	{
+		"dec": -23.819702,
+		"galaxy_pid": 143,
+		"diameter": 1746206.9999999998,
+		"temperature": 6153,
+		"ra": 52.818043,
+		"name": "WASP-22",
+		"mass": 1.25,
+		"pid": 225
+	},
+	{
+		"dec": 41.027954,
+		"galaxy_pid": 143,
+		"diameter": 1537497.0,
+		"temperature": 5588,
+		"ra": 171.274955,
+		"name": "HAT-P-21",
+		"mass": 0.95,
+		"pid": 226
+	},
+	{
+		"dec": -55.87178,
+		"galaxy_pid": 143,
+		"diameter": 1193821.2,
+		"temperature": 5600,
+		"ra": 318.736981,
+		"name": "WASP-46",
+		"mass": 0.83,
+		"pid": 227
+	},
+	{
+		"dec": 42.279205,
+		"galaxy_pid": 143,
+		"diameter": 2437732.8,
+		"temperature": 5623,
+		"ra": 286.830353,
+		"name": "Kepler-38",
+		"mass": 0.94,
+		"pid": 228
+	},
+	{
+		"dec": 7.435026,
+		"galaxy_pid": 143,
+		"diameter": 1339918.2,
+		"temperature": 5475,
+		"ra": 160.602432,
+		"name": "WASP-104",
+		"mass": 1.08,
+		"pid": 229
+	},
+	{
+		"dec": 44.915352,
+		"galaxy_pid": 143,
+		"diameter": 1524974.4000000001,
+		"temperature": 5560,
+		"ra": 188.266255,
+		"name": "HAT-P-36",
+		"mass": 1.02,
+		"pid": 230
+	},
+	{
+		"dec": -39.097393,
+		"galaxy_pid": 143,
+		"diameter": 2028661.2,
+		"temperature": 6459,
+		"ra": 107.600275,
+		"name": "WASP-121",
+		"mass": 1.35,
+		"pid": 231
+	},
+	{
+		"dec": -65.193855,
+		"galaxy_pid": 143,
+		"diameter": 1669680.0,
+		"temperature": 5650,
+		"ra": 55.933441,
+		"name": "WASP-119",
+		"mass": 1.02,
+		"pid": 232
+	},
+	{
+		"dec": -47.613693,
+		"galaxy_pid": 143,
+		"diameter": 1518017.4,
+		"temperature": 5846,
+		"ra": 192.189799,
+		"name": "HATS-17",
+		"mass": 1.13,
+		"pid": 233
+	},
+	{
+		"dec": 22.299405,
+		"galaxy_pid": 143,
+		"diameter": 1174341.5999999999,
+		"temperature": 5425,
+		"ra": 52.341962,
+		"name": "K2-30",
+		"mass": 0.9,
+		"pid": 234
+	},
+	{
+		"dec": -1.075676,
+		"galaxy_pid": 143,
+		"diameter": 2281896.0,
+		"temperature": 5970,
+		"ra": 304.538823,
+		"name": "WASP-74",
+		"mass": 1.48,
+		"pid": 235
+	},
+	{
+		"dec": -49.13847,
+		"galaxy_pid": 143,
+		"diameter": 1282870.8,
+		"temperature": 5498,
+		"ra": 284.399685,
+		"name": "HATS-28",
+		"mass": 0.93,
+		"pid": 236
+	},
+	{
+		"dec": 47.526608,
+		"galaxy_pid": 143,
+		"diameter": 2963682.0,
+		"temperature": 6510,
+		"ra": 296.81369,
+		"name": "Kepler-40",
+		"mass": 1.48,
+		"pid": 237
+	},
+	{
+		"dec": -5.079412,
+		"galaxy_pid": 143,
+		"diameter": 1938220.2,
+		"temperature": 6055,
+		"ra": 166.429747,
+		"name": "WASP-106",
+		"mass": 1.19,
+		"pid": 238
+	},
+	{
+		"dec": 49.4734,
+		"galaxy_pid": 143,
+		"diameter": 1280088.0,
+		"temperature": 5725,
+		"ra": 289.434628,
+		"name": "Kepler-426",
+		"mass": 0.91,
+		"pid": 239
+	},
+	{
+		"dec": 42.463078,
+		"galaxy_pid": 143,
+		"diameter": 1721161.8,
+		"temperature": 6158,
+		"ra": 9.573181,
+		"name": "HAT-P-16",
+		"mass": 1.22,
+		"pid": 240
+	},
+	{
+		"dec": -23.48621,
+		"galaxy_pid": 143,
+		"diameter": 1794906.0,
+		"temperature": 6400,
+		"ra": 98.351102,
+		"name": "WASP-101",
+		"mass": 1.34,
+		"pid": 241
+	},
+	{
+		"dec": 47.014687,
+		"galaxy_pid": 143,
+		"diameter": 1320438.5999999999,
+		"temperature": 5295,
+		"ra": 213.144074,
+		"name": "HAT-P-44",
+		"mass": 0.94,
+		"pid": 242
+	},
+	{
+		"dec": -46.15918,
+		"galaxy_pid": 143,
+		"diameter": 1029636.0,
+		"temperature": 4775,
+		"ra": 217.609131,
+		"name": "WASP-132",
+		"mass": 0.8,
+		"pid": 243
+	},
+	{
+		"dec": 12.13941,
+		"galaxy_pid": 143,
+		"diameter": 2362597.1999999997,
+		"temperature": 6280,
+		"ra": 118.063411,
+		"name": "HAT-P-50",
+		"mass": 1.27,
+		"pid": 244
+	},
+	{
+		"dec": 46.868362,
+		"galaxy_pid": 143,
+		"diameter": 2421036.0,
+		"temperature": 7650,
+		"ra": 286.971199,
+		"name": "KOI-13",
+		"mass": 1.72,
+		"pid": 245
+	},
+	{
+		"dec": -28.061733,
+		"galaxy_pid": 143,
+		"diameter": 2187280.8000000003,
+		"temperature": 6650,
+		"ra": 239.962306,
+		"name": "WASP-17",
+		"mass": 1.31,
+		"pid": 246
+	},
+	{
+		"dec": -41.302147,
+		"galaxy_pid": 143,
+		"diameter": 1113120.0,
+		"temperature": 5310,
+		"ra": 49.562229,
+		"name": "WASP-139",
+		"mass": 0.92,
+		"pid": 247
+	},
+	{
+		"dec": 17.830082,
+		"galaxy_pid": 143,
+		"diameter": 2261025.0,
+		"temperature": 6430,
+		"ra": 113.758247,
+		"name": "HAT-P-39",
+		"mass": 1.4,
+		"pid": 248
+	},
+	{
+		"dec": -13.433218,
+		"galaxy_pid": 143,
+		"diameter": 1690551.0,
+		"temperature": 5763,
+		"ra": 315.476951,
+		"name": "WASP-70 A",
+		"mass": 1.11,
+		"pid": 249
+	},
+	{
+		"dec": -21.271938,
+		"galaxy_pid": 143,
+		"diameter": 1526365.8,
+		"temperature": 5700,
+		"ra": 346.075073,
+		"name": "HATS-32",
+		"mass": 1.1,
+		"pid": 250
+	},
+	{
+		"dec": -50.284519,
+		"galaxy_pid": 143,
+		"diameter": 1627938.0,
+		"temperature": 6038,
+		"ra": 36.775432,
+		"name": "WASP-117",
+		"mass": 1.13,
+		"pid": 251
+	},
+	{
+		"dec": 44.345425,
+		"galaxy_pid": 143,
+		"diameter": 1377486.0,
+		"temperature": 5520,
+		"ra": 289.607956,
+		"name": "Kepler-77",
+		"mass": 0.95,
+		"pid": 252
+	},
+	{
+		"dec": 44.927383,
+		"galaxy_pid": 143,
+		"diameter": 1572281.9999999998,
+		"temperature": 5520,
+		"ra": 291.22518,
+		"name": "Kepler-420",
+		"mass": 0.99,
+		"pid": 253
+	},
+	{
+		"dec": -23.860636,
+		"galaxy_pid": 143,
+		"diameter": 1294002.0,
+		"temperature": 5700,
+		"ra": 165.399561,
+		"name": "WASP-34",
+		"mass": 1.01,
+		"pid": 254
+	},
+	{
+		"dec": 2.61907,
+		"galaxy_pid": 143,
+		"diameter": 793097.9999999999,
+		"temperature": 3830,
+		"ra": 169.482818,
+		"name": "K2-22",
+		"mass": 0.6,
+		"pid": 255
+	},
+	{
+		"dec": 48.040234,
+		"galaxy_pid": 143,
+		"diameter": 2234588.4,
+		"temperature": 6150,
+		"ra": 288.793037,
+		"name": "Kepler-117",
+		"mass": 1.13,
+		"pid": 256
+	},
+	{
+		"dec": 16.419609,
+		"galaxy_pid": 143,
+		"diameter": 2434950.0,
+		"temperature": 5474,
+		"ra": 123.381875,
+		"name": "K2-108",
+		"mass": 1.12,
+		"pid": 257
+	},
+	{
+		"dec": 25.48254,
+		"galaxy_pid": 143,
+		"diameter": 858493.8,
+		"temperature": 4390,
+		"ra": 99.898,
+		"name": "HAT-P-54",
+		"mass": 0.65,
+		"pid": 258
+	},
+	{
+		"dec": 16.762152,
+		"galaxy_pid": 143,
+		"diameter": 1515234.5999999999,
+		"temperature": 5885,
+		"ra": 306.123854,
+		"name": "HAT-P-23",
+		"mass": 1.1,
+		"pid": 259
+	},
+	{
+		"dec": 1.893921,
+		"galaxy_pid": 143,
+		"diameter": 3033252.0,
+		"temperature": 6490,
+		"ra": 72.660671,
+		"name": "WASP-82",
+		"mass": 1.63,
+		"pid": 260
+	},
+	{
+		"dec": -23.781174,
+		"galaxy_pid": 143,
+		"diameter": 1540279.8,
+		"temperature": 5715,
+		"ra": 207.907777,
+		"name": "HATS-25",
+		"mass": 0.99,
+		"pid": 261
+	},
+	{
+		"dec": 33.318165,
+		"galaxy_pid": 143,
+		"diameter": 2409904.8,
+		"temperature": 6789,
+		"ra": 78.295532,
+		"name": "KELT-7",
+		"mass": 1.53,
+		"pid": 262
+	},
+	{
+		"dec": -3.835064,
+		"galaxy_pid": 143,
+		"diameter": 1934045.9999999998,
+		"temperature": 5620,
+		"ra": 160.55867,
+		"name": "WASP-127",
+		"mass": 1.08,
+		"pid": 263
+	},
+	{
+		"dec": 41.355523,
+		"galaxy_pid": 143,
+		"diameter": 1558368.0000000002,
+		"temperature": 6000,
+		"ra": 293.092525,
+		"name": "Kepler-74",
+		"mass": 1.18,
+		"pid": 264
+	},
+	{
+		"dec": 4.787023,
+		"galaxy_pid": 143,
+		"diameter": 1996659.0,
+		"temperature": 6096,
+		"ra": 123.250764,
+		"name": "HAT-P-35",
+		"mass": 1.24,
+		"pid": 265
+	},
+	{
+		"dec": 11.511145,
+		"galaxy_pid": 143,
+		"diameter": 1824125.4,
+		"temperature": 6120,
+		"ra": 126.488289,
+		"name": "EPIC 211391664",
+		"mass": 1.07,
+		"pid": 266
+	},
+	{
+		"dec": 3.29405,
+		"galaxy_pid": 143,
+		"diameter": 1785166.2,
+		"temperature": 5870,
+		"ra": 304.207886,
+		"name": "WASP-81",
+		"mass": 1.08,
+		"pid": 267
+	},
+	{
+		"dec": 25.731186,
+		"galaxy_pid": 143,
+		"diameter": 1406705.4,
+		"temperature": 5808,
+		"ra": 264.273447,
+		"name": "HAT-P-55",
+		"mass": 1.01,
+		"pid": 268
+	},
+	{
+		"dec": 39.619003,
+		"galaxy_pid": 143,
+		"diameter": 1836648.0,
+		"temperature": 6409,
+		"ra": 294.192118,
+		"name": "Kepler-76",
+		"mass": 1.2,
+		"pid": 269
+	},
+	{
+		"dec": 23.055698,
+		"galaxy_pid": 143,
+		"diameter": 1547236.8,
+		"temperature": 5600,
+		"ra": 183.366285,
+		"name": "WASP-56",
+		"mass": 1.02,
+		"pid": 270
+	},
+	{
 		"dec": 3.1928926,
+		"galaxy_pid": 143,
+		"diameter": 1391400.0,
+		"temperature": 5778,
 		"ra": 0.49288194,
-		"galaxy_pid": 143
+		"name": "Sun",
+		"mass": 1.0,
+		"pid": 271
 	}
 ]

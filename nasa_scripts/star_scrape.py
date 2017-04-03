@@ -65,29 +65,29 @@ pid = 0
 def t_pid(web_star) :
     global pid
     pid += 1
-    return ("pid",pid)
+    return ("pid", pid)
 
 def t_name(web_star) :
-    return ("name",web_star["pl_hostname"])
+    return ("name", str(web_star["pl_hostname"]))
 
 def t_diameter(web_star) :
     diameter = Spacecowboy.sol_rad * web_star["st_rad"] * 2
-    return ("diameter",diameter)
+    return ("diameter", float(diameter))
 
 def t_ra(web_star) :
-    return ("ra",web_star["ra"])
+    return ("ra", float(web_star["ra"]))
 
 def t_dec(web_star) :
-    return ("dec",web_star["dec"])
+    return ("dec", float(web_star["dec"]))
 
 def t_temp(web_star) :
-    return ("temperature",web_star["st_teff"])
+    return ("temperature", int(web_star["st_teff"]))
 
 def t_mass(web_star) :
-    return ("mass",web_star["st_mass"])
+    return ("mass", float(web_star["st_mass"]))
 
 def t_galaxy(web_star) :
-    return ("galaxy_pid",-1)
+    return ("galaxy_pid", -1)
 
 def filter_stars(stars) :
     """

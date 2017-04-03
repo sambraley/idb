@@ -68,33 +68,33 @@ def t_pid(web_planet, stars) :
     return ("pid", pid)
 
 def t_name(web_planet, stars) : 
-    return ("name", web_planet["pl_name"])
+    return ("name", str(web_planet["pl_name"]))
 
 def t_diameter(web_planet, stars) : 
     diameter = 2 * web_planet["pl_radj"] * Spacecowboy.radj
-    return ("diameter", diameter)
+    return ("diameter", float(diameter))
 
 def t_ra(web_planet, stars) : 
-    return ("ra",web_planet["ra"])
+    return ("ra", float(web_planet["ra"]))
 
 def t_dec(web_planet, stars) : 
-    return ("dec", web_planet["dec"])
+    return ("dec", float(web_planet["dec"]))
 
 def t_gravity(web_planet, stars) : 
     mass = web_planet["pl_massj"] * Spacecowboy.massj
     radius = web_planet["pl_radj"] * Spacecowboy.radj
     gravity = (Spacecowboy.G * mass) / (radius ** 2)
-    return ("gravity",gravity)
+    return ("gravity", float(gravity))
 
 def t_op(web_planet, stars) : 
-    return ("orbital_period", web_planet["pl_orbper"])
+    return ("orbital_period", float(web_planet["pl_orbper"]))
 
 def t_mass(web_planet, stars) : 
     mass = web_planet["pl_massj"] * Spacecowboy.massj
-    return ("mass", mass)
+    return ("mass", float(mass))
 
 def t_temp(web_planet, stars) : 
-    return ("temperature", web_planet["pl_eqt"])
+    return ("temperature", int(web_planet["pl_eqt"]))
 
 def t_spid(web_planet, stars) : 
     spid = -1
