@@ -113,7 +113,7 @@ status:
 test: TestIDB.tmp
 	ls -al
 	make check
-
+	$(PYTHON) app/test.py
 versions:
 	which make
 	make --version
