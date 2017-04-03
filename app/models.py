@@ -324,7 +324,7 @@ class Galaxy(db.Model):
             "dec": self.dec,
             "morph_type": self.morph_type,
             "redshift": self.redshift,
-            "size": self.size,
+            "size": self.size
         }
 
     def __repr__(self):

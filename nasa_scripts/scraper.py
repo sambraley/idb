@@ -12,6 +12,7 @@ satellites = satellite_scrape()
 satellite_image_scrape(satellites)
 
 # hardcode elements
+
 earth = {"pid":planets[len(planets)-1]["pid"] + 1,
          "name":"Earth",
          "diameter":float(12742),

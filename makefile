@@ -67,6 +67,11 @@ TestIDB.tmp: app/models.py app/test.py .pylintrc
 #	$(COVERAGE) report -m                      >> TestIDB.tmp 
 #	cat TestIDB.tmp
 
+build:
+	-$(RM) app/static/compiled_js/render_react.js
+	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_react.jsx > ./app/static/compiled_js/render_react.js 
+	
+
 check: IDB.log 
 	@not_found=0;                                 \
     for i in $(FILES);                            \
@@ -92,7 +97,6 @@ clean:
 	rm -f  *.pyc
 	rm -f  TestIDB.tmp
 	rm -rf __pycache__
-	rm -rf app/static/js
 	rm -rf node_modules
 
 config:

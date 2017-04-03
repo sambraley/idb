@@ -43,6 +43,7 @@ def load_test_db():
     
     
 def load_db():
+
     #Creates tables based on models.py
     db.create_all()
 
