@@ -30,7 +30,7 @@ var Carousel = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).call(this, props));
 
 		_this.urls = [];
-		_this.urls.push(parseJSON("testing"));
+		_this.urls.push(_this.parseJSON("testing"));
 		return _this;
 	}
 
