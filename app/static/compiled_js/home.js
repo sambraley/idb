@@ -4479,7 +4479,7 @@ exports.default = CarouselItem;
 },{}],4:[function(require,module,exports){
 'use strict';
 
-var _carousel = require('./carousel.jsx');
+var _carousel = require('../carousel.jsx');
 
 var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -4494,7 +4494,7 @@ ReactDOM.render(React.createElement(_carousel2.default, null), temp);
 var container = document.getElementById("space-carousel");
 container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
 
-},{"./carousel.jsx":2}],5:[function(require,module,exports){
+},{"../carousel.jsx":2}],5:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //
