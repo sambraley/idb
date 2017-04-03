@@ -8,7 +8,7 @@ def satellite_scrape() :
     Calls the launch library api and returns a set of satellites
     returns a list of dictionaries that contains all attrs of the satellite model
     """
-    url_fields = ["limit=100",
+    url_fields = ["limit=800",
                   "offset=1"]
     
     url_base = "https://launchlibrary.net/1.2/mission"

@@ -23,33 +23,35 @@ def satellite_image_scrape(satellites):
 		
 		raw = urllib.request.urlopen(url_str).read().decode("utf-8")
 
-		wiki_title = json.loads(raw)["query"]["search"][0]["title"]
+		wiki_json = json.loads(raw)["query"]["search"]
+		if len(wiki_json) != 0 :
+			wiki_title = json.loads(raw)["query"]["search"][0]["title"]
 
-		img_search_fields = {'action': 'query', 'format': 'json', 'prop':'images', 'titles':wiki_title}
+			img_search_fields = {'action': 'query', 'format': 'json', 'prop':'images', 'titles':wiki_title}
 
-		url_str = url_base + urllib.parse.urlencode(img_search_fields)
+			url_str = url_base + urllib.parse.urlencode(img_search_fields)
 
-		raw = urllib.request.urlopen(url_str).read().decode("utf-8")
+			raw = urllib.request.urlopen(url_str).read().decode("utf-8")
 
-		pages = json.loads(raw)["query"]["pages"]
+			pages = json.loads(raw)["query"]["pages"]
 
-		for page in pages.values():
-			if "images" in page:
-				#not all satellites have images
-				first_image = True;
-				for img in page["images"]:
-					img_title = img["title"]
-					img_info_fields = {'action': 'query', 'format': 'json', 'titles':img_title, 'prop':'imageinfo', 'iiprop': 'url'}
-					url_str = url_base + urllib.parse.urlencode(img_info_fields)
-					raw = urllib.request.urlopen(url_str).read().decode("utf-8")
-					
-					url = next(iter(json.loads(raw)["query"]["pages"].values()))["imageinfo"][0]["url"]
+			for page in pages.values():
+				if "images" in page:
+					#not all satellites have images
+					first_image = True;
+					for img in page["images"]:
+						img_title = img["title"]
+						img_info_fields = {'action': 'query', 'format': 'json', 'titles':img_title, 'prop':'imageinfo', 'iiprop': 'url'}
+						url_str = url_base + urllib.parse.urlencode(img_info_fields)
+						raw = urllib.request.urlopen(url_str).read().decode("utf-8")
+						
+						url = next(iter(json.loads(raw)["query"]["pages"].values()))["imageinfo"][0]["url"]
 
-					satellite_img_urls[name].append({"title" : img_title, "url": url})
+						satellite_img_urls[name].append({"title" : img_title, "url": url})
 
-					if first_image :
-							satellite["image"] = url
-							first_image = False
+						if first_image :
+								satellite["image"] = url
+								first_image = False
 
 	satellite_img_urls_file = open("data/satellite_img_urls.json", "w")
 	json.dump(satellite_img_urls, satellite_img_urls_file, indent="\t")
