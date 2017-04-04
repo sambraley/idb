@@ -36,9 +36,6 @@
 		"name": "Sentinel-1A",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/5/52/Sentinel_1-IMG_5874-gradient.jpg"
 	},
-    {
-        "name": "Himawari-8"
-    },
 	{
 		"name": "Sentinel-2A",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sentinel_2-IMG_5873-white_%28crop%29.jpg"
@@ -115,9 +112,6 @@
 		"name": "Solar Probe Plus (SPP)",
 		"remove":1
 	},
-    {
-        "name": "Himawari-9"
-    },
 	{
 		"name": "Fengyun-3D",
 		"image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/20090829_Model_of_Fengyun-2_4002.JPG"
@@ -157,9 +151,6 @@
 	{
 		"name": "Chang'e 6",
 		"remove":1
-	},
-    {
-        "name": "JPSS 2 (Joint Polar Satellite System spacecraft No. 2)"
-    }
+	}
 ]
 
