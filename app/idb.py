@@ -34,7 +34,28 @@ about_info = {'commits': 131, 'issues': 21, 'tests': 12}
 ####################
 @app.route("/")
 def home():
-    return render_template('home.html', title='Spacecowboys')
+    return render_template('home.html',
+                           title='Spacecowboys')
+
+
+@app.route('/planetoids')
+def planetoid_table():
+    return render_template('planetoids-grid.html', planetoid=planetoids)
+
+@app.route('/planets')
+def planets_table():
+    return render_template('planets_grid.html')
+
+
+@app.route('/planetoids/<int:planetoid_id>')
+def planetoid_instance(planetoid_id):
+    return render_template('planetoid.html', planetoid=planetoids[planetoid_id - 1])
+
+
+@app.route('/galaxies')
+def galaxies_table():
+    return render_template('galaxies-grid.html', galaxies=galaxies)
+>>>>>>> got planets to render, need to add api call
 
 @app.route("/about")
 def about():

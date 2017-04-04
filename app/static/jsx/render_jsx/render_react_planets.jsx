@@ -10,7 +10,7 @@ class App extends React.Component {
 				<div>	
 					<NavBar />
 				</div>
-				<div class="container model-container">
+				<div className="container model-container">
 					<ModelTitle />
 					<div className="row"> 
 						<DropDown />
