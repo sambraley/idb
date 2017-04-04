@@ -4,12 +4,13 @@
 # pylint: disable = too-many-instance-attributes
 # pylint: disable = too-few-public-methods
 # pylint: disable = too-many-arguments
-from database import db
 
 """
 This module is designed to model galaxies, stars, planets, and satellites for
 use in a PostgreSQL database using Flask-SQLAlchemy.
 """
+from database import db
+
 
 class Satellite(db.Model):
 
@@ -17,36 +18,41 @@ class Satellite(db.Model):
     Models artificial satellites. Attributes are: name, agency, mission type,
     and year launched. They may relate many-to-one to galaxies, stars, and planets.
     """
-    ###############
+    #
     # Attributes
-    ###############
-    
+    #
+
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
-    
+
     # Model Attributes
-    name =          db.Column(db.String(), unique=True)
-    image =         db.Column(db.String())
+    name = db.Column(db.String(), unique=True)
+    image = db.Column(db.String())
     year_launched = db.Column(db.Integer)
-    mission_type =  db.Column(db.String())
-    info_url =      db.Column(db.String())
-    agency =        db.Column(db.String())
+    mission_type = db.Column(db.String())
+    info_url = db.Column(db.String())
+    agency = db.Column(db.String())
 
     # Foreign Keys
     planet_pid = db.Column(db.Integer, db.ForeignKey('planet.pid'))
-    star_pid =   db.Column(db.Integer, db.ForeignKey('star.pid'))
+    star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
-    
-    # Relations
-    planet = db.relationship("Planet", backref=db.backref("satellites", lazy="dynamic"))
-    star =   db.relationship("Star", backref=db.backref("satellites", lazy="dynamic"))
-    galaxy = db.relationship("Galaxy", backref=db.backref("satellites", lazy="dynamic"))
 
-    #############
+    # Relations
+    planet = db.relationship(
+        "Planet", backref=db.backref("satellites", lazy="dynamic"))
+    star = db.relationship(
+        "Star", backref=db.backref("satellites", lazy="dynamic"))
+    galaxy = db.relationship(
+        "Galaxy", backref=db.backref("satellites", lazy="dynamic"))
+
+    #
     # Methods
-    #############
-    
-    def __init__(self, name, image, year_launched, mission_type, info_url, agency, planet, star, galaxy):
+    #
+
+    def __init__(
+            self, name, image, year_launched, mission_type, info_url, agency,
+            planet, star, galaxy):
         """
         name a str, agency a str, mission_type a str, year_launched an int.
         """
@@ -60,11 +66,11 @@ class Satellite(db.Model):
         assert isinstance(planet, Planet)
         assert isinstance(star, Star)
         assert isinstance(galaxy, Galaxy)
-        
+
         # Create instance
         self.name = name
         self.image = image
-        self.year_launched = year_launched  
+        self.year_launched = year_launched
         self.mission_type = mission_type
         self.info_url = info_url
         self.agency = agency
@@ -88,28 +94,28 @@ class Satellite(db.Model):
             "star_pid": self.star_pid,
             "galaxy_pid": self.galaxy_pid
         }
-        
+
     def __repr__(self):
         return "<Satellite %r>" % self.name
-        
-    def serializer(satellite) :
+
+    def serializer(self):
         """
         Returns a dictionary representation of this model.
         """
         return {
-            "pid": satellite.pid,
-            "name": satellite.name,
-            "image": satellite.image,
-            "year_launched": satellite.year_launched,
-            "type": satellite.mission_type,
-            "info_url": satellite.info_url,
-            "agency": satellite.agency,
-            "planet_pid": satellite.planet_pid,
-            "star_pid": satellite.star_pid,
-            "galaxy_pid": satellite.galaxy_pid
+            "pid": self.pid,
+            "name": self.name,
+            "image": self.image,
+            "year_launched": self.year_launched,
+            "type": self.mission_type,
+            "info_url": self.info_url,
+            "agency": self.agency,
+            "planet_pid": self.planet_pid,
+            "star_pid": self.star_pid,
+            "galaxy_pid": self.galaxy_pid
         }
 
-        
+
 class Planet(db.Model):
 
     """
@@ -117,36 +123,40 @@ class Planet(db.Model):
     declination, gravity, orbital period, mass, and temperature. They may relate
     many-to-one to galaxies and stars, and one-to-many to satellites and other planets.
     """
-    ###############
+    #
     # Attributes
-    ###############
-    
+    #
+
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
-    
+
     # Model Attributes
-    name =            db.Column(db.String(), unique=True)
-    diameter =        db.Column(db.Float)
-    ra =              db.Column(db.Float)
-    dec =             db.Column(db.Float)
-    gravity =         db.Column(db.Float)
-    orbital_period =  db.Column(db.Float)
-    mass =            db.Column(db.Float)
-    temperature =     db.Column(db.Integer)
-    
+    name = db.Column(db.String(), unique=True)
+    diameter = db.Column(db.Float)
+    ra = db.Column(db.Float)
+    dec = db.Column(db.Float)
+    gravity = db.Column(db.Float)
+    orbital_period = db.Column(db.Float)
+    mass = db.Column(db.Float)
+    temperature = db.Column(db.Integer)
+
     # Foreign Keys
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
-    
+
     # Relations
-    star =   db.relationship("Star", backref=db.backref("planets", lazy="dynamic"))
-    galaxy = db.relationship("Galaxy", backref=db.backref("planets", lazy="dynamic"))
-    
-    #############
+    star = db.relationship(
+        "Star", backref=db.backref("planets", lazy="dynamic"))
+    galaxy = db.relationship(
+        "Galaxy", backref=db.backref("planets", lazy="dynamic"))
+
+    #
     # Methods
-    #############
-    
-    def __init__(self, name, diameter, ra, dec, gravity, orbital_period, mass, temperature, star, galaxy):
+    #
+
+    def __init__(
+            self, name, diameter, ra, dec, gravity, orbital_period, mass,
+            temperature, star, galaxy):
         """
         name a str, image a str, diameter, temperature, right_ascension, declination,
         mass, gravity, orbital_period are all floats.
@@ -190,9 +200,10 @@ class Planet(db.Model):
             "star_pid": self.star_pid,
             "galaxy_pid": self.galaxy_pid
         }
-        
+
     def __repr__(self):
         return "<Planet %r>" % self.name
+
 
 class Star(db.Model):
 
@@ -201,31 +212,32 @@ class Star(db.Model):
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
     to satellites and planets.
     """
-    ###############
+    #
     # Attributes
-    ###############
-    
+    #
+
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
-    
+
     # Model Attributes
-    name =        db.Column(db.String(), unique=True)
-    diameter =    db.Column(db.Float)
-    ra =          db.Column(db.Float)
-    dec =         db.Column(db.Float)
+    name = db.Column(db.String(), unique=True)
+    diameter = db.Column(db.Float)
+    ra = db.Column(db.Float)
+    dec = db.Column(db.Float)
     temperature = db.Column(db.Integer)
-    mass =        db.Column(db.Float)
-    
+    mass = db.Column(db.Float)
+
     # Foreign Keys
     galaxy_pid = db.Column(db.Integer, db.ForeignKey("galaxy.pid"))
-    
-    # Relations
-    galaxy = db.relationship("Galaxy", backref=db.backref("stars", lazy='dynamic'))
 
-    #############
+    # Relations
+    galaxy = db.relationship(
+        "Galaxy", backref=db.backref("stars", lazy='dynamic'))
+
+    #
     # Methods
-    #############
-    
+    #
+
     def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy):
         """
         name a str, image a str, temperature, right_ascension, declination, and mass
@@ -263,7 +275,7 @@ class Star(db.Model):
             "mass": self.mass,
             "galaxy_pid": self.galaxy_pid
         }
-        
+
     def __repr__(self):
         return "<Star %r>" % self.name
 
@@ -275,25 +287,25 @@ class Galaxy(db.Model):
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
     to satellites, stars, and planets.
     """
-    ###############
+    #
     # Attributes
-    ###############
-    
+    #
+
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
-    
-    # Model Attributes
-    name =        db.Column(db.String(), unique=True)
-    ra =          db.Column(db.Float)
-    dec =         db.Column(db.Float)
-    morph_type =  db.Column(db.String())
-    redshift =    db.Column(db.Float)
-    size =        db.Column(db.Float)
 
-    #############
+    # Model Attributes
+    name = db.Column(db.String(), unique=True)
+    ra = db.Column(db.Float)
+    dec = db.Column(db.Float)
+    morph_type = db.Column(db.String())
+    redshift = db.Column(db.Float)
+    size = db.Column(db.Float)
+
+    #
     # Methods
-    #############
-    
+    #
+
     def __init__(self, name, ra, dec, morph_type, redshift, size):
         """
         name a str, image a str, right_ascension and declination floats, galaxy_type a str,
@@ -313,7 +325,7 @@ class Galaxy(db.Model):
         self.morph_type = morph_type
         self.redshift = redshift
         self.size = size
-        
+
     def to_dict(self):
         """
         Returns a dictionary representation of this model.
