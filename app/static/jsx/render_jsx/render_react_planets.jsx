@@ -3,6 +3,11 @@ import ModelList from './../components/models_list';
 import ModelTitle from './../components/model_title';
 import DropDown from './../components/drop_down';
 
+/* window.location.href */
+console.log(window.location.href);
+console.log(window.location.hostname);
+
+
 const planets = [
 	{
 		"dec": 44.915352,
