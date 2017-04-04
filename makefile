@@ -39,7 +39,8 @@ else                                   # UTCS
 endif
 
 .pylintrc:
-	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
+	$(PYLINT) --ignored-modules=flask_sqlalchemy --generated-members=commit,query,add,delete \
+		--disable=locally-disabled --reports=no --generate-rcfile > $@
 
 IDB.html: app/models.py
 	cd app; $(PYDOC) -w models; mv models.html ../IDB1.html
@@ -47,7 +48,7 @@ IDB.html: app/models.py
 IDB.log:
 	git log > IDB1.log
 
-RunIDB: app/idb.py
+RunIDB: app/idb.py .pylintrc
 	-$(PYLINT) app/idb.py
 	$(PYTHON) app/idb.py
 
