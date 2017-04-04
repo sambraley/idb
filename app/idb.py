@@ -4,14 +4,13 @@
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
 # pylint: disable = line-too-long
-import flask
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
 
 app = Flask(__name__)
-db = connect_db(app, "")
+db = connect_db(app)
 api_setup(app, db)
 
 headers = {'planetoids': ["Name", "Diameter", "Gravity", "Temperatures", "Mass", "Orbital Period"],
@@ -57,7 +56,7 @@ def satellites_table():
 def satellite_instance(satellite_id):
     satellite = Satellite.query.get(satellite_id)
     return render_template('satellite.html', satellite=satellite)
-    
+
 ##################
 # Planet routing
 ##################
@@ -70,7 +69,7 @@ def planet_table():
 def planet_instance(planet_id):
     return render_template('planet.html', planet=Planet.query.get(planet_id))
 
-    
+
 ##################
 # Star routing
 ##################
@@ -97,7 +96,7 @@ def galaxies_table():
 @app.route('/galaxies/<int:galaxy_id>')
 def galaxy_instance(galaxy_id):
     return render_template('galaxy.html', galaxy=Galaxy.query.get(galaxy_id))
-    
+
 
 if __name__ == "__main__":
     app.run()

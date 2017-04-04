@@ -1,7 +1,7 @@
 import json
 import collections
 
-satellite_file = "satellites.json"
+satellite_file = "../data/satellites.json"
 patch_file = "satellite_patch.json"
 
 def patch_json(target_file, fix_file, key):
@@ -33,15 +33,15 @@ def strip_names(name_dict):
 
 def apply_patch(to_patch, patch):
     num_removed = 0
-    for entry in patch:
-        if entry in to_patch:
+    for entry in to_patch:
+        if entry in patch:
             if "remove" in patch[entry]:
                 to_patch.pop(entry)
                 num_removed += 1
             else:
                 for key in patch[entry]:
                     to_patch[entry][key] = patch[entry][key]
-                if 'pid' in to_patch[entry]:
-                    to_patch[entry]['pid'] -= num_removed
+        if 'pid' in to_patch[entry]:
+            to_patch[entry]['pid'] -= num_removed
 
 patch_json(satellite_file, patch_file, 'name')
