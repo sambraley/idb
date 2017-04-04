@@ -68,8 +68,9 @@ TestIDB.tmp: app/models.py app/test.py .pylintrc
 #	cat TestIDB.tmp
 
 build:
-	-$(RM) app/static/compiled_js/render_react.js
+	-$(RM) app/static/compiled_js/*.js
 	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_react.jsx > ./app/static/compiled_js/render_react.js 
+	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_jsx/render_react_planets.jsx > ./app/static/compiled_js/render_react_planets.js 
 	
 
 check: IDB.log 

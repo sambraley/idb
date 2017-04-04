@@ -56,6 +56,10 @@ def home():
 def planetoid_table():
     return render_template('planetoids-grid.html', planetoid=planetoids)
 
+@app.route('/planets')
+def planets_table():
+    return render_template('planets_grid.html')
+
 
 @app.route('/planetoids/<int:planetoid_id>')
 def planetoid_instance(planetoid_id):
