@@ -289,90 +289,33 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var planets = [{
-	"dec": 44.915352,
-	"star_pid": 230,
-	"diameter": 176735.008,
-	"mass": 3.477136e+27,
-	"orbital_period": 1.327347,
-	"temperature": 1823,
-	"ra": 188.266255,
+var stars = [{
+	"dec": 26.426662,
 	"galaxy_pid": 143,
-	"name": "HAT-P-36 b",
-	"gravity": 0.029718570060615346,
+	"diameter": 1892304.0000000002,
+	"temperature": 6065,
+	"ra": 271.537705,
+	"name": "HAT-P-31",
+	"mass": 1.22,
 	"pid": 1
 }, {
-	"dec": 51.269138,
-	"star_pid": 28,
-	"diameter": 164710.316,
-	"mass": 2.218762e+27,
-	"orbital_period": 2.797436,
-	"temperature": 1271,
-	"ra": 284.296064,
+	"dec": 6.563726,
 	"galaxy_pid": 143,
-	"name": "HAT-P-37 b",
-	"gravity": 0.02183335709325446,
+	"diameter": 1300959.0,
+	"temperature": 6112,
+	"ra": 175.90838,
+	"name": "WASP-85 A",
+	"mass": 1.09,
 	"pid": 2
 }, {
-	"dec": 32.246151,
-	"star_pid": 140,
-	"diameter": 115353.15,
-	"mass": 5.06766e+26,
-	"orbital_period": 4.640382,
-	"temperature": 1082,
-	"ra": 35.383234,
+	"dec": 16.421759,
 	"galaxy_pid": 143,
-	"name": "HAT-P-38 b",
-	"gravity": 0.010167166878461332,
+	"diameter": 161402.4,
+	"temperature": 2300,
+	"ra": 325.122159,
+	"name": "2MASS J21402931+1625183 A",
+	"mass": 0.08,
 	"pid": 3
-}, {
-	"dec": 17.830082,
-	"star_pid": 248,
-	"diameter": 219660.362,
-	"mass": 1.136902e+27,
-	"orbital_period": 3.54387,
-	"temperature": 1752,
-	"ra": 113.758247,
-	"galaxy_pid": 143,
-	"name": "HAT-P-39 b",
-	"gravity": 0.006290295385687977,
-	"pid": 4
-}, {
-	"dec": 45.457378,
-	"star_pid": 62,
-	"diameter": 241892.06,
-	"mass": 1.1672699999999999e+27,
-	"orbital_period": 4.457243,
-	"temperature": 1770,
-	"ra": 335.512861,
-	"galaxy_pid": 143,
-	"name": "HAT-P-40 b",
-	"gravity": 0.005325734316961424,
-	"pid": 5
-}, {
-	"dec": 4.672421,
-	"star_pid": 119,
-	"diameter": 235600.07,
-	"mass": 1.5184e+27,
-	"orbital_period": 2.694047,
-	"temperature": 1941,
-	"ra": 297.322651,
-	"galaxy_pid": 143,
-	"name": "HAT-P-41 b",
-	"gravity": 0.00730275556261142,
-	"pid": 6
-}, {
-	"dec": 6.09723,
-	"star_pid": 96,
-	"diameter": 178972.16,
-	"mass": 1.981512e+27,
-	"orbital_period": 4.641878,
-	"temperature": 1428,
-	"ra": 135.344391,
-	"galaxy_pid": 143,
-	"name": "HAT-P-42 b",
-	"gravity": 0.01651494558211872,
-	"pid": 7
 }];
 
 var App = function (_React$Component) {
@@ -384,26 +327,11 @@ var App = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 		_this.state = {
-			models: planets,
-			title: "Planets"
+			models: stars,
+			title: "Stars"
 		};
-
-		// this.setState({ 
-		// 	models: planets,
-		// 	title: "Planets"
-		// });
-
-		// console.log(this.state.models);
-		// console.log(this.state.title);
 		return _this;
 	}
-
-	// YTSearch({key: API_KEY, term: term}, (videos) => {
-	// 	this.setState({ 
-	// 		videos: videos,
-	// 		selectedVideo: videos[0]
-	// 	});
-	// when key and vaule are the same name, setState({ videos });
 
 	_createClass(App, [{
 		key: 'render',

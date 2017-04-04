@@ -70,8 +70,11 @@ TestIDB.tmp: app/models.py app/test.py .pylintrc
 build:
 	-$(RM) app/static/compiled_js/*.js
 	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_react.jsx > ./app/static/compiled_js/render_react.js 
-	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_jsx/render_react_planets.jsx > ./app/static/compiled_js/render_react_planets.js 
-	
+	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_jsx/render_react_planets.jsx > ./app/static/compiled_js/render_react_planets.js
+	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_jsx/render_react_galaxies.jsx > ./app/static/compiled_js/render_react_galaxies.js 
+	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_jsx/render_react_satellites.jsx > ./app/static/compiled_js/render_react_satellites.js
+	./node_modules/.bin/browserify -t [ babelify --presets [ es2015 react ] ] ./app/static/jsx/render_jsx/render_react_stars.jsx > ./app/static/compiled_js/render_react_stars.js
+
 
 check: IDB.log 
 	@not_found=0;                                 \

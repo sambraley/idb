@@ -8,7 +8,7 @@ class NavBar extends React.Component {
 			        </div>
 			        <div className="collapse navbar-collapse">
 			          <ul className="nav navbar-nav">
-			            <li><a className="navbar-item" href="/planetoids">Planetoids</a></li>
+			            <li><a className="navbar-item" href="/planets">Planets</a></li>
 			            <li><a className="navbar-item" href="/galaxies">Galaxies</a></li>
 			            <li><a className="navbar-item" href="/satellites">Satellites</a></li>
 			            <li><a className="navbar-item" href="/stars">Stars</a></li>  
