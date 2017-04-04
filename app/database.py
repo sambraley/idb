@@ -1,46 +1,24 @@
 from flask_sqlalchemy import SQLAlchemy
 import json
+import os
 
 db = SQLAlchemy()
 from models import Planet, Star, Satellite, Galaxy
 
-# data for database. 1 instance of each
-planets_json = [{"diameter": 12742.0,"name": "Earth","orbital_period": 365.0,"mass": 5.972e+24,"dec": 0.0,"temperature": 287,"star_pid": 1,"pid": 1,"ra": 0.0,"galaxy_pid": 1,"gravity": 9.81}]
-stars_json = [{"temperature": 5510,"diameter": 1460970.0,"name": "WASP-83","mass": 1.11,"pid": 1,"dec": -19.284243,"ra": 190.152085,"galaxy_pid": 1}]
-satellites_json = [{"image": "https://upload.wikimedia.org/wikipedia/en/7/72/MC-2941_Wideband_Global_SATCOM_Satellite.png","year_launched": 2012,"name": "WGS-4 (USA-233)","star_pid": 1,"mission_type": "Communications","info_url": "https://en.wikipedia.org/wiki/Wideband_Global_SATCOM","pid": 1,"planet_pid": 1,"agency": "United Launch Alliance","galaxy_pid": 1}]
-galaxies_json = [{"redshift": 0.0,"name": "Milky Way","morph_type": "Spiral","size": 360.0,"pid": 1,"dec": -47.2833,"ra": 17.7533}]
-
-test = True
-
-def connect_db(flask_app, db_URI):
-    
-    if test :
+def connect_db(flask_app):
+    db_URI = os.getenv('SQLALCHEMY_DATABASE_URI_SPACECOWBOYS')
+    if db_URI == None :
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite://"
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(flask_app)
         with flask_app.app_context() : load_db()
     else :
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_URI
+        flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(flask_app)
         
     return db
 
-    
-def load_test_db():
-    db.create_all()
-    
-    galaxies = create_galaxy_objs(galaxies_json)
-    insert_into_db(galaxies)
-    
-    stars = create_star_objs(stars_json)
-    insert_into_db(stars)
-    
-    planets = create_planet_objs(planets_json)
-    insert_into_db(planets)
-    
-    satellites = create_satellite_objs(satellites_json)
-    insert_into_db(satellites)
-    
     
 def load_db():
 
