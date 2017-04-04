@@ -1,14 +1,16 @@
 import ModelListItem from './model_list_item';
 
 const ModelList = (props) => {
-	//console.log(props);
-	console.log(props.models.length)
+	if (!props){
+		console.log("nothing in props");
+		return <div>Loading...</div>;
+	}
+
 	const modelItem = props.models.map((model) => {
 		return <ModelListItem 
 					key={model.pid} 
 					model={model} /> 
 	});
-	console.log(modelItem);
 	return (
 			<div className="row">
 				{ modelItem }

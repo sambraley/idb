@@ -97,7 +97,6 @@ Object.defineProperty(exports, "__esModule", {
 var ModelTitle = function ModelTitle(_ref) {
 	var title = _ref.title;
 
-	console.log({ title: title });
 	return React.createElement(
 		"div",
 		{ className: "row" },
@@ -129,14 +128,20 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	//console.log(props);
-	console.log(props.models.length);
+	if (!props) {
+		console.log("nothing in props");
+		return React.createElement(
+			"div",
+			null,
+			"Loading..."
+		);
+	}
+
 	var modelItem = props.models.map(function (model) {
 		return React.createElement(_model_list_item2.default, {
 			key: model.pid,
 			model: model });
 	});
-	console.log(modelItem);
 	return React.createElement(
 		"div",
 		{ className: "row" },
@@ -289,31 +294,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var galaxies = [{
-	"dec": 37.884811,
-	"size": 1.227,
-	"redshift": 0.027192,
-	"ra": 317.819183,
-	"name": "UGC 11693",
-	"pid": 1,
-	"morph_type": "Spiral"
-}, {
-	"dec": 37.583397,
-	"size": 1.29,
-	"redshift": 0.025928,
-	"ra": 320.125275,
-	"name": "UGC 11726",
-	"pid": 2,
-	"morph_type": "Spiral"
-}, {
-	"dec": 41.272003,
-	"size": 1.717,
-	"redshift": 0.015007,
-	"ra": 326.49365,
-	"name": "UGC 11808",
-	"pid": 3,
-	"morph_type": "Spiral"
-}];
+var modelType = window.location.href.split('/')[3];
+var baseUrl = window.location.href.split('/')[2];
+var apiExt = "/api/v1/galaxies?page=1&results_per_page=9";
+var url = "http://" + baseUrl + apiExt;
 
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);
@@ -324,13 +308,33 @@ var App = function (_React$Component) {
 		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
 		_this.state = {
-			models: galaxies,
-			title: "Galaxies"
+			models: [],
+			title: modelType
 		};
 		return _this;
 	}
 
 	_createClass(App, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			var _this2 = this;
+
+			fetch(url).then(function (response) {
+				return response.json();
+			}).then(function (responseJson) {
+				console.log(responseJson);
+				console.log(responseJson.num_results);
+				console.log(responseJson.objects);
+				console.log(responseJson.page);
+				console.log(responseJson.total_pages);
+				_this2.setState({
+					models: responseJson.objects
+				});
+			}).catch(function (error) {
+				console.error(error);
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return React.createElement(

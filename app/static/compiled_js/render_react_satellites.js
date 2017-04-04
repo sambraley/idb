@@ -97,7 +97,6 @@ Object.defineProperty(exports, "__esModule", {
 var ModelTitle = function ModelTitle(_ref) {
 	var title = _ref.title;
 
-	console.log({ title: title });
 	return React.createElement(
 		"div",
 		{ className: "row" },
@@ -129,14 +128,20 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	//console.log(props);
-	console.log(props.models.length);
+	if (!props) {
+		console.log("nothing in props");
+		return React.createElement(
+			"div",
+			null,
+			"Loading..."
+		);
+	}
+
 	var modelItem = props.models.map(function (model) {
 		return React.createElement(_model_list_item2.default, {
 			key: model.pid,
 			model: model });
 	});
-	console.log(modelItem);
 	return React.createElement(
 		"div",
 		{ className: "row" },

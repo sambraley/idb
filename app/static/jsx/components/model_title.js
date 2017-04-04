@@ -1,6 +1,5 @@
 
 const ModelTitle = ({title}) => {
-	console.log({title});
 	return (
 			<div className="row">
 			    <div className="col-lg-12">

@@ -3,45 +3,40 @@ import ModelList from './../components/models_list';
 import ModelTitle from './../components/model_title';
 import DropDown from './../components/drop_down';
 
-const galaxies = [
-	{
-		"dec": 37.884811,
-		"size": 1.227,
-		"redshift": 0.027192,
-		"ra": 317.819183,
-		"name": "UGC 11693",
-		"pid": 1,
-		"morph_type": "Spiral"
-	},
-	{
-		"dec": 37.583397,
-		"size": 1.29,
-		"redshift": 0.025928,
-		"ra": 320.125275,
-		"name": "UGC 11726",
-		"pid": 2,
-		"morph_type": "Spiral"
-	},
-	{
-		"dec": 41.272003,
-		"size": 1.717,
-		"redshift": 0.015007,
-		"ra": 326.49365,
-		"name": "UGC 11808",
-		"pid": 3,
-		"morph_type": "Spiral"
-	}
-]
+const modelType = window.location.href.split('/')[3];
+const baseUrl = window.location.href.split('/')[2];
+const apiExt = "/api/v1/galaxies?page=1&results_per_page=9";
+const url = "http://" + baseUrl + apiExt;
+
 
 class App extends React.Component {
 	constructor (props) {
 		super(props);
 
 		this.state = { 
-			models: galaxies,
-			title: "Galaxies"
+			models: [],
+			title: modelType
 		};
 	}
+
+	componentDidMount() {
+		fetch(url)
+	      .then((response) => response.json())
+	      .then((responseJson) => {
+	        console.log(responseJson);
+	        console.log(responseJson.num_results);
+	        console.log(responseJson.objects);
+	        console.log(responseJson.page);
+	        console.log(responseJson.total_pages);
+	        this.setState({ 
+	        	models: responseJson.objects
+	        })
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+	}
+
 	render () {
 		return (
 			<div>

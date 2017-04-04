@@ -56,7 +56,7 @@ def report():
 
 @app.route('/satellites')
 def satellites_table():
-    return render_template('satellites_grid.html')
+    return render_template('models_grid.html', title="Satellites")
 
 # @app.route('/satellites')
 # def satellites_table():
@@ -74,7 +74,7 @@ def satellite_instance(satellite_id):
 
 @app.route('/planets')
 def planets_table():
-    return render_template('planets_grid.html')
+    return render_template('models_grid.html', title="Planets")
 
 # @app.route('/planets')
 # def planet_table():
@@ -91,7 +91,7 @@ def planet_instance(planet_id):
 
 @app.route('/stars')
 def stars_table():
-    return render_template('stars_grid.html')
+    return render_template('models_grid.html', title="Stars")
 
 # @app.route('/stars')
 # def stars_table():
@@ -109,7 +109,7 @@ def star_instance(star_id):
 
 @app.route('/galaxies')
 def galaxies_table():
-    return render_template('galaxies_grid.html')
+    return render_template('models_grid.html', title="Galaxies")
 
 
 @app.route('/galaxies/<int:galaxy_id>')
