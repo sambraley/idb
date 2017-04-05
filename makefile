@@ -39,7 +39,8 @@ else                                   # UTCS
 endif
 
 .pylintrc:
-	$(PYLINT) --disable=locally-disabled --reports=no --generate-rcfile > $@
+	$(PYLINT) --ignored-modules=flask_sqlalchemy --generated-members=commit,query,add,delete \
+		--disable=locally-disabled --reports=no --generate-rcfile > $@
 
 IDB.html: app/models.py
 	cd app; $(PYDOC) -w models; mv models.html ../IDB1.html
@@ -47,18 +48,26 @@ IDB.html: app/models.py
 IDB.log:
 	git log > IDB1.log
 
-RunIDB: app/idb.py
+RunIDB: app/idb.py .pylintrc
 	-$(PYLINT) app/idb.py
 	$(PYTHON) app/idb.py
+
+install:
+	$(PIP) install -r app/requirements.txt
+	npm install
+
+data: nasa_scripts/scraper.py
+	$(PYTHON) nasa_scripts/scraper.py
 
 TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
 	-$(PYLINT) app/models.py
+	-$(COVERAGE) run    --branch app/test.py >  TestIDB.tmp 2>&1  
+	-$(COVERAGE) report -m                      >> TestIDB.tmp 
+	-cat TestIDB.tmp
 
-# NOT PHASE 1
-#	$(COVERAGE) run    --branch test.py >  TestIDB.tmp 2>&1  
-#	$(COVERAGE) report -m                      >> TestIDB.tmp 
-#	cat TestIDB.tmp
+build:
+	sh compile.sh
 
 check: IDB.log 
 	@not_found=0;                                 \
@@ -85,6 +94,7 @@ clean:
 	rm -f  *.pyc
 	rm -f  TestIDB.tmp
 	rm -rf __pycache__
+	rm -rf node_modules
 
 config:
 	git config -l

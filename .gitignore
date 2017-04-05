@@ -11,7 +11,6 @@ __pycache__/
 env/
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -91,3 +90,4 @@ ENV/
 .pylintrc
 TestIDB.tmp
 *.swp
+node_modules/

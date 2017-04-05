@@ -1,3 +1,218 @@
+commit 7b58a4406d6ec1b07ee23db40a5e5019cb8d4015
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Sun Apr 2 19:43:45 2017 -0500
+
+    Updates app.yaml for database
+
+commit dcd839792a98af7f244e7a3973d11a309a252743
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Sun Apr 2 14:23:34 2017 -0500
+
+    Customized restless api
+
+commit 49e9585b94ef6ab00627af29a19d0f11537aa18e
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Sun Apr 2 13:31:39 2017 -0500
+
+    Removed manual api
+
+commit 4e6142246fdbff560ca3cb268d9e769bc701044e
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Sat Apr 1 21:32:56 2017 -0500
+
+    Incorporated flask restless
+
+commit a2fb13cd0330225f10ee7b3e5159826001b07d46
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Sat Apr 1 20:46:04 2017 -0500
+
+    Manual API Test
+
+commit dcc8d1b44987910f8bf6126b546e4698953b13b2
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Fri Mar 31 15:39:00 2017 -0500
+
+    Comments out model init to use default kwargs version
+
+commit e9eb38b8b2c1bdec82b5415a4ad5e8d44a974618
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Fri Mar 31 00:14:56 2017 -0500
+
+    Updated UML
+
+commit 59bd7d2dc703dc30140f08d3e43138aa4a3cba09
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 30 23:35:37 2017 -0500
+
+    Updates planets to match the json
+
+commit ff8480fa67b3f6f1906a3af8bc5e6564a5c6ae91
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 30 19:45:35 2017 -0500
+
+    Updates planets to match json
+
+commit 92b1dfa5d1f1325a7f1e1bd5bcf601202fceccf0
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 30 19:30:55 2017 -0500
+
+    Updates stars to match json
+
+commit f221ada15c5dcd1f88aaf4d8eb09809899ba1fcd
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 30 19:10:11 2017 -0500
+
+    Updated Satellite to match new json in models.py
+
+commit 1b6aa9b5c8ebf599cc8ca876beb48ee4b093bd63
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Mar 30 17:15:03 2017 -0500
+
+    Images curated
+
+commit 8faba53b58a5cd1973453097310d6a661bbea60e
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Mar 30 15:36:12 2017 -0500
+
+    Change data scraper to reflect updated models. Incorporated satellite url scraper
+
+commit 75d9ae3101793e1f7f7d5abe2f60e803d3c8c02f
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Thu Mar 30 06:39:33 2017 -0500
+
+    Added script to collect all image urls for satellite
+
+commit 2c378917c361ad0067e14a379e6497e0002abe2f
+Merge: cfe7f58 ecfd9a5
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 29 10:35:49 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit cfe7f581f36ef5ea47f028bf15fc675d8539e04f
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Mar 29 10:35:32 2017 -0500
+
+    Removed bower dependencies.
+
+commit ecfd9a5b39d7499369eefa17098e5c4d22d2df91
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Tue Mar 28 23:25:25 2017 -0500
+
+    Added makefile target to run data scraper
+
+commit db0c44258c482a4b4c76f6f7a3d158ea2ae65494
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Tue Mar 28 23:23:23 2017 -0500
+
+    Refined data collection scripts and data.
+
+commit 47a1c7d780d05bf55f44ddf97601b3e2a0af8c66
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Tue Mar 28 23:14:34 2017 -0500
+
+    Added code that will import json to database
+
+commit 22130fc770e6cb5b273dc02969ab88bd9eba5b8a
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Tue Mar 28 20:37:32 2017 -0500
+
+    Changed 'diamter' to 'diameter'
+
+commit ad86d2e6b648cf026fecc28c1f3d0e3e18648be3
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Tue Mar 28 16:19:13 2017 -0500
+
+    Completed scraper. Added data in json form
+
+commit b1dc78d54db26031beff39d7ceb6d80d729b6ab1
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Tue Mar 28 13:26:09 2017 -0500
+
+    Updates app.yaml and requirements.txt for databases
+
+commit 3c090ab4609cfe8309945ad53cb56b68d318b9f0
+Merge: 0a70d88 5cf5f0a
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Mon Mar 27 22:53:16 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 0a70d8840bcec2654c5928770a4f5d7ded70ea53
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Mon Mar 27 22:49:02 2017 -0500
+
+    Added satellite scraper
+
+commit 6b3867485b4841d01c83ad689cde313a0de32982
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Mon Mar 27 17:12:32 2017 -0500
+
+    Added galaxy scraper
+
+commit d14a21c83df342f9a87d654d1e9b22292151fb7e
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Mon Mar 27 16:17:33 2017 -0500
+
+    Added dependencies for React.
+
+commit 372e5dbde93c213d274d6171c9cef3b226c77ed1
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Mon Mar 27 14:39:15 2017 -0500
+
+    Added star data scraper
+
+commit c7be9285efd7b93287636fc8d07ffad6d3092330
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Mon Mar 27 13:40:22 2017 -0500
+
+    Added planet data scraper
+
+commit 5cf5f0af4918f320719042a911537799b63d0499
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Mon Mar 27 16:25:33 2017 -0500
+
+    Removed the technical report pdf.
+
+commit 5df2c81c15c23a0580aaef8066b10c470016adbe
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Mon Mar 27 16:17:33 2017 -0500
+
+    Added dependencies for React.
+
+commit bda85eba151cb2e18fd1df5adfd03122d001f88c
+Merge: 4a6ce67 5a47542
+Author: Samuel Braley <samuelbraley@users.noreply.github.com>
+Date:   Sat Mar 25 13:41:15 2017 -0500
+
+    Merge pull request #31 from samuelbraley/develop
+    
+    Added simple table of contents
+
+commit 5a47542b83d909c3aeef3e9016ccf9bcbd842a8c
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Sat Mar 25 11:20:04 2017 -0500
+
+    Added simple table of contents
+
+commit 4a6ce67ca4a245a079509cd2371c12eb383535ed
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Mar 23 21:38:12 2017 -0500
+
+    Replaced null values with data
+
+commit 03c627d9bb71e8a55c31ddf0237b23548e0a2eec
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Mar 23 21:34:16 2017 -0500
+
+    Delete TechnicalReport-Phase1.pdf
+
+commit 646579e351933515879740acd27c7ee7049c9e50
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Mar 23 21:30:40 2017 -0500
+
+    Final commit
+
 commit a06d1b1005e06e9bc6d877a05c253e9c6a6773f8
 Merge: db01424 d78029e
 Author: David Ares <davidares7@gmail.com>

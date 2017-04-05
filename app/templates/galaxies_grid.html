@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="/static/style/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bower_components/react/react.js') }}"></script>
+		<script src="{{ url_for('static', filename='bower_components/react/react-dom.js') }}"></script>
+    <title>Planets</title>
+  </head>
+  <body>
+    <div class="container">
+    </div>
+  </body>
+</html>
+<script src="{{ url_for('static', filename='compiled_js/render_react_galaxies.js') }}"></script>

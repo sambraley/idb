@@ -23,17 +23,6 @@ html, body {
 .item{
   height: 100%;
 }
-.carousel-content {
-  position: absolute;
-  bottom: 50%;
-  z-index: 20;
-  color: white;
-}
-.center {
-	text-align: center;
-	width: 100%;
-}
-
 .carousel-inner {
   height: 100%;
 }
@@ -55,8 +44,13 @@ html, body {
 .container.model-container {
 	padding-top: 70px
 }
+.model-list-item {
+	padding-bottom: 15px
+}
 /*
 Used to see the borders of the grid
+
 *{
 	border: 1px solid red !important;
-}*/
+}
+*/
