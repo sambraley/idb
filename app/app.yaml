@@ -6,9 +6,11 @@ runtime_config:
 automatic_scaling:
   max_idle_instances: 0
   max_num_instances: 1
+
 env_variables:
   SQLALCHEMY_DATABASE_URI_SPACECOWBOYS: >-
     postgresql+psycopg2://api:spacecowboys@/models?host=/cloudsql/spacecowboys-161302:us-central1:idb
 beta_settings:
   cloud_sql_instances: spacecowboys-161302:us-central1:idb
 
+default_expiration: "10m"
