@@ -11,7 +11,6 @@ from unittest import main, TestCase
 from idb import app, db
 from models import Satellite, Star, Galaxy, Planet
 
-
 star_data = {"name": "dummy_star", "temperature": 5945, "mass": 1.09, "diameter": 1405314.0,\
                 "dec": -5.086445, "ra": 102.721137}
 
