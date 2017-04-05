@@ -16,7 +16,7 @@
       <p class="text-muted"><strong>Commits:</strong> {{member["commits"]}}</p>
       <p class="text-muted"><strong>Issues:</strong> {{member["issues"]}}</p>
       <p class="text-muted"><strong>Unit tests:</strong> {{member["tests"]}}</p>
-      {% if member["p0_lead"] %}<p class="text-muted"><strong>Project 0 Leader</strong></p>{% endif %}
+      {% if member["p0_lead"] %}<p class="text-muted"><strong>Phase 0 Leader</strong></p>{% endif %}
   	</div>
     {% endfor %}
   </div>
@@ -26,13 +26,13 @@
     </div>
   </div>
   <div class="row">
-  	<div class="col-md-4 text-center">
+  	<div id="overall-commits" class="col-md-4 text-center">
   		<h3><strong>Overall Commits:</strong> {{about_info['commits']}}</h3>
   	</div>
-  	<div class="col-md-4 text-center">
+  	<div id="overall-issues" class="col-md-4 text-center">
   		<h3><strong>Overall Issues:</strong> {{about_info['issues']}}</h3>
   	</div>
-  	<div class="col-md-4 text-center">
+  	<div id="overall-tests" class="col-md-4 text-center">
   		<h3><strong>Overall Tests:</strong> {{about_info['tests']}}</h3>
   	</div>
   </div>
@@ -107,4 +107,5 @@
   	</div>
   </div>
 </div>
+<script src="{{ url_for('static', filename='compiled_js/about.js') }}"></script>
 {% endblock %}
