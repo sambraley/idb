@@ -118,5 +118,5 @@ def galaxy_instance(galaxy_id):
     return render_template('galaxy.html', galaxy=Galaxy.query.get(galaxy_id))
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     app.run()

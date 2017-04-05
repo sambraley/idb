@@ -98,24 +98,6 @@ class Satellite(db.Model):
     def __repr__(self):
         return "<Satellite %r>" % self.name
 
-    def serializer(self):
-        """
-        Returns a dictionary representation of this model.
-        """
-        return {
-            "pid": self.pid,
-            "name": self.name,
-            "image": self.image,
-            "year_launched": self.year_launched,
-            "type": self.mission_type,
-            "info_url": self.info_url,
-            "agency": self.agency,
-            "planet_pid": self.planet_pid,
-            "star_pid": self.star_pid,
-            "galaxy_pid": self.galaxy_pid
-        }
-
-
 class Planet(db.Model):
 
     """

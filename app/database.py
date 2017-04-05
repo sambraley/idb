@@ -12,7 +12,7 @@ def connect_db(flask_app):
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(flask_app)
         with flask_app.app_context() : load_db()
-    else :
+    else : # pragma: no cover
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_URI
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(flask_app)
