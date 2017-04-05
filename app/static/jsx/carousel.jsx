@@ -8,9 +8,8 @@ var nasa_url = "https://api.nasa.gov/planetary/apod?api_key=" + key + "&date=";
 class Carousel extends React.Component {
 		constructor(props) {
 			super(props);
-			this.urls = [];
 			this.state = {
-				"urls": [],
+				"urls": []
 			};
 			var cur_date = moment();
 			for (var i = 0; i < 5; i += 1) {
