@@ -2,7 +2,7 @@
 
 # Compile all react render files
 
-Render_Files=./app/static/jsx/render_js
+Render_Files=./app/static/jsx/render_jsx
 Compiled_JS=./app/static/compiled_js
 
 rm -rf $Compiled_JS/*
