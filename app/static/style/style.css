@@ -55,8 +55,13 @@ html, body {
 .container.model-container {
 	padding-top: 70px
 }
+.model-list-item {
+	padding-bottom: 15px
+}
 /*
 Used to see the borders of the grid
+
 *{
 	border: 1px solid red !important;
-}*/
+}
+*/
