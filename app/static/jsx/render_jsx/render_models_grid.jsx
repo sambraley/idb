@@ -16,7 +16,7 @@ class App extends React.Component {
 
 		this.state = { 
 			models: [],
-			title: modelType
+			title: exts[modelType]
 		};
 		
 	}	

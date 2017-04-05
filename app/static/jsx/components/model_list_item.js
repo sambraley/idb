@@ -1,6 +1,6 @@
 
 const ModelListItem = ({model}) => {
-	const link = "/planets/" + model.pid;
+	const link = "/" + window.location.href.split('/')[3] + "/" + model.pid;
 	return (
 		<div className="col-md-4 text-center model-list-item">
 			<a href={link}>

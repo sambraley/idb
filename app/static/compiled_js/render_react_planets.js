@@ -68,7 +68,7 @@ Object.defineProperty(exports, "__esModule", {
 var ModelListItem = function ModelListItem(_ref) {
 	var model = _ref.model;
 
-	var link = "/planets/" + model.pid;
+	var link = "/" + window.location.href.split('/')[3] + "/" + model.pid;
 	return React.createElement(
 		"div",
 		{ className: "col-md-4 text-center model-list-item" },
