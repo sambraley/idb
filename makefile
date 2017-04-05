@@ -62,11 +62,9 @@ data: nasa_scripts/scraper.py
 TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
 	-$(PYLINT) app/models.py
-
-# NOT PHASE 1
-#	$(COVERAGE) run    --branch test.py >  TestIDB.tmp 2>&1  
-#	$(COVERAGE) report -m                      >> TestIDB.tmp 
-#	cat TestIDB.tmp
+	-$(COVERAGE) run    --branch app/test.py >  TestIDB.tmp 2>&1  
+	-$(COVERAGE) report -m                      >> TestIDB.tmp 
+	-cat TestIDB.tmp
 
 build:
 	-$(RM) app/static/compiled_js/render_react.js
@@ -118,7 +116,7 @@ status:
 test: TestIDB.tmp
 	ls -al
 	make check
-	$(PYTHON) app/test.py
+
 versions:
 	which make
 	make --version
