@@ -24,6 +24,8 @@
   },
   "dependencies": {
     "es6-promise": "^4.1.0",
-    "isomorphic-fetch": "^2.2.1"
+    "isomorphic-fetch": "^2.2.1",
+    "react-bootstrap": "^0.30.8",
+    "react-bootstrap-pagination": "^1.0.3"
   }
 }

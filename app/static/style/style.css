@@ -47,6 +47,9 @@ html, body {
 .model-list-item {
 	padding-bottom: 15px
 }
+.page-item:hover {
+	cursor: pointer;
+}
 /*
 Used to see the borders of the grid
 
