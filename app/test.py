@@ -9,8 +9,6 @@
 
 from unittest import main, TestCase
 
-from idb import app
-
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
 
@@ -18,11 +16,11 @@ test_app = Flask(__name__)
 test_app.config["SQLACLHEMY_DATABASE_URI"] = "sqlite:///:memory:"
 test_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-test_db = SQLAlchemy(test_app)
+from test_models import test_db, Satellite, Star, Galaxy, Planet
 
-from test_models import Satellite, Star, Galaxy, Planet
-
-test_db.create_all()
+test_db.init_app(test_app)
+with test_app.app_context():
+    test_db.create_all()
 
 star_data = {"name": "dummy_star", "temperature": 5945, "mass": 1.09, "diameter": 1405314.0,\
                 "dec": -5.086445, "ra": 102.721137}
@@ -58,7 +56,7 @@ class TestModels (TestCase):
         """
         galaxy = Galaxy(**galaxy_data)
 
-        with app.test_request_context():
+        with test_app.test_request_context():
             test_db.session.add(galaxy)
             test_db.session.commit()
 
@@ -107,7 +105,7 @@ class TestModels (TestCase):
         galaxy = Galaxy(**galaxy_data)
         star = Star(galaxy = galaxy, **star_data)
 
-        with app.test_request_context():
+        with test_app.test_request_context():
             test_db.session.add(galaxy)
             test_db.session.add(star)
             test_db.session.commit()
@@ -169,7 +167,7 @@ class TestModels (TestCase):
         star = Star(galaxy = galaxy, **star_data)
         planet = Planet (galaxy = galaxy, star = star, **planet_data)
 
-        with app.test_request_context():
+        with test_app.test_request_context():
             test_db.session.add(galaxy)
             test_db.session.add(star)
             test_db.session.commit()
@@ -239,7 +237,7 @@ class TestModels (TestCase):
         planet = Planet (galaxy = galaxy, star = star, **planet_data)
         satellite = Satellite (galaxy = galaxy, star = star, planet = planet, **satellite_data)
 
-        with app.test_request_context():
+        with test_app.test_request_context():
             test_db.session.add(galaxy)
             test_db.session.add(star)
             test_db.session.add(planet)

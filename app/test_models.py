@@ -10,7 +10,9 @@ This module is designed to model galaxies, stars, planets, and satellites for
 use in a PostgreSQL database using Flask-SQLAlchemy.
 """
 
-from test import test_db
+from flask_sqlalchemy import SQLAlchemy
+
+test_db = SQLAlchemy()
 
 class Satellite(test_db.Model):
 
