@@ -48,11 +48,9 @@ const Pages = ({current_page, total_pages, onPageSelect}) => {
 	}
 	
 	return (
-		<div className="container">
 			<ul className="pagination">
 					{pages}
 			</ul>
-		</div>
 		);
 };
 

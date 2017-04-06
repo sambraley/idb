@@ -26,27 +26,9 @@ var DropDown = function (_React$Component) {
 		key: "render",
 		value: function render() {
 			return React.createElement(
-				"div",
-				{ className: "sort-container col-sm-2", id: "sort-toolbar-container" },
-				React.createElement(
-					"select",
-					{ className: "form-control", id: "sort-dropdown", "data-ui": "sort-container" },
-					React.createElement(
-						"option",
-						{ value: "title", "data-ui": "sort-item" },
-						"Sort By"
-					),
-					React.createElement(
-						"option",
-						{ value: "title", "data-ui": "sort-item" },
-						"A - Z"
-					),
-					React.createElement(
-						"option",
-						{ value: "title_r", "data-ui": "sort-item" },
-						"Z - A"
-					)
-				)
+				"button",
+				{ type: "button", className: "btn btn-primary" },
+				"Sort and Filter"
 			);
 		}
 	}]);
@@ -384,13 +366,9 @@ var Pages = function Pages(_ref) {
 	}
 
 	return React.createElement(
-		"div",
-		{ className: "container" },
-		React.createElement(
-			"ul",
-			{ className: "pagination" },
-			pages
-		)
+		"ul",
+		{ className: "pagination" },
+		pages
 	);
 };
 
@@ -430,10 +408,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var exts = { "planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars" };
-var modelType = window.location.href.split('/')[3];
-var baseUrl = window.location.href.split('/')[2];
-var apiExt = "/api/v1/" + modelType + "?page=1&results_per_page=9";
-var url = "http://" + baseUrl + apiExt;
+console.log(window.location.href);
 
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);
@@ -445,52 +420,31 @@ var App = function (_React$Component) {
 
 		_this.state = {
 			models: [],
-			title: exts[modelType],
+			title: exts[window.location.href.split('/')[3]],
 			total_pages: 1,
 			current_page: 1
 		};
 
+		_this.getModels(_this.state.current_page);
 		return _this;
 	}
 
 	_createClass(App, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			var _this2 = this;
-
-			if (this.current_page !== undefined) {
-				var _apiExt = "/api/v1/" + modelType + "?page=" + this.current_page + "&results_per_page=9";
-			} else {
-				var _apiExt2 = "/api/v1/" + modelType + "?page=1&results_per_page=9";
-			}
-			var url = "http://" + baseUrl + apiExt;
-			fetch(url).then(function (response) {
-				return response.json();
-			}).then(function (responseJson) {
-				_this2.setState({
-					models: responseJson.objects,
-					total_pages: responseJson.total_pages,
-					current_page: responseJson.page
-				});
-			}).catch(function (error) {
-				console.error(error);
-			});
-		}
-	}, {
 		key: 'getModels',
 		value: function getModels(current_page) {
-			var _this3 = this;
+			var _this2 = this;
 
-			console.log("in the getModels () ");
+			var modelType = window.location.href.split('/')[3];
+			var baseUrl = window.location.href.split('/')[2];
 			this.setState({ current_page: current_page });
-			console.log(current_page);
 			var apiExt = "/api/v1/" + modelType + "?page=" + current_page + "&results_per_page=9";
 			var url = "http://" + baseUrl + apiExt;
+			console.log(url);
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
-				console.log(responseJson.objects);
-				_this3.setState({
+				console.log("I'm back with some values");
+				_this2.setState({
 					models: responseJson.objects,
 					total_pages: responseJson.total_pages,
 					current_page: responseJson.page
@@ -512,20 +466,36 @@ var App = function (_React$Component) {
 				),
 				React.createElement(
 					'div',
-					{ className: 'container model-container' },
+					{ className: 'container-fluid model-container' },
 					React.createElement(_model_title2.default, { title: this.state.title }),
 					React.createElement(
 						'div',
 						{ className: 'row' },
-						React.createElement(_drop_down2.default, null)
+						React.createElement(
+							'div',
+							{ className: 'col-md-3 text-left sort-filter-button' },
+							React.createElement(_drop_down2.default, null)
+						),
+						React.createElement(
+							'div',
+							{ className: 'col-md-9 text-right' },
+							React.createElement(_pages2.default, {
+								current_page: this.state.current_page,
+								total_pages: this.state.total_pages,
+								onPageSelect: this.getModels.bind(this) })
+						)
 					),
 					React.createElement(_models_list2.default, {
 						models: this.state.models,
 						page: this.current_page }),
-					React.createElement(_pages2.default, {
-						current_page: this.state.current_page,
-						total_pages: this.state.total_pages,
-						onPageSelect: this.getModels.bind(this) })
+					React.createElement(
+						'div',
+						{ className: 'col-md-12 text-right' },
+						React.createElement(_pages2.default, {
+							current_page: this.state.current_page,
+							total_pages: this.state.total_pages,
+							onPageSelect: this.getModels.bind(this) })
+					)
 				)
 			);
 		}

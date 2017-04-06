@@ -82,7 +82,7 @@ def planets_table():
 
 @app.route('/planets/<int:planet_id>')
 def planet_instance(planet_id):
-    return render_template('planet.html')
+    return render_template('planetoid.html', planet=Planet.query.get(planet_id))
 
 # return render_template('planet.html', planet=Planet.query.get(planet_id))
 

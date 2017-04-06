@@ -26,27 +26,9 @@ var DropDown = function (_React$Component) {
 		key: "render",
 		value: function render() {
 			return React.createElement(
-				"div",
-				{ className: "sort-container col-sm-2", id: "sort-toolbar-container" },
-				React.createElement(
-					"select",
-					{ className: "form-control", id: "sort-dropdown", "data-ui": "sort-container" },
-					React.createElement(
-						"option",
-						{ value: "title", "data-ui": "sort-item" },
-						"Sort By"
-					),
-					React.createElement(
-						"option",
-						{ value: "title", "data-ui": "sort-item" },
-						"A - Z"
-					),
-					React.createElement(
-						"option",
-						{ value: "title_r", "data-ui": "sort-item" },
-						"Z - A"
-					)
-				)
+				"button",
+				{ type: "button", className: "btn btn-primary" },
+				"Sort and Filter"
 			);
 		}
 	}]);
