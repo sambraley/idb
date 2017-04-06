@@ -11,6 +11,11 @@ galaxies = galaxy_scrape()
 satellites = satellite_scrape()
 satellite_image_scrape(satellites)
 
+#stars = json.load(open("data/stars.json"), strict=False)
+#galaxies = json.load(open("data/galaxies.json"), strict=False)
+#planets = json.load(open("data/planets.json"), strict=False)
+#satellites = json.load(open("data/satellites.json"), strict=False)
+
 # hardcode elements
 
 earth = {"pid":planets[len(planets)-1]["pid"] + 1,
@@ -22,8 +27,9 @@ earth = {"pid":planets[len(planets)-1]["pid"] + 1,
          "orbital_period":float(365),
          "mass":float(5.972 * (10 ** 24)),
          "temperature":287,
+         "img_url":"https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
          "star_pid":stars[len(stars)-1]["pid"] + 1,
-         "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1 }
+         "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1}
 
 sun = {"pid":stars[len(stars)-1]["pid"] + 1,
        "name":"Sun",
@@ -32,6 +38,7 @@ sun = {"pid":stars[len(stars)-1]["pid"] + 1,
        "dec":3.1928926,
        "temperature":5778,
        "mass":1.0,
+       "img_url": "http://nineplanets.org/images/thesun.jpg",
        "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1}
 
 milky_way = {"pid":galaxies[len(galaxies)-1]["pid"] + 1,
@@ -40,7 +47,8 @@ milky_way = {"pid":galaxies[len(galaxies)-1]["pid"] + 1,
              "dec":-47.2833,
              "morph_type":"Spiral",
              "redshift":0.0,
-             "size":360.0}
+             "size":360.0,
+             "img_url": "https://apod.nasa.gov/apod/image/0801/16500feetmilkywaykc2_brunier.jpg"}
 
 planets.append(earth)
 stars.append(sun)
@@ -56,6 +64,45 @@ for s in satellites :
     s["planet_pid"] = earth["pid"]
     s["star_pid"] = sun["pid"]
     s["galaxy_pid"] = milky_way["pid"]
+
+# planet urls
+#planet_urls_file = open("data/planet_imgs/compiled_planet_imgs.json", "r")
+#planet_urls = json.load(planet_urls_file)
+#planet_urls_file.close()
+#for item in planet_urls:
+#    pid = item["pid"];
+#    url = item["url"];
+
+#    for planet in planets:
+#        if planet["pid"] == pid:
+#            planet["img_url"] = url
+#            break
+
+# galaxy urls
+#galaxies_urls_file = open("data/galaxies/compiled_galaxies_imgs.json", "r")
+#galaxies_urls = json.load(galaxies_urls_file)
+#galaxies_urls_file.close()
+#for item in galaxies_urls:
+#    pid = item["pid"];
+#    url = item["url"];
+
+#    for galaxy in galaxies:
+#        if galaxy["pid"] == pid:
+#            galaxy["img_url"] = url
+#            break
+
+# star urls
+#stars_urls_file = open("data/stars/compiled_stars_imgs.json", "r")
+#stars_urls = json.load(stars_urls_file)
+#stars_urls_file.close()
+#for item in stars_urls:
+#    pid = item["pid"];
+#    url = item["url"];
+
+#    for star in stars:
+#        if star["pid"] == pid:
+#            star["img_url"] = url
+#            break
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
