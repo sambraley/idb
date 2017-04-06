@@ -321,7 +321,6 @@ var Pages = function Pages(_ref) {
 	    total_pages = _ref.total_pages,
 	    onPageSelect = _ref.onPageSelect;
 
-	console.log(current_page);
 	var pages = [];
 	// Adding previous button
 	if (current_page != 1) {
@@ -337,10 +336,9 @@ var Pages = function Pages(_ref) {
 			)
 		));
 	}
-	//Setting up paging
+	//Setting list of page numbers
 	var start;
 	var end;
-
 	if (total_pages <= 10) {
 		end = total_pages;
 		start = 1;
@@ -354,12 +352,20 @@ var Pages = function Pages(_ref) {
 		end = total_pages;
 		start = end - 9;
 	}
-
+	// creating pageItems
 	for (var i = start; i <= end && i <= total_pages; i++) {
 		if (i === current_page) {
-			pages.push(React.createElement(_page_item2.default, { page_number: i, onPageSelect: onPageSelect, isActive: true, id: i }));
+			pages.push(React.createElement(_page_item2.default, {
+				page_number: i,
+				onPageSelect: onPageSelect,
+				isActive: true,
+				id: i }));
 		} else {
-			pages.push(React.createElement(_page_item2.default, { page_number: i, onPageSelect: onPageSelect, isActive: false, id: i }));
+			pages.push(React.createElement(_page_item2.default, {
+				page_number: i,
+				onPageSelect: onPageSelect,
+				isActive: false,
+				id: i }));
 		}
 	}
 	//adding next button
@@ -513,7 +519,9 @@ var App = function (_React$Component) {
 						{ className: 'row' },
 						React.createElement(_drop_down2.default, null)
 					),
-					React.createElement(_models_list2.default, { models: this.state.models, page: this.current_page }),
+					React.createElement(_models_list2.default, {
+						models: this.state.models,
+						page: this.current_page }),
 					React.createElement(_pages2.default, {
 						current_page: this.state.current_page,
 						total_pages: this.state.total_pages,
