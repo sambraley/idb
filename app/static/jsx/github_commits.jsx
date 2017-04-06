@@ -1,4 +1,4 @@
-class Github_Stats extends React.Component {
+class Github_Commits extends React.Component {
 		constructor(props) {
 			super(props);
 			this.state = {
@@ -9,15 +9,19 @@ class Github_Stats extends React.Component {
 			.catch(e => console.log(e));
 		}
 		count_push(json) {
-			this.state.count = json.length;
-			console.log(json);
+			var count = 0;
+			for (var i = 0; i < json.length; i += 1)
+			{
+				count += json[i].total;
+			}
+			this.state.count = count;
 			this.forceUpdate();
 		}
     render() {
         return (
-					    <h3><strong>{this.props.name}:</strong> {this.state.count}</h3>
+					    <h3><strong>Overall Commits:</strong> {this.state.count}</h3>
 				);
     }
 }
 
-export default Github_Stats;
+export default Github_Commits;

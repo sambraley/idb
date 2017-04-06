@@ -26,8 +26,6 @@ member_info = [
     {'name': 'Scott Farrior',  'image': 'sfarrior.jpg',      'p0_lead': False, 'commits': 40, 'issues': 3,  'tests': 0,  'responsibilities': "Server setup/administration and SQLAlchemy backend", 'bio': "I'm a Computer Science major. I work as a TA/Grader as well as Computer Lab technician for the community college, and would like to be an instructor one day."},
     {'name': 'David Ares',     'image': 'david.jpg',         'p0_lead': False, 'commits': 24, 'issues': 0,  'tests': 0,  'responsibilities': "Front-End Developer", 'bio': "I am a non-traditional student with one year of Full-stack web development. Before returning to school, I gained seven years of experience in sales, marketing, and management."}]
 
-about_info = {'commits': 131, 'issues': 21, 'tests': 12}
-
 
 ####################
 # Misc. Page Routing
@@ -45,7 +43,7 @@ def planetoid_instance(planetoid_id):
 
 @app.route("/about")
 def about():
-    return render_template('about.html', title='About', member_info=member_info, about_info=about_info)
+    return render_template('about.html', title='About', member_info=member_info)
 
 @app.route("/report")
 def report():
@@ -120,17 +118,8 @@ def galaxy_instance(galaxy_id):
 
 @app.route('/run_tests')
 def run_tests():
-		# p1 = subprocess.Popen(['rm', '-rf', 'TestIDB.tmp'], stdout=subprocess.PIPE)
-		# output, error = p1.communicate()
-		# p2 = subprocess.Popen(['make', 'TestIDB.tmp'], stdout=subprocess.PIPE)
-		# output, error = p2.communicate()
-		# p3 = subprocess.Popen(['cat', 'TestIDB.tmp'], stdout=subprocess.PIPE)
-		# output, error = p3.communicate()
-		# output = output.decode("utf-8")
-		# output = "<pre style='font-family: Courier New;'>" + output + "</pre>"
-		# return output
-		file = open('app/test.out')
-		output = file.read()
+		output = subprocess.check_output(["python3", "app/test.py"], stderr=subprocess.STDOUT)
+		output = output.decode("utf-8")
 		output = "<pre style='font-family: Courier New;'>" + output + "</pre>"
 		return output
 
