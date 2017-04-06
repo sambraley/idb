@@ -8,6 +8,7 @@ from flask import Flask, render_template
 
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
+import subprocess
 
 app = Flask(__name__)
 db = connect_db(app)
@@ -116,6 +117,22 @@ def galaxies_table():
 @app.route('/galaxies/<int:galaxy_id>')
 def galaxy_instance(galaxy_id):
     return render_template('galaxy.html', galaxy=Galaxy.query.get(galaxy_id))
+
+@app.route('/run_tests')
+def run_tests():
+		# p1 = subprocess.Popen(['rm', '-rf', 'TestIDB.tmp'], stdout=subprocess.PIPE)
+		# output, error = p1.communicate()
+		# p2 = subprocess.Popen(['make', 'TestIDB.tmp'], stdout=subprocess.PIPE)
+		# output, error = p2.communicate()
+		# p3 = subprocess.Popen(['cat', 'TestIDB.tmp'], stdout=subprocess.PIPE)
+		# output, error = p3.communicate()
+		# output = output.decode("utf-8")
+		# output = "<pre style='font-family: Courier New;'>" + output + "</pre>"
+		# return output
+		file = open('app/test.out')
+		output = file.read()
+		output = "<pre style='font-family: Courier New;'>" + output + "</pre>"
+		return output
 
 
 if __name__ == "__main__":
