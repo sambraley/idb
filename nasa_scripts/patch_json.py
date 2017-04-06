@@ -33,7 +33,9 @@ def strip_names(name_dict):
 
 def apply_patch(to_patch, patch):
     num_removed = 0
-    for entry in to_patch:
+    keys = list(to_patch.keys())
+    for i in range(0, len(keys)):
+        entry = keys[i]
         if entry in patch:
             if "remove" in patch[entry]:
                 to_patch.pop(entry)
