@@ -4,7 +4,9 @@ class Github_Commits extends React.Component {
 			this.state = {
 				"count": 0
 			};
-			fetch(this.props.url).then(r => r.json())
+			var per_page = "&per_page=100";
+			var token = "?access_token="+this.props.token + per_page;
+			fetch(this.props.url + token).then(r => r.json())
 			.then(data => this.count_push(data))
 			.catch(e => console.log(e));
 		}
