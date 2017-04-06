@@ -111,7 +111,9 @@ def galaxy_instance(galaxy_id):
 
 @app.route('/run_tests')
 def run_tests():
-		output = subprocess.check_output(["python3", "app/test.py"], stderr=subprocess.STDOUT)
+		output = subprocess.check_output(["rm", "TestIDB.tmp"], stderr=subprocess.STDOUT)
+		output = subprocess.check_output(["make", "TestIDB.tmp"], stderr=subprocess.STDOUT)
+		output = subprocess.check_output(["cat", "TestIDB.tmp"], stderr=subprocess.STDOUT)
 		output = output.decode("utf-8")
 		output = "<pre style='font-family: Courier New;'>" + output + "</pre>"
 		return output
