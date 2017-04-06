@@ -8,8 +8,21 @@
 
 
 from unittest import main, TestCase
-from idb import app, db
-from models import Satellite, Star, Galaxy, Planet
+
+from idb import app
+
+from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+
+test_app = Flask(__name__)
+test_app.config["SQLACLHEMY_DATABASE_URI"] = "sqlite:///:memory:"
+test_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+test_db = SQLAlchemy(test_app)
+
+from test_models import Satellite, Star, Galaxy, Planet
+
+test_db.create_all()
 
 star_data = {"name": "dummy_star", "temperature": 5945, "mass": 1.09, "diameter": 1405314.0,\
                 "dec": -5.086445, "ra": 102.721137}
@@ -46,22 +59,22 @@ class TestModels (TestCase):
         galaxy = Galaxy(**galaxy_data)
 
         with app.test_request_context():
-            db.session.add(galaxy)
-            db.session.commit()
+            test_db.session.add(galaxy)
+            test_db.session.commit()
 
-            galaxy = db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            galaxy = test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
             actual = galaxy.to_dict()
 
             for k, v in galaxy_data.items():
                 self.assertEqual(actual[k], v)
 
-            db.session.delete(galaxy)
-            db.session.commit()
+            test_db.session.delete(galaxy)
+            test_db.session.commit()
 
             """
             Check to make sure row got deleted
             """
-            galaxy =  db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            galaxy =  test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
             self.assertEqual(galaxy, None)
 
     def test_galaxy_repr(self):
@@ -95,12 +108,12 @@ class TestModels (TestCase):
         star = Star(galaxy = galaxy, **star_data)
 
         with app.test_request_context():
-            db.session.add(galaxy)
-            db.session.add(star)
-            db.session.commit()
+            test_db.session.add(galaxy)
+            test_db.session.add(star)
+            test_db.session.commit()
 
-            galaxy = db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
-            star = db.session.query(Star).filter_by(name="dummy_star").first()
+            galaxy = test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            star = test_db.session.query(Star).filter_by(name="dummy_star").first()
             actual = star.to_dict()
 
             for k, v in star_data.items():
@@ -111,16 +124,16 @@ class TestModels (TestCase):
             """
             self.assertEqual(star.galaxy_pid, galaxy.pid)
 
-            db.session.delete(star)
-            db.session.delete(galaxy)
-            db.session.commit()
+            test_db.session.delete(star)
+            test_db.session.delete(galaxy)
+            test_db.session.commit()
 
             """
             Check to make sure row got deleted
             """
-            star =  db.session.query(Star).filter_by(name="dummy_star").first()
+            star =  test_db.session.query(Star).filter_by(name="dummy_star").first()
             self.assertEqual(star, None)
-            galaxy =  db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            galaxy =  test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
             self.assertEqual(galaxy, None)
 
     def test_star_repr(self):
@@ -157,13 +170,13 @@ class TestModels (TestCase):
         planet = Planet (galaxy = galaxy, star = star, **planet_data)
 
         with app.test_request_context():
-            db.session.add(galaxy)
-            db.session.add(star)
-            db.session.commit()
+            test_db.session.add(galaxy)
+            test_db.session.add(star)
+            test_db.session.commit()
 
-            galaxy = db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
-            star = db.session.query(Star).filter_by(name="dummy_star").first()
-            planet = db.session.query(Planet).filter_by(name="dummy_planet").first()
+            galaxy = test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            star = test_db.session.query(Star).filter_by(name="dummy_star").first()
+            planet = test_db.session.query(Planet).filter_by(name="dummy_planet").first()
 
             actual = planet.to_dict()
 
@@ -176,19 +189,19 @@ class TestModels (TestCase):
             self.assertEqual(planet.star_pid, star.pid)
             self.assertEqual(planet.galaxy_pid, galaxy.pid)
 
-            db.session.delete(star)
-            db.session.delete(galaxy)
-            db.session.delete(planet)
-            db.session.commit()
+            test_db.session.delete(star)
+            test_db.session.delete(galaxy)
+            test_db.session.delete(planet)
+            test_db.session.commit()
 
             """
             Check to make sure row got deleted
             """
-            star =  db.session.query(Star).filter_by(name="dummy_star").first()
+            star =  test_db.session.query(Star).filter_by(name="dummy_star").first()
             self.assertEqual(star, None)
-            galaxy =  db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            galaxy =  test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
             self.assertEqual(galaxy, None)
-            planet =  db.session.query(Planet).filter_by(name="dummy_planet").first()
+            planet =  test_db.session.query(Planet).filter_by(name="dummy_planet").first()
             self.assertEqual(planet, None)
 
     def test_planet_repr(self):
@@ -227,16 +240,16 @@ class TestModels (TestCase):
         satellite = Satellite (galaxy = galaxy, star = star, planet = planet, **satellite_data)
 
         with app.test_request_context():
-            db.session.add(galaxy)
-            db.session.add(star)
-            db.session.add(planet)
-            db.session.add(satellite)
-            db.session.commit()
+            test_db.session.add(galaxy)
+            test_db.session.add(star)
+            test_db.session.add(planet)
+            test_db.session.add(satellite)
+            test_db.session.commit()
 
-            galaxy = db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
-            star = db.session.query(Star).filter_by(name="dummy_star").first()
-            planet = db.session.query(Planet).filter_by(name="dummy_planet").first()
-            satellite = db.session.query(Satellite).filter_by(name="dummy_satellite").first()
+            galaxy = test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            star = test_db.session.query(Star).filter_by(name="dummy_star").first()
+            planet = test_db.session.query(Planet).filter_by(name="dummy_planet").first()
+            satellite = test_db.session.query(Satellite).filter_by(name="dummy_satellite").first()
 
             actual = satellite.to_dict()
 
@@ -250,22 +263,22 @@ class TestModels (TestCase):
             self.assertEqual(satellite.star_pid, star.pid)
             self.assertEqual(satellite.planet_pid, planet.pid)
 
-            db.session.delete(star)
-            db.session.delete(galaxy)
-            db.session.delete(planet)
-            db.session.delete(satellite)
-            db.session.commit()
+            test_db.session.delete(star)
+            test_db.session.delete(galaxy)
+            test_db.session.delete(planet)
+            test_db.session.delete(satellite)
+            test_db.session.commit()
 
             """
             Check to make sure row got deleted
             """
-            star =  db.session.query(Star).filter_by(name="dummy_star").first()
+            star =  test_db.session.query(Star).filter_by(name="dummy_star").first()
             self.assertEqual(star, None)
-            galaxy =  db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
+            galaxy =  test_db.session.query(Galaxy).filter_by(name="dummy_galaxy").first()
             self.assertEqual(galaxy, None)
-            planet =  db.session.query(Planet).filter_by(name="dummy_planet").first()
+            planet =  test_db.session.query(Planet).filter_by(name="dummy_planet").first()
             self.assertEqual(planet, None)
-            satellite =  db.session.query(Satellite).filter_by(name="dummy_satellite").first()
+            satellite =  test_db.session.query(Satellite).filter_by(name="dummy_satellite").first()
             self.assertEqual(satellite, None)
 
     def test_satellite_repr(self):
@@ -282,4 +295,7 @@ class TestModels (TestCase):
         self.assertEqual(actual, expected)
 
 if __name__ == "__main__":  # pragma: no cover
+    main()
+
+def run_tests():
     main()
