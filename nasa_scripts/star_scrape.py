@@ -58,7 +58,7 @@ def translate_star(web_star) :
     """
     Translates a star from the kepler data to a spacecowboy star
     """
-    translators = [t_pid, t_name, t_diameter, t_ra, t_dec, t_temp, t_mass, t_galaxy]
+    translators = [t_pid, t_name, t_diameter, t_ra, t_dec, t_temp, t_mass, t_img, t_galaxy]
     return dict([t(web_star) for t in translators])
 
 pid = 0
@@ -85,6 +85,9 @@ def t_temp(web_star) :
 
 def t_mass(web_star) :
     return ("mass", float(web_star["st_mass"]))
+
+def t_img(web_star) :
+    return ("img_url", "star.png")
 
 def t_galaxy(web_star) :
     return ("galaxy_pid", -1)
