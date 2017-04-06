@@ -5,42 +5,102 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _dropdownAttrs = require("./dropdown-attrs");
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _dropdownAttrs2 = _interopRequireDefault(_dropdownAttrs);
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+var attrs = {
+	"planets": ["name", "temperature", "diameter", "gravity", "mass"],
+	"galaxies": ["name", "size"],
+	"stars": ["name", "diameter", "temperature"],
+	"satellites": ["name", "agency", "mission_type", "year_launched"]
+};
 
-var DropDown = function (_React$Component) {
-	_inherits(DropDown, _React$Component);
+var DropDown = function DropDown(_ref) {
+	var modelType = _ref.modelType,
+	    sortBy = _ref.sortBy,
+	    sort_title = _ref.sort_title;
 
-	function DropDown() {
-		_classCallCheck(this, DropDown);
-
-		return _possibleConstructorReturn(this, (DropDown.__proto__ || Object.getPrototypeOf(DropDown)).apply(this, arguments));
-	}
-
-	_createClass(DropDown, [{
-		key: "render",
-		value: function render() {
-			return React.createElement(
-				"button",
-				{ type: "button", className: "btn btn-primary" },
-				"Sort and Filter"
-			);
-		}
-	}]);
-
-	return DropDown;
-}(React.Component);
-
-;
+	var dir1 = "asc";
+	var dir2 = "desc";
+	var attrItem1 = attrs[modelType].map(function (attr) {
+		return React.createElement(_dropdownAttrs2.default, {
+			attr: attr,
+			sortBy: sortBy,
+			dir: dir1,
+			key: attr });
+	});
+	var attrItem2 = attrs[modelType].map(function (attr) {
+		return React.createElement(_dropdownAttrs2.default, {
+			attr: attr,
+			sortBy: sortBy,
+			dir: dir2,
+			key: attr });
+	});
+	return React.createElement(
+		"div",
+		{ className: "dropdown" },
+		React.createElement(
+			"button",
+			{ className: "btn btn-primary dropdown-toggle", type: "button", "data-toggle": "dropdown" },
+			sort_title,
+			React.createElement("span", { className: "caret" })
+		),
+		React.createElement(
+			"ul",
+			{ className: "dropdown-menu" },
+			React.createElement(
+				"li",
+				{ className: "dropdown-header" },
+				"Ascending"
+			),
+			attrItem1,
+			React.createElement("li", { className: "divider" }),
+			React.createElement(
+				"li",
+				{ className: "dropdown-header" },
+				"Descending"
+			),
+			attrItem2
+		)
+	);
+};
 
 exports.default = DropDown;
 
-},{}],2:[function(require,module,exports){
+},{"./dropdown-attrs":2}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+				value: true
+});
+var Attribute = function Attribute(_ref) {
+				var attr = _ref.attr,
+				    sortBy = _ref.sortBy,
+				    dir = _ref.dir;
+
+				var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+								"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+								"mission_type": "Mission Type", "year_launched": "Launch Year" };
+
+				return React.createElement(
+								"li",
+								{ onClick: function onClick() {
+																return sortBy(attr, dir, label[attr], 1);
+												} },
+								React.createElement(
+												"a",
+												null,
+												label[attr]
+								)
+				);
+};
+
+exports.default = Attribute;
+
+},{}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -69,7 +129,7 @@ var ModelListItem = function ModelListItem(_ref) {
 
 exports.default = ModelListItem;
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -96,7 +156,7 @@ var ModelTitle = function ModelTitle(_ref) {
 
 exports.default = ModelTitle;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -133,7 +193,7 @@ var ModelList = function ModelList(props) {
 
 exports.default = ModelList;
 
-},{"./model_list_item":2}],5:[function(require,module,exports){
+},{"./model_list_item":3}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -247,7 +307,7 @@ var NavBar = function (_React$Component) {
 
 exports.default = NavBar;
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -357,4 +417,4 @@ var App = function (_React$Component) {
 
 ReactDOM.render(React.createElement(App, null), document.querySelector('.container'));
 
-},{"./../components/drop_down":1,"./../components/model_title":3,"./../components/models_list":4,"./../components/nav_bar":5}]},{},[6]);
+},{"./../components/drop_down":1,"./../components/model_title":4,"./../components/models_list":5,"./../components/nav_bar":6}]},{},[7]);
