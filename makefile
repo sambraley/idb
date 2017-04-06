@@ -62,7 +62,7 @@ data: nasa_scripts/scraper.py
 TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
 	-$(PYLINT) app/models.py
-	-$(COVERAGE) run    --branch app/test.py >  TestIDB.tmp 2>&1  
+	-$(COVERAGE) run app/test.py >  TestIDB.tmp 2>&1  
 	-$(COVERAGE) report -m                      >> TestIDB.tmp 
 	-cat TestIDB.tmp
 
