@@ -109,11 +109,31 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _select_options = require("./select_options");
+
+var _select_options2 = _interopRequireDefault(_select_options);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var attrs = {
+	"planets": ["mass", "diameter", "gravity", "temperature"],
+	"galaxies": ["size"],
+	"stars": ["name", "diameter", "temperature"],
+	"satellites": ["name", "agency", "mission_type", "year_launched"]
+};
+var ops = ["<", "<=", ">", ">=", "==", "!="];
+var compareTo = {
+	"planets": ["Jupiter"],
+	"galaxies": ["1"],
+	"stars": ["name", "diameter", "temperature"],
+	"satellites": ["name", "agency", "mission_type", "year_launched"]
+};
 
 var Modals = function (_React$Component) {
 	_inherits(Modals, _React$Component);
@@ -126,17 +146,40 @@ var Modals = function (_React$Component) {
 		_this.state = {
 			modelType: _this.props.modelType,
 			filterBy: _this.props.filterBy,
-			value1: null,
-			value2: null,
-			value3: null
+			value1: attrs[_this.props.modelType][0],
+			value2: ops[0],
+			value3: compareTo[_this.props.modelType][0]
 		};
+
+		_this.onHandleChange1 = _this.onHandleChange1.bind(_this);
+		_this.onHandleChange2 = _this.onHandleChange2.bind(_this);
+		_this.onHandleChange3 = _this.onHandleChange3.bind(_this);
 		return _this;
 	}
 
 	_createClass(Modals, [{
-		key: "onHandleChange",
-		value: function onHandleChange(event) {
-			console.log("inside handle change " + event.target.value);
+		key: "onHandleChange1",
+		value: function onHandleChange1(event) {
+			console.log("inside handle change 1 " + event.target.value);
+			this.setState({
+				value1: event.target.value
+			});
+		}
+	}, {
+		key: "onHandleChange2",
+		value: function onHandleChange2(event) {
+			console.log("inside handle change 2 " + event.target.value);
+			this.setState({
+				value2: event.target.value
+			});
+		}
+	}, {
+		key: "onHandleChange3",
+		value: function onHandleChange3(event) {
+			console.log("inside handle change 2 " + event.target.value);
+			this.setState({
+				value3: event.target.value
+			});
 		}
 	}, {
 		key: "render",
@@ -181,60 +224,85 @@ var Modals = function (_React$Component) {
 									"div",
 									{ className: "form-group" },
 									React.createElement(
-										"select",
-										{ className: "form-control", value: this.state.value1, onChange: this.onHandleChange },
+										"label",
+										null,
+										"Attribute:",
 										React.createElement(
-											"option",
-											{ value: "Attribute" },
-											"Attribute"
-										),
-										React.createElement(
-											"option",
-											{ value: "Attr1" },
-											"Attr 1"
-										),
-										React.createElement(
-											"option",
-											{ value: "Attr2" },
-											"Attr 2"
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange1 },
+											React.createElement(
+												"option",
+												{ value: "mass" },
+												"Temperature"
+											),
+											React.createElement(
+												"option",
+												{ value: "diameter" },
+												"Diameter"
+											),
+											React.createElement(
+												"option",
+												{ value: "gravity" },
+												"Gravity"
+											),
+											React.createElement(
+												"option",
+												{ value: "temperature" },
+												"Mass"
+											)
 										)
 									),
 									React.createElement(
-										"select",
-										{ className: "form-control", value: this.state.value2, onChange: this.onHandleChange },
+										"label",
+										null,
+										"Operation:",
 										React.createElement(
-											"option",
-											{ value: "Attribute" },
-											"Operation"
-										),
-										React.createElement(
-											"option",
-											{ value: ">" },
-											"Greater Then"
-										),
-										React.createElement(
-											"option",
-											{ value: "<" },
-											"Greater Then"
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange2 },
+											React.createElement(
+												"option",
+												{ value: "<" },
+												"Less Than"
+											),
+											React.createElement(
+												"option",
+												{ value: "<=" },
+												"Less Than or Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: ">" },
+												"Greater Than"
+											),
+											React.createElement(
+												"option",
+												{ value: ">=" },
+												"Greater Than or Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "==" },
+												"Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "!=" },
+												"Not Equal To"
+											)
 										)
 									),
 									React.createElement(
-										"select",
-										{ className: "form-control", value: this.state.value3, onChange: this.onHandleChange },
+										"label",
+										null,
+										"Compare To:",
 										React.createElement(
-											"option",
-											{ value: "Attribute" },
-											"Compare To"
-										),
-										React.createElement(
-											"option",
-											{ value: "Attr1" },
-											"Jupiter"
-										),
-										React.createElement(
-											"option",
-											{ value: "Attr2" },
-											"Earth"
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange3 },
+											React.createElement(
+												"option",
+												{ value: "jupiter" },
+												"Jupiter"
+											)
 										)
 									)
 								)
@@ -245,7 +313,7 @@ var Modals = function (_React$Component) {
 								React.createElement(
 									"button",
 									{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
-											return _this2.state.filterBy();
+											return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
 										} },
 									"Submit"
 								),
@@ -267,7 +335,7 @@ var Modals = function (_React$Component) {
 
 exports.default = Modals;
 
-},{}],4:[function(require,module,exports){
+},{"./select_options":10}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -342,12 +410,12 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	if (!props) {
+	if (props.models === []) {
 		console.log("nothing in props");
 		return React.createElement(
 			"div",
 			null,
-			"Loading..."
+			"No results Found"
 		);
 	}
 
@@ -583,7 +651,7 @@ var Pages = function Pages(_ref) {
 		}
 	}
 	//adding next button
-	if (current_page != total_pages) {
+	if (current_page != total_pages && current_page > 1) {
 		pages.push(React.createElement(
 			"li",
 			{ onClick: function onClick() {
@@ -607,6 +675,35 @@ var Pages = function Pages(_ref) {
 exports.default = Pages;
 
 },{"./page_item":8}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var selectOption = function selectOption(_ref) {
+	var attr = _ref.attr;
+
+	var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+		"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+		"mission_type": "Mission Type", "year_launched": "Launch Year",
+		"<": "Less Than", "<=": "Less Than or Equal To", ">": "Greater Than",
+		">=": "Greater Than or Equal To", "==": "Equal To", "!=": "Not Equal To",
+		"Earth": "Earth" };
+	var attr2 = [];
+	attr.map(function (attr1) {
+		attr1.push(React.createElement(
+			"option",
+			{ value: attr1 },
+			label[attr1]
+		));
+	});
+
+	return { attr2: attr2 };
+};
+
+exports.default = selectOption;
+
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -662,7 +759,11 @@ var App = function (_React$Component) {
 			modelType: modelType,
 			sort_title: "Sort By",
 			current_sort_attr: null,
-			current_sort_dir: null
+			current_sort_dir: null,
+			isFiltered: false,
+			current_filter_v1: null,
+			current_filter_v2: null,
+			current_filter_v3: null
 		};
 
 		_this.getModels(_this.state.current_page);
@@ -729,8 +830,29 @@ var App = function (_React$Component) {
 		}
 	}, {
 		key: 'filterBy',
-		value: function filterBy() {
-			console.log("in filterBy func");
+		value: function filterBy(v1, v2, v3, page) {
+			var _this4 = this;
+
+			// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
+			var baseUrl = window.location.href.split('/')[2];
+			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
+			var url = "http://" + baseUrl + apiExt;
+			fetch(url).then(function (response) {
+				return response.json();
+			}).then(function (responseJson) {
+				console.log("return in filterBy func: v1: " + v1 + " v2: " + v2 + " v3: " + v3);
+				_this4.setState({
+					models: responseJson.objects,
+					total_pages: responseJson.total_pages,
+					current_page: responseJson.page,
+					isFiltered: true,
+					current_filter_v1: v1,
+					current_filter_v2: v2,
+					current_filter_v3: v3
+				});
+			}).catch(function (error) {
+				console.error(error);
+			});
 		}
 	}, {
 		key: 'render',
@@ -795,4 +917,4 @@ var App = function (_React$Component) {
 
 ReactDOM.render(React.createElement(App, null), document.querySelector('.container'));
 
-},{"./../components/drop_down":1,"./../components/modals":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/nav_bar":7,"./../components/pages":9}]},{},[10]);
+},{"./../components/drop_down":1,"./../components/modals":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/nav_bar":7,"./../components/pages":9}]},{},[11]);

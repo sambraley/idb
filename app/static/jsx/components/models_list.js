@@ -1,9 +1,9 @@
 import ModelListItem from './model_list_item';
 
 const ModelList = (props) => {
-	if (!props){
+	if (props.models === []){
 		console.log("nothing in props");
-		return <div>Loading...</div>;
+		return <div>No results Found</div>;
 	}
 
 	const modelItem = props.models.map((model) => {

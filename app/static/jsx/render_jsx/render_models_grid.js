@@ -20,7 +20,11 @@ class App extends React.Component {
 			modelType: modelType,
 			sort_title: "Sort By",
 			current_sort_attr: null,
-			current_sort_dir: null 
+			current_sort_dir: null, 
+			isFiltered: false,
+			current_filter_v1: null,
+			current_filter_v2: null,
+			current_filter_v3: null
 		};
 		
 		this.getModels(this.state.current_page);
@@ -81,8 +85,28 @@ class App extends React.Component {
 	      	})
 	}
 
-	filterBy() {
-		console.log("in filterBy func");
+	filterBy(v1, v2, v3, page) {
+		// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
+		const baseUrl = window.location.href.split('/')[2];
+		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
+		const url = "http://" + baseUrl + apiExt;
+		fetch(url)
+	      .then((response) => response.json())
+	      .then((responseJson) => {
+	      	console.log("return in filterBy func: v1: " + v1 + " v2: " + v2 + " v3: " + v3);
+	        this.setState({ 
+	        	models: responseJson.objects,
+	        	total_pages: responseJson.total_pages,
+	        	current_page: responseJson.page,
+	        	isFiltered: true,
+				current_filter_v1: v1,
+				current_filter_v2: v2,
+				current_filter_v3: v3
+	        })
+		    })
+		    .catch((error) => {
+		        console.error(error);
+	      	})
 	}
 
 	
