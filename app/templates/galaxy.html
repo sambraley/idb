@@ -1,33 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
+<link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
 <div class="container model-container">
   <div class="row">
-    <div class="col-lg-12 text-center">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
       <h1>{{galaxy.name}}</h1>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 text-center" style="padding-top:25px;">
-      <img src="/static/images/{{galaxy.images}}"> 
+    <div class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
+      <div id="aladin-lite-div" style="width:400px;height:400px;margin: 0 auto;"></div>
+        <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            var aladin = A.aladin('#aladin-lite-div', 
+              {
+                survey: "P/DSS2/color",
+                fov: .02, 
+                showReticle: false,
+                showGotoControl: false
+              });
+            aladin.gotoRaDec({{galaxy.ra}}, {{galaxy.dec}});
+        </script> 
     </div>
-    <div class="col-md-6 text-center">
+    <div class="col-sm-12 col-md-5 text-center">
       <div class="col-md-12">
-        <h3>Galaxy Type:</h3> 
-        <p>{{galaxy.galaxy_type}}</p>
-        <h3>Angular Size:</h3> 
-        <p>{{galaxy.angular_size}}</p>
+        <h3>Morphological Type:</h3> 
+        <p>{{galaxy.morph_type}}</p>
         <h3>Right Ascension:</h3> 
-        <p>{{galaxy.right_ascension}}</p>
+        <p>{{galaxy.ra}}</p>
         <h3>Declination:</h3> 
-        <p>{{galaxy.declination}}</p>
+        <p>{{galaxy.dec}}</p>
         <h3>Red Shift:</h3> 
         <p>{{galaxy.redshift}}</p>
-        <h3>Planetoids:</h3> 
-        <a href="{{galaxy.planetoid_bodies}}">Planetoids</a>
-        <h3>Stars:</h3> 
-        <a href="{{galaxy.stars}}">Stars</a>
-        <h3>Satellites:</h3> 
-        <a href="{{galaxy.satellites}}">Satellites</a>
+        <h3>Size:</h3> 
+        <p>{{galaxy.size}}</p>
       </div>
     </div>
   </div>

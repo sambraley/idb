@@ -1,29 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
+<link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
 <div class="container model-container">
   <div class="row">
-  	<div class="col-lg-12 text-center">
+  	<div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
   		<h1>{{star.name}}</h1>
   	</div>
   </div>
   <div class="row">
-    <div class="col-md-6 text-center" >
-      <img src="/static/images/{{star.images}}"> 
+     <div class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
+      <div id="aladin-lite-div" style="width:400px;height:400px;margin: 0 auto;"></div>
+        <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            var aladin = A.aladin('#aladin-lite-div', 
+              {
+                survey: "P/DSS2/color",
+                fov: .02, 
+                showReticle: false,
+                showGotoControl: false
+              });
+            aladin.gotoRaDec({{star.ra}}, {{star.dec}});
+        </script> 
     </div>
-    <div class="col-md-6 text-center">
+    <div class="col-sm-12 col-md-5 text-center">
       <div class="col-md-12">
         <h3>Temperature:</h3> 
         <p>{{star.temperature}}</p>
         <h3>Mass:</h3> 
         <p>{{star.mass}}</p>
         <h3>Right Ascension:</h3> 
-        <p>{{star.right_ascension}}</p>
+        <p>{{star.ra}}</p>
         <h3>Declination:</h3> 
-        <p>{{star.declination}}</p>
-        <h3>Planetoids:</h3> 
-        <a href="{{star.planetoid_bodies}}">Planetoids</a>
-        <h3>Satellites:</h3> 
-        <a href="{{star.satellites}}">Satellites</a>
+        <p>{{star.dec}}</p>
+        <h3>Diameter:</h3> 
+        <p>{{star.diameter}}</p>
+        <h3><a href="/galaxies/{{star.galaxy_pid}}">Link to home Galaxy</a></h3>
       </div>
     </div>
   </div>
