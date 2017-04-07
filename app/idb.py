@@ -8,11 +8,15 @@ from flask import Flask, render_template
 
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
-import subprocess
+import unittest
+import io
 
 app = Flask(__name__)
 db = connect_db(app)
 api_setup(app, db)
+
+import test
+
 
 headers = {'planetoids': ["Name", "Diameter", "Gravity", "Temperatures", "Mass", "Orbital Period"],
            'galaxies': ["Name", "Images", "Location", "Age", "Year of Discovery", "Type"],
@@ -111,13 +115,11 @@ def galaxy_instance(galaxy_id):
 
 @app.route('/run_tests')
 def run_tests():
-		output = subprocess.check_output(["rm", "TestIDB.tmp"], stderr=subprocess.STDOUT)
-		output = subprocess.check_output(["make", "TestIDB.tmp"], stderr=subprocess.STDOUT)
-		output = subprocess.check_output(["cat", "TestIDB.tmp"], stderr=subprocess.STDOUT)
-		output = output.decode("utf-8")
-		output = "<pre style='font-family: Courier New;'>" + output + "</pre>"
-		return output
+    suite = unittest.TestLoader().loadTestsFromTestCase(test.TestModels)
+    output = io.StringIO()
+    unittest.TextTestRunner(stream=output).run(suite)
 
+    return output.getvalue().replace('\n', '<br />')
 
 if __name__ == "__main__": # pragma: no cover
     app.run()
