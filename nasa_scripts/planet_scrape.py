@@ -58,7 +58,7 @@ def translate_planet(web_planet, stars) :
     """
     Translates a planet from the kepler data to a spacecowboy planet
     """
-    translators = [t_pid, t_name, t_diameter, t_ra, t_dec, t_gravity, t_op, t_temp, t_mass, t_spid, t_gpid]
+    translators = [t_pid, t_name, t_diameter, t_ra, t_dec, t_gravity, t_op, t_temp, t_img, t_mass, t_spid, t_gpid]
     return dict([t(web_planet, stars) for t in translators])
 
 pid = 0
@@ -95,6 +95,9 @@ def t_mass(web_planet, stars) :
 
 def t_temp(web_planet, stars) : 
     return ("temperature", int(web_planet["pl_eqt"]))
+
+def t_img(web_planet, stars) :
+    return ("img_url", "planet.png")
 
 def t_spid(web_planet, stars) : 
     spid = -1
