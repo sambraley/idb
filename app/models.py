@@ -27,7 +27,7 @@ class Satellite(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    image = db.Column(db.String())
+    img_url = db.Column(db.String())
     year_launched = db.Column(db.Integer)
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
@@ -51,13 +51,13 @@ class Satellite(db.Model):
     #
 
     def __init__(
-            self, name, image, year_launched, mission_type, info_url, agency,
+            self, name, img_url, year_launched, mission_type, info_url, agency,
             planet, star, galaxy):
         """
         name a str, agency a str, mission_type a str, year_launched an int.
         """
         # Check types
-        assert isinstance(image, str)
+        assert isinstance(img_url, str)
         assert isinstance(year_launched, int)
         assert isinstance(name, str)
         assert isinstance(mission_type, str)
@@ -69,7 +69,7 @@ class Satellite(db.Model):
 
         # Create instance
         self.name = name
-        self.image = image
+        self.img_url = img_url
         self.year_launched = year_launched
         self.mission_type = mission_type
         self.info_url = info_url
@@ -121,7 +121,7 @@ class Planet(db.Model):
     orbital_period = db.Column(db.Float)
     mass = db.Column(db.Float)
     temperature = db.Column(db.Integer)
-	img_url = db.Column(db.String())
+    img_url = db.Column(db.String())
 
     # Foreign Keys
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
@@ -152,7 +152,7 @@ class Planet(db.Model):
         assert isinstance(gravity, float)
         assert isinstance(orbital_period, float)
         assert isinstance(mass, float)
-		assert isinstance(img_url, str)
+        assert isinstance(img_url, str)
         assert isinstance(temperature, int)
 
         # Create Instance
@@ -164,7 +164,7 @@ class Planet(db.Model):
         self.orbital_period = orbital_period
         self.mass = mass
         self.temperature = temperature
-		self.img_url = img_url
+        self.img_url = img_url
         self.star = star
         self.galaxy = galaxy
 
@@ -182,7 +182,7 @@ class Planet(db.Model):
             "orbital_period": self.orbital_period,
             "mass": self.mass,
             "temperature": self.temperature,
-			"img_url": self.img_url,
+            "img_url": self.img_url,
             "star_pid": self.star_pid,
             "galaxy_pid": self.galaxy_pid
         }
@@ -212,7 +212,7 @@ class Star(db.Model):
     dec = db.Column(db.Float)
     temperature = db.Column(db.Integer)
     mass = db.Column(db.Float)
-	img_url = db.Column(db.String())
+    img_url = db.Column(db.String())
 
     # Foreign Keys
     galaxy_pid = db.Column(db.Integer, db.ForeignKey("galaxy.pid"))
@@ -225,7 +225,7 @@ class Star(db.Model):
     # Methods
     #
 
-    def __init__(self, name, diameter, ra, dec, temperature, mass, img_url, galaxy):
+    def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy, img_url="star.png"):
         """
         name a str, image a str, temperature, right_ascension, declination, and mass
         are all floats.
@@ -237,7 +237,7 @@ class Star(db.Model):
         assert isinstance(dec, float)
         assert isinstance(temperature, int)
         assert isinstance(mass, float)
-		assert isinstance(img_url, str)
+        assert isinstance(img_url, str)
         assert isinstance(galaxy, Galaxy)
 
         # Create instance
@@ -247,7 +247,7 @@ class Star(db.Model):
         self.dec = dec
         self.temperature = temperature
         self.mass = mass
-		self.img_url = img_url
+        self.img_url = img_url
         self.galaxy = galaxy
 
     def to_dict(self):
@@ -262,7 +262,7 @@ class Star(db.Model):
             "dec": self.dec,
             "temperature": self.temperature,
             "mass": self.mass,
-			"img_url": self.img_url,
+            "img_url": self.img_url,
             "galaxy_pid": self.galaxy_pid
         }
 
@@ -291,7 +291,7 @@ class Galaxy(db.Model):
     morph_type = db.Column(db.String())
     redshift = db.Column(db.Float)
     size = db.Column(db.Float)
-	img_url = db.Column(db.String())
+    img_url = db.Column(db.String())
 
     #
     # Methods
@@ -309,7 +309,7 @@ class Galaxy(db.Model):
         assert isinstance(morph_type, str)
         assert isinstance(redshift, float)
         assert isinstance(size, float)
-		assert isinstance(img_url, str)
+        assert isinstance(img_url, str)
 
         self.name = name
         self.ra = ra
@@ -317,7 +317,7 @@ class Galaxy(db.Model):
         self.morph_type = morph_type
         self.redshift = redshift
         self.size = size
-		self.img_url = img_url
+        self.img_url = img_url
 
     def to_dict(self):
         """
@@ -330,7 +330,7 @@ class Galaxy(db.Model):
             "morph_type": self.morph_type,
             "redshift": self.redshift,
             "size": self.size,
-			"img_url": self.img_url
+            "img_url": self.img_url
         }
 
     def __repr__(self):
