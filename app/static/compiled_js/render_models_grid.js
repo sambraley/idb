@@ -107,7 +107,10 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var Modals = function Modals() {
+var Modals = function Modals(_ref) {
+	var modelType = _ref.modelType,
+	    filterBy = _ref.filterBy;
+
 
 	return React.createElement(
 		"div",
@@ -145,25 +148,62 @@ var Modals = function Modals() {
 						{ className: "modal-body" },
 						React.createElement(
 							"div",
-							{ className: "dropdown" },
+							{ className: "form-group" },
 							React.createElement(
-								"button",
-								{ className: "btn dropdown-toggle", type: "button", "data-toggle": "dropdown" },
-								"Sort By",
-								React.createElement("span", { className: "caret" })
-							),
-							React.createElement(
-								"ul",
-								{ className: "dropdown-menu" },
+								"select",
+								{ className: "form-control" },
 								React.createElement(
-									"li",
-									{ className: "dropdown-header" },
-									"Ascending"
+									"option",
+									{ value: "Attribute" },
+									"Attribute"
 								),
 								React.createElement(
-									"li",
-									{ className: "dropdown-header" },
-									"Descending"
+									"option",
+									{ value: "Attr1" },
+									"Attr 1"
+								),
+								React.createElement(
+									"option",
+									{ value: "Attr2" },
+									"Attr 2"
+								)
+							),
+							React.createElement(
+								"select",
+								{ className: "form-control" },
+								React.createElement(
+									"option",
+									{ value: "Attribute" },
+									"Operation"
+								),
+								React.createElement(
+									"option",
+									{ value: ">" },
+									"Greater Then"
+								),
+								React.createElement(
+									"option",
+									{ value: "<" },
+									"Greater Then"
+								)
+							),
+							React.createElement(
+								"select",
+								{ className: "form-control" },
+								React.createElement(
+									"option",
+									{ value: "Attribute" },
+									"Compare To"
+								),
+								React.createElement(
+									"option",
+									{ value: "Attr1" },
+									"Jupiter"
+								),
+								React.createElement(
+									"option",
+									{ value: "Attr2" },
+									"Earth"
 								)
 							)
 						)
@@ -171,6 +211,13 @@ var Modals = function Modals() {
 					React.createElement(
 						"div",
 						{ className: "modal-footer" },
+						React.createElement(
+							"button",
+							{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+									return filterBy();
+								} },
+							"Submit"
+						),
 						React.createElement(
 							"button",
 							{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
@@ -455,7 +502,7 @@ var Pages = function Pages(_ref) {
 			"li",
 			{ onClick: function onClick() {
 					return onPageSelect(current_page - 1);
-				}, className: "page-item", id: "previous-button" },
+				}, className: "page-item", key: "previous-button" },
 			React.createElement(
 				"a",
 				null,
@@ -486,13 +533,13 @@ var Pages = function Pages(_ref) {
 				page_number: i,
 				onPageSelect: onPageSelect,
 				isActive: true,
-				id: i }));
+				key: i }));
 		} else {
 			pages.push(React.createElement(_page_item2.default, {
 				page_number: i,
 				onPageSelect: onPageSelect,
 				isActive: false,
-				id: i }));
+				key: i }));
 		}
 	}
 	//adding next button
@@ -501,7 +548,7 @@ var Pages = function Pages(_ref) {
 			"li",
 			{ onClick: function onClick() {
 					return onPageSelect(current_page + 1);
-				}, className: "page-item" },
+				}, className: "page-item", key: "next-button" },
 			React.createElement(
 				"a",
 				null,
@@ -587,18 +634,17 @@ var App = function (_React$Component) {
 		value: function getModels(page) {
 			var _this2 = this;
 
-			this.setState({ current_page: page });
 			if (this.state.sort_title === "Sort By") {
-				console.log("pages are not sorted");
+				// console.log("pages are not sorted");
 
 				var baseUrl = window.location.href.split('/')[2];
 				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9";
 				var url = "http://" + baseUrl + apiExt;
-				console.log(url);
+				// console.log(url);
 				fetch(url).then(function (response) {
 					return response.json();
 				}).then(function (responseJson) {
-					console.log("I'm back with some values");
+					// console.log("I'm back with some values");
 					_this2.setState({
 						models: responseJson.objects,
 						total_pages: responseJson.total_pages,
@@ -608,9 +654,9 @@ var App = function (_React$Component) {
 					console.error(error);
 				});
 			} else {
-				console.log("pages are sorted by " + this.state.sort_title);
-				console.log("using attr " + this.state.current_sort_attr);
-				console.log("by order " + this.state.current_sort_dir);
+				// console.log("pages are sorted by " + this.state.sort_title);
+				// console.log("using attr " + this.state.current_sort_attr);
+				// console.log("by order " + this.state.current_sort_dir);
 				this.sortBy(this.state.current_sort_attr, this.state.current_sort_dir, this.state.sort_title, page);
 			}
 		}
@@ -620,15 +666,15 @@ var App = function (_React$Component) {
 			var _this3 = this;
 
 			// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
-			console.log(attr, dir);
+			// console.log(attr, dir);
 			var baseUrl = window.location.href.split('/')[2];
 			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
 			var url = "http://" + baseUrl + apiExt;
-			console.log(url);
+			// console.log(url);
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
-				console.log("Back from sorting call");
+				// console.log("Back from sorting call");
 				_this3.setState({
 					models: responseJson.objects,
 					total_pages: responseJson.total_pages,
@@ -640,6 +686,11 @@ var App = function (_React$Component) {
 			}).catch(function (error) {
 				console.error(error);
 			});
+		}
+	}, {
+		key: 'filterBy',
+		value: function filterBy() {
+			console.log("in filterBy func");
 		}
 	}, {
 		key: 'render',
@@ -670,7 +721,9 @@ var App = function (_React$Component) {
 						React.createElement(
 							'div',
 							{ className: 'col-md-1 text-left sort-filter-button' },
-							React.createElement(_modals2.default, null)
+							React.createElement(_modals2.default, {
+								modelType: this.state.modelType,
+								filterBy: this.filterBy.bind(this) })
 						),
 						React.createElement(
 							'div',
@@ -686,7 +739,7 @@ var App = function (_React$Component) {
 						page: this.current_page }),
 					React.createElement(
 						'div',
-						{ className: 'col-md-12 text-right' },
+						{ key: 'pages', className: 'col-md-12 text-right' },
 						React.createElement(_pages2.default, {
 							current_page: this.state.current_page,
 							total_pages: this.state.total_pages,

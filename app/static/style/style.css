@@ -53,6 +53,9 @@ html, body {
 .sort-filter-button {
 	padding-top: 25px;
 }
+.form-control {
+	padding: 5px;
+}
 /*
 Used to see the borders of the grid
 
