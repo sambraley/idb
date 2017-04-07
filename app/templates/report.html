@@ -137,11 +137,11 @@
 		<p>Our API Apiary page can be found at <a href="http://docs.spacecowboys.apiary.io/#reference">http://docs.spacecowboys.apiary.io/#reference</a>. Each model (galaxies, planetoid bodies, stars, and satellites) have three different types of GET calls.</p>
 		<br/>
 		<p>The first is a GET by ID, where the PID, or primary ID is a parameter in the query and then the response is either a singular instance of that model with the matching ID in JSON format or a 204 response code, to signify that the request was received but no instance was found.</p>
-		<br/>
 		<a href="http://spacecowboys.me/api/v1/satellites/1">http://spacecowboys.me/api/v1/satellites/1</a>
-		<p>The second is a collective GET that returns a list of models. The optional parameters for this request are results_per_page and page with respective defaults 9 and 1.</p>
 		<br/>
+		<p>The second is a collective GET that returns a list of models. The optional parameters for this request are results_per_page and page with respective defaults 9 and 1.</p>
 		<a href="http://spacecowboys.me/api/v1/satellites?results_per_page=9&page=1">http://spacecowboys.me/api/v1/satellites?results_per_page=9&page=1</a>
+		<br/>
 		<p>The final GET returns the entire collection of a given model based off of a filter. You are able to filter off of any operation and any attribute of that specific model. You are also able to specify ascending or descending.</p>
 		<br/>
 		<a href="http://spacecowboys.me/api/v1/satellites?q=%7B%22order_by%22%3A%5B%7B%22field%22%3A%22name%22%2C%22direction%22%3A%22desc%22%7D%5D%2C%22filters%22%3A%5B%7B%22name%22%3A%22name%22%2C%22op%22%3A%22%3D%3D%22%2C%22value%22%3A%22SARAL%22%7D%5D%7D">http://spacecowboys.me/api/v1/satellites?q=%7B%22order_by%22%3A%5B%7B%22field%22%3A%22name%22%2C%22direction%22%3A%22desc%22%7D%5D%2C%22filters%22%3A%5B%7B%22name%22%3A%22name%22%2C%22op%22%3A%22%3D%3D%22%2C%22value%22%3A%22SARAL%22%7D%5D%7D</a>
