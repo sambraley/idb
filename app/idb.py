@@ -116,10 +116,13 @@ def galaxy_instance(galaxy_id):
 @app.route('/run_tests')
 def run_tests():
     suite = unittest.TestLoader().loadTestsFromTestCase(test.TestModels)
-    output = io.StringIO()
+    test_output = io.StringIO()
+    test_output = test_output.getvalue()
     unittest.TextTestRunner(stream=output).run(suite)
-
-    return output.getvalue().replace('\n', '<br />')
+    coverage = open("coverage.txt")
+    coverage_output = coverage.read()
+    output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
+    return output
 
 if __name__ == "__main__": # pragma: no cover
     app.run()
