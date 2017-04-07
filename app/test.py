@@ -23,19 +23,19 @@ with test_app.app_context():
     test_db.create_all()
 
 star_data = {"name": "dummy_star", "temperature": 5945, "mass": 1.09, "diameter": 1405314.0,\
-                "dec": -5.086445, "ra": 102.721137}
+        "dec": -5.086445, "ra": 102.721137, "img_url":"star.png"}
 
 planet_data = {"name": "dummy_planet", "orbital_period": 1.327347, "temperature": 1823, \
                 "mass": 3.477136e+27, "diameter": 176735.008, "gravity": 0.029718570060615346, \
-                "dec": 44.915352, "ra": 188.266255}
+                "dec": 44.915352, "ra": 188.266255, "img_url":"planet.png"}
 
 satellite_data = {"name": "dummy_satellite", "mission_type": "Planetary Science", \
                     "info_url": "https://en.wikipedia.org/wiki/SARAL", "agency": \
                     "Indian Space Research Organization", "year_launched": 2013, \
-                    "image": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"}
+                    "img_url": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"}
 
 galaxy_data = {"name": "dummy_galaxy", "morph_type": "Spiral", "size": 1.227, "dec": 37.884811, \
-                "ra": 317.819183, "redshift": 0.027192}
+        "ra": 317.819183, "redshift": 0.027192, "img_url":"galaxy.png"}
 
 class TestModels (TestCase):
 

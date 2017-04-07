@@ -29,7 +29,7 @@ class Satellite(test_db.Model):
 
     # Model Attributes
     name = test_db.Column(test_db.String(), unique=True)
-    image = test_db.Column(test_db.String())
+    img_url = test_db.Column(test_db.String())
     year_launched = test_db.Column(test_db.Integer)
     mission_type = test_db.Column(test_db.String())
     info_url = test_db.Column(test_db.String())
@@ -53,13 +53,13 @@ class Satellite(test_db.Model):
     #
 
     def __init__(
-            self, name, image, year_launched, mission_type, info_url, agency,
+            self, name, img_url, year_launched, mission_type, info_url, agency,
             planet, star, galaxy):
         """
         name a str, agency a str, mission_type a str, year_launched an int.
         """
         # Check types
-        assert isinstance(image, str)
+        assert isinstance(img_url, str)
         assert isinstance(year_launched, int)
         assert isinstance(name, str)
         assert isinstance(mission_type, str)
@@ -71,7 +71,7 @@ class Satellite(test_db.Model):
 
         # Create instance
         self.name = name
-        self.image = image
+        self.img_url = img_url
         self.year_launched = year_launched
         self.mission_type = mission_type
         self.info_url = info_url
@@ -87,7 +87,7 @@ class Satellite(test_db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "image": self.image,
+            "img_url": self.img_url,
             "year_launched": self.year_launched,
             "mission_type": self.mission_type,
             "info_url": self.info_url,
@@ -103,7 +103,7 @@ class Satellite(test_db.Model):
 class Planet(test_db.Model):
 
     """
-    Models planets. Attributes are: name, image, diameter, right_ascension,
+    Models planets. Attributes are: name, img_url, diameter, right_ascension,
     declination, gravity, orbital period, mass, and temperature. They may relate
     many-to-one to galaxies and stars, and one-to-many to satellites and other planets.
     """
@@ -116,6 +116,7 @@ class Planet(test_db.Model):
 
     # Model Attributes
     name = test_db.Column(test_db.String(), unique=True)
+    img_url = test_db.Column(test_db.String())
     diameter = test_db.Column(test_db.Float)
     ra = test_db.Column(test_db.Float)
     dec = test_db.Column(test_db.Float)
@@ -139,10 +140,10 @@ class Planet(test_db.Model):
     #
 
     def __init__(
-            self, name, diameter, ra, dec, gravity, orbital_period, mass,
+            self, name, img_url, diameter, ra, dec, gravity, orbital_period, mass,
             temperature, star, galaxy):
         """
-        name a str, image a str, diameter, temperature, right_ascension, declination,
+        name a str, img_url a str, diameter, temperature, right_ascension, declination,
         mass, gravity, orbital_period are all floats.
         """
         # Check types
@@ -157,6 +158,7 @@ class Planet(test_db.Model):
 
         # Create Instance
         self.name = name
+        self.img_url = img_url
         self.diameter = diameter
         self.ra = ra
         self.dec = dec
@@ -174,6 +176,7 @@ class Planet(test_db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
+            "img_url": self.img_url,
             "diameter": self.diameter,
             "ra": self.ra,
             "dec": self.dec,
@@ -192,7 +195,7 @@ class Planet(test_db.Model):
 class Star(test_db.Model):
 
     """
-    Models stars. Attributes are: name, image, temperature, right_ascension,
+    Models stars. Attributes are: name, img_url, temperature, right_ascension,
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
     to satellites and planets.
     """
@@ -205,6 +208,7 @@ class Star(test_db.Model):
 
     # Model Attributes
     name = test_db.Column(test_db.String(), unique=True)
+    img_url = test_db.Column(test_db.String())
     diameter = test_db.Column(test_db.Float)
     ra = test_db.Column(test_db.Float)
     dec = test_db.Column(test_db.Float)
@@ -222,9 +226,9 @@ class Star(test_db.Model):
     # Methods
     #
 
-    def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy):
+    def __init__(self, name, img_url, diameter, ra, dec, temperature, mass, galaxy):
         """
-        name a str, image a str, temperature, right_ascension, declination, and mass
+        name a str, img_url a str, temperature, right_ascension, declination, and mass
         are all floats.
         """
         # Check types
@@ -238,6 +242,7 @@ class Star(test_db.Model):
 
         # Create instance
         self.name = name
+        self.img_url = img_url
         self.diameter = diameter
         self.ra = ra
         self.dec = dec
@@ -252,6 +257,7 @@ class Star(test_db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
+            "img_url": self.img_url,
             "diameter": self.diameter,
             "ra": self.ra,
             "dec": self.dec,
@@ -267,7 +273,7 @@ class Star(test_db.Model):
 class Galaxy(test_db.Model):
 
     """
-    Models galaxies. Attributes are: name, image, right_ascension, declination,
+    Models galaxies. Attributes are: name, img_url, right_ascension, declination,
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
     to satellites, stars, and planets.
     """
@@ -280,6 +286,7 @@ class Galaxy(test_db.Model):
 
     # Model Attributes
     name = test_db.Column(test_db.String(), unique=True)
+    img_url = test_db.Column(test_db.String())
     ra = test_db.Column(test_db.Float)
     dec = test_db.Column(test_db.Float)
     morph_type = test_db.Column(test_db.String())
@@ -290,9 +297,9 @@ class Galaxy(test_db.Model):
     # Methods
     #
 
-    def __init__(self, name, ra, dec, morph_type, redshift, size):
+    def __init__(self, name, img_url, ra, dec, morph_type, redshift, size):
         """
-        name a str, image a str, right_ascension and declination floats, galaxy_type a str,
+        name a str, img_url a str, right_ascension and declination floats, galaxy_type a str,
         redshift and size floats.
         """
         # Check types
@@ -304,6 +311,7 @@ class Galaxy(test_db.Model):
         assert isinstance(size, float)
 
         self.name = name
+        self.img_url = img_url
         self.ra = ra
         self.dec = dec
         self.morph_type = morph_type
@@ -316,6 +324,7 @@ class Galaxy(test_db.Model):
         """
         return {
             "name": self.name,
+            "img_url": self.img_url,
             "ra": self.ra,
             "dec": self.dec,
             "morph_type": self.morph_type,
