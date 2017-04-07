@@ -8,8 +8,8 @@
 <td valign=bottom>&nbsp;<br>
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
-><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/farrior/cs373/projects/idb/app/models.py">/v/filer4b/v38q001/farrior/cs373/projects/idb/app/models.py</a></font></td></tr></table>
-    <p><tt>This&nbsp;module&nbsp;is&nbsp;designed&nbsp;to&nbsp;model&nbsp;galaxies,&nbsp;stars,&nbsp;planetoid&nbsp;bodies,&nbsp;and&nbsp;satellites&nbsp;for<br>
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/taben/Documents/idb/app/models.py">/v/filer4b/v38q001/taben/Documents/idb/app/models.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;is&nbsp;designed&nbsp;to&nbsp;model&nbsp;galaxies,&nbsp;stars,&nbsp;planets,&nbsp;and&nbsp;satellites&nbsp;for<br>
 use&nbsp;in&nbsp;a&nbsp;PostgreSQL&nbsp;database&nbsp;using&nbsp;Flask-SQLAlchemy.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
@@ -23,7 +23,7 @@ use&nbsp;in&nbsp;a&nbsp;PostgreSQL&nbsp;database&nbsp;using&nbsp;Flask-SQLAlchem
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="models.html#Galaxy">Galaxy</a>
-</font></dt><dt><font face="helvetica, arial"><a href="models.html#PlanetoidBody">PlanetoidBody</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Planet">Planet</a>
 </font></dt><dt><font face="helvetica, arial"><a href="models.html#Satellite">Satellite</a>
 </font></dt><dt><font face="helvetica, arial"><a href="models.html#Star">Star</a>
 </font></dt></dl>
@@ -38,7 +38,7 @@ use&nbsp;in&nbsp;a&nbsp;PostgreSQL&nbsp;database&nbsp;using&nbsp;Flask-SQLAlchem
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Models&nbsp;galaxies.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;image,&nbsp;right_ascension,&nbsp;declination,<br>
 galaxy&nbsp;type&nbsp;(spiral,&nbsp;etc),&nbsp;redshift,&nbsp;and&nbsp;angular&nbsp;size.&nbsp;They&nbsp;may&nbsp;relate&nbsp;one-to-many<br>
-to&nbsp;satellites,&nbsp;stars,&nbsp;and&nbsp;planetoid&nbsp;bodies.<br>&nbsp;</tt></td></tr>
+to&nbsp;satellites,&nbsp;stars,&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Galaxy">Galaxy</a></dd>
@@ -48,47 +48,45 @@ to&nbsp;satellites,&nbsp;stars,&nbsp;and&nbsp;planetoid&nbsp;bodies.<br>&nbsp;</
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Galaxy-__init__"><strong>__init__</strong></a>(self, name, image, right_ascension, declination, galaxy_type, redshift, angular_size, stars=(), planetoid_bodies=(), satellites=())</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;image&nbsp;a&nbsp;str,&nbsp;right_ascension&nbsp;and&nbsp;declination&nbsp;floats,&nbsp;galaxy_type&nbsp;a&nbsp;str,<br>
-redshift&nbsp;and&nbsp;angular_size&nbsp;floats.&nbsp;stars,&nbsp;planetoid_bodies,&nbsp;and&nbsp;satellites&nbsp;are&nbsp;to<br>
-be&nbsp;iterables&nbsp;containing&nbsp;instances&nbsp;of&nbsp;the&nbsp;respective&nbsp;classes&nbsp;which&nbsp;are&nbsp;in&nbsp;this&nbsp;galaxy.</tt></dd></dl>
+<dl><dt><a name="Galaxy-__init__"><strong>__init__</strong></a>(self, name, ra, dec, morph_type, redshift, size, img_url)</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;right_ascension&nbsp;and&nbsp;declination&nbsp;floats,&nbsp;galaxy_type&nbsp;a&nbsp;str,<br>
+redshift&nbsp;and&nbsp;size&nbsp;floats.</tt></dd></dl>
 
-<dl><dt><a name="Galaxy-dictionary"><strong>dictionary</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Galaxy-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Galaxy-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
-<dl><dt><strong>angular_size</strong></dt>
+<dl><dt><strong>dec</strong></dt>
 </dl>
-<dl><dt><strong>declination</strong></dt>
+<dl><dt><strong>img_url</strong></dt>
 </dl>
-<dl><dt><strong>galaxy_type</strong></dt>
-</dl>
-<dl><dt><strong>identifier</strong></dt>
-</dl>
-<dl><dt><strong>image</strong></dt>
+<dl><dt><strong>morph_type</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
-<dl><dt><strong>planetoid_bodies</strong></dt>
+<dl><dt><strong>pid</strong></dt>
+</dl>
+<dl><dt><strong>ra</strong></dt>
 </dl>
 <dl><dt><strong>redshift</strong></dt>
 </dl>
-<dl><dt><strong>right_ascension</strong></dt>
-</dl>
-<dl><dt><strong>satellites</strong></dt>
-</dl>
-<dl><dt><strong>stars</strong></dt>
+<dl><dt><strong>size</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f527b959630; Galaxy&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbb04470; Galaxy&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('galaxy', MetaData(bind=None), Column('ide...lar_size', Float(), table=&lt;galaxy&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('galaxy', MetaData(bind=None), Column('pid...img_url', String(), table=&lt;galaxy&gt;), schema=None)</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -109,46 +107,41 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ffc8d8">
 <td colspan=3 valign=bottom>&nbsp;<br>
-<font color="#000000" face="helvetica, arial"><a name="PlanetoidBody">class <strong>PlanetoidBody</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+<font color="#000000" face="helvetica, arial"><a name="Planet">class <strong>Planet</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Models&nbsp;planetoids.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;image,&nbsp;diameter,&nbsp;right_ascension,<br>
+<td colspan=2><tt>Models&nbsp;planets.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;image,&nbsp;diameter,&nbsp;right_ascension,<br>
 declination,&nbsp;gravity,&nbsp;orbital&nbsp;period,&nbsp;mass,&nbsp;and&nbsp;temperature.&nbsp;They&nbsp;may&nbsp;relate<br>
-many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;stars,&nbsp;and&nbsp;one-to-many&nbsp;to&nbsp;satellites&nbsp;and&nbsp;other&nbsp;planetoid&nbsp;bodies.<br>&nbsp;</tt></td></tr>
+many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;stars,&nbsp;and&nbsp;one-to-many&nbsp;to&nbsp;satellites&nbsp;and&nbsp;other&nbsp;planets.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
-<dd><a href="models.html#PlanetoidBody">PlanetoidBody</a></dd>
+<dd><a href="models.html#Planet">Planet</a></dd>
 <dd>flask_sqlalchemy.Model</dd>
 <dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
 <dd><a href="builtins.html#object">builtins.object</a></dd>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="PlanetoidBody-__init__"><strong>__init__</strong></a>(self, name, image, diameter, surface_temperature, right_ascension, declination, mass, gravity, orbital_period, orbiting_bodies=None, satellites=())</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;image&nbsp;a&nbsp;str,&nbsp;diameter,&nbsp;surface_temperature,&nbsp;right_ascension,&nbsp;declination,<br>
-mass,&nbsp;gravity,&nbsp;orbital_period&nbsp;are&nbsp;all&nbsp;floats.&nbsp;orbiting_bodies&nbsp;and&nbsp;satellites&nbsp;are&nbsp;to&nbsp;be<br>
-iterables&nbsp;containing&nbsp;instances&nbsp;of&nbsp;the&nbsp;respective&nbsp;classes&nbsp;which&nbsp;orbit&nbsp;this&nbsp;planetoid.</tt></dd></dl>
+<dl><dt><a name="Planet-__init__"><strong>__init__</strong></a>(self, name, diameter, ra, dec, gravity, orbital_period, mass, temperature, img_url, star, galaxy)</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;diameter&nbsp;a&nbsp;float,&nbsp;temperature&nbsp;a&nbsp;int,&nbsp;right_ascension,&nbsp;declination,<br>
+mass,&nbsp;gravity,&nbsp;orbital_period&nbsp;are&nbsp;all&nbsp;floats.</tt></dd></dl>
 
-<dl><dt><a name="PlanetoidBody-dictionary"><strong>dictionary</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Planet-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Planet-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
-<dl><dt><strong>declination</strong></dt>
+<dl><dt><strong>dec</strong></dt>
 </dl>
 <dl><dt><strong>diameter</strong></dt>
 </dl>
 <dl><dt><strong>galaxy</strong></dt>
 </dl>
-<dl><dt><strong>galaxy_id</strong></dt>
+<dl><dt><strong>galaxy_pid</strong></dt>
 </dl>
 <dl><dt><strong>gravity</strong></dt>
 </dl>
-<dl><dt><strong>host</strong></dt>
-</dl>
-<dl><dt><strong>host_id</strong></dt>
-</dl>
-<dl><dt><strong>identifier</strong></dt>
-</dl>
-<dl><dt><strong>image</strong></dt>
+<dl><dt><strong>img_url</strong></dt>
 </dl>
 <dl><dt><strong>mass</strong></dt>
 </dl>
@@ -156,29 +149,32 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>orbital_period</strong></dt>
 </dl>
-<dl><dt><strong>orbiting_bodies</strong></dt>
+<dl><dt><strong>pid</strong></dt>
 </dl>
-<dl><dt><strong>right_ascension</strong></dt>
+<dl><dt><strong>ra</strong></dt>
 </dl>
 <dl><dt><strong>satellites</strong></dt>
 </dl>
 <dl><dt><strong>star</strong></dt>
 </dl>
-<dl><dt><strong>star_id</strong></dt>
+<dl><dt><strong>star_pid</strong></dt>
 </dl>
-<dl><dt><strong>surface_temperature</strong></dt>
+<dl><dt><strong>temperature</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f527b962080; PlanetoidBody&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbaf03c8; Planet&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('planetoid_body', MetaData(bind=None), Col...entifier'), table=&lt;planetoid_body&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('planet', MetaData(bind=None), Column('pid...nKey('galaxy.pid'), table=&lt;planet&gt;), schema=None)</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -203,7 +199,7 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Models&nbsp;artificial&nbsp;satellites.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;agency,&nbsp;mission&nbsp;type,<br>
-and&nbsp;year&nbsp;launched.&nbsp;They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies,&nbsp;stars,&nbsp;and&nbsp;planetoid&nbsp;bodies.<br>&nbsp;</tt></td></tr>
+and&nbsp;year&nbsp;launched.&nbsp;They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies,&nbsp;stars,&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Satellite">Satellite</a></dd>
@@ -213,9 +209,11 @@ and&nbsp;year&nbsp;launched.&nbsp;They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbs
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Satellite-__init__"><strong>__init__</strong></a>(self, name, agency, type_of_mission, year_launched)</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;agency&nbsp;a&nbsp;str,&nbsp;type_of_mission&nbsp;a&nbsp;str,&nbsp;year_launched&nbsp;an&nbsp;int.</tt></dd></dl>
+<dl><dt><a name="Satellite-__init__"><strong>__init__</strong></a>(self, name, img_url, year_launched, mission_type, info_url, agency, planet, star, galaxy)</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;info_url&nbsp;a&nbsp;str,&nbsp;agency&nbsp;a&nbsp;str,&nbsp;mission_type&nbsp;a&nbsp;str,&nbsp;year_launched&nbsp;an&nbsp;int.</tt></dd></dl>
 
-<dl><dt><a name="Satellite-dictionary"><strong>dictionary</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Satellite-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Satellite-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -223,35 +221,42 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>galaxy</strong></dt>
 </dl>
-<dl><dt><strong>galaxy_id</strong></dt>
+<dl><dt><strong>galaxy_pid</strong></dt>
 </dl>
-<dl><dt><strong>host</strong></dt>
+<dl><dt><strong>img_url</strong></dt>
 </dl>
-<dl><dt><strong>identifier</strong></dt>
+<dl><dt><strong>info_url</strong></dt>
 </dl>
-<dl><dt><strong>mission</strong></dt>
+<dl><dt><strong>mission_type</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
-<dl><dt><strong>planetoid_id</strong></dt>
+<dl><dt><strong>pid</strong></dt>
+</dl>
+<dl><dt><strong>planet</strong></dt>
+</dl>
+<dl><dt><strong>planet_pid</strong></dt>
 </dl>
 <dl><dt><strong>star</strong></dt>
 </dl>
-<dl><dt><strong>star_id</strong></dt>
+<dl><dt><strong>star_pid</strong></dt>
 </dl>
 <dl><dt><strong>year_launched</strong></dt>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f527ea93ef0; Satellite&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbb44710; Satellite&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('satellite', MetaData(bind=None), Column('...xy.identifier'), table=&lt;satellite&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('satellite', MetaData(bind=None), Column('...y('galaxy.pid'), table=&lt;satellite&gt;), schema=None)</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -277,7 +282,7 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
 <td colspan=2><tt>Models&nbsp;stars.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;image,&nbsp;temperature,&nbsp;right_ascension,<br>
 declination,&nbsp;and&nbsp;mass.&nbsp;They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;one-to-many<br>
-to&nbsp;satellites&nbsp;and&nbsp;planetoid&nbsp;bodies.<br>&nbsp;</tt></td></tr>
+to&nbsp;satellites&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Star">Star</a></dd>
@@ -287,31 +292,34 @@ to&nbsp;satellites&nbsp;and&nbsp;planetoid&nbsp;bodies.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Star-__init__"><strong>__init__</strong></a>(self, name, image, temperature, right_ascension, declination, mass, planetoid_bodies=(), satellites=())</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;image&nbsp;a&nbsp;str,&nbsp;temperature,&nbsp;right_ascension,&nbsp;declination,&nbsp;and&nbsp;mass<br>
-are&nbsp;all&nbsp;floats.&nbsp;planetoid_bodies&nbsp;and&nbsp;satellites&nbsp;are&nbsp;to&nbsp;be&nbsp;iterables&nbsp;containing<br>
-instances&nbsp;of&nbsp;the&nbsp;respective&nbsp;classes&nbsp;which&nbsp;orbit&nbsp;this&nbsp;star.</tt></dd></dl>
+<dl><dt><a name="Star-__init__"><strong>__init__</strong></a>(self, name, diameter, ra, dec, temperature, mass, galaxy, img_url='star.png')</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;temperature&nbsp;a&nbsp;int,&nbsp;right_ascension,&nbsp;declination,&nbsp;and&nbsp;mass<br>
+are&nbsp;all&nbsp;floats.</tt></dd></dl>
 
-<dl><dt><a name="Star-dictionary"><strong>dictionary</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Star-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Star-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
-<dl><dt><strong>declination</strong></dt>
+<dl><dt><strong>dec</strong></dt>
+</dl>
+<dl><dt><strong>diameter</strong></dt>
 </dl>
 <dl><dt><strong>galaxy</strong></dt>
 </dl>
-<dl><dt><strong>galaxy_id</strong></dt>
+<dl><dt><strong>galaxy_pid</strong></dt>
 </dl>
-<dl><dt><strong>identifier</strong></dt>
-</dl>
-<dl><dt><strong>image</strong></dt>
+<dl><dt><strong>img_url</strong></dt>
 </dl>
 <dl><dt><strong>mass</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
-<dl><dt><strong>planetoid_bodies</strong></dt>
+<dl><dt><strong>pid</strong></dt>
 </dl>
-<dl><dt><strong>right_ascension</strong></dt>
+<dl><dt><strong>planets</strong></dt>
+</dl>
+<dl><dt><strong>ra</strong></dt>
 </dl>
 <dl><dt><strong>satellites</strong></dt>
 </dl>
@@ -319,15 +327,18 @@ Data descriptors defined here:<br>
 </dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f527b920d30; Star&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbaf0d30; Star&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('star', MetaData(bind=None), Column('ident...'galaxy.identifier'), table=&lt;star&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('star', MetaData(bind=None), Column('pid',...ignKey('galaxy.pid'), table=&lt;star&gt;), schema=None)</dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
 
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query</strong> = &lt;flask_sqlalchemy.BaseQuery object&gt;</dl>
 
 <dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
 &nbsp;<br>
@@ -351,6 +362,5 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>app</strong> = &lt;Flask 'idb'&gt;<br>
-<strong>db</strong> = &lt;SQLAlchemy engine=sqlite:///:memory:&gt;</td></tr></table>
+<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine=None&gt;</td></tr></table>
 </body></html>
