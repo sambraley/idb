@@ -4,24 +4,16 @@
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
 # pylint: disable = line-too-long
+import io
+import unittest
+import test
 from flask import Flask, render_template
-
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
-import unittest
-import io
 
 app = Flask(__name__)
 db = connect_db(app)
 api_setup(app, db)
-
-import test
-
-
-headers = {'planetoids': ["Name", "Diameter", "Gravity", "Temperatures", "Mass", "Orbital Period"],
-           'galaxies': ["Name", "Images", "Location", "Age", "Year of Discovery", "Type"],
-           'satellites': ["Name", "Orbital Period", "Year Launched", "Year Decommissioned", "Type of Mission"],
-           'stars': ["Name", "Diameter", "Images", "Location", "Age", "Temperature", "Type"]}
 
 
 ####################
@@ -31,12 +23,6 @@ headers = {'planetoids': ["Name", "Diameter", "Gravity", "Temperatures", "Mass",
 def home():
     return render_template('home.html',
                            title='Spacecowboys')
-
-
-@app.route('/planetoids/<int:planetoid_id>')
-def planetoid_instance(planetoid_id):
-    return render_template('planetoid.html', planetoid=planetoids[planetoid_id - 1])
-
 
 @app.route("/about")
 def about():

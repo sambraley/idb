@@ -8,15 +8,13 @@
 
 
 from unittest import main, TestCase
-
-from flask_sqlalchemy import SQLAlchemy
 from flask import Flask
+from test_models import test_db, Satellite, Star, Galaxy, Planet
 
 test_app = Flask(__name__)
 test_app.config["SQLACLHEMY_DATABASE_URI"] = "sqlite:///:memory:"
 test_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-from test_models import test_db, Satellite, Star, Galaxy, Planet
 
 test_db.init_app(test_app)
 with test_app.app_context():
