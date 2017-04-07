@@ -175,12 +175,12 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	if (!props) {
+	if (props.models === []) {
 		console.log("nothing in props");
 		return React.createElement(
 			"div",
 			null,
-			"Loading..."
+			"No results Found"
 		);
 	}
 

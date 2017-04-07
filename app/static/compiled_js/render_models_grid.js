@@ -107,85 +107,235 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var Modals = function Modals() {
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	return React.createElement(
-		"div",
-		null,
-		React.createElement(
-			"button",
-			{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
-			"Filter By"
-		),
-		React.createElement(
-			"div",
-			{ id: "myModal", className: "modal fade", role: "dialog" },
-			React.createElement(
+var _select_options = require("./select_options");
+
+var _select_options2 = _interopRequireDefault(_select_options);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var attrs = {
+	"planets": ["mass", "diameter", "gravity", "temperature"],
+	"galaxies": ["size"],
+	"stars": ["name", "diameter", "temperature"],
+	"satellites": ["name", "agency", "mission_type", "year_launched"]
+};
+var ops = ["<", "<=", ">", ">=", "==", "!="];
+var compareTo = {
+	"planets": ["Jupiter"],
+	"galaxies": ["1"],
+	"stars": ["name", "diameter", "temperature"],
+	"satellites": ["name", "agency", "mission_type", "year_launched"]
+};
+
+var Modals = function (_React$Component) {
+	_inherits(Modals, _React$Component);
+
+	function Modals(props) {
+		_classCallCheck(this, Modals);
+
+		var _this = _possibleConstructorReturn(this, (Modals.__proto__ || Object.getPrototypeOf(Modals)).call(this, props));
+
+		_this.state = {
+			modelType: _this.props.modelType,
+			filterBy: _this.props.filterBy,
+			value1: attrs[_this.props.modelType][0],
+			value2: ops[0],
+			value3: compareTo[_this.props.modelType][0]
+		};
+
+		_this.onHandleChange1 = _this.onHandleChange1.bind(_this);
+		_this.onHandleChange2 = _this.onHandleChange2.bind(_this);
+		_this.onHandleChange3 = _this.onHandleChange3.bind(_this);
+		return _this;
+	}
+
+	_createClass(Modals, [{
+		key: "onHandleChange1",
+		value: function onHandleChange1(event) {
+			console.log("inside handle change 1 " + event.target.value);
+			this.setState({
+				value1: event.target.value
+			});
+		}
+	}, {
+		key: "onHandleChange2",
+		value: function onHandleChange2(event) {
+			console.log("inside handle change 2 " + event.target.value);
+			this.setState({
+				value2: event.target.value
+			});
+		}
+	}, {
+		key: "onHandleChange3",
+		value: function onHandleChange3(event) {
+			console.log("inside handle change 2 " + event.target.value);
+			this.setState({
+				value3: event.target.value
+			});
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			var _this2 = this;
+
+			return React.createElement(
 				"div",
-				{ className: "modal-dialog" },
+				null,
+				React.createElement(
+					"button",
+					{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+					"Filter By"
+				),
 				React.createElement(
 					"div",
-					{ className: "modal-content" },
+					{ id: "myModal", className: "modal fade", role: "dialog" },
 					React.createElement(
 						"div",
-						{ className: "modal-header" },
-						React.createElement(
-							"button",
-							{ type: "button", className: "close", "data-dismiss": "modal" },
-							"\xD7"
-						),
-						React.createElement(
-							"h4",
-							{ className: "modal-title" },
-							"Filtering"
-						)
-					),
-					React.createElement(
-						"div",
-						{ className: "modal-body" },
+						{ className: "modal-dialog" },
 						React.createElement(
 							"div",
-							{ className: "dropdown" },
+							{ className: "modal-content" },
 							React.createElement(
-								"button",
-								{ className: "btn dropdown-toggle", type: "button", "data-toggle": "dropdown" },
-								"Sort By",
-								React.createElement("span", { className: "caret" })
-							),
-							React.createElement(
-								"ul",
-								{ className: "dropdown-menu" },
+								"div",
+								{ className: "modal-header" },
 								React.createElement(
-									"li",
-									{ className: "dropdown-header" },
-									"Ascending"
+									"button",
+									{ type: "button", className: "close", "data-dismiss": "modal" },
+									"\xD7"
 								),
 								React.createElement(
-									"li",
-									{ className: "dropdown-header" },
-									"Descending"
+									"h4",
+									{ className: "modal-title" },
+									"Filtering"
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "modal-body" },
+								React.createElement(
+									"div",
+									{ className: "form-group" },
+									React.createElement(
+										"label",
+										null,
+										"Attribute:",
+										React.createElement(
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange1 },
+											React.createElement(
+												"option",
+												{ value: "mass" },
+												"Temperature"
+											),
+											React.createElement(
+												"option",
+												{ value: "diameter" },
+												"Diameter"
+											),
+											React.createElement(
+												"option",
+												{ value: "gravity" },
+												"Gravity"
+											),
+											React.createElement(
+												"option",
+												{ value: "temperature" },
+												"Mass"
+											)
+										)
+									),
+									React.createElement(
+										"label",
+										null,
+										"Operation:",
+										React.createElement(
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange2 },
+											React.createElement(
+												"option",
+												{ value: "<" },
+												"Less Than"
+											),
+											React.createElement(
+												"option",
+												{ value: "<=" },
+												"Less Than or Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: ">" },
+												"Greater Than"
+											),
+											React.createElement(
+												"option",
+												{ value: ">=" },
+												"Greater Than or Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "==" },
+												"Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "!=" },
+												"Not Equal To"
+											)
+										)
+									),
+									React.createElement(
+										"label",
+										null,
+										"Compare To:",
+										React.createElement(
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange3 },
+											React.createElement(
+												"option",
+												{ value: "jupiter" },
+												"Jupiter"
+											)
+										)
+									)
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "modal-footer" },
+								React.createElement(
+									"button",
+									{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+											return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
+										} },
+									"Submit"
+								),
+								React.createElement(
+									"button",
+									{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+									"Close"
 								)
 							)
 						)
-					),
-					React.createElement(
-						"div",
-						{ className: "modal-footer" },
-						React.createElement(
-							"button",
-							{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-							"Close"
-						)
 					)
 				)
-			)
-		)
-	);
-};
+			);
+		}
+	}]);
+
+	return Modals;
+}(React.Component);
 
 exports.default = Modals;
 
-},{}],4:[function(require,module,exports){
+},{"./select_options":10}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -260,12 +410,12 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	if (!props) {
+	if (props.models === []) {
 		console.log("nothing in props");
 		return React.createElement(
 			"div",
 			null,
-			"Loading..."
+			"No results Found"
 		);
 	}
 
@@ -460,7 +610,7 @@ var Pages = function Pages(_ref) {
 			"li",
 			{ onClick: function onClick() {
 					return onPageSelect(current_page - 1);
-				}, className: "page-item", id: "previous-button" },
+				}, className: "page-item", key: "previous-button" },
 			React.createElement(
 				"a",
 				null,
@@ -491,22 +641,22 @@ var Pages = function Pages(_ref) {
 				page_number: i,
 				onPageSelect: onPageSelect,
 				isActive: true,
-				id: i }));
+				key: i }));
 		} else {
 			pages.push(React.createElement(_page_item2.default, {
 				page_number: i,
 				onPageSelect: onPageSelect,
 				isActive: false,
-				id: i }));
+				key: i }));
 		}
 	}
 	//adding next button
-	if (current_page != total_pages) {
+	if (current_page != total_pages && current_page > 1) {
 		pages.push(React.createElement(
 			"li",
 			{ onClick: function onClick() {
 					return onPageSelect(current_page + 1);
-				}, className: "page-item" },
+				}, className: "page-item", key: "next-button" },
 			React.createElement(
 				"a",
 				null,
@@ -525,6 +675,35 @@ var Pages = function Pages(_ref) {
 exports.default = Pages;
 
 },{"./page_item":8}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var selectOption = function selectOption(_ref) {
+	var attr = _ref.attr;
+
+	var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+		"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+		"mission_type": "Mission Type", "year_launched": "Launch Year",
+		"<": "Less Than", "<=": "Less Than or Equal To", ">": "Greater Than",
+		">=": "Greater Than or Equal To", "==": "Equal To", "!=": "Not Equal To",
+		"Earth": "Earth" };
+	var attr2 = [];
+	attr.map(function (attr1) {
+		attr1.push(React.createElement(
+			"option",
+			{ value: attr1 },
+			label[attr1]
+		));
+	});
+
+	return { attr2: attr2 };
+};
+
+exports.default = selectOption;
+
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -580,7 +759,11 @@ var App = function (_React$Component) {
 			modelType: modelType,
 			sort_title: "Sort By",
 			current_sort_attr: null,
-			current_sort_dir: null
+			current_sort_dir: null,
+			isFiltered: false,
+			current_filter_v1: null,
+			current_filter_v2: null,
+			current_filter_v3: null
 		};
 
 		_this.getModels(_this.state.current_page);
@@ -592,18 +775,17 @@ var App = function (_React$Component) {
 		value: function getModels(page) {
 			var _this2 = this;
 
-			this.setState({ current_page: page });
 			if (this.state.sort_title === "Sort By") {
-				console.log("pages are not sorted");
+				// console.log("pages are not sorted");
 
 				var baseUrl = window.location.href.split('/')[2];
 				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9";
 				var url = "http://" + baseUrl + apiExt;
-				console.log(url);
+				// console.log(url);
 				fetch(url).then(function (response) {
 					return response.json();
 				}).then(function (responseJson) {
-					console.log("I'm back with some values");
+					// console.log("I'm back with some values");
 					_this2.setState({
 						models: responseJson.objects,
 						total_pages: responseJson.total_pages,
@@ -613,9 +795,9 @@ var App = function (_React$Component) {
 					console.error(error);
 				});
 			} else {
-				console.log("pages are sorted by " + this.state.sort_title);
-				console.log("using attr " + this.state.current_sort_attr);
-				console.log("by order " + this.state.current_sort_dir);
+				// console.log("pages are sorted by " + this.state.sort_title);
+				// console.log("using attr " + this.state.current_sort_attr);
+				// console.log("by order " + this.state.current_sort_dir);
 				this.sortBy(this.state.current_sort_attr, this.state.current_sort_dir, this.state.sort_title, page);
 			}
 		}
@@ -625,15 +807,15 @@ var App = function (_React$Component) {
 			var _this3 = this;
 
 			// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
-			console.log(attr, dir);
+			// console.log(attr, dir);
 			var baseUrl = window.location.href.split('/')[2];
 			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
 			var url = "http://" + baseUrl + apiExt;
-			console.log(url);
+			// console.log(url);
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
-				console.log("Back from sorting call");
+				// console.log("Back from sorting call");
 				_this3.setState({
 					models: responseJson.objects,
 					total_pages: responseJson.total_pages,
@@ -641,6 +823,32 @@ var App = function (_React$Component) {
 					sort_title: sort_title,
 					current_sort_attr: attr,
 					current_sort_dir: dir
+				});
+			}).catch(function (error) {
+				console.error(error);
+			});
+		}
+	}, {
+		key: 'filterBy',
+		value: function filterBy(v1, v2, v3, page) {
+			var _this4 = this;
+
+			// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
+			var baseUrl = window.location.href.split('/')[2];
+			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
+			var url = "http://" + baseUrl + apiExt;
+			fetch(url).then(function (response) {
+				return response.json();
+			}).then(function (responseJson) {
+				console.log("return in filterBy func: v1: " + v1 + " v2: " + v2 + " v3: " + v3);
+				_this4.setState({
+					models: responseJson.objects,
+					total_pages: responseJson.total_pages,
+					current_page: responseJson.page,
+					isFiltered: true,
+					current_filter_v1: v1,
+					current_filter_v2: v2,
+					current_filter_v3: v3
 				});
 			}).catch(function (error) {
 				console.error(error);
@@ -675,7 +883,9 @@ var App = function (_React$Component) {
 						React.createElement(
 							'div',
 							{ className: 'col-md-1 text-left sort-filter-button' },
-							React.createElement(_modals2.default, null)
+							React.createElement(_modals2.default, {
+								modelType: this.state.modelType,
+								filterBy: this.filterBy.bind(this) })
 						),
 						React.createElement(
 							'div',
@@ -691,7 +901,7 @@ var App = function (_React$Component) {
 						page: this.current_page }),
 					React.createElement(
 						'div',
-						{ className: 'col-md-12 text-right' },
+						{ key: 'pages', className: 'col-md-12 text-right' },
 						React.createElement(_pages2.default, {
 							current_page: this.state.current_page,
 							total_pages: this.state.total_pages,
@@ -707,4 +917,4 @@ var App = function (_React$Component) {
 
 ReactDOM.render(React.createElement(App, null), document.querySelector('.container'));
 
-},{"./../components/drop_down":1,"./../components/modals":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/nav_bar":7,"./../components/pages":9}]},{},[10]);
+},{"./../components/drop_down":1,"./../components/modals":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/nav_bar":7,"./../components/pages":9}]},{},[11]);
