@@ -196,13 +196,18 @@ var ModelListItem = function ModelListItem(_ref) {
 	var model = _ref.model;
 
 	var link = "/" + window.location.href.split('/')[3] + "/" + model.pid;
+	var image_url = model.img_url;
+	var style = {
+		width: '400px',
+		height: '400px'
+	};
 	return React.createElement(
 		"div",
 		{ className: "col-md-4 text-center model-list-item" },
 		React.createElement(
 			"a",
 			{ href: link },
-			React.createElement("img", { className: "img-thumbnail about-image", src: "/static/images/HAT-P-33.png" }),
+			React.createElement("img", { className: "img-thumbnail about-image", style: style, src: image_url }),
 			React.createElement(
 				"h3",
 				null,
