@@ -13,18 +13,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Github_Stats = function (_React$Component) {
-	_inherits(Github_Stats, _React$Component);
+var Github_Commits = function (_React$Component) {
+	_inherits(Github_Commits, _React$Component);
 
-	function Github_Stats(props) {
-		_classCallCheck(this, Github_Stats);
+	function Github_Commits(props) {
+		_classCallCheck(this, Github_Commits);
 
-		var _this = _possibleConstructorReturn(this, (Github_Stats.__proto__ || Object.getPrototypeOf(Github_Stats)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (Github_Commits.__proto__ || Object.getPrototypeOf(Github_Commits)).call(this, props));
 
 		_this.state = {
 			"count": 0
 		};
-		fetch(_this.props.url).then(function (r) {
+		var per_page = "&per_page=100";
+		var token = "?access_token=" + _this.props.token + per_page;
+		fetch(_this.props.url + token).then(function (r) {
 			return r.json();
 		}).then(function (data) {
 			return _this.count_push(data);
@@ -34,11 +36,14 @@ var Github_Stats = function (_React$Component) {
 		return _this;
 	}
 
-	_createClass(Github_Stats, [{
+	_createClass(Github_Commits, [{
 		key: "count_push",
 		value: function count_push(json) {
-			this.state.count = json.length;
-			console.log(json);
+			var count = 0;
+			for (var i = 0; i < json.length; i += 1) {
+				count += json[i].total;
+			}
+			this.state.count = count;
 			this.forceUpdate();
 		}
 	}, {
@@ -50,8 +55,7 @@ var Github_Stats = function (_React$Component) {
 				React.createElement(
 					"strong",
 					null,
-					this.props.name,
-					":"
+					"Overall Commits:"
 				),
 				" ",
 				this.state.count
@@ -59,25 +63,309 @@ var Github_Stats = function (_React$Component) {
 		}
 	}]);
 
-	return Github_Stats;
+	return Github_Commits;
 }(React.Component);
 
-exports.default = Github_Stats;
+exports.default = Github_Commits;
 
 },{}],2:[function(require,module,exports){
 "use strict";
 
-var _github_stats = require("../github_stats.jsx");
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
 
-var _github_stats2 = _interopRequireDefault(_github_stats);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Github_Issues = function (_React$Component) {
+	_inherits(Github_Issues, _React$Component);
+
+	function Github_Issues(props) {
+		_classCallCheck(this, Github_Issues);
+
+		var _this = _possibleConstructorReturn(this, (Github_Issues.__proto__ || Object.getPrototypeOf(Github_Issues)).call(this, props));
+
+		_this.state = {
+			"count": 0
+		};
+		var per_page = "&per_page=100";
+		var token = "&access_token=" + _this.props.token + per_page;
+		var state = "?state=all" + token;
+		fetch(_this.props.url + state).then(function (r) {
+			return r.json();
+		}).then(function (data) {
+			return _this.count_push(data, 1);
+		}).catch(function (e) {
+			return console.log(e);
+		});
+		return _this;
+	}
+
+	_createClass(Github_Issues, [{
+		key: "count_push",
+		value: function count_push(json, page) {
+			this.state.count += json.length;
+			this.forceUpdate();
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"h3",
+				null,
+				React.createElement(
+					"strong",
+					null,
+					"Overall Issues:"
+				),
+				" ",
+				this.state.count
+			);
+		}
+	}]);
+
+	return Github_Issues;
+}(React.Component);
+
+exports.default = Github_Issues;
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Github_Member = function (_React$Component) {
+	_inherits(Github_Member, _React$Component);
+
+	function Github_Member(props) {
+		_classCallCheck(this, Github_Member);
+
+		var _this = _possibleConstructorReturn(this, (Github_Member.__proto__ || Object.getPrototypeOf(Github_Member)).call(this, props));
+
+		_this.state = {
+			"commits": 0,
+			"issues": 0
+		};
+		var per_page = "&per_page=100";
+		var token = "&access_token=" + _this.props.token + per_page;
+		var commits = "/commits?author=" + _this.props.member_info["github_id"] + token;
+		var issues = "/issues?state=all&creator=" + _this.props.member_info["github_id"] + token;
+		fetch(_this.props.url + commits).then(function (r) {
+			return r.json();
+		}).then(function (data) {
+			return _this.count_commits(data);
+		}).catch(function (e) {
+			return console.log(e);
+		});
+		fetch(_this.props.url + issues).then(function (r) {
+			return r.json();
+		}).then(function (data) {
+			return _this.count_issues(data);
+		}).catch(function (e) {
+			return console.log(e);
+		});
+		return _this;
+	}
+
+	_createClass(Github_Member, [{
+		key: "count_commits",
+		value: function count_commits(json) {
+			this.state.commits += json.length;
+			this.forceUpdate();
+		}
+	}, {
+		key: "count_issues",
+		value: function count_issues(json) {
+			this.state.issues += json.length;
+			this.forceUpdate();
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			var info = React.createElement(
+				"div",
+				{ className: "col-md-4 text-center service-box" },
+				React.createElement("img", { className: "img-thumbnail about-image", src: "/static/images/" + this.props.member_info['image'] }),
+				React.createElement(
+					"h3",
+					null,
+					this.props.member_info["name"]
+				),
+				React.createElement(
+					"p",
+					{ className: "text-muted" },
+					this.props.member_info["bio"]
+				),
+				React.createElement(
+					"p",
+					{ className: "text-muted" },
+					React.createElement(
+						"strong",
+						null,
+						"Major Responsibilites:"
+					),
+					" ",
+					this.props.member_info["responsibilities"]
+				),
+				React.createElement(
+					"p",
+					{ className: "text-muted" },
+					React.createElement(
+						"strong",
+						null,
+						"Commits:"
+					),
+					" ",
+					this.state.commits
+				),
+				React.createElement(
+					"p",
+					{ className: "text-muted" },
+					React.createElement(
+						"strong",
+						null,
+						"Issues:"
+					),
+					" ",
+					this.state.issues
+				),
+				React.createElement(
+					"p",
+					{ className: "text-muted" },
+					React.createElement(
+						"strong",
+						null,
+						"Unit tests:"
+					),
+					" ",
+					this.props.member_info["tests"]
+				),
+				this.props.member_info["p1_lead"] ? React.createElement(
+					"p",
+					{ className: "text-muted" },
+					React.createElement(
+						"strong",
+						null,
+						"Phase 1 Leader"
+					)
+				) : null,
+				this.props.member_info["p2_lead"] ? React.createElement(
+					"p",
+					{ className: "text-muted" },
+					React.createElement(
+						"strong",
+						null,
+						"Phase 2 Leader"
+					)
+				) : null
+			);
+			return info;
+		}
+	}]);
+
+	return Github_Member;
+}(React.Component);
+
+exports.default = Github_Member;
+
+},{}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _github_member = require("./github_member.jsx");
+
+var _github_member2 = _interopRequireDefault(_github_member);
 
 require("isomorphic-fetch");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-ReactDOM.render(React.createElement(_github_stats2.default, { name: "Overall Commits", url: "https://api.github.com/repos/samuelbraley/idb/stats/commit_activity" }), document.getElementById('overall-commits'));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-},{"../github_stats.jsx":1,"isomorphic-fetch":3}],3:[function(require,module,exports){
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Github_Member_Info = function (_React$Component) {
+  _inherits(Github_Member_Info, _React$Component);
+
+  function Github_Member_Info(props) {
+    _classCallCheck(this, Github_Member_Info);
+
+    return _possibleConstructorReturn(this, (Github_Member_Info.__proto__ || Object.getPrototypeOf(Github_Member_Info)).call(this, props));
+  }
+
+  _createClass(Github_Member_Info, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var url = this.props.url;
+      var member_list = this.props.member_info.map(function (member_info) {
+        return React.createElement(_github_member2.default, { member_info: member_info, url: _this2.props.url, token: _this2.props.token });
+      });
+      return React.createElement(
+        "div",
+        null,
+        member_list
+      );
+    }
+  }]);
+
+  return Github_Member_Info;
+}(React.Component);
+
+exports.default = Github_Member_Info;
+
+},{"./github_member.jsx":3,"isomorphic-fetch":6}],5:[function(require,module,exports){
+'use strict';
+
+var _github_commits = require('../github_commits.jsx');
+
+var _github_commits2 = _interopRequireDefault(_github_commits);
+
+var _github_issues = require('../github_issues.jsx');
+
+var _github_issues2 = _interopRequireDefault(_github_issues);
+
+var _github_member_info = require('../github_member_info.jsx');
+
+var _github_member_info2 = _interopRequireDefault(_github_member_info);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var access_token = "55dc1276759f6ff631870b2c509b632382276575";
+
+var member_info = [{ 'name': 'Nick Kantor', 'github_id': 'njk464', 'image': 'nick_kantor.png', 'p1_lead': true, 'p2_lead': false, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I'm a Senior Computer Science student and tend to spend my free time playing my trumpet for the longhorn band. After I graduate I plan on pursuing a Master's degree in Information Security." }, { 'name': 'Samuel Braley', 'github_id': 'samuelbraley', 'image': 'samuel_braley.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 0, 'responsibilities': "Documentation and Apiary", 'bio': "I am a Computer Science senior with certificates in Business Foundations and Game Design. I enjoy being one of the many Sams in the world and plan on being a programmer manager after I graduate." }, { 'name': 'Taben Malik', 'github_id': 'tabenmalik', 'image': 'taben.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 0, 'responsibilities': "Data Collection and Modeling", 'bio': "A double major in Computer Science and Aerospace Engineering. I am a strong advocate of a Mars mission and hope to be a part of one someday." }, { 'name': 'Gustavo Osorio', 'github_id': 'lpztavo', 'image': 'gustavo.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 12, 'responsibilities': "UML Design and Modeling", 'bio': "I'm a senior Computer Science student. I enjoy dancing and coding, but I'm not skilled enough to do both simultaneously." }, { 'name': 'Scott Farrior', 'github_id': 'sfarrior', 'image': 'sfarrior.jpg', 'p1_lead': false, 'p2_lead': true, 'tests': 0, 'responsibilities': "Server setup/administration and SQLAlchemy backend", 'bio': "I'm a Computer Science major. I work as a TA/Grader as well as Computer Lab technician for the community college, and would like to be an instructor one day." }, { 'name': 'David Ares', 'github_id': 'dares23', 'image': 'david.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I am a non-traditional student with one year of Full-stack web development. Before returning to school, I gained seven years of experience in sales, marketing, and management." }];
+
+ReactDOM.render(React.createElement(_github_commits2.default, { url: 'https://api.github.com/repos/samuelbraley/idb/stats/commit_activity', token: access_token }), document.getElementById('overall-commits'));
+
+ReactDOM.render(React.createElement(_github_issues2.default, { url: 'https://api.github.com/repos/samuelbraley/idb/issues', token: access_token }), document.getElementById('overall-issues'));
+
+ReactDOM.render(React.createElement(_github_member_info2.default, { member_info: member_info, url: 'https://api.github.com/repos/samuelbraley/idb', token: access_token }), document.getElementById('member-info'));
+
+},{"../github_commits.jsx":1,"../github_issues.jsx":2,"../github_member_info.jsx":4}],6:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //
@@ -85,7 +373,7 @@ ReactDOM.render(React.createElement(_github_stats2.default, { name: "Overall Com
 require('whatwg-fetch');
 module.exports = self.fetch.bind(self);
 
-},{"whatwg-fetch":4}],4:[function(require,module,exports){
+},{"whatwg-fetch":7}],7:[function(require,module,exports){
 (function(self) {
   'use strict';
 
@@ -548,4 +836,4 @@ module.exports = self.fetch.bind(self);
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-},{}]},{},[2]);
+},{}]},{},[5]);

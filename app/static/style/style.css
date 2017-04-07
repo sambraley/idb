@@ -41,16 +41,22 @@ html, body {
 .service-box {
 	min-height: 700px;
 }
-.container.model-container {
-	padding-top: 70px
+.container-fluid.model-container {
+	padding-top: 70px;
 }
 .model-list-item {
-	padding-bottom: 15px
+	padding-bottom: 15px;
+}
+.page-item:hover {
+	cursor: pointer;
+}
+.sort-filter-button {
+	padding-top: 25px;
 }
 /*
 Used to see the borders of the grid
 
 *{
 	border: 1px solid red !important;
-}
-*/
+} */
+

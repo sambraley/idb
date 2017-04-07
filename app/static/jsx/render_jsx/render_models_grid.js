@@ -2,13 +2,11 @@ import NavBar from './../components/nav_bar';
 import ModelList from './../components/models_list';
 import ModelTitle from './../components/model_title';
 import DropDown from './../components/drop_down';
+import Pages from './../components/pages';
+import Modals from './../components/modals';
 
 const exts = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
 const modelType = window.location.href.split('/')[3];
-const baseUrl = window.location.href.split('/')[2];
-const apiExt = "/api/v1/" + modelType + "?page=1&results_per_page=9";
-const url = "http://" + baseUrl + apiExt;
-
 
 class App extends React.Component {
 	constructor (props) {
@@ -16,41 +14,109 @@ class App extends React.Component {
 
 		this.state = { 
 			models: [],
-			title: exts[modelType]
+			title: exts[window.location.href.split('/')[3]],
+			total_pages: 1,
+			current_page: 1,
+			modelType: modelType,
+			sort_title: "Sort By",
+			current_sort_attr: null,
+			current_sort_dir: null 
 		};
 		
+		this.getModels(this.state.current_page);
 	}	
 
-	componentDidMount() {
+	getModels(page) {
+		this.setState({current_page: page});
+		if (this.state.sort_title === "Sort By") {
+			console.log("pages are not sorted");
+
+			const baseUrl = window.location.href.split('/')[2];
+			const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9";
+			const url = "http://" + baseUrl + apiExt;
+			console.log(url);
+			fetch(url)
+		      .then((response) => response.json())
+		      .then((responseJson) => {
+		      	console.log("I'm back with some values");
+		        this.setState({ 
+		        	models: responseJson.objects,
+		        	total_pages: responseJson.total_pages,
+		        	current_page: responseJson.page,
+		        })
+			    })
+			    .catch((error) => {
+			        console.error(error);
+		      	})
+		}
+		else {
+			console.log("pages are sorted by " + this.state.sort_title);
+			console.log("using attr " + this.state.current_sort_attr);
+			console.log("by order " + this.state.current_sort_dir);
+			this.sortBy(this.state.current_sort_attr, this.state.current_sort_dir, this.state.sort_title, page);
+		}
+	}
+
+	sortBy(attr, dir, sort_title, page) {
+		// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
+		console.log(attr, dir);
+		const baseUrl = window.location.href.split('/')[2];
+		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
+		const url = "http://" + baseUrl + apiExt;
+		console.log(url);
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {
-	        console.log(responseJson);
-	        console.log(responseJson.num_results);
-	        console.log(responseJson.objects);
-	        console.log(responseJson.page);
-	        console.log(responseJson.total_pages);
+	      	console.log("Back from sorting call");
 	        this.setState({ 
-	        	models: responseJson.objects
+	        	models: responseJson.objects,
+	        	total_pages: responseJson.total_pages,
+	        	current_page: responseJson.page,
+	        	sort_title: sort_title,
+	        	current_sort_attr: attr,
+	        	current_sort_dir: dir
 	        })
-      })
-      .catch((error) => {
-        console.error(error);
-      })
+		    })
+		    .catch((error) => {
+		        console.error(error);
+	      	})
 	}
+
 	
 	render () {
 		return (
-			<div>
-				<div>	
+			<div id="main-div">
+				<div id="nav-bar-div">	
 					<NavBar />
 				</div>
-				<div className="container model-container">
+				<div className="container-fluid model-container">
 					<ModelTitle title={this.state.title} />
 					<div className="row"> 
-						<DropDown />
+						<div className="col-md-2 text-left sort-filter-button">
+							<DropDown 
+								sort_title={this.state.sort_title}
+								modelType={this.state.modelType}
+								sortBy={this.sortBy.bind(this)} />
+						</div>
+						<div className="col-md-1 text-left sort-filter-button">
+							<Modals />
+						</div>
+						<div className="col-md-9 text-right">
+							<Pages 
+								current_page={this.state.current_page}
+								total_pages={this.state.total_pages} 
+								onPageSelect={this.getModels.bind(this)} />
+						</div>
 					</div>
-					<ModelList models={this.state.models} />
+					<ModelList 
+						models={this.state.models}
+						page={this.current_page} />
+					<div className="col-md-12 text-right">
+						<Pages 
+							current_page={this.state.current_page}
+							total_pages={this.state.total_pages} 
+							onPageSelect={this.getModels.bind(this)} />
+					</div>
 				</div>
 			</div>
 			);

@@ -2,29 +2,27 @@
 {% block content %}
 <div class="container model-container">
   <div class="row">
-  	<div class="col-lg-12">
+  	<div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
   		<h1>{{satellite.name}}</h1>
   	</div>
   </div>
   <div class="row">
     <div class="row">
-      <div class="col-md-6 text-center" style="padding-top:25px;">
-        <img class="img-thumbnail" src="/static/images/{{satellite.images}}"> 
+      <div class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
+        <img class="img-thumbnail" style="width:400px;height:400px;" src="{{satellite.img_url}}"> 
       </div>
-      <div class="col-md-6 text-center">
+      <div class="col-sm-12 col-md-5 text-center">
         <div class="col-md-12">
           <h3>Agency:</h3> 
           <p>{{satellite.agency}}</p>
           <h3>Type of Mission:</h3> 
-          <p>{{satellite.type_of_mission}}</p>
+          <p>{{satellite.mission_type}}</p>
           <h3>Launch Year:</h3> 
           <p>{{satellite.year_launched}}</p>
-          <h3>Planetoids:</h3> 
-          <a href="{{satellite.planetoid_bodies}}">Planetoids</a>
-          <h3>Stars:</h3> 
-          <a href="{{satellite.stars}}">Stars</a>
-          <h3>Galaxy:</h3> 
-          <a href="{{satellite.galaxies}}">Galaxy</a>
+          <h3><a href="/galaxies/{{satellite.galaxy_pid}}">Link to home Galaxy</a></h3>
+          <h3><a href="/stars/{{satellite.star_pid}}">Link to home Star</a></h3>
+          <h3><a href="/planets/{{satellite.planet_pid}}">Link to home Planet</a></h3>
+          <h3><a href="{{satellite.info_url}}">More info</a></h3>
         </div>
       </div>
     </div>

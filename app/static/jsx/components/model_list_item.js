@@ -1,10 +1,15 @@
 
 const ModelListItem = ({model}) => {
 	const link = "/" + window.location.href.split('/')[3] + "/" + model.pid;
+	const image_url = model.img_url;
+	const style = {
+		width: '400px',
+		height: '400px'
+	};
 	return (
 		<div className="col-md-4 text-center model-list-item">
 			<a href={link}>
-				<img className="img-thumbnail about-image" src="/static/images/HAT-P-33.png" />
+				<img className="img-thumbnail about-image" style={style} src={image_url} />
 				<h3>{model.name}</h3>
 			</a>
 		</div> 

@@ -33,7 +33,7 @@ else                                   # UTCS
     PYTHON   := python3
     PIP      := pip3
     PYLINT   := pylint
-    COVERAGE := coverage-3.5
+    COVERAGE := coverage
     PYDOC    := pydoc3.5
     AUTOPEP8 := autopep8
 endif
@@ -50,19 +50,23 @@ IDB.log:
 
 RunIDB: app/idb.py .pylintrc
 	-$(PYLINT) app/idb.py
-	$(PYTHON) app/idb.py
+	cd app; \
+	$(PYTHON) idb.py
 
 install:
 	$(PIP) install -r app/requirements.txt
 	npm install
 
 data: nasa_scripts/scraper.py
-	$(PYTHON) nasa_scripts/scraper.py
+	cd nasa_scripts; \
+	$(PYTHON) scraper.py;\
+	$(PYTHON) patch_json.py;\
+	$(PYTHON) url_path.py
 
 TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
 	-$(PYLINT) app/models.py
-	-$(COVERAGE) run    --branch app/test.py >  TestIDB.tmp 2>&1  
+	-$(COVERAGE) run app/test.py >  TestIDB.tmp 2>&1  
 	-$(COVERAGE) report -m                      >> TestIDB.tmp 
 	-cat TestIDB.tmp
 
