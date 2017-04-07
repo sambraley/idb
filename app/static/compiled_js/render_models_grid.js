@@ -107,128 +107,163 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var Modals = function Modals(_ref) {
-	var modelType = _ref.modelType,
-	    filterBy = _ref.filterBy;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	return React.createElement(
-		"div",
-		null,
-		React.createElement(
-			"button",
-			{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
-			"Filter By"
-		),
-		React.createElement(
-			"div",
-			{ id: "myModal", className: "modal fade", role: "dialog" },
-			React.createElement(
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Modals = function (_React$Component) {
+	_inherits(Modals, _React$Component);
+
+	function Modals(props) {
+		_classCallCheck(this, Modals);
+
+		var _this = _possibleConstructorReturn(this, (Modals.__proto__ || Object.getPrototypeOf(Modals)).call(this, props));
+
+		_this.state = {
+			modelType: _this.props.modelType,
+			filterBy: _this.props.filterBy,
+			value1: null,
+			value2: null,
+			value3: null
+		};
+		return _this;
+	}
+
+	_createClass(Modals, [{
+		key: "onHandleChange",
+		value: function onHandleChange(event) {
+			console.log("inside handle change " + event.target.value);
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			var _this2 = this;
+
+			return React.createElement(
 				"div",
-				{ className: "modal-dialog" },
+				null,
+				React.createElement(
+					"button",
+					{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+					"Filter By"
+				),
 				React.createElement(
 					"div",
-					{ className: "modal-content" },
+					{ id: "myModal", className: "modal fade", role: "dialog" },
 					React.createElement(
 						"div",
-						{ className: "modal-header" },
-						React.createElement(
-							"button",
-							{ type: "button", className: "close", "data-dismiss": "modal" },
-							"\xD7"
-						),
-						React.createElement(
-							"h4",
-							{ className: "modal-title" },
-							"Filtering"
-						)
-					),
-					React.createElement(
-						"div",
-						{ className: "modal-body" },
+						{ className: "modal-dialog" },
 						React.createElement(
 							"div",
-							{ className: "form-group" },
+							{ className: "modal-content" },
 							React.createElement(
-								"select",
-								{ className: "form-control" },
+								"div",
+								{ className: "modal-header" },
 								React.createElement(
-									"option",
-									{ value: "Attribute" },
-									"Attribute"
+									"button",
+									{ type: "button", className: "close", "data-dismiss": "modal" },
+									"\xD7"
 								),
 								React.createElement(
-									"option",
-									{ value: "Attr1" },
-									"Attr 1"
-								),
-								React.createElement(
-									"option",
-									{ value: "Attr2" },
-									"Attr 2"
+									"h4",
+									{ className: "modal-title" },
+									"Filtering"
 								)
 							),
 							React.createElement(
-								"select",
-								{ className: "form-control" },
+								"div",
+								{ className: "modal-body" },
 								React.createElement(
-									"option",
-									{ value: "Attribute" },
-									"Operation"
-								),
-								React.createElement(
-									"option",
-									{ value: ">" },
-									"Greater Then"
-								),
-								React.createElement(
-									"option",
-									{ value: "<" },
-									"Greater Then"
+									"div",
+									{ className: "form-group" },
+									React.createElement(
+										"select",
+										{ className: "form-control", value: this.state.value1, onChange: this.onHandleChange },
+										React.createElement(
+											"option",
+											{ value: "Attribute" },
+											"Attribute"
+										),
+										React.createElement(
+											"option",
+											{ value: "Attr1" },
+											"Attr 1"
+										),
+										React.createElement(
+											"option",
+											{ value: "Attr2" },
+											"Attr 2"
+										)
+									),
+									React.createElement(
+										"select",
+										{ className: "form-control", value: this.state.value2, onChange: this.onHandleChange },
+										React.createElement(
+											"option",
+											{ value: "Attribute" },
+											"Operation"
+										),
+										React.createElement(
+											"option",
+											{ value: ">" },
+											"Greater Then"
+										),
+										React.createElement(
+											"option",
+											{ value: "<" },
+											"Greater Then"
+										)
+									),
+									React.createElement(
+										"select",
+										{ className: "form-control", value: this.state.value3, onChange: this.onHandleChange },
+										React.createElement(
+											"option",
+											{ value: "Attribute" },
+											"Compare To"
+										),
+										React.createElement(
+											"option",
+											{ value: "Attr1" },
+											"Jupiter"
+										),
+										React.createElement(
+											"option",
+											{ value: "Attr2" },
+											"Earth"
+										)
+									)
 								)
 							),
 							React.createElement(
-								"select",
-								{ className: "form-control" },
+								"div",
+								{ className: "modal-footer" },
 								React.createElement(
-									"option",
-									{ value: "Attribute" },
-									"Compare To"
+									"button",
+									{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+											return _this2.state.filterBy();
+										} },
+									"Submit"
 								),
 								React.createElement(
-									"option",
-									{ value: "Attr1" },
-									"Jupiter"
-								),
-								React.createElement(
-									"option",
-									{ value: "Attr2" },
-									"Earth"
+									"button",
+									{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+									"Close"
 								)
 							)
 						)
-					),
-					React.createElement(
-						"div",
-						{ className: "modal-footer" },
-						React.createElement(
-							"button",
-							{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
-									return filterBy();
-								} },
-							"Submit"
-						),
-						React.createElement(
-							"button",
-							{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-							"Close"
-						)
 					)
 				)
-			)
-		)
-	);
-};
+			);
+		}
+	}]);
+
+	return Modals;
+}(React.Component);
 
 exports.default = Modals;
 
