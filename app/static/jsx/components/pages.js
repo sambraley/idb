@@ -4,7 +4,7 @@ const Pages = ({current_page, total_pages, onPageSelect}) => {
 	const pages = [];
 	// Adding previous button
 	if (current_page != 1) {
-		pages.push(<li onClick={() => onPageSelect(current_page - 1)} className="page-item" id="previous-button"><a >Previous</a></li>);
+		pages.push(<li onClick={() => onPageSelect(current_page - 1)} className="page-item" key="previous-button"><a >Previous</a></li>);
 	}
 	//Setting list of page numbers
 	var start;
@@ -32,19 +32,19 @@ const Pages = ({current_page, total_pages, onPageSelect}) => {
 							page_number={i} 
 							onPageSelect={onPageSelect} 
 							isActive={true} 
-							id={i} />);
+							key={i} />);
 		}
 		else {
 			pages.push(<PageItem 
 							page_number={i} 
 							onPageSelect={onPageSelect} 
 							isActive={false} 
-							id={i} />);
+							key={i} />);
 		}
 	}
 	//adding next button
 	if (current_page != total_pages){
-		pages.push(<li onClick={() => onPageSelect(current_page + 1)} className="page-item" ><a>Next</a></li>);
+		pages.push(<li onClick={() => onPageSelect(current_page + 1)} className="page-item" key="next-button" ><a>Next</a></li>);
 	}
 	
 	return (

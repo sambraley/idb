@@ -1,5 +1,5 @@
 
-const Modals = () => {
+const Modals = ({modelType, filterBy}) => {
 
 	return (
 			<div>
@@ -12,18 +12,26 @@ const Modals = () => {
 				        		<h4 className="modal-title">Filtering</h4>
 				      		</div>
 				      		<div className="modal-body">
-				      			<div className="dropdown">
-									<button className="btn dropdown-toggle" type="button" data-toggle="dropdown">Sort By  
-								    <span className="caret"></span></button>
-								    <ul className="dropdown-menu">
-								    	<li className="dropdown-header">Ascending</li>
-								      	<li className="dropdown-header">Descending</li>
-								    </ul>
-								</div>
-
+						      		<div className="form-group">
+						      			<select className="form-control" >
+										  <option value="Attribute">Attribute</option>
+										  <option value="Attr1">Attr 1</option>
+										  <option value="Attr2">Attr 2</option>
+										</select>
+										<select className="form-control" >
+										  <option value="Attribute">Operation</option>
+										  <option value=">">Greater Then</option>
+										  <option value="<">Greater Then</option>
+										</select>
+										<select className="form-control" >
+										  <option value="Attribute">Compare To</option>
+										  <option value="Attr1">Jupiter</option>
+										  <option value="Attr2">Earth</option>
+										</select>
+									</div>
 				      		</div>
-				      		
 					      	<div className="modal-footer">
+					      		<button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => filterBy()}>Submit</button>
 					        	<button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
 					      	</div>
 		    			</div>
