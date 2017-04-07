@@ -1,3 +1,455 @@
+commit 59da6deadadc9c682acbe2e763ee5332abb941a2
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 21:52:57 2017 -0500
+
+    Update pydoc
+
+commit 27ff6d15d780de5934df5134e7bc56d047e5963f
+Merge: 74ad4de ac61f17
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Apr 6 21:52:23 2017 -0500
+
+    Merge pull request #54 from samuelbraley/develop
+    
+    Develop
+
+commit ac61f17f21333cf14ab32bef9b8c29cc1e64da66
+Merge: 0d90de6 678f3e2
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Apr 6 21:47:55 2017 -0500
+
+    Merge pull request #53 from samuelbraley/dev-react-d3
+    
+    Dev react d3
+
+commit 678f3e27c2e859ca1ed99d7883d48e40ad0f28a1
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 21:44:45 2017 -0500
+
+    final
+
+commit 74ad4de30bb3b9077b7c14a71fc276862a22f0cd
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Apr 6 21:37:32 2017 -0500
+
+    Updates app.yaml and database.py for gcp
+
+commit bd9cc07f2a0b25a12c12726590b2b63073465c90
+Merge: cced5f7 0d90de6
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Thu Apr 6 21:35:28 2017 -0500
+
+    Merge pull request #52 from samuelbraley/develop
+    
+    Develop
+
+commit 0d90de6109becf59482a02b265048a4426e8dc2e
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 21:32:38 2017 -0500
+
+    Fixed the report.
+
+commit 4e92e1592a5decd84c9775fc05b261c5f171692d
+Merge: 4ddf22d 5f6766f
+Author: njk464 <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 21:29:45 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 4ddf22d7f142d9199f6b2279df127bcf61cb90a5
+Author: njk464 <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 21:29:21 2017 -0500
+
+    Updated the report.
+
+commit 5f6766f55faa098e0efea8f174839ad37a2ede0a
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 21:26:55 2017 -0500
+
+    Successful pylint runs
+
+commit ea7de6e0543b75905838692f4549e6af758324e2
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Thu Apr 6 20:42:31 2017 -0500
+
+    Fixed comments
+
+commit 0966402ed3cfa2e84c7a41e9088fd148cebdfcf2
+Merge: de9865d 64475e3
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Thu Apr 6 20:35:44 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit de9865dd83c83edd86eb4c96c2fe639306577d05
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Thu Apr 6 20:35:02 2017 -0500
+
+    Updated UML img_url
+
+commit 64475e3fe83623181a138ae446b64a342af7b6e4
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 20:33:40 2017 -0500
+
+    Added coverage results.
+
+commit c949c91dd54cd4edeb248e16ecf6ef78241e9267
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Thu Apr 6 20:27:15 2017 -0500
+
+    coverage results
+
+commit 8f1867a65935c41974dfbc7305b8c4973c4f05f7
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Thu Apr 6 20:25:59 2017 -0500
+
+    Added coverage to the run_tests page
+
+commit 165fa8d5c242d1e6090fc8bb42e8cac22071ad33
+Merge: c1bf7c7 04a2645
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 20:10:59 2017 -0500
+
+    Merge branch 'dev-react-d3' of https://github.com/samuelbraley/idb into dev-react-d3
+
+commit c1bf7c78bf3704635551cb0f6fa84984a60e7f32
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 20:08:55 2017 -0500
+
+    got filter to pass values
+
+commit eb2d7cf0cfdb223733a88ffda4c7354261fb3cda
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 19:52:22 2017 -0500
+
+    adding filterby func
+
+commit 04a264591b6e098df13d55bc5da38192069c9b1b
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 20:08:55 2017 -0500
+
+    got filter to pass values
+
+commit 5cb2f1ef17510044952d5b043b9780a233ded1f3
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Thu Apr 6 19:58:03 2017 -0500
+
+    changed makefile to get make to work again
+
+commit 1334bb6f963e270c8753b56a0e1e7749c983d722
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 19:52:22 2017 -0500
+
+    adding filterby func
+
+commit 96fb03633e1f487d7702b396e9fb0837562a6313
+Merge: fbca3bc ac3f812
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Thu Apr 6 19:44:04 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit fbca3bc18b73feaf87e158884fda5a20c683dc0a
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Thu Apr 6 19:43:40 2017 -0500
+
+    got images to work on gallery view
+
+commit ac3f8122a0cc1c213c2d8524d6c9c04a473fc971
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Apr 6 19:35:46 2017 -0500
+
+    Updates tests to new models
+
+commit 1f812a3b44954cbdfb3006ea2fb58e504a4ab2fb
+Merge: a19c2a7 5498b83
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 6 19:16:00 2017 -0500
+
+    Merge pull request #51 from samuelbraley/scott-tests
+    
+    Merging in code to have website run unit tests
+
+commit 5498b835b855075a4e6bcfbd3a963b977beb194d
+Merge: fa43b96 0417ebd
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 6 19:15:08 2017 -0500
+
+    Merge branch 'develop' into scott-tests
+
+commit a19c2a7b233869e532cde38062a6049f221cb8b6
+Merge: 0d2591c 0417ebd
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Thu Apr 6 19:12:25 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 0d2591c7e98b92f90125b4d15a145961aa0deb86
+Merge: f60416e a611101
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Thu Apr 6 19:12:16 2017 -0500
+
+    resolved minor merge conflict
+
+commit 0417ebd25a106ee2459cac90d2f76b764e6f2a79
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 19:10:04 2017 -0500
+
+    Update models.py
+
+commit f60416e5e0e3b72120901b2c49575b5a0c48fe61
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Thu Apr 6 19:04:06 2017 -0500
+
+    got individual models pages to work and beautified them
+
+commit a611101ad4b310bbf00cabfd13889b3b691d3267
+Merge: 23e14b2 c698cca
+Author: Taben <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 19:01:46 2017 -0500
+
+    Merge pull request #50 from samuelbraley/dev-imgs-taben
+    
+    Dev imgs taben
+
+commit c698cca81d357217a8dfd5dfb9d7927ec1680613
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 18:57:26 2017 -0500
+
+    Img update
+
+commit fa43b9611455836404455e699a0ccd369e6e54c3
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Apr 6 18:56:57 2017 -0500
+
+    Further updates tests for gcp
+
+commit 47413b83b16ad05e49d650a70a8c185f0811f4c0
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 18:44:54 2017 -0500
+
+    Satellite patch
+
+commit 23e14b23e1bb37cc60c158f32a9626dfbed7efd2
+Merge: 347ee5b 242a0c7
+Author: David Ares <davidares7@gmail.com>
+Date:   Thu Apr 6 18:35:07 2017 -0500
+
+    Merge pull request #49 from samuelbraley/dev-react-d3
+    
+    Dev react d3
+
+commit 242a0c7d21399ea863d25d7ee732741906c23d82
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 18:30:17 2017 -0500
+
+    completed sort by function
+
+commit 347ee5b373c22b119c92996a9ebfc8ff3774c84d
+Author: njk464 <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 18:12:59 2017 -0500
+
+    Added more APIs to the about page.
+
+commit b5de7bc515b6a791add30b83b44ecbc650af30ad
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 18:00:07 2017 -0500
+
+    Added img urls
+
+commit a12894ff3fc97e7fe6f0769a3290f4a71d0d8cdf
+Author: njk464 <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 17:51:26 2017 -0500
+
+    Modified the about page.
+
+commit 7b8bbd764fae1a1208ed4dc97e09febad4cbca6d
+Author: njk464 <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 16:20:06 2017 -0500
+
+    Added stars.
+
+commit dcb6d6680aaf72df649408543a541bd2f34b6c43
+Author: Scott Farrior <farrior@cs.utexas.edu>
+Date:   Thu Apr 6 16:20:00 2017 -0500
+
+    Updates tests to be runnable by flask
+
+commit 914178214490db6d1bf4d5628571cbf1112944d0
+Merge: 055a7d9 77d84e6
+Author: njk464 <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 15:50:00 2017 -0500
+
+    Merge branch 'dev-imgs-taben' of https://github.com/samuelbraley/idb into dev-imgs-taben
+
+commit 055a7d90d28f58965e8f0c6679399dca9d61a530
+Author: njk464 <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 15:44:38 2017 -0500
+
+    Added galaxy photos.
+
+commit 77d84e62c705c14f6c785f68d8c99cddd4bceb4f
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 15:36:26 2017 -0500
+
+    Added planet url files
+
+commit 43954f4fabd4ef80d400a7d759616c25f9194f73
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 15:25:14 2017 -0500
+
+    updated paging and made filter and sort a button
+
+commit e8834205e5db4503effd40b6592ae20ec66dfc47
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 14:53:52 2017 -0500
+
+    Image scraper
+
+commit 2bf9c3353ee3c0a4dbf4bb1ff2d61464df68ada0
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 13:25:06 2017 -0500
+
+    Fixed satellite patcher
+
+commit 97822b4132ffff01a3b891bd999236e309bddc96
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 13:24:48 2017 -0500
+
+    Consolidated scripts and data
+
+commit edff4af1763d111a9fb713a4afa66cd57d798556
+Merge: c6bc94b fd59a5c
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 12:52:12 2017 -0500
+
+    Merge branch 'dev-imgs-taben' of https://github.com/samuelbraley/idb into dev-imgs-taben
+
+commit fd59a5c905c036153cf3240b63e6e18e504fcd18
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 10:37:55 2017 -0500
+
+    Fixed satellite patch script
+
+commit b86e4f465b7e98c2d80f94c60de0c96c5ed39e7d
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 10:32:38 2017 -0500
+
+    Added img attribute to models
+
+commit c6bc94be2ad00b94af1bf482643384a3c80bccd6
+Merge: 03ae470 f753831
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Thu Apr 6 09:02:51 2017 -0500
+
+    Merge pull request #48 from samuelbraley/dev-react-nick
+    
+    Dev react nick
+
+commit f7538311ac41ae705a7f5298ac2a46631449122a
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 08:42:41 2017 -0500
+
+    Made the test page return covereage results.
+
+commit 259dcdff6a72b50e40e512549c02ee847eafdae5
+Merge: ab2babc 823d5ea
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 00:25:10 2017 -0500
+
+    Resolved merge conflict.
+
+commit ab2babcecc1b368d195db9ee27c30aa78a3e85a7
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 00:23:55 2017 -0500
+
+    Merging with develop.
+
+commit 005fb08a284003e3602e45cfb86c33ad2f5bb2fd
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 00:19:49 2017 -0500
+
+    About page is updated dynamically.
+
+commit 1a6825f12fd8fb2e992ae0b9aaab6527e0546da3
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Apr 5 23:31:06 2017 -0500
+
+    Member info is now rendered with react.
+
+commit cd6add156c321e54983e49d7689c56b5311643fb
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Apr 5 22:20:38 2017 -0500
+
+    Added dynamic commit and issue data and modified the way tests are run.
+
+commit c7089f81f2479139dd3f96766d7327c23b39ebcd
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Apr 5 21:37:50 2017 -0500
+
+    Added a way to get test results from the about page.
+
+commit 823d5eae2f9d85325bf0db787886f78de98f6aa2
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Thu Apr 6 00:19:49 2017 -0500
+
+    About page is updated dynamically.
+
+commit 03ae47072e72ff1e3cf11ad0cccb43809525d26b
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 00:07:12 2017 -0500
+
+    updated compiled js
+
+commit 082edeb027d1f804ec23639197843d1b5709c7f4
+Merge: 30369cd 28d6720
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 00:04:37 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 30369cdb31e64ece9e7a8cf7fd54f2a926dcfd7e
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 6 00:04:14 2017 -0500
+
+    completed paging on front end
+
+commit 40e64fa046daa7500f8a87d82e8a99f74795e66d
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Apr 5 23:31:06 2017 -0500
+
+    Member info is now rendered with react.
+
+commit 732a746f43f253ef696ba1280284eb0849031295
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Apr 5 22:20:38 2017 -0500
+
+    Added dynamic commit and issue data and modified the way tests are run.
+
+commit facb17988513e303485c46f01c50d2e89b531e48
+Author: Nick Kantor <nick.kantor@utexas.edu>
+Date:   Wed Apr 5 21:37:50 2017 -0500
+
+    Added a way to get test results from the about page.
+
+commit 28d67207040c930c3fcc11e6bc98fd4bd919ac0d
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Wed Apr 5 17:52:45 2017 -0500
+
+    Updated UML attribute names and methods
+
+commit af41d32e86c24e08378b2e124b79a0caa6da06c1
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Wed Apr 5 17:33:33 2017 -0500
+
+    Added pragma: no cover stmnts and deleted unused serializer for satellite  model
+
+commit 001946f7b78c7a61293ffc33dcaf5ef89197dbe5
+Author: Gustavo Osorio <lpztavo@yahoo.com>
+Date:   Wed Apr 5 17:18:56 2017 -0500
+
+    Added .coveragerc to omit packages
+
 commit 852ee4f46192f6486fed9879a7b7dd6ce574f712
 Author: dares23 <davidares7@gmail.com>
 Date:   Wed Apr 5 13:12:10 2017 -0500
