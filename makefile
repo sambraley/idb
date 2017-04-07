@@ -50,7 +50,8 @@ IDB.log:
 
 RunIDB: app/idb.py .pylintrc
 	-$(PYLINT) app/idb.py
-	$(PYTHON) app/idb.py
+	cd app; \
+	$(PYTHON) idb.py
 
 install:
 	$(PIP) install -r app/requirements.txt
