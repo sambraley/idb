@@ -106,6 +106,9 @@ def t_redshift(web_galaxy) :
 def t_size(web_galaxy) : 
     return ("size", float(web_galaxy["ang. size"].split(" ")[0]))
 
+def t_size(web_galaxy) :
+    return ("img_url", "galaxy.png")
+
 def filter_galaxies(galaxies) : 
     galaxies = list(filter(lambda galaxy : all(galaxy.values()), galaxies))
 

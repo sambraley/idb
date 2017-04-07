@@ -57,7 +57,10 @@ install:
 	npm install
 
 data: nasa_scripts/scraper.py
-	$(PYTHON) nasa_scripts/scraper.py
+	cd nasa_scripts; \
+	$(PYTHON) scraper.py;\
+	$(PYTHON) patch_json.py;\
+	$(PYTHON) url_path.py
 
 TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
