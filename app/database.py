@@ -24,7 +24,7 @@ def load_db():
 
     #Creates tables based on models.py
     db.create_all()
-
+    
     planets_json = json.loads(open('../nasa_scripts/data/planets.json').read())
     galaxies_json = json.loads(open('../nasa_scripts/data/galaxies.json').read())
     satellites_json = json.loads(open('../nasa_scripts/data/satellites.json').read())

@@ -1,38 +1,42 @@
-<!doctype html>
-<div class="container"></div>
-<!-- <div class="container model-container">
+{% extends "base.html" %}
+{% block content %}
+<!-- include Aladin Lite CSS file in the head section of your page -->
+<link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
+<div class="container model-container">
   <div class="row">
   	<div class="col-lg-12 text-center">
-  		<h1>{{planetoid.name}}</h1>
+  		<h1>{{planet.name}}</h1>
   	</div>
   </div>
   <div class="row">
   	<div class="col-md-6 text-center" style="padding-top:40px;">
-  		<img src="/static/images/{{planetoid.images}}"> 
+  		<!-- insert this snippet where you want Aladin Lite viewer to appear and after the loading of jQuery -->
+        <div id="aladin-lite-div" style="width:400px;height:400px;"></div>
+        <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            var aladin = A.aladin('#aladin-lite-div', {survey: "P/DSS2/color", fov:.2, target: "188.266255 + 44.915352"});
+        </script>
   	</div>
     <div class="col-md-6 text-center">
       <div class="col-md-12">
         <h3>Diameter:</h3> 
-        <p>{{planetoid.diameter}}</p>
+        <p>{{planet.diameter}}</p>
         <h3>Surface Temperatures:</h3> 
-        <p>{{planetoid.surface_temperature}}</p>
+        <p>{{planet.temperature}}</p>
         <h3>Right Ascension:</h3> 
-        <p>{{planetoid.right_ascension}}</p>
+        <p>{{planet.ra}}</p>
         <h3>Declination:</h3> 
-        <p>{{planetoid.declination}}</p>
+        <p>{{planet.dec}}</p>
         <h3>Mass:</h3> 
-        <p>{{planetoid.mass}}</p>
+        <p>{{planet.mass}}</p>
         <h3>Gravity:</h3> 
-        <p>{{planetoid.gravity}}</p>
+        <p>{{planet.gravity}}</p>
         <h3>Orbital Period:</h3> 
-        <p>{{planetoid.orbital_period}}</p>
-        <h3>Orbiting Bodies:</h3> 
-        <p>{{planetoid.orbiting_bodies}}</p>
+        <p>{{planet.orbital_period}}</p>
         <h3>Satellites:</h3> 
-        <a href="/satellites">{{planetoid.satellites}}</a>
+        <a href="/satellites">Satellites</a>
       </div> 
       </div> 
-    </div>
   </div>
-</div> -->
-<script src="{{ url_for('static', filename='compiled_js/render_react_planet.js') }}"></script>
+</div>
+{% endblock %}

@@ -64,7 +64,7 @@ def t_name(web_sat) :
     return ("name", str(web_sat["name"]))
 
 def t_image(web_sat) : 
-    return ("image", "satellite.png")
+    return ("img_url", "satellite.png")
 
 def t_year(web_sat) : 
     return ("year_launched", int(web_sat["launch"]["windowstart"].split(" ")[2]))
