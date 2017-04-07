@@ -117,8 +117,8 @@ def galaxy_instance(galaxy_id):
 def run_tests():
     suite = unittest.TestLoader().loadTestsFromTestCase(test.TestModels)
     test_output = io.StringIO()
+    unittest.TextTestRunner(stream=test_output).run(suite)
     test_output = test_output.getvalue()
-    unittest.TextTestRunner(stream=output).run(suite)
     coverage = open("coverage.txt")
     coverage_output = coverage.read()
     output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
