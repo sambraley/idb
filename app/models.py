@@ -54,7 +54,7 @@ class Satellite(db.Model):
             self, name, img_url, year_launched, mission_type, info_url, agency,
             planet, star, galaxy):
         """
-        name a str, agency a str, mission_type a str, year_launched an int.
+        name a str, img_url a str, info_url a str, agency a str, mission_type a str, year_launched an int.
         """
         # Check types
         assert isinstance(img_url, str)
@@ -141,7 +141,7 @@ class Planet(db.Model):
             self, name, diameter, ra, dec, gravity, orbital_period, mass,
             temperature, img_url, star, galaxy):
         """
-        name a str, image a str, diameter, temperature, right_ascension, declination,
+        name a str, img_url a str, diameter a float, temperature a int, right_ascension, declination,
         mass, gravity, orbital_period are all floats.
         """
         # Check types
@@ -227,7 +227,7 @@ class Star(db.Model):
 
     def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy, img_url="star.png"):
         """
-        name a str, image a str, temperature, right_ascension, declination, and mass
+        name a str, img_url a str, temperature a int, right_ascension, declination, and mass
         are all floats.
         """
         # Check types
@@ -299,7 +299,7 @@ class Galaxy(db.Model):
 
     def __init__(self, name, ra, dec, morph_type, redshift, size, img_url):
         """
-        name a str, image a str, right_ascension and declination floats, galaxy_type a str,
+        name a str, img_url a str, right_ascension and declination floats, galaxy_type a str,
         redshift and size floats.
         """
         # Check types
