@@ -99,7 +99,6 @@ def t_type(web_galaxy) :
         morph_type = "Elliptical"
     return ("morph_type", morph_type)
     
-
 def t_redshift(web_galaxy) : 
     return ("redshift", float(web_galaxy["redshift"]))
 
@@ -118,3 +117,15 @@ def filter_galaxies(galaxies) :
         i += 1
         
     return galaxies
+
+    
+###############
+# Execution
+###############
+print("Scraping galaxies.");
+galaxies = galaxy_scrape()
+galaxies_file = open("../scraped_data/scraped_galaxies.json", "w")
+json.dump(galaxies, galaxies_file, indent="\t")
+galaxies_file.close()
+print("Scraped " + str(len(galaxies)) + " galaxies.")
+

@@ -105,4 +105,13 @@ def filter_sats(sats) :
     return sats
 
 
+#################
+# Execution
+#################
 
+print("Scraping satellites.");
+satellites = satellite_scrape()
+satellites_file = open("../scraped_data/scraped_satellites.json", "w")
+json.dump(satellites, satellites_file, indent="\t")
+satellites_file.close()
+print("Scraped " + str(len(satellites)) + " satellites.")

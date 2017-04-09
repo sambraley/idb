@@ -106,3 +106,15 @@ def filter_stars(stars) :
         i += 1
 
     return unique_stars
+
+
+#################
+# Execution
+#################
+
+print("Scraping stars.");
+stars = star_scrape()
+stars_file = open("../scraped_data/scraped_stars.json", "w")
+json.dump(stars, stars_file, indent="\t")
+stars_file.close()
+print("Scraped " + str(len(stars)) + " stars.")
