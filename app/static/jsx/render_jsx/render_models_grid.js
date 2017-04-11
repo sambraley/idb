@@ -112,40 +112,35 @@ class App extends React.Component {
 	
 	render () {
 		return (
-			<div id="main-div">
-				<div id="nav-bar-div">	
-					<NavBar />
-				</div>
-				<div className="container-fluid model-container">
-					<ModelTitle title={this.state.title} />
-					<div className="row"> 
-						<div className="col-md-2 text-left sort-filter-button">
-							<DropDown 
-								sort_title={this.state.sort_title}
-								modelType={this.state.modelType}
-								sortBy={this.sortBy.bind(this)} />
-						</div>
-						<div className="col-md-1 text-left sort-filter-button">
-							<Modals
-								modelType={this.state.modelType} 
-								filterBy={this.filterBy.bind(this)} />
-						</div>
-						<div className="col-md-9 text-right">
-							<Pages 
-								current_page={this.state.current_page}
-								total_pages={this.state.total_pages} 
-								onPageSelect={this.getModels.bind(this)} />
-						</div>
+			<div className="model-container">
+				<ModelTitle title={this.state.title} />
+				<div className="row"> 
+					<div className="col-md-2 text-left sort-filter-button">
+						<DropDown 
+							sort_title={this.state.sort_title}
+							modelType={this.state.modelType}
+							sortBy={this.sortBy.bind(this)} />
 					</div>
-					<ModelList 
-						models={this.state.models}
-						page={this.current_page} />
-					<div key="pages" className="col-md-12 text-right">
+					<div className="col-md-1 text-left sort-filter-button">
+						<Modals
+							modelType={this.state.modelType} 
+							filterBy={this.filterBy.bind(this)} />
+					</div>
+					<div className="col-md-9 text-right">
 						<Pages 
 							current_page={this.state.current_page}
 							total_pages={this.state.total_pages} 
 							onPageSelect={this.getModels.bind(this)} />
 					</div>
+				</div>
+				<ModelList 
+					models={this.state.models}
+					page={this.current_page} />
+				<div key="pages" className="col-md-12 text-right">
+					<Pages 
+						current_page={this.state.current_page}
+						total_pages={this.state.total_pages} 
+						onPageSelect={this.getModels.bind(this)} />
 				</div>
 			</div>
 			);
@@ -154,6 +149,6 @@ class App extends React.Component {
 
 
 ReactDOM.render(
-  <App />, document.querySelector('.container')
+  <App />, document.querySelector('.content-container')
 );
 

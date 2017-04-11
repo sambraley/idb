@@ -859,54 +859,45 @@ var App = function (_React$Component) {
 		value: function render() {
 			return React.createElement(
 				'div',
-				{ id: 'main-div' },
+				{ className: 'model-container' },
+				React.createElement(_model_title2.default, { title: this.state.title }),
 				React.createElement(
 					'div',
-					{ id: 'nav-bar-div' },
-					React.createElement(_nav_bar2.default, null)
-				),
-				React.createElement(
-					'div',
-					{ className: 'container-fluid model-container' },
-					React.createElement(_model_title2.default, { title: this.state.title }),
+					{ className: 'row' },
 					React.createElement(
 						'div',
-						{ className: 'row' },
-						React.createElement(
-							'div',
-							{ className: 'col-md-2 text-left sort-filter-button' },
-							React.createElement(_drop_down2.default, {
-								sort_title: this.state.sort_title,
-								modelType: this.state.modelType,
-								sortBy: this.sortBy.bind(this) })
-						),
-						React.createElement(
-							'div',
-							{ className: 'col-md-1 text-left sort-filter-button' },
-							React.createElement(_modals2.default, {
-								modelType: this.state.modelType,
-								filterBy: this.filterBy.bind(this) })
-						),
-						React.createElement(
-							'div',
-							{ className: 'col-md-9 text-right' },
-							React.createElement(_pages2.default, {
-								current_page: this.state.current_page,
-								total_pages: this.state.total_pages,
-								onPageSelect: this.getModels.bind(this) })
-						)
+						{ className: 'col-md-2 text-left sort-filter-button' },
+						React.createElement(_drop_down2.default, {
+							sort_title: this.state.sort_title,
+							modelType: this.state.modelType,
+							sortBy: this.sortBy.bind(this) })
 					),
-					React.createElement(_models_list2.default, {
-						models: this.state.models,
-						page: this.current_page }),
 					React.createElement(
 						'div',
-						{ key: 'pages', className: 'col-md-12 text-right' },
+						{ className: 'col-md-1 text-left sort-filter-button' },
+						React.createElement(_modals2.default, {
+							modelType: this.state.modelType,
+							filterBy: this.filterBy.bind(this) })
+					),
+					React.createElement(
+						'div',
+						{ className: 'col-md-9 text-right' },
 						React.createElement(_pages2.default, {
 							current_page: this.state.current_page,
 							total_pages: this.state.total_pages,
 							onPageSelect: this.getModels.bind(this) })
 					)
+				),
+				React.createElement(_models_list2.default, {
+					models: this.state.models,
+					page: this.current_page }),
+				React.createElement(
+					'div',
+					{ key: 'pages', className: 'col-md-12 text-right' },
+					React.createElement(_pages2.default, {
+						current_page: this.state.current_page,
+						total_pages: this.state.total_pages,
+						onPageSelect: this.getModels.bind(this) })
 				)
 			);
 		}
@@ -915,6 +906,6 @@ var App = function (_React$Component) {
 	return App;
 }(React.Component);
 
-ReactDOM.render(React.createElement(App, null), document.querySelector('.container'));
+ReactDOM.render(React.createElement(App, null), document.querySelector('.content-container'));
 
 },{"./../components/drop_down":1,"./../components/modals":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/nav_bar":7,"./../components/pages":9}]},{},[11]);
