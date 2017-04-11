@@ -37,11 +37,14 @@ class Github_Member extends React.Component {
 			      <p className="text-muted"><strong>Issues:</strong> {this.state.issues}</p>
 			      <p className="text-muted"><strong>Unit tests:</strong> {this.props.member_info["tests"]}</p>
 			      {this.props.member_info["p1_lead"] ? (
-              <p className="text-muted"><strong>Phase 1 Leader</strong></p>
-            ):null}
-            {this.props.member_info["p2_lead"] ? (
-              <p className="text-muted"><strong>Phase 2 Leader</strong></p>
-            ):null}
+             		<p className="text-muted"><strong>Phase 1 Leader</strong></p>
+            	  ):null}
+            	  {this.props.member_info["p2_lead"] ? (
+              	    <p className="text-muted"><strong>Phase 2 Leader</strong></p>
+            	  ):null}
+            	  {this.props.member_info["p3_lead"] ? (
+              	    <p className="text-muted"><strong>Phase 3 Leader</strong></p>
+            	  ):null}
   				</div>
   			);
         return info;
