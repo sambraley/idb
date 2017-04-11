@@ -1,6 +1,6 @@
-import CarouselItem from './carouselItem.jsx'
-import "isomorphic-fetch"
-import moment from "../bower_components/moment/moment.js"
+import CarouselItem from './carouselItem.jsx';
+import "isomorphic-fetch";
+import moment from "../bower_components/moment/moment.js";
 
 var key = "We3gv991soU65ecdkUfJVTsZyl3ZjOiDZPQFlaAv";
 var nasa_url = "https://api.nasa.gov/planetary/apod?api_key=" + key + "&date=";

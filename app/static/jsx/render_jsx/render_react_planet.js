@@ -1,5 +1,6 @@
 import NavBar from './../components/nav_bar';
 import ModelInfo from './../components/model_info';
+import "isomorphic-fetch";
 
 /* window.location.href */
 console.log(window.location.href);

@@ -1,3 +1,5 @@
+import "isomorphic-fetch";
+
 class Github_Member extends React.Component {
 		constructor(props) {
 			super(props);
