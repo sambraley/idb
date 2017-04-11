@@ -59,6 +59,9 @@ html, body {
 .form-control {
 	padding: 5px;
 }
+.model-list-item {
+	min-height: 500px;
+}
 /*
 Used to see the borders of the grid
 

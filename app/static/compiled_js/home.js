@@ -4412,7 +4412,7 @@ var Carousel = function (_React$Component) {
 	_createClass(Carousel, [{
 		key: "url_push",
 		value: function url_push(data) {
-			this.state.urls.push(data.hdurl);
+			this.state.urls.push(data.url);
 			this.forceUpdate();
 		}
 	}, {
