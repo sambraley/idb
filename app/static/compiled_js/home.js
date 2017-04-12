@@ -4412,8 +4412,7 @@ var Carousel = function (_React$Component) {
 	_createClass(Carousel, [{
 		key: "url_push",
 		value: function url_push(data) {
-			console.log(data.url);
-			this.state.urls.push(data.url);
+			this.state.urls.push(data.hdurl);
 			this.forceUpdate();
 		}
 	}, {
@@ -4421,12 +4420,25 @@ var Carousel = function (_React$Component) {
 		value: function render() {
 			return React.createElement(
 				"div",
-				{ id: "react-carousel", className: "carousel-inner", role: "listbox" },
-				React.createElement(_carouselItem2.default, { url: this.state.urls[0], "class": "active" }),
-				React.createElement(_carouselItem2.default, { url: this.state.urls[1], "class": "" }),
-				React.createElement(_carouselItem2.default, { url: this.state.urls[2], "class": "" }),
-				React.createElement(_carouselItem2.default, { url: this.state.urls[3], "class": "" }),
-				React.createElement(_carouselItem2.default, { url: this.state.urls[4], "class": "" })
+				null,
+				React.createElement(
+					"div",
+					{ id: "react-carousel", className: "carousel-inner", role: "listbox" },
+					React.createElement(_carouselItem2.default, { url: this.state.urls[0], "class": "active" }),
+					React.createElement(_carouselItem2.default, { url: this.state.urls[1], "class": "" }),
+					React.createElement(_carouselItem2.default, { url: this.state.urls[2], "class": "" }),
+					React.createElement(_carouselItem2.default, { url: this.state.urls[3], "class": "" }),
+					React.createElement(_carouselItem2.default, { url: this.state.urls[4], "class": "" })
+				),
+				React.createElement(
+					"div",
+					{ className: "hidden" },
+					React.createElement("img", { src: this.state.urls[0] }),
+					React.createElement("img", { src: this.state.urls[1] }),
+					React.createElement("img", { src: this.state.urls[2] }),
+					React.createElement("img", { src: this.state.urls[3] }),
+					React.createElement("img", { src: this.state.urls[4] })
+				)
 			);
 		}
 	}]);
@@ -4486,13 +4498,13 @@ var _carousel2 = _interopRequireDefault(_carousel);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 $('.carousel').carousel({
-	interval: 1000 * 3
+	interval: 1000 * 4
 });
 
-// var temp = document.createElement("div");
-ReactDOM.render(React.createElement(_carousel2.default, null), document.getElementById("space-carousel"));
-// var container = document.getElementById("space-carousel");
-// container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
+var temp = document.createElement("div");
+ReactDOM.render(React.createElement(_carousel2.default, null), temp);
+var container = document.getElementById("space-carousel");
+container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
 
 },{"../carousel.jsx":2}],5:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function

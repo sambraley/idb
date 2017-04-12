@@ -21,18 +21,26 @@ class Carousel extends React.Component {
 			}
 		}
 		url_push(data) {
-			console.log(data.url);
-			this.state.urls.push(data.url);
+			this.state.urls.push(data.hdurl);
 			this.forceUpdate();
 		}
     render() {
         return (
+        		  <div>
 				  <div id="react-carousel" className="carousel-inner" role="listbox">
 				    <CarouselItem url={this.state.urls[0]} class="active"/>
 				    <CarouselItem url={this.state.urls[1]} class=""/>
 				    <CarouselItem url={this.state.urls[2]} class=""/>
 				    <CarouselItem url={this.state.urls[3]} class=""/>
 				    <CarouselItem url={this.state.urls[4]} class=""/>
+				  </div>
+				  <div className="hidden">
+				    <img src={this.state.urls[0]}/>
+				    <img src={this.state.urls[1]}/>
+				    <img src={this.state.urls[2]}/>
+				    <img src={this.state.urls[3]}/>
+				    <img src={this.state.urls[4]}/>
+				  </div>
 				  </div>
 				);
     }

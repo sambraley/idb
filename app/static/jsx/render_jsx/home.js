@@ -1,13 +1,13 @@
 import Carousel from '../carousel.jsx';
 
 $('.carousel').carousel({
-  interval: 1000 * 3
+  interval: 1000 * 4
 });
 
-// var temp = document.createElement("div");
+var temp = document.createElement("div");
 ReactDOM.render(
 	<Carousel />,
-	document.getElementById("space-carousel")
+	temp
 );
-// var container = document.getElementById("space-carousel");
-// container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
+var container = document.getElementById("space-carousel");
+container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
