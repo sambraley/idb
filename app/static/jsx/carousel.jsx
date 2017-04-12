@@ -1,6 +1,6 @@
-import CarouselItem from './carouselItem.jsx'
-import "isomorphic-fetch"
-import moment from "../bower_components/moment/moment.js"
+import CarouselItem from './carouselItem.jsx';
+import "isomorphic-fetch";
+import moment from "../bower_components/moment/moment.js";
 
 var key = "We3gv991soU65ecdkUfJVTsZyl3ZjOiDZPQFlaAv";
 var nasa_url = "https://api.nasa.gov/planetary/apod?api_key=" + key + "&date=";
@@ -26,12 +26,21 @@ class Carousel extends React.Component {
 		}
     render() {
         return (
+        		  <div>
 				  <div id="react-carousel" className="carousel-inner" role="listbox">
 				    <CarouselItem url={this.state.urls[0]} class="active"/>
 				    <CarouselItem url={this.state.urls[1]} class=""/>
 				    <CarouselItem url={this.state.urls[2]} class=""/>
 				    <CarouselItem url={this.state.urls[3]} class=""/>
 				    <CarouselItem url={this.state.urls[4]} class=""/>
+				  </div>
+				  <div className="hidden">
+				    <img src={this.state.urls[0]}/>
+				    <img src={this.state.urls[1]}/>
+				    <img src={this.state.urls[2]}/>
+				    <img src={this.state.urls[3]}/>
+				    <img src={this.state.urls[4]}/>
+				  </div>
 				  </div>
 				);
     }

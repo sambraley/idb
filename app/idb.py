@@ -64,6 +64,9 @@ def planets_table():
 
 @app.route('/planets/<int:planet_id>')
 def planet_instance(planet_id):
+    # earth
+    if (planet_id == 299):
+        return render_template('earth.html', planet=Planet.query.get(planet_id))
     return render_template('planetoid.html', planet=Planet.query.get(planet_id))
 
 # return render_template('planet.html', planet=Planet.query.get(planet_id))
@@ -109,6 +112,10 @@ def run_tests():
     coverage_output = coverage.read()
     output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
     return output
+
+@app.route('/search')
+def search():
+    return render_template('search.html', title="search")
 
 if __name__ == "__main__": # pragma: no cover
     app.run()

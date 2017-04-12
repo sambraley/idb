@@ -2,6 +2,7 @@ import NavBar from './../components/nav_bar';
 import ModelList from './../components/models_list';
 import ModelTitle from './../components/model_title';
 import DropDown from './../components/drop_down';
+import "isomorphic-fetch";
 
 const exts = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
 const modelType = window.location.href.split('/')[3];

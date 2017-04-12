@@ -1,7 +1,7 @@
 import Carousel from '../carousel.jsx';
 
 $('.carousel').carousel({
-  interval: 1000 * 3
+  interval: 1000 * 4
 });
 
 var temp = document.createElement("div");

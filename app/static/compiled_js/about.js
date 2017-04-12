@@ -7,6 +7,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+require("isomorphic-fetch");
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -68,7 +70,7 @@ var Github_Commits = function (_React$Component) {
 
 exports.default = Github_Commits;
 
-},{}],2:[function(require,module,exports){
+},{"isomorphic-fetch":6}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -76,6 +78,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require("isomorphic-fetch");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -135,7 +139,7 @@ var Github_Issues = function (_React$Component) {
 
 exports.default = Github_Issues;
 
-},{}],3:[function(require,module,exports){
+},{"isomorphic-fetch":6}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -143,6 +147,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require("isomorphic-fetch");
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -200,7 +206,7 @@ var Github_Member = function (_React$Component) {
 		value: function render() {
 			var info = React.createElement(
 				"div",
-				{ className: "col-md-4 text-center service-box" },
+				{ className: "col-md-6 col-lg-4 text-center service-box" },
 				React.createElement("img", { className: "img-thumbnail about-image", src: "/static/images/" + this.props.member_info['image'] }),
 				React.createElement(
 					"h3",
@@ -273,6 +279,15 @@ var Github_Member = function (_React$Component) {
 						null,
 						"Phase 2 Leader"
 					)
+				) : null,
+				this.props.member_info["p3_lead"] ? React.createElement(
+					"p",
+					{ className: "text-muted" },
+					React.createElement(
+						"strong",
+						null,
+						"Phase 3 Leader"
+					)
 				) : null
 			);
 			return info;
@@ -284,7 +299,7 @@ var Github_Member = function (_React$Component) {
 
 exports.default = Github_Member;
 
-},{}],4:[function(require,module,exports){
+},{"isomorphic-fetch":6}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -357,7 +372,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var access_token = "55dc1276759f6ff631870b2c509b632382276575";
 
-var member_info = [{ 'name': 'Nick Kantor', 'github_id': 'njk464', 'image': 'nick_kantor.png', 'p1_lead': true, 'p2_lead': false, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I'm a Senior Computer Science student and tend to spend my free time playing my trumpet for the longhorn band. After I graduate I plan on pursuing a Master's degree in Information Security." }, { 'name': 'Samuel Braley', 'github_id': 'samuelbraley', 'image': 'samuel_braley.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 0, 'responsibilities': "Documentation and Apiary", 'bio': "I am a Computer Science senior with certificates in Business Foundations and Game Design. I enjoy being one of the many Sams in the world and plan on being a programmer manager after I graduate." }, { 'name': 'Taben Malik', 'github_id': 'tabenmalik', 'image': 'taben.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 0, 'responsibilities': "Data Collection and Modeling", 'bio': "A double major in Computer Science and Aerospace Engineering. I am a strong advocate of a Mars mission and hope to be a part of one someday." }, { 'name': 'Gustavo Osorio', 'github_id': 'lpztavo', 'image': 'gustavo.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 12, 'responsibilities': "UML Design and Modeling", 'bio': "I'm a senior Computer Science student. I enjoy dancing and coding, but I'm not skilled enough to do both simultaneously." }, { 'name': 'Scott Farrior', 'github_id': 'sfarrior', 'image': 'sfarrior.jpg', 'p1_lead': false, 'p2_lead': true, 'tests': 0, 'responsibilities': "Server setup/administration and SQLAlchemy backend", 'bio': "I'm a Computer Science major. I work as a TA/Grader as well as Computer Lab technician for the community college, and would like to be an instructor one day." }, { 'name': 'David Ares', 'github_id': 'dares23', 'image': 'david.jpg', 'p1_lead': false, 'p2_lead': false, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I am a non-traditional student with one year of Full-stack web development. Before returning to school, I gained seven years of experience in sales, marketing, and management." }];
+var member_info = [{ 'name': 'Nick Kantor', 'github_id': 'njk464', 'image': 'nick_kantor.png', 'p1_lead': true, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I'm a Senior Computer Science student and tend to spend my free time playing my trumpet for the longhorn band. After I graduate I plan on pursuing a Master's degree in Information Security." }, { 'name': 'Samuel Braley', 'github_id': 'samuelbraley', 'image': 'samuel_braley.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Documentation and Apiary", 'bio': "I am a Computer Science senior with certificates in Business Foundations and Game Design. I enjoy being one of the many Sams in the world and plan on being a programmer manager after I graduate." }, { 'name': 'Taben Malik', 'github_id': 'tabenmalik', 'image': 'taben.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Data Collection and Modeling", 'bio': "A double major in Computer Science and Aerospace Engineering. I am a strong advocate of a Mars mission and hope to be a part of one someday." }, { 'name': 'Gustavo Osorio', 'github_id': 'lpztavo', 'image': 'gustavo.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 12, 'responsibilities': "UML Design and Modeling", 'bio': "I'm a senior Computer Science student. I enjoy dancing and coding, but I'm not skilled enough to do both simultaneously." }, { 'name': 'Scott Farrior', 'github_id': 'sfarrior', 'image': 'sfarrior.jpg', 'p1_lead': false, 'p2_lead': true, 'p3_lead': false, 'tests': 0, 'responsibilities': "Server setup/administration and SQLAlchemy backend", 'bio': "I'm a Computer Science major. I work as a TA/Grader as well as Computer Lab technician for the community college, and would like to be an instructor one day." }, { 'name': 'David Ares', 'github_id': 'dares23', 'image': 'david.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': true, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I am a non-traditional student with one year of Full-stack web development. Before returning to school, I gained seven years of experience in sales, marketing, and management." }];
 
 ReactDOM.render(React.createElement(_github_commits2.default, { url: 'https://api.github.com/repos/samuelbraley/idb/stats/commit_activity', token: access_token }), document.getElementById('overall-commits'));
 

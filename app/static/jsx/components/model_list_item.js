@@ -7,7 +7,7 @@ const ModelListItem = ({model}) => {
 		height: '400px'
 	};
 	return (
-		<div className="col-md-4 text-center model-list-item">
+		<div className="col-lg-4 col-md-6 col-sm-12 text-center model-list-item">
 			<a href={link}>
 				<img className="img-thumbnail about-image" style={style} src={image_url} />
 				<h3>{model.name}</h3>
