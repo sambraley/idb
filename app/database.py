@@ -1,12 +1,15 @@
 from flask_sqlalchemy import SQLAlchemy
 import json
 import os
+from whoosh.analysis import StemmingAnalyzer
+import flask_whooshalchemy as whooshalchemy
 
 db = SQLAlchemy()
 from models import Planet, Star, Satellite, Galaxy
 
 def connect_db(flask_app):
     db_URI = os.getenv('SQLALCHEMY_DATABASE_URI_SPACECOWBOYS')
+    flask_app.config['WHOOSH_BASE'] = 'search'
     if db_URI == None :
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite://"
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -16,6 +19,8 @@ def connect_db(flask_app):
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_URI
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(flask_app)
+        
+    whooshalchemy.whoosh_index(flask_app, Satellite)
         
     return db
 

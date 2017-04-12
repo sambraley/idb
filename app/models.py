@@ -9,7 +9,7 @@
 This module is designed to model galaxies, stars, planets, and satellites for
 use in a PostgreSQL database using Flask-SQLAlchemy.
 """
-from database import db
+from database import db, StemmingAnalyzer
 
 
 class Satellite(db.Model):
@@ -17,10 +17,14 @@ class Satellite(db.Model):
     """
     Models artificial satellites. Attributes are: name, agency, mission type,
     and year launched. They may relate many-to-one to galaxies, stars, and planets.
+		
     """
     #
     # Attributes
     #
+		
+    # Flask Whoosh
+    __searchable__ = ['name', 'info_url', 'agency']
 
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)

@@ -115,6 +115,8 @@ def run_tests():
 
 @app.route('/search')
 def search():
+    results = Satellite.query.whoosh_search('SARAL')
+    print(results.all())
     return render_template('search.html', title="search")
 
 if __name__ == "__main__": # pragma: no cover
