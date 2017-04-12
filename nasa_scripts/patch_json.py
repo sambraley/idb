@@ -1,7 +1,8 @@
 import json
 import collections
 
-satellite_file = "data/satellites.json"
+print("Adding urls to satellites\n")
+satellite_file = "scraped_data/scraped_satellites.json"
 patch_file = "satellite_patch.json"
 
 def patch_json(target_file, fix_file, key):

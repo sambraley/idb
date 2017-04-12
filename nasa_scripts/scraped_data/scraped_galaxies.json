@@ -1,1280 +1,1422 @@
 [
 	{
 		"ra": 317.819183,
-		"dec": 37.884811,
-		"img_url": "galaxy.png",
-		"pid": 1,
-		"redshift": 0.027192,
+		"size": 1.227,
 		"name": "UGC 11693",
-		"morph_type": "Spiral"
+		"redshift": 0.027192,
+		"dec": 37.884811,
+		"morph_type": "Spiral",
+		"pid": 1,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 320.125275,
-		"dec": 37.583397,
-		"img_url": "galaxy.png",
-		"pid": 2,
-		"redshift": 0.025928,
+		"size": 1.29,
 		"name": "UGC 11726",
-		"morph_type": "Spiral"
+		"redshift": 0.025928,
+		"dec": 37.583397,
+		"morph_type": "Spiral",
+		"pid": 2,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 326.49365,
-		"dec": 41.272003,
-		"img_url": "galaxy.png",
-		"pid": 3,
-		"redshift": 0.015007,
+		"size": 1.717,
 		"name": "UGC 11808",
-		"morph_type": "Spiral"
+		"redshift": 0.015007,
+		"dec": 41.272003,
+		"morph_type": "Spiral",
+		"pid": 3,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 327.4187,
-		"dec": 40.663325,
-		"img_url": "galaxy.png",
-		"pid": 4,
-		"redshift": 0.014739,
+		"size": 1.17,
 		"name": "UGC 11822",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.014739,
+		"dec": 40.663325,
+		"morph_type": "Barred Spiral",
+		"pid": 4,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 329.478179,
-		"dec": 42.306178,
-		"img_url": "galaxy.png",
-		"pid": 5,
-		"redshift": 0.014417,
+		"size": 1.067,
 		"name": "UGC 11864",
-		"morph_type": "Spiral"
+		"redshift": 0.014417,
+		"dec": 42.306178,
+		"morph_type": "Spiral",
+		"pid": 5,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 329.3714,
-		"dec": 41.248897,
-		"img_url": "galaxy.png",
-		"pid": 6,
-		"redshift": 0.014293,
+		"size": 1.367,
 		"name": "UGC 11858",
-		"morph_type": "Spiral"
+		"redshift": 0.014293,
+		"dec": 41.248897,
+		"morph_type": "Spiral",
+		"pid": 6,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 331.027679,
-		"dec": 41.819303,
-		"img_url": "galaxy.png",
-		"pid": 7,
-		"redshift": 0.017455,
+		"size": 0.9,
 		"name": "UGC 11894",
-		"morph_type": "Spiral"
+		"redshift": 0.017455,
+		"dec": 41.819303,
+		"morph_type": "Spiral",
+		"pid": 7,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 331.12805,
-		"dec": 41.411206,
-		"img_url": "galaxy.png",
-		"pid": 8,
-		"redshift": 0.014727,
+		"size": 1.36,
 		"name": "UGC 11897",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.014727,
+		"dec": 41.411206,
+		"morph_type": "Barred Spiral",
+		"pid": 8,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 330.8908,
-		"dec": 43.7492,
-		"img_url": "galaxy.png",
-		"pid": 9,
-		"redshift": 0.001538,
+		"size": 4.0,
 		"name": "UGC 11891",
-		"morph_type": "Irregular"
+		"redshift": 0.001538,
+		"dec": 43.7492,
+		"morph_type": "Irregular",
+		"pid": 9,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 332.659454,
-		"dec": 42.021289,
-		"img_url": "galaxy.png",
-		"pid": 10,
-		"redshift": 0.014784,
+		"size": 1.183,
 		"name": "UGC 11935",
-		"morph_type": "Spiral"
+		"redshift": 0.014784,
+		"dec": 42.021289,
+		"morph_type": "Spiral",
+		"pid": 10,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 333.692992,
-		"dec": 42.181075,
-		"img_url": "galaxy.png",
-		"pid": 11,
-		"redshift": 0.01394,
+		"size": 1.127,
 		"name": "UGC 11961",
-		"morph_type": "Spiral"
+		"redshift": 0.01394,
+		"dec": 42.181075,
+		"morph_type": "Spiral",
+		"pid": 11,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 331.150908,
-		"dec": 42.327083,
-		"img_url": "galaxy.png",
-		"pid": 12,
-		"redshift": 0.014317,
+		"size": 0.977,
 		"name": "UGC 11898",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.014317,
+		"dec": 42.327083,
+		"morph_type": "Barred Spiral",
+		"pid": 12,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 335.461763,
-		"dec": 42.951222,
-		"img_url": "galaxy.png",
-		"pid": 13,
-		"redshift": 0.011032,
+		"size": 1.097,
 		"name": "UGC 11999",
-		"morph_type": "Spiral"
+		"redshift": 0.011032,
+		"dec": 42.951222,
+		"morph_type": "Spiral",
+		"pid": 13,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 336.329529,
-		"dec": 42.717236,
-		"img_url": "galaxy.png",
-		"pid": 14,
-		"redshift": 0.018463,
+		"size": 1.063,
 		"name": "UGC 12032",
-		"morph_type": "Spiral"
+		"redshift": 0.018463,
+		"dec": 42.717236,
+		"morph_type": "Spiral",
+		"pid": 14,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 338.237946,
-		"dec": 43.53065,
-		"img_url": "galaxy.png",
-		"pid": 15,
-		"redshift": 0.04747,
+		"size": 0.743,
 		"name": "UGC 12076",
-		"morph_type": "Spiral"
+		"redshift": 0.04747,
+		"dec": 43.53065,
+		"morph_type": "Spiral",
+		"pid": 15,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 338.598875,
-		"dec": 43.808892,
-		"img_url": "galaxy.png",
-		"pid": 16,
-		"redshift": 0.018496,
+		"size": 0.907,
 		"name": "UGC 12088",
-		"morph_type": "Spiral"
+		"redshift": 0.018496,
+		"dec": 43.808892,
+		"morph_type": "Spiral",
+		"pid": 16,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 337.556458,
-		"dec": 42.790656,
-		"img_url": "galaxy.png",
-		"pid": 17,
-		"redshift": 0.018166,
+		"size": 0.907,
 		"name": "UGC 12057",
-		"morph_type": "Spiral"
+		"redshift": 0.018166,
+		"dec": 42.790656,
+		"morph_type": "Spiral",
+		"pid": 17,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 346.175475,
-		"dec": 44.543739,
-		"img_url": "galaxy.png",
-		"pid": 18,
-		"redshift": 0.04694,
+		"size": 0.927,
 		"name": "UGC 12345",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.04694,
+		"dec": 44.543739,
+		"morph_type": "Barred Spiral",
+		"pid": 18,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 346.124054,
-		"dec": 44.221497,
-		"img_url": "galaxy.png",
-		"pid": 19,
-		"redshift": 0.046329,
+		"size": 1.233,
 		"name": "UGC 12341",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.046329,
+		"dec": 44.221497,
+		"morph_type": "Barred Spiral",
+		"pid": 19,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 353.676179,
-		"dec": 47.50005,
-		"img_url": "galaxy.png",
-		"pid": 20,
-		"redshift": 0.04151,
+		"size": 0.597,
 		"name": "UGC 12679",
-		"morph_type": "Spiral"
+		"redshift": 0.04151,
+		"dec": 47.50005,
+		"morph_type": "Spiral",
+		"pid": 20,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 355.456725,
-		"dec": 44.97345,
-		"img_url": "galaxy.png",
-		"pid": 21,
-		"redshift": 0.018526,
+		"size": 1.08,
 		"name": "UGC 12742",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.018526,
+		"dec": 44.97345,
+		"morph_type": "Barred Spiral",
+		"pid": 21,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 357.763246,
-		"dec": 46.723678,
-		"img_url": "galaxy.png",
-		"pid": 22,
-		"redshift": 0.046008,
+		"size": 0.957,
 		"name": "UGC 12809",
-		"morph_type": "Spiral"
+		"redshift": 0.046008,
+		"dec": 46.723678,
+		"morph_type": "Spiral",
+		"pid": 22,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 359.815825,
-		"dec": 46.889264,
-		"img_url": "galaxy.png",
-		"pid": 23,
-		"redshift": 0.016891,
+		"size": 1.883,
 		"name": "IC 1525",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.016891,
+		"dec": 46.889264,
+		"morph_type": "Barred Spiral",
+		"pid": 23,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 359.974975,
-		"dec": 46.885119,
-		"img_url": "galaxy.png",
-		"pid": 24,
-		"redshift": 0.016915,
+		"size": 1.06,
 		"name": "UGC 12888",
-		"morph_type": "Spiral"
+		"redshift": 0.016915,
+		"dec": 46.885119,
+		"morph_type": "Spiral",
+		"pid": 24,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 357.293762,
-		"dec": 46.5532,
-		"img_url": "galaxy.png",
-		"pid": 25,
-		"redshift": 0.016124,
+		"size": 1.053,
 		"name": "UGC 12795",
-		"morph_type": "Spiral"
+		"redshift": 0.016124,
+		"dec": 46.5532,
+		"morph_type": "Spiral",
+		"pid": 25,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 2.369437,
-		"dec": 47.355797,
-		"img_url": "galaxy.png",
-		"pid": 26,
-		"redshift": 0.01719,
+		"size": 1.47,
 		"name": "UGC 85",
-		"morph_type": "Spiral"
+		"redshift": 0.01719,
+		"dec": 47.355797,
+		"morph_type": "Spiral",
+		"pid": 26,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 1.849167,
-		"dec": 47.040708,
-		"img_url": "galaxy.png",
-		"pid": 27,
-		"redshift": 0.017662,
+		"size": 0.977,
 		"name": "UGC 61",
-		"morph_type": "Spiral"
+		"redshift": 0.017662,
+		"dec": 47.040708,
+		"morph_type": "Spiral",
+		"pid": 27,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 1.111063,
-		"dec": 47.490289,
-		"img_url": "galaxy.png",
-		"pid": 28,
-		"redshift": 0.017585,
+		"size": 0.86,
 		"name": "MCG+08-01-020",
-		"morph_type": "Spiral"
+		"redshift": 0.017585,
+		"dec": 47.490289,
+		"morph_type": "Spiral",
+		"pid": 28,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 1.745,
-		"dec": 46.6381,
-		"img_url": "galaxy.png",
-		"pid": 29,
-		"redshift": 0.017288,
+		"size": 0.6,
 		"name": "UGC 55",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.017288,
+		"dec": 46.6381,
+		"morph_type": "Barred Spiral",
+		"pid": 29,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 0.007013,
-		"dec": 47.274522,
-		"img_url": "galaxy.png",
-		"pid": 30,
-		"redshift": 0.016735,
+		"size": 2.633,
 		"name": "UGC 12889",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.016735,
+		"dec": 47.274522,
+		"morph_type": "Barred Spiral",
+		"pid": 30,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 0.053983,
-		"dec": 46.965103,
-		"img_url": "galaxy.png",
-		"pid": 31,
-		"redshift": 0.017886,
+		"size": 0.787,
 		"name": "MCG+08-01-019",
-		"morph_type": "Spiral"
+		"redshift": 0.017886,
+		"dec": 46.965103,
+		"morph_type": "Spiral",
+		"pid": 31,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 5.142367,
-		"dec": 47.434539,
-		"img_url": "galaxy.png",
-		"pid": 32,
-		"redshift": 0.017159,
+		"size": 1.31,
 		"name": "UGC 196",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.017159,
+		"dec": 47.434539,
+		"morph_type": "Barred Spiral",
+		"pid": 32,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 4.896296,
-		"dec": 47.241078,
-		"img_url": "galaxy.png",
-		"pid": 33,
-		"redshift": 0.017299,
+		"size": 1.507,
 		"name": "UGC 183",
-		"morph_type": "Spiral"
+		"redshift": 0.017299,
+		"dec": 47.241078,
+		"morph_type": "Spiral",
+		"pid": 33,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 6.374662,
-		"dec": 45.921722,
-		"img_url": "galaxy.png",
-		"pid": 34,
-		"redshift": 0.016975,
+		"size": 2.087,
 		"name": "UGC 243",
-		"morph_type": "Spiral"
+		"redshift": 0.016975,
+		"dec": 45.921722,
+		"morph_type": "Spiral",
+		"pid": 34,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 11.174092,
-		"dec": 45.421353,
-		"img_url": "galaxy.png",
-		"pid": 35,
-		"redshift": 0.050684,
+		"size": 0.673,
 		"name": "UGC 471",
-		"morph_type": "Spiral"
+		"redshift": 0.050684,
+		"dec": 45.421353,
+		"morph_type": "Spiral",
+		"pid": 35,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 8.77588,
-		"dec": 45.52914,
-		"img_url": "galaxy.png",
-		"pid": 36,
-		"redshift": 0.017152,
+		"size": 0.95,
 		"name": "UGC 347",
-		"morph_type": "Spiral"
+		"redshift": 0.017152,
+		"dec": 45.52914,
+		"morph_type": "Spiral",
+		"pid": 36,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 9.087179,
-		"dec": 45.664783,
-		"img_url": "galaxy.png",
-		"pid": 37,
-		"redshift": 0.047716,
+		"size": 0.36,
 		"name": "2MASX J00362092+4539532",
-		"morph_type": "Spiral"
+		"redshift": 0.047716,
+		"dec": 45.664783,
+		"morph_type": "Spiral",
+		"pid": 37,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 13.057413,
-		"dec": 44.330972,
-		"img_url": "galaxy.png",
-		"pid": 38,
-		"redshift": 0.017779,
+		"size": 0.877,
 		"name": "UGC 530",
-		"morph_type": "Spiral"
+		"redshift": 0.017779,
+		"dec": 44.330972,
+		"morph_type": "Spiral",
+		"pid": 38,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 16.57475,
-		"dec": 44.95406,
-		"img_url": "galaxy.png",
-		"pid": 39,
-		"redshift": 0.002362,
+		"size": 1.23,
 		"name": "UGC 672",
-		"morph_type": "Irregular"
+		"redshift": 0.002362,
+		"dec": 44.95406,
+		"morph_type": "Irregular",
+		"pid": 39,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 14.64796,
-		"dec": 45.00522,
-		"img_url": "galaxy.png",
-		"pid": 40,
-		"redshift": 0.017402,
+		"size": 0.89,
 		"name": "UGC 604",
-		"morph_type": "Spiral"
+		"redshift": 0.017402,
+		"dec": 45.00522,
+		"morph_type": "Spiral",
+		"pid": 40,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 19.747637,
-		"dec": 44.286403,
-		"img_url": "galaxy.png",
-		"pid": 41,
-		"redshift": 0.038417,
+		"size": 0.683,
 		"name": "UGC 836",
-		"morph_type": "Elliptical"
+		"redshift": 0.038417,
+		"dec": 44.286403,
+		"morph_type": "Elliptical",
+		"pid": 41,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 19.415379,
-		"dec": 43.648422,
-		"img_url": "galaxy.png",
-		"pid": 42,
-		"redshift": 0.019987,
+		"size": 0.9,
 		"name": "UGC 826",
-		"morph_type": "Spiral"
+		"redshift": 0.019987,
+		"dec": 43.648422,
+		"morph_type": "Spiral",
+		"pid": 42,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 23.420508,
-		"dec": 44.928692,
-		"img_url": "galaxy.png",
-		"pid": 43,
-		"redshift": 0.016732,
+		"size": 1.73,
 		"name": "NGC 590",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.016732,
+		"dec": 44.928692,
+		"morph_type": "Barred Spiral",
+		"pid": 43,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 23.369217,
-		"dec": 44.941333,
-		"img_url": "galaxy.png",
-		"pid": 44,
-		"redshift": 0.016875,
+		"size": 0.577,
 		"name": "2MASX J01332861+4456288",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.016875,
+		"dec": 44.941333,
+		"morph_type": "Barred Spiral",
+		"pid": 44,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 21.9471,
-		"dec": 43.251864,
-		"img_url": "galaxy.png",
-		"pid": 45,
-		"redshift": 0.004096,
+		"size": 0.313,
 		"name": "UGC 1038",
-		"morph_type": "Spiral"
+		"redshift": 0.004096,
+		"dec": 43.251864,
+		"morph_type": "Spiral",
+		"pid": 45,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 21.944471,
-		"dec": 43.154367,
-		"img_url": "galaxy.png",
-		"pid": 46,
-		"redshift": 0.051843,
+		"size": 1.227,
 		"name": "UGC 1037",
-		"morph_type": "Spiral"
+		"redshift": 0.051843,
+		"dec": 43.154367,
+		"morph_type": "Spiral",
+		"pid": 46,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 28.0456,
-		"dec": 42.918189,
-		"img_url": "galaxy.png",
-		"pid": 47,
-		"redshift": 0.020624,
+		"size": 1.22,
 		"name": "UGC 1331",
-		"morph_type": "Spiral"
+		"redshift": 0.020624,
+		"dec": 42.918189,
+		"morph_type": "Spiral",
+		"pid": 47,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 28.401225,
-		"dec": 43.965511,
-		"img_url": "galaxy.png",
-		"pid": 48,
-		"redshift": 0.020914,
+		"size": 1.017,
 		"name": "UGC 1355",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.020914,
+		"dec": 43.965511,
+		"morph_type": "Barred Spiral",
+		"pid": 48,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 27.888087,
-		"dec": 41.83685,
-		"img_url": "galaxy.png",
-		"pid": 49,
-		"redshift": 0.03443,
+		"size": 0.787,
 		"name": "UGC 1320",
-		"morph_type": "Spiral"
+		"redshift": 0.03443,
+		"dec": 41.83685,
+		"morph_type": "Spiral",
+		"pid": 49,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 33.064833,
-		"dec": 42.379722,
-		"img_url": "galaxy.png",
-		"pid": 50,
-		"redshift": 0.04992,
+		"size": 0.713,
 		"name": "UGC 1692",
-		"morph_type": "Spiral"
+		"redshift": 0.04992,
+		"dec": 42.379722,
+		"morph_type": "Spiral",
+		"pid": 50,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 31.231275,
-		"dec": 43.155025,
-		"img_url": "galaxy.png",
-		"pid": 51,
-		"redshift": 0.0301,
+		"size": 1.513,
 		"name": "UGC 1567",
-		"morph_type": "Spiral"
+		"redshift": 0.0301,
+		"dec": 43.155025,
+		"morph_type": "Spiral",
+		"pid": 51,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 30.954167,
-		"dec": 43.002217,
-		"img_url": "galaxy.png",
-		"pid": 52,
-		"redshift": 0.03017,
+		"size": 1.06,
 		"name": "UGC 1548",
-		"morph_type": "Spiral"
+		"redshift": 0.03017,
+		"dec": 43.002217,
+		"morph_type": "Spiral",
+		"pid": 52,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 31.78475,
-		"dec": 42.965756,
-		"img_url": "galaxy.png",
-		"pid": 53,
-		"redshift": 0.01868,
+		"size": 1.137,
 		"name": "UGC 1601",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.01868,
+		"dec": 42.965756,
+		"morph_type": "Barred Spiral",
+		"pid": 53,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 32.163471,
-		"dec": 43.007386,
-		"img_url": "galaxy.png",
-		"pid": 54,
-		"redshift": 0.01848,
+		"size": 0.697,
 		"name": "UGC 1628",
-		"morph_type": "Spiral"
+		"redshift": 0.01848,
+		"dec": 43.007386,
+		"morph_type": "Spiral",
+		"pid": 54,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 32.5617,
-		"dec": 41.521786,
-		"img_url": "galaxy.png",
-		"pid": 55,
-		"redshift": 0.018539,
+		"size": 0.873,
 		"name": "UGC 1661",
-		"morph_type": "Elliptical"
+		"redshift": 0.018539,
+		"dec": 41.521786,
+		"morph_type": "Elliptical",
+		"pid": 55,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 33.318663,
-		"dec": 41.242778,
-		"img_url": "galaxy.png",
-		"pid": 56,
-		"redshift": 0.0192,
+		"size": 0.737,
 		"name": "UGC 1704",
-		"morph_type": "Spiral"
+		"redshift": 0.0192,
+		"dec": 41.242778,
+		"morph_type": "Spiral",
+		"pid": 56,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 35.145775,
-		"dec": 41.574042,
-		"img_url": "galaxy.png",
-		"pid": 57,
-		"redshift": 0.02166,
+		"size": 1.083,
 		"name": "MCG+07-05-039",
-		"morph_type": "Spiral"
+		"redshift": 0.02166,
+		"dec": 41.574042,
+		"morph_type": "Spiral",
+		"pid": 57,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 34.737,
-		"dec": 40.56347,
-		"img_url": "galaxy.png",
-		"pid": 58,
-		"redshift": 0.017512,
+		"size": 1.51,
 		"name": "UGC 1780",
-		"morph_type": "Irregular"
+		"redshift": 0.017512,
+		"dec": 40.56347,
+		"morph_type": "Irregular",
+		"pid": 58,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 35.096092,
-		"dec": 40.792081,
-		"img_url": "galaxy.png",
-		"pid": 59,
-		"redshift": 0.02329,
+		"size": 1.133,
 		"name": "UGC 1796",
-		"morph_type": "Spiral"
+		"redshift": 0.02329,
+		"dec": 40.792081,
+		"morph_type": "Spiral",
+		"pid": 59,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 35.7976,
-		"dec": 41.367992,
-		"img_url": "galaxy.png",
-		"pid": 60,
-		"redshift": 0.01793,
+		"size": 1.48,
 		"name": "UGC 1840",
-		"morph_type": "Spiral"
+		"redshift": 0.01793,
+		"dec": 41.367992,
+		"morph_type": "Spiral",
+		"pid": 60,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 32.08954,
-		"dec": 41.47919,
-		"img_url": "galaxy.png",
-		"pid": 61,
-		"redshift": 0.01849,
+		"size": 1.55,
 		"name": "UGC 1626",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.01849,
+		"dec": 41.47919,
+		"morph_type": "Barred Spiral",
+		"pid": 61,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 32.54929,
-		"dec": 41.56214,
-		"img_url": "galaxy.png",
-		"pid": 62,
-		"redshift": 0.01457,
+		"size": 1.02,
 		"name": "UGC 1656",
-		"morph_type": "Spiral"
+		"redshift": 0.01457,
+		"dec": 41.56214,
+		"morph_type": "Spiral",
+		"pid": 62,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 36.197004,
-		"dec": 41.681286,
-		"img_url": "galaxy.png",
-		"pid": 63,
-		"redshift": 0.017852,
+		"size": 1.267,
 		"name": "UGC 1858",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.017852,
+		"dec": 41.681286,
+		"morph_type": "Barred Spiral",
+		"pid": 63,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 38.53467,
-		"dec": 40.51286,
-		"img_url": "galaxy.png",
-		"pid": 64,
-		"redshift": 0.014343,
+		"size": 0.66,
 		"name": "UGC 2038",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.014343,
+		"dec": 40.51286,
+		"morph_type": "Barred Spiral",
+		"pid": 64,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 37.24975,
-		"dec": 40.47958,
-		"img_url": "galaxy.png",
-		"pid": 65,
-		"redshift": 0.016598,
+		"size": 0.68,
 		"name": "UGC 1952",
-		"morph_type": "Spiral"
+		"redshift": 0.016598,
+		"dec": 40.47958,
+		"morph_type": "Spiral",
+		"pid": 65,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 36.856525,
-		"dec": 41.059903,
-		"img_url": "galaxy.png",
-		"pid": 66,
-		"redshift": 0.018106,
+		"size": 0.803,
 		"name": "UGC 1914",
-		"morph_type": "Elliptical"
+		"redshift": 0.018106,
+		"dec": 41.059903,
+		"morph_type": "Elliptical",
+		"pid": 66,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 36.122817,
-		"dec": 40.870511,
-		"img_url": "galaxy.png",
-		"pid": 67,
-		"redshift": 0.042793,
+		"size": 0.773,
 		"name": "UGC 1855",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.042793,
+		"dec": 40.870511,
+		"morph_type": "Barred Spiral",
+		"pid": 67,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 37.809583,
-		"dec": 40.390311,
-		"img_url": "galaxy.png",
-		"pid": 68,
-		"redshift": 0.0193,
+		"size": 0.923,
 		"name": "UGC 1988",
-		"morph_type": "Spiral"
+		"redshift": 0.0193,
+		"dec": 40.390311,
+		"morph_type": "Spiral",
+		"pid": 68,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 38.42883,
-		"dec": 40.52867,
-		"img_url": "galaxy.png",
-		"pid": 69,
-		"redshift": 0.00193,
+		"size": 2.5,
 		"name": "UGC 2034",
-		"morph_type": "Spiral"
+		"redshift": 0.00193,
+		"dec": 40.52867,
+		"morph_type": "Spiral",
+		"pid": 69,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 36.502071,
-		"dec": 39.470886,
-		"img_url": "galaxy.png",
-		"pid": 70,
-		"redshift": 0.016338,
+		"size": 1.973,
 		"name": "UGC 1886",
-		"morph_type": "Spiral"
+		"redshift": 0.016338,
+		"dec": 39.470886,
+		"morph_type": "Spiral",
+		"pid": 70,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 35.385879,
-		"dec": 39.356861,
-		"img_url": "galaxy.png",
-		"pid": 71,
-		"redshift": 0.024467,
+		"size": 0.95,
 		"name": "UGC 1813",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.024467,
+		"dec": 39.356861,
+		"morph_type": "Barred Spiral",
+		"pid": 71,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 35.369596,
-		"dec": 39.375736,
-		"img_url": "galaxy.png",
-		"pid": 72,
-		"redshift": 0.02508,
+		"size": 1.587,
 		"name": "UGC 1810",
-		"morph_type": "Spiral"
+		"redshift": 0.02508,
+		"dec": 39.375736,
+		"morph_type": "Spiral",
+		"pid": 72,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 39.115962,
-		"dec": 38.969044,
-		"img_url": "galaxy.png",
-		"pid": 73,
-		"redshift": 0.003017,
+		"size": 2.3,
 		"name": "IC 239",
-		"morph_type": "Spiral"
+		"redshift": 0.003017,
+		"dec": 38.969044,
+		"morph_type": "Spiral",
+		"pid": 73,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 38.108933,
-		"dec": 39.407575,
-		"img_url": "galaxy.png",
-		"pid": 74,
-		"redshift": 0.036002,
+		"size": 0.793,
 		"name": "UGC 2003",
-		"morph_type": "Spiral"
+		"redshift": 0.036002,
+		"dec": 39.407575,
+		"morph_type": "Spiral",
+		"pid": 74,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.104679,
-		"dec": 38.563339,
-		"img_url": "galaxy.png",
-		"pid": 75,
-		"redshift": 0.001629,
+		"size": 1.187,
 		"name": "UGC 2157",
-		"morph_type": "Spiral"
+		"redshift": 0.001629,
+		"dec": 38.563339,
+		"morph_type": "Spiral",
+		"pid": 75,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.989246,
-		"dec": 38.800742,
-		"img_url": "galaxy.png",
-		"pid": 76,
-		"redshift": 0.0317,
+		"size": 0.687,
 		"name": "UGC 2207",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.0317,
+		"dec": 38.800742,
+		"morph_type": "Barred Spiral",
+		"pid": 76,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.666796,
-		"dec": 39.534358,
-		"img_url": "galaxy.png",
-		"pid": 77,
-		"redshift": 0.03116,
+		"size": 0.923,
 		"name": "UGC 2180",
-		"morph_type": "Spiral"
+		"redshift": 0.03116,
+		"dec": 39.534358,
+		"morph_type": "Spiral",
+		"pid": 77,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 38.225,
-		"dec": 38.68058,
-		"img_url": "galaxy.png",
-		"pid": 78,
-		"redshift": 0.001886,
+		"size": 1.95,
 		"name": "UGC 2014",
-		"morph_type": "Spiral"
+		"redshift": 0.001886,
+		"dec": 38.68058,
+		"morph_type": "Spiral",
+		"pid": 78,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.31521,
-		"dec": 38.74383,
-		"img_url": "galaxy.png",
-		"pid": 79,
-		"redshift": 0.002471,
+		"size": 1.45,
 		"name": "UGC 2165",
-		"morph_type": "Spiral"
+		"redshift": 0.002471,
+		"dec": 38.74383,
+		"morph_type": "Spiral",
+		"pid": 79,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.1571,
-		"dec": 39.0581,
-		"img_url": "galaxy.png",
-		"pid": 80,
-		"redshift": 0.002481,
+		"size": 1.3,
 		"name": "2MASXI J0240377+390326",
-		"morph_type": "Spiral"
+		"redshift": 0.002481,
+		"dec": 39.0581,
+		"morph_type": "Spiral",
+		"pid": 80,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 37.916883,
-		"dec": 39.378375,
-		"img_url": "galaxy.png",
-		"pid": 81,
-		"redshift": 0.026725,
+		"size": 1.467,
 		"name": "UGC 1993",
-		"morph_type": "Spiral"
+		"redshift": 0.026725,
+		"dec": 39.378375,
+		"morph_type": "Spiral",
+		"pid": 81,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.1642,
-		"dec": 39.3797,
-		"img_url": "galaxy.png",
-		"pid": 82,
-		"redshift": 0.003017,
+		"size": 0.63,
 		"name": "LEDA 10143",
-		"morph_type": "Spiral"
+		"redshift": 0.003017,
+		"dec": 39.3797,
+		"morph_type": "Spiral",
+		"pid": 82,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.10005,
-		"dec": 39.06325,
-		"img_url": "galaxy.png",
-		"pid": 83,
-		"redshift": 0.002127,
+		"size": 5.77,
 		"name": "NGC 1023",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.002127,
+		"dec": 39.06325,
+		"morph_type": "Barred Spiral",
+		"pid": 83,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.84033,
-		"dec": 37.52458,
-		"img_url": "galaxy.png",
-		"pid": 84,
-		"redshift": 0.00193,
+		"size": 0.91,
 		"name": "UGC 2254",
-		"morph_type": "Spiral"
+		"redshift": 0.00193,
+		"dec": 37.52458,
+		"morph_type": "Spiral",
+		"pid": 84,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.807721,
-		"dec": 37.813678,
-		"img_url": "galaxy.png",
-		"pid": 85,
-		"redshift": 0.03353,
+		"size": 0.697,
 		"name": "UGC 2190",
-		"morph_type": "Spiral"
+		"redshift": 0.03353,
+		"dec": 37.813678,
+		"morph_type": "Spiral",
+		"pid": 85,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.988146,
-		"dec": 37.569556,
-		"img_url": "galaxy.png",
-		"pid": 86,
-		"redshift": 0.030635,
+		"size": 0.583,
 		"name": "MCG+06-07-010",
-		"morph_type": "Spiral"
+		"redshift": 0.030635,
+		"dec": 37.569556,
+		"morph_type": "Spiral",
+		"pid": 86,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 42.748529,
-		"dec": 37.466664,
-		"img_url": "galaxy.png",
-		"pid": 87,
-		"redshift": 0.016642,
+		"size": 0.843,
 		"name": "UGC 2328",
-		"morph_type": "Elliptical"
+		"redshift": 0.016642,
+		"dec": 37.466664,
+		"morph_type": "Elliptical",
+		"pid": 87,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 42.43675,
-		"dec": 38.068394,
-		"img_url": "galaxy.png",
-		"pid": 88,
-		"redshift": 0.018049,
+		"size": 0.88,
 		"name": "UGC 2305",
-		"morph_type": "Spiral"
+		"redshift": 0.018049,
+		"dec": 38.068394,
+		"morph_type": "Spiral",
+		"pid": 88,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.980825,
-		"dec": 37.538442,
-		"img_url": "galaxy.png",
-		"pid": 89,
-		"redshift": 0.001947,
+		"size": 0.71,
 		"name": "UGC 2259",
-		"morph_type": "Spiral"
+		"redshift": 0.001947,
+		"dec": 37.538442,
+		"morph_type": "Spiral",
+		"pid": 89,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.740283,
-		"dec": 39.01265,
-		"img_url": "galaxy.png",
-		"pid": 90,
-		"redshift": 0.030301,
+		"size": 0.887,
 		"name": "UGC 2243",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.030301,
+		"dec": 39.01265,
+		"morph_type": "Barred Spiral",
+		"pid": 90,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.516329,
-		"dec": 36.905225,
-		"img_url": "galaxy.png",
-		"pid": 91,
-		"redshift": 0.04861,
+		"size": 1.147,
 		"name": "UGC 2232",
-		"morph_type": "Elliptical"
+		"redshift": 0.04861,
+		"dec": 36.905225,
+		"morph_type": "Elliptical",
+		"pid": 91,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.103879,
-		"dec": 37.492047,
-		"img_url": "galaxy.png",
-		"pid": 92,
-		"redshift": 0.032569,
+		"size": 0.86,
 		"name": "2MASX J02442493+3729313",
-		"morph_type": "Spiral"
+		"redshift": 0.032569,
+		"dec": 37.492047,
+		"morph_type": "Spiral",
+		"pid": 92,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.944338,
-		"dec": 36.731803,
-		"img_url": "galaxy.png",
-		"pid": 93,
-		"redshift": 0.04739,
+		"size": 0.39,
 		"name": "2MASX J02474664+3643544",
-		"morph_type": "Spiral"
+		"redshift": 0.04739,
+		"dec": 36.731803,
+		"morph_type": "Spiral",
+		"pid": 93,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.874921,
-		"dec": 36.867347,
-		"img_url": "galaxy.png",
-		"pid": 94,
-		"redshift": 0.04814,
+		"size": 0.483,
 		"name": "2MASX J02472998+3652024",
-		"morph_type": "Spiral"
+		"redshift": 0.04814,
+		"dec": 36.867347,
+		"morph_type": "Spiral",
+		"pid": 94,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.525762,
-		"dec": 36.978275,
-		"img_url": "galaxy.png",
-		"pid": 95,
-		"redshift": 0.05013,
+		"size": 0.37,
 		"name": "2MASX J02460618+3658417",
-		"morph_type": "Spiral"
+		"redshift": 0.05013,
+		"dec": 36.978275,
+		"morph_type": "Spiral",
+		"pid": 95,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.965,
-		"dec": 37.0583,
-		"img_url": "galaxy.png",
-		"pid": 96,
-		"redshift": 0.046215,
+		"size": 0.33,
 		"name": "LEDA 74093",
-		"morph_type": "Spiral"
+		"redshift": 0.046215,
+		"dec": 37.0583,
+		"morph_type": "Spiral",
+		"pid": 96,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.41145,
-		"dec": 37.306881,
-		"img_url": "galaxy.png",
-		"pid": 97,
-		"redshift": 0.04925,
+		"size": 0.427,
 		"name": "2MASX J02453874+3718247",
-		"morph_type": "Spiral"
+		"redshift": 0.04925,
+		"dec": 37.306881,
+		"morph_type": "Spiral",
+		"pid": 97,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.451037,
-		"dec": 36.853564,
-		"img_url": "galaxy.png",
-		"pid": 98,
-		"redshift": 0.0456,
+		"size": 0.447,
 		"name": "2MASX J02454824+3651128",
-		"morph_type": "Elliptical"
+		"redshift": 0.0456,
+		"dec": 36.853564,
+		"morph_type": "Elliptical",
+		"pid": 98,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.409271,
-		"dec": 36.984656,
-		"img_url": "galaxy.png",
-		"pid": 99,
-		"redshift": 0.04248,
+		"size": 0.443,
 		"name": "2MASX J02453822+3659047",
-		"morph_type": "Spiral"
+		"redshift": 0.04248,
+		"dec": 36.984656,
+		"morph_type": "Spiral",
+		"pid": 99,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.896183,
-		"dec": 36.682075,
-		"img_url": "galaxy.png",
-		"pid": 100,
-		"redshift": 0.04542,
+		"size": 0.313,
 		"name": "2MASX J02473508+3640554",
-		"morph_type": "Spiral"
+		"redshift": 0.04542,
+		"dec": 36.682075,
+		"morph_type": "Spiral",
+		"pid": 100,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.767408,
-		"dec": 36.759597,
-		"img_url": "galaxy.png",
-		"pid": 101,
-		"redshift": 0.04565,
+		"size": 0.233,
 		"name": "2MASX J02470417+3645345",
-		"morph_type": "Spiral"
+		"redshift": 0.04565,
+		"dec": 36.759597,
+		"morph_type": "Spiral",
+		"pid": 101,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.681363,
-		"dec": 36.808728,
-		"img_url": "galaxy.png",
-		"pid": 102,
-		"redshift": 0.04373,
+		"size": 0.353,
 		"name": "2MASX J02464352+3648314",
-		"morph_type": "Elliptical"
+		"redshift": 0.04373,
+		"dec": 36.808728,
+		"morph_type": "Elliptical",
+		"pid": 102,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.884317,
-		"dec": 36.827072,
-		"img_url": "galaxy.png",
-		"pid": 103,
-		"redshift": 0.046795,
+		"size": 0.367,
 		"name": "2MASX J02473223+3649374",
-		"morph_type": "Spiral"
+		"redshift": 0.046795,
+		"dec": 36.827072,
+		"morph_type": "Spiral",
+		"pid": 103,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.623013,
-		"dec": 36.861672,
-		"img_url": "galaxy.png",
-		"pid": 104,
-		"redshift": 0.04395,
+		"size": 0.377,
 		"name": "2MASX J02462952+3651420",
-		"morph_type": "Spiral"
+		"redshift": 0.04395,
+		"dec": 36.861672,
+		"morph_type": "Spiral",
+		"pid": 104,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.601808,
-		"dec": 36.901108,
-		"img_url": "galaxy.png",
-		"pid": 105,
-		"redshift": 0.04716,
+		"size": 0.28,
 		"name": "2MASX J02462443+3654039",
-		"morph_type": "Spiral"
+		"redshift": 0.04716,
+		"dec": 36.901108,
+		"morph_type": "Spiral",
+		"pid": 105,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.5867,
-		"dec": 36.8447,
-		"img_url": "galaxy.png",
-		"pid": 106,
-		"redshift": 0.047044,
+		"size": 0.35,
 		"name": "LEDA 74167",
-		"morph_type": "Spiral"
+		"redshift": 0.047044,
+		"dec": 36.8447,
+		"morph_type": "Spiral",
+		"pid": 106,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.586167,
-		"dec": 36.9211,
-		"img_url": "galaxy.png",
-		"pid": 107,
-		"redshift": 0.0468,
+		"size": 0.237,
 		"name": "2MASX J02462067+3655159",
-		"morph_type": "Spiral"
+		"redshift": 0.0468,
+		"dec": 36.9211,
+		"morph_type": "Spiral",
+		"pid": 107,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.513542,
-		"dec": 36.884392,
-		"img_url": "galaxy.png",
-		"pid": 108,
-		"redshift": 0.05375,
+		"size": 0.283,
 		"name": "2MASX J02460325+3653038",
-		"morph_type": "Spiral"
+		"redshift": 0.05375,
+		"dec": 36.884392,
+		"morph_type": "Spiral",
+		"pid": 108,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.427071,
-		"dec": 36.8755,
-		"img_url": "galaxy.png",
-		"pid": 109,
-		"redshift": 0.046278,
+		"size": 0.27,
 		"name": "2MASX J02454249+3652318",
-		"morph_type": "Spiral"
+		"redshift": 0.046278,
+		"dec": 36.8755,
+		"morph_type": "Spiral",
+		"pid": 109,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.904042,
-		"dec": 36.985133,
-		"img_url": "galaxy.png",
-		"pid": 110,
-		"redshift": 0.05139,
+		"size": 0.287,
 		"name": "2MASX J02473696+3659064",
-		"morph_type": "Spiral"
+		"redshift": 0.05139,
+		"dec": 36.985133,
+		"morph_type": "Spiral",
+		"pid": 110,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.837483,
-		"dec": 37.100097,
-		"img_url": "galaxy.png",
-		"pid": 111,
-		"redshift": 0.05029,
+		"size": 0.393,
 		"name": "2MASX J02472099+3706003",
-		"morph_type": "Spiral"
+		"redshift": 0.05029,
+		"dec": 37.100097,
+		"morph_type": "Spiral",
+		"pid": 111,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.062929,
-		"dec": 37.1563,
-		"img_url": "galaxy.png",
-		"pid": 112,
-		"redshift": 0.144444,
+		"size": 0.257,
 		"name": "2MASX J02441510+3709226",
-		"morph_type": "Spiral"
+		"redshift": 0.144444,
+		"dec": 37.1563,
+		"morph_type": "Spiral",
+		"pid": 112,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.081521,
-		"dec": 37.138425,
-		"img_url": "galaxy.png",
-		"pid": 113,
-		"redshift": 0.144133,
+		"size": 0.363,
 		"name": "2MASX J02441956+3708183",
-		"morph_type": "Spiral"
+		"redshift": 0.144133,
+		"dec": 37.138425,
+		"morph_type": "Spiral",
+		"pid": 113,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 41.871371,
-		"dec": 36.962342,
-		"img_url": "galaxy.png",
-		"pid": 114,
-		"redshift": 0.05383,
+		"size": 0.417,
 		"name": "2MASX J02472912+3657444",
-		"morph_type": "Spiral"
+		"redshift": 0.05383,
+		"dec": 36.962342,
+		"morph_type": "Spiral",
+		"pid": 114,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 40.875238,
-		"dec": 37.341203,
-		"img_url": "galaxy.png",
-		"pid": 115,
-		"redshift": 0.001729,
+		"size": 2.633,
 		"name": "NGC 1058",
-		"morph_type": "Spiral"
+		"redshift": 0.001729,
+		"dec": 37.341203,
+		"morph_type": "Spiral",
+		"pid": 115,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 45.376871,
-		"dec": 37.766067,
-		"img_url": "galaxy.png",
-		"pid": 116,
-		"redshift": 0.016448,
+		"size": 1.213,
 		"name": "IC 278",
-		"morph_type": "Elliptical"
+		"redshift": 0.016448,
+		"dec": 37.766067,
+		"morph_type": "Elliptical",
+		"pid": 116,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 44.885492,
-		"dec": 37.009208,
-		"img_url": "galaxy.png",
-		"pid": 117,
-		"redshift": 0.05706,
+		"size": 0.627,
 		"name": "UGC 2451",
-		"morph_type": "Spiral"
+		"redshift": 0.05706,
+		"dec": 37.009208,
+		"morph_type": "Spiral",
+		"pid": 117,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 44.095408,
-		"dec": 37.007489,
-		"img_url": "galaxy.png",
-		"pid": 118,
-		"redshift": 0.050252,
+		"size": 0.927,
 		"name": "UGC 2401",
-		"morph_type": "Spiral"
+		"redshift": 0.050252,
+		"dec": 37.007489,
+		"morph_type": "Spiral",
+		"pid": 118,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 43.952042,
-		"dec": 36.680325,
-		"img_url": "galaxy.png",
-		"pid": 119,
-		"redshift": 0.04693,
+		"size": 1.053,
 		"name": "UGC 2390",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.04693,
+		"dec": 36.680325,
+		"morph_type": "Barred Spiral",
+		"pid": 119,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 46.430613,
-		"dec": 36.786153,
-		"img_url": "galaxy.png",
-		"pid": 120,
-		"redshift": 0.016618,
+		"size": 1.91,
 		"name": "UGC 2526",
-		"morph_type": "Spiral"
+		"redshift": 0.016618,
+		"dec": 36.786153,
+		"morph_type": "Spiral",
+		"pid": 120,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 47.065454,
-		"dec": 36.449661,
-		"img_url": "galaxy.png",
-		"pid": 121,
-		"redshift": 0.013426,
+		"size": 1.217,
 		"name": "UGC 2550",
-		"morph_type": "Spiral"
+		"redshift": 0.013426,
+		"dec": 36.449661,
+		"morph_type": "Spiral",
+		"pid": 121,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 45.474383,
-		"dec": 35.733161,
-		"img_url": "galaxy.png",
-		"pid": 122,
-		"redshift": 0.0162,
+		"size": 1.363,
 		"name": "UGC 2491",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.0162,
+		"dec": 35.733161,
+		"morph_type": "Barred Spiral",
+		"pid": 122,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 45.506217,
-		"dec": 35.759822,
-		"img_url": "galaxy.png",
-		"pid": 123,
-		"redshift": 0.04619,
+		"size": 0.823,
 		"name": "UGC 2493",
-		"morph_type": "Spiral"
+		"redshift": 0.04619,
+		"dec": 35.759822,
+		"morph_type": "Spiral",
+		"pid": 123,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 45.515996,
-		"dec": 36.098369,
-		"img_url": "galaxy.png",
-		"pid": 124,
-		"redshift": 0.026372,
+		"size": 1.17,
 		"name": "UGC 2494",
-		"morph_type": "Spiral"
+		"redshift": 0.026372,
+		"dec": 36.098369,
+		"morph_type": "Spiral",
+		"pid": 124,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 46.591529,
-		"dec": 36.014539,
-		"img_url": "galaxy.png",
-		"pid": 125,
-		"redshift": 0.016571,
+		"size": 0.887,
 		"name": "IC 1874",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.016571,
+		"dec": 36.014539,
+		"morph_type": "Barred Spiral",
+		"pid": 125,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 46.7524,
-		"dec": 36.167672,
-		"img_url": "galaxy.png",
-		"pid": 126,
-		"redshift": 0.013106,
+		"size": 1.103,
 		"name": "UGC 2540",
-		"morph_type": "Spiral"
+		"redshift": 0.013106,
+		"dec": 36.167672,
+		"morph_type": "Spiral",
+		"pid": 126,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 44.994254,
-		"dec": 36.820461,
-		"img_url": "galaxy.png",
-		"pid": 127,
-		"redshift": 0.012082,
+		"size": 0.987,
 		"name": "Mrk 1066",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.012082,
+		"dec": 36.820461,
+		"morph_type": "Barred Spiral",
+		"pid": 127,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 43.5002,
-		"dec": 36.4311,
-		"img_url": "galaxy.png",
-		"pid": 128,
-		"redshift": 0.048561,
+		"size": 0.983,
 		"name": "UGC 2366",
-		"morph_type": "Spiral"
+		"redshift": 0.048561,
+		"dec": 36.4311,
+		"morph_type": "Spiral",
+		"pid": 128,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 43.870704,
-		"dec": 36.200531,
-		"img_url": "galaxy.png",
-		"pid": 129,
-		"redshift": 0.029316,
+		"size": 0.737,
 		"name": "MCG+06-07-020",
-		"morph_type": "Spiral"
+		"redshift": 0.029316,
+		"dec": 36.200531,
+		"morph_type": "Spiral",
+		"pid": 129,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 45.154304,
-		"dec": 35.629006,
-		"img_url": "galaxy.png",
-		"pid": 130,
-		"redshift": 0.01666,
+		"size": 1.117,
 		"name": "UGC 2466",
-		"morph_type": "Irregular"
+		"redshift": 0.01666,
+		"dec": 35.629006,
+		"morph_type": "Irregular",
+		"pid": 130,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 322.60525,
-		"dec": 41.84347,
-		"img_url": "galaxy.png",
-		"pid": 131,
-		"redshift": 0.01459,
+		"size": 1.2,
 		"name": "UGC 11757",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.01459,
+		"dec": 41.84347,
+		"morph_type": "Barred Spiral",
+		"pid": 131,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 323.4476,
-		"dec": 41.834317,
-		"img_url": "galaxy.png",
-		"pid": 132,
-		"redshift": 0.01442,
+		"size": 1.323,
 		"name": "UGC 11767",
-		"morph_type": "Spiral"
+		"redshift": 0.01442,
+		"dec": 41.834317,
+		"morph_type": "Spiral",
+		"pid": 132,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 327.734862,
-		"dec": 44.542222,
-		"img_url": "galaxy.png",
-		"pid": 133,
-		"redshift": 0.032379,
+		"size": 1.267,
 		"name": "UGC 11831",
-		"morph_type": "Elliptical"
+		"redshift": 0.032379,
+		"dec": 44.542222,
+		"morph_type": "Elliptical",
+		"pid": 133,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 325.896242,
-		"dec": 43.694089,
-		"img_url": "galaxy.png",
-		"pid": 134,
-		"redshift": 0.017981,
+		"size": 1.467,
 		"name": "UGC 11799",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.017981,
+		"dec": 43.694089,
+		"morph_type": "Barred Spiral",
+		"pid": 134,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 325.834002,
-		"dec": 43.57629,
-		"img_url": "galaxy.png",
-		"pid": 135,
-		"redshift": 0.01492,
+		"size": 1.233,
 		"name": "UGC 11797",
-		"morph_type": "Spiral"
+		"redshift": 0.01492,
+		"dec": 43.57629,
+		"morph_type": "Spiral",
+		"pid": 135,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 325.889558,
-		"dec": 43.550194,
-		"img_url": "galaxy.png",
-		"pid": 136,
-		"redshift": 0.01451,
+		"size": 1.217,
 		"name": "UGC 11801",
-		"morph_type": "Spiral"
+		"redshift": 0.01451,
+		"dec": 43.550194,
+		"morph_type": "Spiral",
+		"pid": 136,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 325.862517,
-		"dec": 43.55508,
-		"img_url": "galaxy.png",
-		"pid": 137,
-		"redshift": 0.01401,
+		"size": 1.37,
 		"name": "UGC 11798",
-		"morph_type": "Spiral"
+		"redshift": 0.01401,
+		"dec": 43.55508,
+		"morph_type": "Spiral",
+		"pid": 137,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 332.21475,
-		"dec": 44.539872,
-		"img_url": "galaxy.png",
-		"pid": 138,
-		"redshift": 0.010367,
+		"size": 0.997,
 		"name": "UGC 11923",
-		"morph_type": "Spiral"
+		"redshift": 0.010367,
+		"dec": 44.539872,
+		"morph_type": "Spiral",
+		"pid": 138,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 331.405608,
-		"dec": 44.837728,
-		"img_url": "galaxy.png",
-		"pid": 139,
-		"redshift": 0.0175,
+		"size": 1.35,
 		"name": "UGC 11906",
-		"morph_type": "Spiral"
+		"redshift": 0.0175,
+		"dec": 44.837728,
+		"morph_type": "Spiral",
+		"pid": 139,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 331.187162,
-		"dec": 44.949039,
-		"img_url": "galaxy.png",
-		"pid": 140,
-		"redshift": 0.017655,
+		"size": 1.493,
 		"name": "UGC 11899",
-		"morph_type": "Spiral"
+		"redshift": 0.017655,
+		"dec": 44.949039,
+		"morph_type": "Spiral",
+		"pid": 140,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 330.718475,
-		"dec": 44.693456,
-		"img_url": "galaxy.png",
-		"pid": 141,
-		"redshift": 0.018916,
+		"size": 0.833,
 		"name": "UGC 11886",
-		"morph_type": "Barred Spiral"
+		"redshift": 0.018916,
+		"dec": 44.693456,
+		"morph_type": "Barred Spiral",
+		"pid": 141,
+		"img_url": "galaxy.png"
 	},
 	{
 		"ra": 329.926421,
-		"dec": 44.358169,
-		"img_url": "galaxy.png",
-		"pid": 142,
-		"redshift": 0.018215,
+		"size": 0.943,
 		"name": "UGC 11869",
-		"morph_type": "Spiral"
+		"redshift": 0.018215,
+		"dec": 44.358169,
+		"morph_type": "Spiral",
+		"pid": 142,
+		"img_url": "galaxy.png"
 	}
 ]

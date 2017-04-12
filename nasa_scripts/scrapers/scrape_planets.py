@@ -54,7 +54,7 @@ def translate_planet(web_planet) :
     """
     Translates a planet from the kepler data to a spacecowboy planet
     """
-    translators = [t_pid, t_name, t_diameter, t_ra, t_dec, t_gravity, t_op, t_temp, t_img, t_mass, t_spid, t_gpid]
+    translators = [t_pid, t_name, t_diameter, t_ra, t_dec, t_gravity, t_op, t_temp, t_img, t_mass, t_spid, t_gpid, t_hostname]
     return dict([t(web_planet) for t in translators])
 
 pid = 0
@@ -67,7 +67,7 @@ def t_name(web_planet) :
     return ("name", str(web_planet["pl_name"]))
 
 def t_diameter(web_planet) : 
-    diameter = 2 * web_planet["pl_radj"] * Spacecowboy.radj
+    diameter = 2 * web_planet["pl_radj"]
     return ("diameter", float(diameter))
 
 def t_ra(web_planet) : 
@@ -86,7 +86,7 @@ def t_op(web_planet) :
     return ("orbital_period", float(web_planet["pl_orbper"]))
 
 def t_mass(web_planet) : 
-    mass = web_planet["pl_massj"] * Spacecowboy.massj
+    mass = web_planet["pl_massj"]
     return ("mass", float(mass))
 
 def t_temp(web_planet) : 

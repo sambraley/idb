@@ -25,10 +25,10 @@ def load_db():
     #Creates tables based on models.py
     db.create_all()
     
-    planets_json = json.loads(open('planets.json').read())
-    galaxies_json = json.loads(open('galaxies.json').read())
-    satellites_json = json.loads(open('satellites.json').read())
-    stars_json = json.loads(open('stars.json').read())
+    planets_json = json.loads(open('data/planets.json').read())
+    galaxies_json = json.loads(open('data/galaxies.json').read())
+    satellites_json = json.loads(open('data/satellites.json').read())
+    stars_json = json.loads(open('data/stars.json').read())
     
     galaxies = create_galaxy_objs(galaxies_json)
     insert_into_db(galaxies)
