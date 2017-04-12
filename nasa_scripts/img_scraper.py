@@ -17,6 +17,5 @@ html_file = open("img_scraper.html", "w")
 html_file.write(base_html_str)
 html_file.close()
 
-url = "file://" + os.path.realpath("img_scraper.html")
-
+url = "file:///Z:/Documents/College/2017_01%20(Spring)/CS373/idb/nasa_scripts/img_scraper.html"
 webbrowser.open_new(url)

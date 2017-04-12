@@ -14,12 +14,19 @@
 		<h1>Hello World</h1>
 		<!-- insert this snippet where you want Aladin Lite viewer to appear and after the loading of jQuery -->
 		<div id="aladin-lite-div" style="width:400px;height:400px;"></div>
+		<button onclick="download()">Download Image</button>
 	</body>
 
 	<script type="text/javascript">
 		var aladin = A.aladin('#aladin-lite-div', {showReticle:false, survey: "P/DSS2/color", fov:.1});
 		aladin.gotoRaDec(spacecowboy_ra, spacecowboy_dec);
 
+		download = function(){
+			console.log(aladin.getViewDataURL())
+    	data = {"url":aladin.getViewDataURL()}
+    	console.save(data, 'spacecowboy_file');
+		};
+		
 		console.save = function(data, filename){
 
 				if(!data) {
@@ -42,15 +49,6 @@
 				a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
 				e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
 				a.dispatchEvent(e)
-		}
-
-    window.onload = function(){
-    	for (i = 0; i < 100000000; i++) {
-
-    	}
-    	console.log(aladin.getViewDataURL())
-    	data = {"url":aladin.getViewDataURL()}
-    	console.save(data, 'spacecowboy_file');
-    };
+		};
 </script>
 </html>
