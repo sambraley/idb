@@ -11,7 +11,7 @@ base_html_str = base_html.read();
 base_html.close()
 base_html_str = base_html_str.replace("spacecowboy_ra", str(objects[int(sys.argv[2])]["ra"]))
 base_html_str = base_html_str.replace("spacecowboy_dec", str(objects[int(sys.argv[2])]["dec"]))
-base_html_str = base_html_str.replace("spacecowboy_file", "object_" + str(objects[int(sys.argv[2])]["pid"]) + "_img.json")
+base_html_str = base_html_str.replace("spacecowboy_file", "object_" + sys.argv[2] + "_img.json")
 
 html_file = open("img_scraper.html", "w")
 html_file.write(base_html_str)

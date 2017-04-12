@@ -19,12 +19,12 @@
 
 	<script type="text/javascript">
 		var aladin = A.aladin('#aladin-lite-div', {showReticle:false, survey: "P/DSS2/color", fov:.1});
-		aladin.gotoRaDec(35.383234, 32.246151);
+		aladin.gotoRaDec(123.381875, 16.419609);
 
 		download = function(){
 			console.log(aladin.getViewDataURL())
     	data = {"url":aladin.getViewDataURL()}
-    	console.save(data, 'object_3_img.json');
+    	console.save(data, 'object_269_img.json');
 		};
 		
 		console.save = function(data, filename){

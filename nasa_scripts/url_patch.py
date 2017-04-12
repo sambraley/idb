@@ -3,7 +3,48 @@ import json
 planets = json.load(open("scraped_data/scraped_planets.json"))
 galaxies = json.load(open("scraped_data/scraped_galaxies.json"))
 stars = json.load(open("scraped_data/scraped_stars.json"))
-satellites = json.load(open("scraped_data/scraped_satellites.json"))						
+satellites = json.load(open("scraped_data/scraped_satellites.json"))
+
+print("Adding img urls for planets, stars, and galaxies")
+
+#planet urls
+planet_urls_file = open("imgs/compiled_planet_imgs.json", "r")
+planet_urls = json.load(planet_urls_file)
+planet_urls_file.close()
+for item in planet_urls:
+    pid = item["pid"]
+    url = item["url"]
+
+    for planet in planets:
+        if planet["pid"] == pid:
+            planet["img_url"] = url
+            break
+
+# galaxy urls
+galaxies_urls_file = open("imgs/compiled_galaxies_imgs.json", "r")
+galaxies_urls = json.load(galaxies_urls_file)
+galaxies_urls_file.close()
+for item in galaxies_urls:
+    pid = item["pid"]
+    url = item["url"]
+
+    for galaxy in galaxies:
+        if galaxy["pid"] == pid:
+            galaxy["img_url"] = url
+            break
+
+# star urls
+stars_urls_file = open("imgs/compiled_stars_imgs.json", "r")
+stars_urls = json.load(stars_urls_file)
+stars_urls_file.close()
+for item in stars_urls:
+    pid = item["pid"]
+    url = item["url"]
+
+    for star in stars:
+        if star["pid"] == pid:
+            star["img_url"] = url
+            break			
 
 print("Adding hardcoded elements.")
 
@@ -69,46 +110,7 @@ for s in satellites :
     s["star_pid"] = sun["pid"]
     s["galaxy_pid"] = milky_way["pid"]
 		
-print("Adding img urls for planets, stars, and galaxies")
 
-#planet urls
-planet_urls_file = open("imgs/compiled_planet_imgs.json", "r")
-planet_urls = json.load(planet_urls_file)
-planet_urls_file.close()
-for item in planet_urls:
-    pid = item["pid"] + 1;
-    url = item["url"];
-
-    for planet in planets:
-        if planet["pid"] == pid:
-            planet["img_url"] = url
-            break
-
-# galaxy urls
-galaxies_urls_file = open("imgs/compiled_galaxies_imgs.json", "r")
-galaxies_urls = json.load(galaxies_urls_file)
-galaxies_urls_file.close()
-for item in galaxies_urls:
-    pid = item["pid"] + 1;
-    url = item["url"];
-
-    for galaxy in galaxies:
-        if galaxy["pid"] == pid:
-            galaxy["img_url"] = url
-            break
-
-# star urls
-stars_urls_file = open("imgs/compiled_stars_imgs.json", "r")
-stars_urls = json.load(stars_urls_file)
-stars_urls_file.close()
-for item in stars_urls:
-    pid = item["pid"] + 1;
-    url = item["url"];
-
-    for star in stars:
-        if star["pid"] == pid:
-            star["img_url"] = url
-            break
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
