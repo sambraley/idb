@@ -36,7 +36,7 @@ class App extends React.Component {
 			// console.log("pages are not sorted");
 
 			const baseUrl = window.location.href.split('/')[2];
-			const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9";
+			const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
 			const url = "http://" + baseUrl + apiExt;
 			// console.log(url);
 			fetch(url)

@@ -118,7 +118,7 @@ var ModelListItem = function ModelListItem(_ref) {
 	};
 	return React.createElement(
 		"div",
-		{ className: "col-md-4 text-center model-list-item" },
+		{ className: "col-lg-4 col-md-6 col-sm-12 text-center model-list-item" },
 		React.createElement(
 			"a",
 			{ href: link },

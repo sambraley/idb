@@ -353,7 +353,7 @@ var ModelListItem = function ModelListItem(_ref) {
 	};
 	return React.createElement(
 		"div",
-		{ className: "col-md-4 text-center model-list-item" },
+		{ className: "col-lg-4 col-md-6 col-sm-12 text-center model-list-item" },
 		React.createElement(
 			"a",
 			{ href: link },
@@ -781,7 +781,7 @@ var App = function (_React$Component) {
 				// console.log("pages are not sorted");
 
 				var baseUrl = window.location.href.split('/')[2];
-				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9";
+				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
 				var url = "http://" + baseUrl + apiExt;
 				// console.log(url);
 				fetch(url).then(function (response) {
