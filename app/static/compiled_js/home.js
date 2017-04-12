@@ -4412,6 +4412,7 @@ var Carousel = function (_React$Component) {
 	_createClass(Carousel, [{
 		key: "url_push",
 		value: function url_push(data) {
+			console.log(data.url);
 			this.state.urls.push(data.url);
 			this.forceUpdate();
 		}
@@ -4488,10 +4489,10 @@ $('.carousel').carousel({
 	interval: 1000 * 3
 });
 
-var temp = document.createElement("div");
-ReactDOM.render(React.createElement(_carousel2.default, null), temp);
-var container = document.getElementById("space-carousel");
-container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
+// var temp = document.createElement("div");
+ReactDOM.render(React.createElement(_carousel2.default, null), document.getElementById("space-carousel"));
+// var container = document.getElementById("space-carousel");
+// container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
 
 },{"../carousel.jsx":2}],5:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function

@@ -21,6 +21,7 @@ class Carousel extends React.Component {
 			}
 		}
 		url_push(data) {
+			console.log(data.url);
 			this.state.urls.push(data.url);
 			this.forceUpdate();
 		}

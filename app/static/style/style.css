@@ -2,7 +2,7 @@ html, body {
 	min-height: 100%;
 }
 body {
-	background-image: url("/static/images/body-background.jpg");
+	background-image: url("/static/images/body-background.gif");
 }
 
 .navbar-default {
