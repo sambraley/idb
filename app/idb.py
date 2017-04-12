@@ -113,5 +113,9 @@ def run_tests():
     output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
     return output
 
+@app.route('/search')
+def search():
+    return render_template('search.html', title="search")
+
 if __name__ == "__main__": # pragma: no cover
     app.run()
