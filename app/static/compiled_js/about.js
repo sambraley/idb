@@ -206,7 +206,7 @@ var Github_Member = function (_React$Component) {
 		value: function render() {
 			var info = React.createElement(
 				"div",
-				{ className: "col-md-4 text-center service-box" },
+				{ className: "col-md-6 col-lg-4 text-center service-box" },
 				React.createElement("img", { className: "img-thumbnail about-image", src: "/static/images/" + this.props.member_info['image'] }),
 				React.createElement(
 					"h3",

@@ -28,7 +28,7 @@ class Github_Member extends React.Component {
 		}
     render() {
     		var info = (
-    			<div className="col-md-4 text-center service-box">
+    			<div className="col-md-6 col-lg-4 text-center service-box">
       			<img className="img-thumbnail about-image" src={"/static/images/" + this.props.member_info['image']} />
       			<h3>{this.props.member_info["name"]}</h3>
 			      <p className="text-muted">{this.props.member_info["bio"]}</p>
