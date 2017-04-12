@@ -27,7 +27,7 @@ class Satellite(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    img_url = db.Column(db.String())
+    img_url = db.Column(db.Text())
     year_launched = db.Column(db.Integer)
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
@@ -121,7 +121,7 @@ class Planet(db.Model):
     orbital_period = db.Column(db.Float)
     mass = db.Column(db.Float)
     temperature = db.Column(db.Integer)
-    img_url = db.Column(db.String())
+    img_url = db.Column(db.Text())
 
     # Foreign Keys
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
@@ -212,7 +212,7 @@ class Star(db.Model):
     dec = db.Column(db.Float)
     temperature = db.Column(db.Integer)
     mass = db.Column(db.Float)
-    img_url = db.Column(db.String())
+    img_url = db.Column(db.Text())
 
     # Foreign Keys
     galaxy_pid = db.Column(db.Integer, db.ForeignKey("galaxy.pid"))
@@ -225,7 +225,7 @@ class Star(db.Model):
     # Methods
     #
 
-    def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy, img_url="star.png"):
+    def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy, img_url):
         """
         name a str, img_url a str, temperature a int, right_ascension, declination, and mass
         are all floats.
@@ -291,7 +291,7 @@ class Galaxy(db.Model):
     morph_type = db.Column(db.String())
     redshift = db.Column(db.Float)
     size = db.Column(db.Float)
-    img_url = db.Column(db.String())
+    img_url = db.Column(db.Text())
 
     #
     # Methods
