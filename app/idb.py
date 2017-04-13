@@ -7,7 +7,7 @@
 import io
 import unittest
 import test
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
 
@@ -115,8 +115,15 @@ def run_tests():
 
 @app.route('/search')
 def search():
-    results = Satellite.query.whoosh_search('SARAL')
-    print(results.all())
+    q = str(request.args.get('q'))
+    satellites = Satellite.query.whoosh_search(q)
+    #planets = Planets.query.whoosh_search(q)
+    #stars = Stars.query.whoosh_search(q)
+    #galaxies = Galaxies.query.whoosh_search(q)
+    #print(satellites.all())
+    #print(planets.all())
+    #print(stars.all())
+    #print(galaxies.all())
     return render_template('search.html', title="search")
 
 if __name__ == "__main__": # pragma: no cover
