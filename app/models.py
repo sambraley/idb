@@ -22,9 +22,9 @@ class Satellite(db.Model):
     #
     # Attributes
     #
-		
+    
     # Flask Whoosh
-    __searchable__ = ['name', 'info_url', 'agency']
+    __searchable__ = ['name', 'year_launched', 'mission_type', 'info_url', 'agency']
 
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
@@ -32,7 +32,7 @@ class Satellite(db.Model):
     # Model Attributes
     name = db.Column(db.String(), unique=True)
     img_url = db.Column(db.Text())
-    year_launched = db.Column(db.Integer)
+    year_launched = db.Column(db.String())
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
     agency = db.Column(db.String())
@@ -74,7 +74,7 @@ class Satellite(db.Model):
         # Create instance
         self.name = name
         self.img_url = img_url
-        self.year_launched = year_launched
+        self.year_launched = str(year_launched)
         self.mission_type = mission_type
         self.info_url = info_url
         self.agency = agency
@@ -112,19 +112,22 @@ class Planet(db.Model):
     #
     # Attributes
     #
+    
+    # Flask Whoosh
+    __searchable__ = ['name', 'diameter', 'ra', 'dec', 'gravity', 'orbital_period', 'mass', 'temperature']
 
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    diameter = db.Column(db.Float)
-    ra = db.Column(db.Float)
-    dec = db.Column(db.Float)
-    gravity = db.Column(db.Float)
-    orbital_period = db.Column(db.Float)
-    mass = db.Column(db.Float)
-    temperature = db.Column(db.Integer)
+    diameter = db.Column(db.String())
+    ra = db.Column(db.String())
+    dec = db.Column(db.String())
+    gravity = db.Column(db.String())
+    orbital_period = db.Column(db.String())
+    mass = db.Column(db.String())
+    temperature = db.Column(db.String())
     img_url = db.Column(db.Text())
 
     # Foreign Keys
@@ -161,13 +164,13 @@ class Planet(db.Model):
 
         # Create Instance
         self.name = name
-        self.diameter = diameter
-        self.ra = ra
-        self.dec = dec
-        self.gravity = gravity
-        self.orbital_period = orbital_period
-        self.mass = mass
-        self.temperature = temperature
+        self.diameter = str(diameter)
+        self.ra = str(ra)
+        self.dec = str(dec)
+        self.gravity = str(gravity)
+        self.orbital_period = str(orbital_period)
+        self.mass = str(mass)
+        self.temperature = str(temperature)
         self.img_url = img_url
         self.star = star
         self.galaxy = galaxy
@@ -205,17 +208,20 @@ class Star(db.Model):
     #
     # Attributes
     #
+    
+    # Flask Whoosh
+    __searchable__ = ['name', 'diameter', 'ra', 'dec', 'temperature', 'mass']
 
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    diameter = db.Column(db.Float)
-    ra = db.Column(db.Float)
-    dec = db.Column(db.Float)
-    temperature = db.Column(db.Integer)
-    mass = db.Column(db.Float)
+    diameter = db.Column(db.String())
+    ra = db.Column(db.String())
+    dec = db.Column(db.String())
+    temperature = db.Column(db.String())
+    mass = db.Column(db.String())
     img_url = db.Column(db.Text())
 
     # Foreign Keys
@@ -247,10 +253,10 @@ class Star(db.Model):
         # Create instance
         self.name = name
         self.diameter = diameter
-        self.ra = ra
-        self.dec = dec
-        self.temperature = temperature
-        self.mass = mass
+        self.ra = str(ra)
+        self.dec = str(dec)
+        self.temperature = str(temperature)
+        self.mass = str(mass)
         self.img_url = img_url
         self.galaxy = galaxy
 
@@ -284,18 +290,21 @@ class Galaxy(db.Model):
     #
     # Attributes
     #
+    
+    # Flask Whoosh
+    __searchable__ = ['name', 'ra', 'dec', 'morph_type', 'redshift', 'size']
 
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
     # Model Attributes
-    name = db.Column(db.String(), unique=True)
-    ra = db.Column(db.Float)
-    dec = db.Column(db.Float)
+    name = db.Column(db.String, unique=True)
+    ra = db.Column(db.String())
+    dec = db.Column(db.String())
     morph_type = db.Column(db.String())
-    redshift = db.Column(db.Float)
-    size = db.Column(db.Float)
-    img_url = db.Column(db.Text())
+    redshift = db.Column(db.String())
+    size = db.Column(db.String())
+    img_url = db.Column(db.String())
 
     #
     # Methods
@@ -316,11 +325,11 @@ class Galaxy(db.Model):
         assert isinstance(img_url, str)
 
         self.name = name
-        self.ra = ra
-        self.dec = dec
+        self.ra = str(ra)
+        self.dec = str(dec)
         self.morph_type = morph_type
-        self.redshift = redshift
-        self.size = size
+        self.redshift = str(redshift)
+        self.size = str(size)
         self.img_url = img_url
 
     def to_dict(self):

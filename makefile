@@ -49,7 +49,7 @@ IDB.log:
 	git log > IDB1.log
 
 RunIDB: app/idb.py .pylintrc
-  @rm -rf app/search/
+	@rm -rf app/search/
 	-$(PYLINT) app/idb.py
 	cd app; \
 	$(PYTHON) idb.py
