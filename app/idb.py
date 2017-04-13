@@ -117,7 +117,7 @@ def run_tests():
 def search():
     q = request.args.get('q')
     results = []
-    if q != None:
+    if q:
         satellites = Satellite.query.whooshee_search(q)
         planets = Planet.query.whooshee_search(q)
         stars = Star.query.whooshee_search(q)
