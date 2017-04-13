@@ -9,9 +9,9 @@
 This module is designed to model galaxies, stars, planets, and satellites for
 use in a PostgreSQL database using Flask-SQLAlchemy.
 """
-from database import db, StemmingAnalyzer
+from database import db, whooshee
 
-
+@whooshee.register_model('name')
 class Satellite(db.Model):
 
     """
@@ -22,9 +22,6 @@ class Satellite(db.Model):
     #
     # Attributes
     #
-    
-    # Flask Whoosh
-    __searchable__ = ['name', 'year_launched', 'mission_type', 'info_url', 'agency']
 
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
@@ -112,9 +109,6 @@ class Planet(db.Model):
     #
     # Attributes
     #
-    
-    # Flask Whoosh
-    __searchable__ = ['name', 'diameter', 'ra', 'dec', 'gravity', 'orbital_period', 'mass', 'temperature']
 
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
@@ -209,9 +203,6 @@ class Star(db.Model):
     # Attributes
     #
     
-    # Flask Whoosh
-    __searchable__ = ['name', 'diameter', 'ra', 'dec', 'temperature', 'mass']
-
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
@@ -291,9 +282,6 @@ class Galaxy(db.Model):
     # Attributes
     #
     
-    # Flask Whoosh
-    __searchable__ = ['name', 'ra', 'dec', 'morph_type', 'redshift', 'size']
-
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 

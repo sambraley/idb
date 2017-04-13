@@ -115,15 +115,9 @@ def run_tests():
 
 @app.route('/search')
 def search():
-    q = str(request.args.get('q'))
-    satellites = Satellite.query.whoosh_search(q)
-    #planets = Planets.query.whoosh_search(q)
-    #stars = Stars.query.whoosh_search(q)
-    #galaxies = Galaxies.query.whoosh_search(q)
-    #print(satellites.all())
-    #print(planets.all())
-    #print(stars.all())
-    #print(galaxies.all())
+    q = request.args.get('q')
+    satellites = Satellite.query.whooshee_search(q)
+    print(satellites.all())
     return render_template('search.html', title="search")
 
 if __name__ == "__main__": # pragma: no cover
