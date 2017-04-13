@@ -116,15 +116,17 @@ def run_tests():
 @app.route('/search')
 def search():
     q = request.args.get('q')
-    satellites = Satellite.query.whooshee_search(q)
-    planets = Planet.query.whooshee_search(q)
-    stars = Star.query.whooshee_search(q)
-    galaxies = Galaxy.query.whooshee_search(q)
     results = []
-    results.append(satellites.all())
-    results.append(planets.all())
-    results.append(stars.all())
-    results.append(galaxies.all())
+    if q != None:
+        satellites = Satellite.query.whooshee_search(q)
+        planets = Planet.query.whooshee_search(q)
+        stars = Star.query.whooshee_search(q)
+        galaxies = Galaxy.query.whooshee_search(q)
+        results.append(satellites.all())
+        results.append(planets.all())
+        results.append(stars.all())
+        results.append(galaxies.all())
+    
     return render_template('search.html', title="search", results=results)
 
 if __name__ == "__main__": # pragma: no cover

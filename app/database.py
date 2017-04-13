@@ -14,6 +14,7 @@ def connect_db(flask_app):
     if db_URI == None :
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+        flask_app.config['WHOOSHEE_MIN_STRING_LEN'] = 1
         db.init_app(flask_app)
         whooshee.init_app(flask_app)
         with flask_app.app_context() as app: 
