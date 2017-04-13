@@ -11,7 +11,7 @@ use in a PostgreSQL database using Flask-SQLAlchemy.
 """
 from database import db, whooshee
 
-@whooshee.register_model('name')
+@whooshee.register_model('name', 'year_launched', 'mission_type', 'agency')
 class Satellite(db.Model):
 
     """
@@ -99,6 +99,7 @@ class Satellite(db.Model):
     def __repr__(self):
         return "<Satellite %r>" % self.name
 
+@whooshee.register_model('name', 'diameter', 'ra', 'dec', 'gravity', 'orbital_period', 'mass', 'temperature')
 class Planet(db.Model):
 
     """
@@ -192,6 +193,7 @@ class Planet(db.Model):
         return "<Planet %r>" % self.name
 
 
+@whooshee.register_model('name', 'diameter', 'ra', 'dec', 'temperature', 'mass')
 class Star(db.Model):
 
     """
@@ -271,6 +273,7 @@ class Star(db.Model):
         return "<Star %r>" % self.name
 
 
+@whooshee.register_model('name', 'ra', 'dec', 'morph_type', 'size', 'redshift')
 class Galaxy(db.Model):
 
     """

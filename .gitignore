@@ -93,4 +93,4 @@ TestIDB.tmp
 node_modules/
 
 # Whoosh Search indexing
-app/search/
+app/whooshee/
