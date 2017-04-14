@@ -117,7 +117,12 @@ def run_tests():
 @app.route('/api/v1/search')
 def search():
     q = request.args.get('q')
-    results_per_page = 10
+    
+    results_per_page = request.args.get('results_per_page', default=10)
+    results_per_page = int(results_per_page)
+    if results_per_page <= 0:
+        results_per_page = 10
+
     page = request.args.get('page', default=1)
     page = int(page)
     if page <= 0:
