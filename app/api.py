@@ -9,7 +9,6 @@ def api_setup(flask_app, db) :
     api_setup_planet(manager)
     api_setup_star(manager)
     api_setup_galaxy(manager)
-    api_setup_image(manager)
     
 def api_setup_satellite(manager) :
     blueprint = {
