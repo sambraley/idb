@@ -11,6 +11,7 @@ from lib.helper import roundrobin
 from flask import Flask, render_template, request, jsonify
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
+from flask_whooshee import whoosh
 
 app = Flask(__name__)
 db = connect_db(app)
@@ -132,12 +133,18 @@ def search_api():
     if page <= 0:
         page = 1
 
+    qparser = whoosh.qparser.OrGroup
+    if request.args.get('junction') == 'AND':
+        qparser = whoosh.qparser.AndGroup
+
+
+
     results = []
     if q:
-        satellites = Satellite.query.whooshee_search(q)
-        planets = Planet.query.whooshee_search(q)
-        stars = Star.query.whooshee_search(q)
-        galaxies = Galaxy.query.whooshee_search(q)
+        satellites = Satellite.query.whooshee_search(q, group=qparser)
+        planets = Planet.query.whooshee_search(q, group=qparser)
+        stars = Star.query.whooshee_search(q, group=qparser)
+        galaxies = Galaxy.query.whooshee_search(q, group=qparser)
         results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
   
     results = results[(page - 1) * results_per_page:page * results_per_page]
