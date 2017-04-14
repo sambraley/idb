@@ -7,6 +7,7 @@
 import io
 import unittest
 import test
+from lib.helper import roundrobin
 from flask import Flask, render_template, request
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
@@ -113,7 +114,7 @@ def run_tests():
     output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
     return output
 
-@app.route('/search')
+@app.route('/api/v1/search')
 def search():
     q = request.args.get('q')
     results = []
@@ -122,10 +123,8 @@ def search():
         planets = Planet.query.whooshee_search(q)
         stars = Star.query.whooshee_search(q)
         galaxies = Galaxy.query.whooshee_search(q)
-        results.append(satellites.all())
-        results.append(planets.all())
-        results.append(stars.all())
-        results.append(galaxies.all())
+        results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
+  
     
     return render_template('search.html', title="search", results=results)
 
