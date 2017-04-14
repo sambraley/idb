@@ -91,3 +91,6 @@ ENV/
 TestIDB.tmp
 *.swp
 node_modules/
+
+# Whoosh Search indexing
+app/whooshee/
