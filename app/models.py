@@ -70,7 +70,6 @@ class Satellite(db.Model):
 
         # Create instance
         self.name = name
-        self.img_url = img_url
         self.year_launched = str(year_launched)
         self.mission_type = mission_type
         self.info_url = info_url
@@ -86,8 +85,7 @@ class Satellite(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "image": self.image,
-            "year_launched": self.year_launched,
+            "year_launched": int(self.year_launched),
             "mission_type": self.mission_type,
             "info_url": self.info_url,
             "agency": self.agency,
@@ -103,7 +101,7 @@ class Satellite(db.Model):
 class Planet(db.Model):
 
     """
-    Models planets. Attributes are: name, image, diameter, right_ascension,
+    Models planets. Attributes are: name, img_url, diameter, right_ascension,
     declination, gravity, orbital period, mass, and temperature. They may relate
     many-to-one to galaxies and stars, and one-to-many to satellites and other planets.
     """
@@ -177,14 +175,13 @@ class Planet(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "diameter": self.diameter,
-            "ra": self.ra,
-            "dec": self.dec,
-            "gravity": self.gravity,
-            "orbital_period": self.orbital_period,
-            "mass": self.mass,
-            "temperature": self.temperature,
-            "img_url": self.img_url,
+            "diameter": float(self.diameter),
+            "ra": float(self.ra),
+            "dec": float(self.dec),
+            "gravity": float(self.gravity),
+            "orbital_period": float(self.orbital_period),
+            "mass": float(self.mass),
+            "temperature": int(self.temperature),
             "star_pid": self.star_pid,
             "galaxy_pid": self.galaxy_pid
         }
@@ -197,7 +194,7 @@ class Planet(db.Model):
 class Star(db.Model):
 
     """
-    Models stars. Attributes are: name, image, temperature, right_ascension,
+    Models stars. Attributes are: name, img_url, temperature, right_ascension,
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
     to satellites and planets.
     """
@@ -261,11 +258,10 @@ class Star(db.Model):
             "pid": self.pid,
             "name": self.name,
             "diameter": self.diameter,
-            "ra": self.ra,
-            "dec": self.dec,
-            "temperature": self.temperature,
-            "mass": self.mass,
-            "img_url": self.img_url,
+            "ra": float(self.ra),
+            "dec": float(self.dec),
+            "temperature": int(self.temperature),
+            "mass": float(self.mass),
             "galaxy_pid": self.galaxy_pid
         }
 
@@ -277,7 +273,7 @@ class Star(db.Model):
 class Galaxy(db.Model):
 
     """
-    Models galaxies. Attributes are: name, image, right_ascension, declination,
+    Models galaxies. Attributes are: name, img_url, right_ascension, declination,
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
     to satellites, stars, and planets.
     """
@@ -329,12 +325,11 @@ class Galaxy(db.Model):
         """
         return {
             "name": self.name,
-            "ra": self.ra,
-            "dec": self.dec,
+            "ra": float(self.ra),
+            "dec": float(self.dec),
             "morph_type": self.morph_type,
-            "redshift": self.redshift,
-            "size": self.size,
-            "img_url": self.img_url
+            "redshift": float(self.redshift),
+            "size": float(self.size),
         }
 
     def __repr__(self):

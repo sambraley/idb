@@ -141,7 +141,7 @@ def search_api():
         results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
   
     results = results[(page - 1) * results_per_page:page * results_per_page]
-    results = [x.to_dict() for x in results]
+    results = [{ x.__class__.__name__ : x.to_dict() } for x in results]
     return jsonify(results)
 
 if __name__ == "__main__": # pragma: no cover
