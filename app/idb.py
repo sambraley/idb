@@ -8,7 +8,7 @@ import io
 import unittest
 import test
 from lib.helper import roundrobin
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
 
@@ -114,8 +114,12 @@ def run_tests():
     output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
     return output
 
-@app.route('/api/v1/search')
+@app.route('/search')
 def search():
+    return render_template('search.html', title='search')
+
+@app.route('/api/v1/search')
+def search_api():
     q = request.args.get('q')
     
     results_per_page = request.args.get('results_per_page', default=10)
@@ -137,8 +141,8 @@ def search():
         results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
   
     results = results[(page - 1) * results_per_page:page * results_per_page]
-    print(results)
-    return render_template('search.html', title="search", results=results)
+    results = [x.to_dict() for x in results]
+    return jsonify(results)
 
 if __name__ == "__main__": # pragma: no cover
     app.run()
