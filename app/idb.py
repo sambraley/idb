@@ -117,6 +117,12 @@ def run_tests():
 @app.route('/api/v1/search')
 def search():
     q = request.args.get('q')
+    results_per_page = 10
+    page = request.args.get('page', default=1)
+    page = int(page)
+    if page <= 0:
+        page = 1
+
     results = []
     if q:
         satellites = Satellite.query.whooshee_search(q)
@@ -125,7 +131,8 @@ def search():
         galaxies = Galaxy.query.whooshee_search(q)
         results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
   
-    
+    results = results[(page - 1) * results_per_page:page * results_per_page]
+    print(results)
     return render_template('search.html', title="search", results=results)
 
 if __name__ == "__main__": # pragma: no cover
