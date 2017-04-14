@@ -91,3 +91,10 @@ ENV/
 TestIDB.tmp
 *.swp
 node_modules/
+
+# Whoosh Search indexing
+app/whooshee/
+
+# data files are too big so must be ignored
+nasa_scripts/data/
+app/data/
