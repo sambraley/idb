@@ -91,3 +91,10 @@ ENV/
 TestIDB.tmp
 *.swp
 node_modules/
+
+# Ignore Whoosh search index folders
+app/whooshee/
+
+# Ignore data folders
+app/data/
+nasa_scripts/data/
