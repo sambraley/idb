@@ -67,7 +67,7 @@ def planets_table():
 @app.route('/planets/<int:planet_id>')
 def planet_instance(planet_id):
     # earth
-    if (planet_id == 299):
+    if planet_id == 299:
         return render_template('earth.html', planet=Planet.query.get(planet_id))
     return render_template('planetoid.html', planet=Planet.query.get(planet_id))
 
@@ -122,7 +122,7 @@ def search():
 @app.route('/api/v1/search')
 def search_api():
     q = request.args.get('q')
-    
+
     results_per_page = request.args.get('results_per_page', default=10)
     results_per_page = int(results_per_page)
     if results_per_page <= 0:
@@ -137,8 +137,6 @@ def search_api():
     if request.args.get('junction') == 'AND':
         qparser = whoosh.qparser.AndGroup
 
-
-
     results = []
     if q:
         satellites = Satellite.query.whooshee_search(q, group=qparser)
@@ -146,7 +144,7 @@ def search_api():
         stars = Star.query.whooshee_search(q, group=qparser)
         galaxies = Galaxy.query.whooshee_search(q, group=qparser)
         results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
-  
+
     results = results[(page - 1) * results_per_page:page * results_per_page]
     results = [{ x.__class__.__name__ : x.to_dict() } for x in results]
     return jsonify(results)
