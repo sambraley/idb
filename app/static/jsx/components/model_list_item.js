@@ -2,7 +2,7 @@
 class ModelListItem extends React.Component {
 	constructor(props) {
 		super(props);
-		var base_url = "/" + window.location.href.split('/')[3] + "/";
+		var base_url = "/" + this.props.model.model_type + "/";
 		var link = base_url + this.props.model.pid;
 		this.state = {
 			style: {

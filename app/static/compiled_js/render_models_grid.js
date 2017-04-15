@@ -358,7 +358,7 @@ var ModelListItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
 
-		var base_url = "/" + window.location.href.split('/')[3] + "/";
+		var base_url = "/" + _this.props.model.model_type + "/";
 		var link = base_url + _this.props.model.pid;
 		_this.state = {
 			style: {
@@ -449,19 +449,8 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	if (props.models === []) {
-		console.log("nothing in props");
-		return React.createElement(
-			"div",
-			null,
-			"No results Found"
-		);
-	}
-
 	var modelItem = props.models.map(function (model) {
-		return React.createElement(_model_list_item2.default, {
-			key: model.pid,
-			model: model });
+		return React.createElement(_model_list_item2.default, { model: model });
 	});
 	return React.createElement(
 		"div",
@@ -804,7 +793,8 @@ var App = function (_React$Component) {
 			isFiltered: false,
 			current_filter_v1: null,
 			current_filter_v2: null,
-			current_filter_v3: null
+			current_filter_v3: null,
+			loaded: false
 		};
 
 		_this.getModels(_this.state.current_page);
@@ -826,7 +816,8 @@ var App = function (_React$Component) {
 					_this2.setState({
 						models: responseJson.objects,
 						total_pages: responseJson.total_pages,
-						current_page: responseJson.page
+						current_page: responseJson.page,
+						loaded: true
 					});
 				}).catch(function (error) {
 					console.error(error);
@@ -894,6 +885,21 @@ var App = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			if (!this.state.loaded) {
+				return React.createElement(
+					'h1',
+					{ className: 'text-center' },
+					'Loading ',
+					this.state.title
+				);
+			}
+			if (this.state.models.length <= 0) {
+				return React.createElement(
+					'h1',
+					{ className: 'text-center' },
+					'No Results Found'
+				);
+			}
 			return React.createElement(
 				'div',
 				{ className: 'model-container' },

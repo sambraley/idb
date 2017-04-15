@@ -109,6 +109,241 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _select_options = require("./select_options");
+
+var _select_options2 = _interopRequireDefault(_select_options);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var attrs = {
+	"planets": ["mass", "diameter", "gravity", "temperature"],
+	"galaxies": ["size"],
+	"stars": ["name", "diameter", "temperature"],
+	"satellites": ["name", "agency", "mission_type", "year_launched"]
+};
+var ops = ["<", "<=", ">", ">=", "==", "!="];
+var compareTo = {
+	"planets": ["Jupiter"],
+	"galaxies": ["1"],
+	"stars": ["name", "diameter", "temperature"],
+	"satellites": ["name", "agency", "mission_type", "year_launched"]
+};
+
+var Modals = function (_React$Component) {
+	_inherits(Modals, _React$Component);
+
+	function Modals(props) {
+		_classCallCheck(this, Modals);
+
+		var _this = _possibleConstructorReturn(this, (Modals.__proto__ || Object.getPrototypeOf(Modals)).call(this, props));
+
+		_this.state = {
+			modelType: _this.props.modelType,
+			filterBy: _this.props.filterBy,
+			value1: attrs[_this.props.modelType][0],
+			value2: ops[0],
+			value3: compareTo[_this.props.modelType][0]
+		};
+
+		_this.onHandleChange1 = _this.onHandleChange1.bind(_this);
+		_this.onHandleChange2 = _this.onHandleChange2.bind(_this);
+		_this.onHandleChange3 = _this.onHandleChange3.bind(_this);
+		return _this;
+	}
+
+	_createClass(Modals, [{
+		key: "onHandleChange1",
+		value: function onHandleChange1(event) {
+			console.log("inside handle change 1 " + event.target.value);
+			this.setState({
+				value1: event.target.value
+			});
+		}
+	}, {
+		key: "onHandleChange2",
+		value: function onHandleChange2(event) {
+			console.log("inside handle change 2 " + event.target.value);
+			this.setState({
+				value2: event.target.value
+			});
+		}
+	}, {
+		key: "onHandleChange3",
+		value: function onHandleChange3(event) {
+			console.log("inside handle change 2 " + event.target.value);
+			this.setState({
+				value3: event.target.value
+			});
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			var _this2 = this;
+
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"button",
+					{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+					"Filter By"
+				),
+				React.createElement(
+					"div",
+					{ id: "myModal", className: "modal fade", role: "dialog" },
+					React.createElement(
+						"div",
+						{ className: "modal-dialog" },
+						React.createElement(
+							"div",
+							{ className: "modal-content" },
+							React.createElement(
+								"div",
+								{ className: "modal-header" },
+								React.createElement(
+									"button",
+									{ type: "button", className: "close", "data-dismiss": "modal" },
+									"\xD7"
+								),
+								React.createElement(
+									"h4",
+									{ className: "modal-title" },
+									"Filtering"
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "modal-body" },
+								React.createElement(
+									"div",
+									{ className: "form-group" },
+									React.createElement(
+										"label",
+										null,
+										"Attribute:",
+										React.createElement(
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange1 },
+											React.createElement(
+												"option",
+												{ value: "mass" },
+												"Temperature"
+											),
+											React.createElement(
+												"option",
+												{ value: "diameter" },
+												"Diameter"
+											),
+											React.createElement(
+												"option",
+												{ value: "gravity" },
+												"Gravity"
+											),
+											React.createElement(
+												"option",
+												{ value: "temperature" },
+												"Mass"
+											)
+										)
+									),
+									React.createElement(
+										"label",
+										null,
+										"Operation:",
+										React.createElement(
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange2 },
+											React.createElement(
+												"option",
+												{ value: "<" },
+												"Less Than"
+											),
+											React.createElement(
+												"option",
+												{ value: "<=" },
+												"Less Than or Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: ">" },
+												"Greater Than"
+											),
+											React.createElement(
+												"option",
+												{ value: ">=" },
+												"Greater Than or Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "==" },
+												"Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "!=" },
+												"Not Equal To"
+											)
+										)
+									),
+									React.createElement(
+										"label",
+										null,
+										"Compare To:",
+										React.createElement(
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange3 },
+											React.createElement(
+												"option",
+												{ value: "jupiter" },
+												"Jupiter"
+											)
+										)
+									)
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "modal-footer" },
+								React.createElement(
+									"button",
+									{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+											return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
+										} },
+									"Submit"
+								),
+								React.createElement(
+									"button",
+									{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+									"Close"
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	}]);
+
+	return Modals;
+}(React.Component);
+
+exports.default = Modals;
+
+},{"./select_options":10}],4:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -173,7 +408,7 @@ var ModelListItem = function (_React$Component) {
 
 exports.default = ModelListItem;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -200,7 +435,7 @@ var ModelTitle = function ModelTitle(_ref) {
 
 exports.default = ModelTitle;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -226,7 +461,7 @@ var ModelList = function ModelList(props) {
 
 exports.default = ModelList;
 
-},{"./model_list_item":3}],6:[function(require,module,exports){
+},{"./model_list_item":4}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -340,7 +575,163 @@ var NavBar = function (_React$Component) {
 
 exports.default = NavBar;
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var PageItem = function PageItem(_ref) {
+	var page_number = _ref.page_number,
+	    onPageSelect = _ref.onPageSelect,
+	    isActive = _ref.isActive;
+
+	if (isActive === true) {
+		return React.createElement(
+			"li",
+			{ className: "active" },
+			React.createElement(
+				"a",
+				null,
+				page_number
+			)
+		);
+	} else {
+		return React.createElement(
+			"li",
+			{ onClick: function onClick() {
+					return onPageSelect(page_number);
+				}, className: "page-item" },
+			React.createElement(
+				"a",
+				null,
+				page_number
+			)
+		);
+	}
+};
+exports.default = PageItem;
+
+},{}],9:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _page_item = require("./page_item");
+
+var _page_item2 = _interopRequireDefault(_page_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Pages = function Pages(_ref) {
+	var current_page = _ref.current_page,
+	    total_pages = _ref.total_pages,
+	    onPageSelect = _ref.onPageSelect;
+
+	var pages = [];
+	// Adding previous button
+	if (current_page != 1) {
+		pages.push(React.createElement(
+			"li",
+			{ onClick: function onClick() {
+					return onPageSelect(current_page - 1);
+				}, className: "page-item", key: "previous-button" },
+			React.createElement(
+				"a",
+				null,
+				"Previous"
+			)
+		));
+	}
+	//Setting list of page numbers
+	var start;
+	var end;
+	if (total_pages <= 10) {
+		end = total_pages;
+		start = 1;
+	} else if (10 >= current_page + 5) {
+		end = 10;
+		start = 1;
+	} else if (total_pages > current_page + 5) {
+		end = current_page + 5;
+		start = end - 9;
+	} else {
+		end = total_pages;
+		start = end - 9;
+	}
+	// creating pageItems
+	for (var i = start; i <= end && i <= total_pages; i++) {
+		if (i === current_page) {
+			pages.push(React.createElement(_page_item2.default, {
+				page_number: i,
+				onPageSelect: onPageSelect,
+				isActive: true,
+				key: i }));
+		} else {
+			pages.push(React.createElement(_page_item2.default, {
+				page_number: i,
+				onPageSelect: onPageSelect,
+				isActive: false,
+				key: i }));
+		}
+	}
+	//adding next button
+	if (current_page != total_pages && current_page > 1) {
+		pages.push(React.createElement(
+			"li",
+			{ onClick: function onClick() {
+					return onPageSelect(current_page + 1);
+				}, className: "page-item", key: "next-button" },
+			React.createElement(
+				"a",
+				null,
+				"Next"
+			)
+		));
+	}
+
+	return React.createElement(
+		"ul",
+		{ className: "pagination" },
+		pages
+	);
+};
+
+exports.default = Pages;
+
+},{"./page_item":8}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+var selectOption = function selectOption(_ref) {
+	var attr = _ref.attr;
+
+	var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+		"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+		"mission_type": "Mission Type", "year_launched": "Launch Year",
+		"<": "Less Than", "<=": "Less Than or Equal To", ">": "Greater Than",
+		">=": "Greater Than or Equal To", "==": "Equal To", "!=": "Not Equal To",
+		"Earth": "Earth" };
+	var attr2 = [];
+	attr.map(function (attr1) {
+		attr1.push(React.createElement(
+			"option",
+			{ value: attr1 },
+			label[attr1]
+		));
+	});
+
+	return { attr2: attr2 };
+};
+
+exports.default = selectOption;
+
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -361,6 +752,14 @@ var _drop_down = require('./../components/drop_down');
 
 var _drop_down2 = _interopRequireDefault(_drop_down);
 
+var _pages = require('./../components/pages');
+
+var _pages2 = _interopRequireDefault(_pages);
+
+var _modals = require('./../components/modals');
+
+var _modals2 = _interopRequireDefault(_modals);
+
 require('isomorphic-fetch');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -371,10 +770,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var modelType = window.location.href.split('/')[3];
-var baseUrl = window.location.href.split('/')[2];
-var apiExt = "/api/v1/galaxies?page=1&results_per_page=9";
-var url = "http://" + baseUrl + apiExt;
+var exts = { "planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars" };
 
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);
@@ -386,26 +782,32 @@ var App = function (_React$Component) {
 
 		_this.state = {
 			models: [],
-			title: modelType
+			total_pages: 1,
+			current_page: 1,
+			loaded: false
 		};
+
+		_this.getModels(_this.state.current_page);
 		return _this;
 	}
 
 	_createClass(App, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
+		key: 'getModels',
+		value: function getModels(page) {
 			var _this2 = this;
 
+			var apiExt = "/api/v1/" + window.location.href.split("/")[3] + "&page=" + page + "&results_per_page=6";
+			var url = apiExt;
+			console.log(url);
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
 				console.log(responseJson);
-				console.log(responseJson.num_results);
-				console.log(responseJson.objects);
-				console.log(responseJson.page);
-				console.log(responseJson.total_pages);
 				_this2.setState({
-					models: responseJson.objects
+					models: responseJson.objects,
+					total_pages: responseJson.total_pages,
+					current_page: responseJson.page,
+					loaded: true
 				});
 			}).catch(function (error) {
 				console.error(error);
@@ -414,24 +816,46 @@ var App = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			if (!this.state.loaded) {
+				return React.createElement(
+					'h1',
+					{ className: 'text-center' },
+					'Loading Search Results'
+				);
+			}
+			if (this.state.models.length <= 0) {
+				return React.createElement(
+					'h1',
+					{ className: 'text-center' },
+					'No Results Found'
+				);
+			}
 			return React.createElement(
 				'div',
-				null,
+				{ className: 'model-container' },
+				React.createElement(_model_title2.default, { title: 'Search Results' }),
 				React.createElement(
 					'div',
-					null,
-					React.createElement(_nav_bar2.default, null)
-				),
-				React.createElement(
-					'div',
-					{ className: 'container model-container' },
-					React.createElement(_model_title2.default, { title: this.state.title }),
+					{ className: 'row' },
 					React.createElement(
 						'div',
-						{ className: 'row' },
-						React.createElement(_drop_down2.default, null)
-					),
-					React.createElement(_models_list2.default, { models: this.state.models })
+						{ className: 'col-md-9 text-right' },
+						React.createElement(_pages2.default, {
+							current_page: this.state.current_page,
+							total_pages: this.state.total_pages,
+							onPageSelect: this.getModels.bind(this) })
+					)
+				),
+				React.createElement(_models_list2.default, {
+					models: this.state.models,
+					page: this.current_page }),
+				React.createElement(
+					'div',
+					{ key: 'pages', className: 'col-md-12 text-right' },
+					React.createElement(_pages2.default, {
+						current_page: this.state.current_page,
+						total_pages: this.state.total_pages,
+						onPageSelect: this.getModels.bind(this) })
 				)
 			);
 		}
@@ -440,9 +864,9 @@ var App = function (_React$Component) {
 	return App;
 }(React.Component);
 
-ReactDOM.render(React.createElement(App, null), document.querySelector('.container'));
+ReactDOM.render(React.createElement(App, null), document.querySelector('.content-container'));
 
-},{"./../components/drop_down":1,"./../components/model_title":4,"./../components/models_list":5,"./../components/nav_bar":6,"isomorphic-fetch":8}],8:[function(require,module,exports){
+},{"./../components/drop_down":1,"./../components/modals":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/nav_bar":7,"./../components/pages":9,"isomorphic-fetch":12}],12:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //
@@ -450,7 +874,7 @@ ReactDOM.render(React.createElement(App, null), document.querySelector('.contain
 require('whatwg-fetch');
 module.exports = self.fetch.bind(self);
 
-},{"whatwg-fetch":9}],9:[function(require,module,exports){
+},{"whatwg-fetch":13}],13:[function(require,module,exports){
 (function(self) {
   'use strict';
 
@@ -913,4 +1337,4 @@ module.exports = self.fetch.bind(self);
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-},{}]},{},[7]);
+},{}]},{},[11]);
