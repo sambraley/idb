@@ -33,16 +33,12 @@ class App extends React.Component {
 
 	getModels(page) {
 		if (this.state.sort_title === "Sort By") {
-			// console.log("pages are not sorted");
-
 			const baseUrl = window.location.href.split('/')[2];
 			const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
 			const url = "http://" + baseUrl + apiExt;
-			// console.log(url);
 			fetch(url)
 		      .then((response) => response.json())
 		      .then((responseJson) => {
-		      	// console.log("I'm back with some values");
 		        this.setState({ 
 		        	models: responseJson.objects,
 		        	total_pages: responseJson.total_pages,
