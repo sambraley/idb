@@ -9,14 +9,15 @@
 This module is designed to model galaxies, stars, planets, and satellites for
 use in a PostgreSQL database using Flask-SQLAlchemy.
 """
-from database import db
+from database import db, whooshee
 
-
+@whooshee.register_model('name', 'year_launched', 'mission_type', 'agency')
 class Satellite(db.Model):
 
     """
     Models artificial satellites. Attributes are: name, agency, mission type,
     and year launched. They may relate many-to-one to galaxies, stars, and planets.
+		
     """
     #
     # Attributes
@@ -28,7 +29,7 @@ class Satellite(db.Model):
     # Model Attributes
     name = db.Column(db.String(), unique=True)
     img_url = db.Column(db.Text())
-    year_launched = db.Column(db.Integer)
+    year_launched = db.Column(db.String())
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
     agency = db.Column(db.String())
@@ -69,8 +70,7 @@ class Satellite(db.Model):
 
         # Create instance
         self.name = name
-        self.img_url = img_url
-        self.year_launched = year_launched
+        self.year_launched = str(year_launched)
         self.mission_type = mission_type
         self.info_url = info_url
         self.agency = agency
@@ -85,8 +85,7 @@ class Satellite(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "image": self.image,
-            "year_launched": self.year_launched,
+            "year_launched": int(self.year_launched),
             "mission_type": self.mission_type,
             "info_url": self.info_url,
             "agency": self.agency,
@@ -98,10 +97,11 @@ class Satellite(db.Model):
     def __repr__(self):
         return "<Satellite %r>" % self.name
 
+@whooshee.register_model('name', 'diameter', 'ra', 'dec', 'gravity', 'orbital_period', 'mass', 'temperature')
 class Planet(db.Model):
 
     """
-    Models planets. Attributes are: name, image, diameter, right_ascension,
+    Models planets. Attributes are: name, img_url, diameter, right_ascension,
     declination, gravity, orbital period, mass, and temperature. They may relate
     many-to-one to galaxies and stars, and one-to-many to satellites and other planets.
     """
@@ -114,13 +114,13 @@ class Planet(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    diameter = db.Column(db.Float)
-    ra = db.Column(db.Float)
-    dec = db.Column(db.Float)
-    gravity = db.Column(db.Float)
-    orbital_period = db.Column(db.Float)
-    mass = db.Column(db.Float)
-    temperature = db.Column(db.Integer)
+    diameter = db.Column(db.String())
+    ra = db.Column(db.String())
+    dec = db.Column(db.String())
+    gravity = db.Column(db.String())
+    orbital_period = db.Column(db.String())
+    mass = db.Column(db.String())
+    temperature = db.Column(db.String())
     img_url = db.Column(db.Text())
 
     # Foreign Keys
@@ -157,13 +157,13 @@ class Planet(db.Model):
 
         # Create Instance
         self.name = name
-        self.diameter = diameter
-        self.ra = ra
-        self.dec = dec
-        self.gravity = gravity
-        self.orbital_period = orbital_period
-        self.mass = mass
-        self.temperature = temperature
+        self.diameter = str(diameter)
+        self.ra = str(ra)
+        self.dec = str(dec)
+        self.gravity = str(gravity)
+        self.orbital_period = str(orbital_period)
+        self.mass = str(mass)
+        self.temperature = str(temperature)
         self.img_url = img_url
         self.star = star
         self.galaxy = galaxy
@@ -175,14 +175,13 @@ class Planet(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "diameter": self.diameter,
-            "ra": self.ra,
-            "dec": self.dec,
-            "gravity": self.gravity,
-            "orbital_period": self.orbital_period,
-            "mass": self.mass,
-            "temperature": self.temperature,
-            "img_url": self.img_url,
+            "diameter": float(self.diameter),
+            "ra": float(self.ra),
+            "dec": float(self.dec),
+            "gravity": float(self.gravity),
+            "orbital_period": float(self.orbital_period),
+            "mass": float(self.mass),
+            "temperature": int(self.temperature),
             "star_pid": self.star_pid,
             "galaxy_pid": self.galaxy_pid
         }
@@ -191,27 +190,28 @@ class Planet(db.Model):
         return "<Planet %r>" % self.name
 
 
+@whooshee.register_model('name', 'diameter', 'ra', 'dec', 'temperature', 'mass')
 class Star(db.Model):
 
     """
-    Models stars. Attributes are: name, image, temperature, right_ascension,
+    Models stars. Attributes are: name, img_url, temperature, right_ascension,
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
     to satellites and planets.
     """
     #
     # Attributes
     #
-
+    
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    diameter = db.Column(db.Float)
-    ra = db.Column(db.Float)
-    dec = db.Column(db.Float)
-    temperature = db.Column(db.Integer)
-    mass = db.Column(db.Float)
+    diameter = db.Column(db.String())
+    ra = db.Column(db.String())
+    dec = db.Column(db.String())
+    temperature = db.Column(db.String())
+    mass = db.Column(db.String())
     img_url = db.Column(db.Text())
 
     # Foreign Keys
@@ -243,10 +243,10 @@ class Star(db.Model):
         # Create instance
         self.name = name
         self.diameter = diameter
-        self.ra = ra
-        self.dec = dec
-        self.temperature = temperature
-        self.mass = mass
+        self.ra = str(ra)
+        self.dec = str(dec)
+        self.temperature = str(temperature)
+        self.mass = str(mass)
         self.img_url = img_url
         self.galaxy = galaxy
 
@@ -258,11 +258,10 @@ class Star(db.Model):
             "pid": self.pid,
             "name": self.name,
             "diameter": self.diameter,
-            "ra": self.ra,
-            "dec": self.dec,
-            "temperature": self.temperature,
-            "mass": self.mass,
-            "img_url": self.img_url,
+            "ra": float(self.ra),
+            "dec": float(self.dec),
+            "temperature": int(self.temperature),
+            "mass": float(self.mass),
             "galaxy_pid": self.galaxy_pid
         }
 
@@ -270,28 +269,29 @@ class Star(db.Model):
         return "<Star %r>" % self.name
 
 
+@whooshee.register_model('name', 'ra', 'dec', 'morph_type', 'size', 'redshift')
 class Galaxy(db.Model):
 
     """
-    Models galaxies. Attributes are: name, image, right_ascension, declination,
+    Models galaxies. Attributes are: name, img_url, right_ascension, declination,
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
     to satellites, stars, and planets.
     """
     #
     # Attributes
     #
-
+    
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
     # Model Attributes
-    name = db.Column(db.String(), unique=True)
-    ra = db.Column(db.Float)
-    dec = db.Column(db.Float)
+    name = db.Column(db.String, unique=True)
+    ra = db.Column(db.String())
+    dec = db.Column(db.String())
     morph_type = db.Column(db.String())
-    redshift = db.Column(db.Float)
-    size = db.Column(db.Float)
-    img_url = db.Column(db.Text())
+    redshift = db.Column(db.String())
+    size = db.Column(db.String())
+    img_url = db.Column(db.String())
 
     #
     # Methods
@@ -312,11 +312,11 @@ class Galaxy(db.Model):
         assert isinstance(img_url, str)
 
         self.name = name
-        self.ra = ra
-        self.dec = dec
+        self.ra = str(ra)
+        self.dec = str(dec)
         self.morph_type = morph_type
-        self.redshift = redshift
-        self.size = size
+        self.redshift = str(redshift)
+        self.size = str(size)
         self.img_url = img_url
 
     def to_dict(self):
@@ -325,12 +325,11 @@ class Galaxy(db.Model):
         """
         return {
             "name": self.name,
-            "ra": self.ra,
-            "dec": self.dec,
+            "ra": float(self.ra),
+            "dec": float(self.dec),
             "morph_type": self.morph_type,
-            "redshift": self.redshift,
-            "size": self.size,
-            "img_url": self.img_url
+            "redshift": float(self.redshift),
+            "size": float(self.size),
         }
 
     def __repr__(self):
