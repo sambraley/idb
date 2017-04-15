@@ -9,12 +9,11 @@ from models import Planet, Star, Satellite, Galaxy
 
 def connect_db(flask_app):
     db_URI = os.getenv('SQLALCHEMY_DATABASE_URI_SPACECOWBOYS')
-    
+    flask_app.config['WHOOSHEE_MIN_STRING_LEN'] = 1
     
     if db_URI == None :
         flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        flask_app.config['WHOOSHEE_MIN_STRING_LEN'] = 1
         db.init_app(flask_app)
         whooshee.init_app(flask_app)
         with flask_app.app_context() as app: 
@@ -24,7 +23,8 @@ def connect_db(flask_app):
         flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         db.init_app(flask_app)
         whooshee.init_app(flask_app)
-    
+        with flask_app.app_context() as app:
+            whooshee.reindex()
         
     return db
 
