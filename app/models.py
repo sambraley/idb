@@ -52,7 +52,6 @@ class Satellite(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    img_url = db.Column(db.Text())
     year_launched = db.Column(db.Integer)
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
@@ -109,7 +108,7 @@ class Satellite(db.Model):
         self.image = image
 
         # String attributes for searching
-        self.year_launched_string = str(year_launched)
+        self.year_launched_str = str(year_launched)
 
     def to_dict(self):
         """
@@ -313,7 +312,8 @@ class Star(db.Model):
         self.mass = mass
         self.galaxy = galaxy
         self.image = image
-        
+      
+        self.diameter_str = str(diameter)
         self.ra_str = str(ra)
         self.dec_str = str(dec)
         self.temperature_str = str(temperature)
