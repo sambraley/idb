@@ -1,4 +1,4 @@
-import Carousel from '../carousel.jsx';
+import Carousel from '../components/carousel.jsx';
 
 $('.carousel').carousel({
   interval: 1000 * 4

@@ -70,6 +70,9 @@ body {
 .model-list-item {
 	min-height: 500px;
 }
+#test-link {
+	cursor: pointer;
+}
 /*
 Used to see the borders of the grid
 

@@ -34,7 +34,7 @@ class React_Tests extends React.Component {
     		  		<a href="http://docs.spacecowboys.apiary.io">Rest API</a>
     		  	</div>
     		  	<div className="col-md-3 text-center">
-    		  		<a data-toggle="modal" data-target="#myModal" onClick={this.run_tests}>Run Unit Tests</a>
+    		  		<a id="test-link" data-toggle="modal" data-target="#myModal" onClick={this.run_tests}>Run Unit Tests</a>
     		  	</div>
     		    <div>
     		        <div id="myModal" className="modal fade" role="dialog">

@@ -4368,7 +4368,7 @@ var _carouselItem2 = _interopRequireDefault(_carouselItem);
 
 require("isomorphic-fetch");
 
-var _moment = require("../bower_components/moment/moment.js");
+var _moment = require("../../bower_components/moment/moment.js");
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -4448,7 +4448,7 @@ var Carousel = function (_React$Component) {
 
 exports.default = Carousel;
 
-},{"../bower_components/moment/moment.js":1,"./carouselItem.jsx":3,"isomorphic-fetch":5}],3:[function(require,module,exports){
+},{"../../bower_components/moment/moment.js":1,"./carouselItem.jsx":3,"isomorphic-fetch":5}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4491,7 +4491,7 @@ exports.default = CarouselItem;
 },{}],4:[function(require,module,exports){
 'use strict';
 
-var _carousel = require('../carousel.jsx');
+var _carousel = require('../components/carousel.jsx');
 
 var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -4506,7 +4506,7 @@ ReactDOM.render(React.createElement(_carousel2.default, null), temp);
 var container = document.getElementById("space-carousel");
 container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
 
-},{"../carousel.jsx":2}],5:[function(require,module,exports){
+},{"../components/carousel.jsx":2}],5:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //

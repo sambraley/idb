@@ -8,7 +8,7 @@
   </div>
   <div class="row">
     <div class="row">
-      <div class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
+      <div id="react-satellite" class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
         <img class="img-thumbnail" style="width:400px;height:400px;" src="{{satellite.img_url}}"> 
       </div>
       <div class="col-sm-12 col-md-5 text-center">
@@ -28,4 +28,5 @@
     </div>
   </div>
 </div>
+<script src="{{ url_for('static', filename='compiled_js/satellite.js') }}"></script>
 {% endblock %}
