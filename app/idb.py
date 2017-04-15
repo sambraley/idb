@@ -5,6 +5,7 @@
 # pylint: disable = missing-docstring
 # pylint: disable = line-too-long
 import io
+from math import ceil
 import unittest
 import test
 from lib.helper import roundrobin
@@ -145,8 +146,11 @@ def search_api():
         galaxies = Galaxy.query.whooshee_search(q, group=qparser)
         results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
 
+    num_results = len(results)
     results = results[(page - 1) * results_per_page:page * results_per_page]
-    results = [{ x.__class__.__name__ : x.to_dict() } for x in results]
+    results = [x.to_dict() for x in results]
+    results = {"num_results":num_results, "objects":results,"page":page,
+               "total_pages":ceil(num_results/results_per_page)}
     return jsonify(results)
 
 if __name__ == "__main__": # pragma: no cover
