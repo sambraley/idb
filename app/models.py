@@ -35,7 +35,7 @@ class Image(db.Model):
         assert isinstance(img_url, str)
         self.img_url = img_url
 
-@whooshee.register_model('name', 'year_launched', 'mission_type', 'agency')
+@whooshee.register_model('name', 'year_launched_str', 'mission_type', 'agency')
 class Satellite(db.Model):
 
     """
@@ -53,11 +53,14 @@ class Satellite(db.Model):
     # Model Attributes
     name = db.Column(db.String(), unique=True)
     img_url = db.Column(db.Text())
-    year_launched = db.Column(db.String())
+    year_launched = db.Column(db.Integer)
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
     agency = db.Column(db.String())
 
+    # String attributes for searching
+    year_launched_str = db.Column(db.String())
+    
     # Foreign Keys
     planet_pid = db.Column(db.Integer, db.ForeignKey('planet.pid'))
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
@@ -96,7 +99,8 @@ class Satellite(db.Model):
 
         # Create instance
         self.name = name
-        self.year_launched = str(year_launched)
+        self.year_launched = year_launched
+        self.year_launched_string = str(year_launched)
         self.mission_type = mission_type
         self.info_url = info_url
         self.agency = agency
@@ -112,7 +116,7 @@ class Satellite(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "year_launched": int(self.year_launched),
+            "year_launched": self.year_launched,
             "mission_type": self.mission_type,
             "info_url": self.info_url,
             "agency": self.agency,
@@ -124,7 +128,8 @@ class Satellite(db.Model):
     def __repr__(self):
         return "<Satellite %r>" % self.name
 
-@whooshee.register_model('name', 'diameter', 'ra', 'dec', 'gravity', 'orbital_period', 'mass', 'temperature')
+@whooshee.register_model('name', 'diameter_str', 'ra_str', 'dec_str', 'gravity_str', 
+                         'orbital_period_str', 'mass_str', 'temperature_str')
 class Planet(db.Model):
 
     """
@@ -141,13 +146,22 @@ class Planet(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    diameter = db.Column(db.String())
-    ra = db.Column(db.String())
-    dec = db.Column(db.String())
-    gravity = db.Column(db.String())
-    orbital_period = db.Column(db.String())
-    mass = db.Column(db.String())
-    temperature = db.Column(db.String())
+    diameter = db.Column(db.Float)
+    ra = db.Column(db.Float)
+    dec = db.Column(db.Float)
+    gravity = db.Column(db.Float)
+    orbital_period = db.Column(db.Float)
+    mass = db.Column(db.Float)
+    temperature = db.Column(db.Integer)
+
+    # String attributes for searching
+    diameter_str = db.Column(db.String())
+    ra_str = db.Column(db.String())
+    dec_str = db.Column(db.String())
+    gravity_str = db.Column(db.String())
+    orbital_period_str = db.Column(db.String())
+    mass_str = db.Column(db.String())
+    temperature_str = db.Column(db.String())
 
     # Foreign Keys
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
@@ -186,13 +200,22 @@ class Planet(db.Model):
 
         # Create Instance
         self.name = name
-        self.diameter = str(diameter)
-        self.ra = str(ra)
-        self.dec = str(dec)
-        self.gravity = str(gravity)
-        self.orbital_period = str(orbital_period)
-        self.mass = str(mass)
-        self.temperature = str(temperature)
+        self.diameter = diameter
+        self.ra = ra
+        self.dec = dec
+        self.gravity = gravity
+        self.orbital_period = orbital_period
+        self.mass = mass
+        self.temperature = temperature
+        
+        self.diameter_str = str(diameter)
+        self.ra_str = str(ra)
+        self.dec_str = str(dec)
+        self.gravity_str = str(gravity)
+        self.orbital_period_str = str(orbital_period)
+        self.mass_str = str(mass)
+        self.temperature_str = str(temperature)
+        
         self.star = star
         self.galaxy = galaxy
         self.image = image
@@ -204,13 +227,13 @@ class Planet(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "diameter": float(self.diameter),
-            "ra": float(self.ra),
-            "dec": float(self.dec),
-            "gravity": float(self.gravity),
-            "orbital_period": float(self.orbital_period),
-            "mass": float(self.mass),
-            "temperature": int(self.temperature),
+            "diameter": self.diameter,
+            "ra": self.ra,
+            "dec": self.dec,
+            "gravity": self.gravity,
+            "orbital_period": self.orbital_period,
+            "mass": self.mass,
+            "temperature": self.temperature,
             "star_pid": self.star_pid,
             "galaxy_pid": self.galaxy_pid
         }
