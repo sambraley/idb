@@ -7,10 +7,9 @@ satellites = json.load(open("scraped_data/scraped_satellites.json"))
 
 # Create Image url
 images = []
-planet_urls_file = open("imgs/compiled_planet_imgs.json", "r")
+planet_urls_file = open("imgs/compiled_planets_imgs.json", "r")
 images += json.load(planet_urls_file)
 planet_urls_file.close()
-
 
 galaxies_urls_file = open("imgs/compiled_galaxies_imgs.json", "r")
 images += json.load(galaxies_urls_file)
@@ -23,7 +22,7 @@ stars_urls_file.close()
 for s in satellites:
   url = s["img_url"]
   pid = -1
-  images += [{"url":url,"pid":pid}]
+  images += [{"url":url,"name":s["name"]}]
   
 num = 1
 for i in images:
@@ -34,7 +33,7 @@ for i in images:
     i["pid"] = pid
     i["img_url"] = url
 
-print("Adding hardcoded elements.")
+print("Patching data together with pids.")
 
 # hardcode elements
 earth_image = {"pid":images[len(images)-1]["pid"] + 1,
@@ -76,16 +75,6 @@ milky_way = {"pid":galaxies[len(galaxies)-1]["pid"] + 1,
              "size":360.0,
              "image_pid":mw_image["pid"]}
 
-planets.append(earth)
-stars.append(sun)
-galaxies.append(milky_way)
-images.append(earth_image)
-images.append(sun_image)
-images.append(mw_image)
-
-print("Patching data together with pids.")
-
-num = 1
 for p in planets :
     p["galaxy_pid"] = milky_way["pid"]
     hostname = p.pop("hostname")
@@ -98,23 +87,42 @@ for p in planets :
             break
 
     p["star_pid"] = star_pid;
-    p["image_pid"] = num
-    num += 1
+
+    img_pid = -1
+    for i in images:
+        if "ra" in i:
+            if i["ra"] == p["ra"] and i["dec"] == p["dec"] :
+                img_pid = i["pid"]
+                break
+    
+    p["image_pid"] = img_pid
     
     if "img_url" in p:
         p.pop("img_url")
     
 for g in galaxies:
-    g["image_pid"] = num
-    num+=1
+    img_pid = -1
+    for i in images:
+        if "ra" in i:
+            if i["ra"] == g["ra"] and i["dec"] == g["dec"] :
+                img_pid = i["pid"]
+                break
+    
+    g["image_pid"] = img_pid
     
     if "img_url" in g:
         g.pop("img_url")
 
 for s in stars :
     s["galaxy_pid"] = milky_way["pid"]
-    s["image_pid"] = num
-    num+=1
+    img_pid = -1
+    for i in images:
+        if "ra" in i:
+            if i["ra"] == s["ra"] and i["dec"] == s["dec"] :
+                img_pid = i["pid"]
+                break
+    
+    s["image_pid"] = img_pid
     
     if "img_url" in s:
         s.pop("img_url")
@@ -123,17 +131,35 @@ for s in satellites :
     s["planet_pid"] = earth["pid"]
     s["star_pid"] = sun["pid"]
     s["galaxy_pid"] = milky_way["pid"]
-    s["image_pid"] = num
-    num+=1
+    
+    img_pid = -1
+    for i in images:
+        if "name" in i:
+            if i["name"] == s["name"] :
+              img_pid = i["pid"]
+              break
+    
+    s["image_pid"] = img_pid
     
     if "img_url" in s:
         s.pop("img_url")
+        
+for i in images:
+    if "ra" in i:
+        i.pop("ra")
+        i.pop("dec")
+        
+    if "name" in i:
+        i.pop("name")
     
 print("Adding hardcoded elements.")
 
 planets.append(earth)
 stars.append(sun)
 galaxies.append(milky_way)
+images.append(earth_image)
+images.append(sun_image)
+images.append(mw_image)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
