@@ -19,13 +19,20 @@
 
 	<script type="text/javascript">
 		var aladin = A.aladin('#aladin-lite-div', {showReticle:false, survey: "P/DSS2/color", fov:.1});
-		aladin.gotoRaDec(123.381875, 16.419609);
+		aladin.gotoRaDec(327.664437, 10.463482);
 
-		download = function(){
-			console.log(aladin.getViewDataURL())
-    	data = {"url":aladin.getViewDataURL()}
-    	console.save(data, 'object_269_img.json');
-		};
+    
+    function sleep(ms){
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+		async function download(){
+      console.log("yay");
+			await sleep(3000);
+      console.log(aladin.getViewDataURL())
+    	data = {"url":aladin.getViewDataURL(), "ra":327.664437, "dec":10.463482}
+    	console.save(data, 'object_270_img.json');
+		}
 		
 		console.save = function(data, filename){
 
@@ -50,5 +57,7 @@
 				e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
 				a.dispatchEvent(e)
 		};
+    
+    download();
 </script>
 </html>

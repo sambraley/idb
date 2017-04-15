@@ -8,15 +8,16 @@ satellites = json.load(open("scraped_data/scraped_satellites.json"))
 print("Adding img urls for planets, stars, and galaxies")
 
 #planet urls
-planet_urls_file = open("imgs/compiled_planet_imgs.json", "r")
+planet_urls_file = open("imgs/compiled_planets_imgs.json", "r")
 planet_urls = json.load(planet_urls_file)
 planet_urls_file.close()
 for item in planet_urls:
-    pid = item["pid"]
     url = item["url"]
+    ra = item["ra"]
+    dec = item["dec"]
 
     for planet in planets:
-        if planet["pid"] == pid:
+        if planet["ra"] == ra and planet["dec"] == dec:
             planet["img_url"] = url
             break
 
@@ -25,11 +26,12 @@ galaxies_urls_file = open("imgs/compiled_galaxies_imgs.json", "r")
 galaxies_urls = json.load(galaxies_urls_file)
 galaxies_urls_file.close()
 for item in galaxies_urls:
-    pid = item["pid"]
     url = item["url"]
-
+    ra = item["ra"]
+    dec = item["dec"]
+    
     for galaxy in galaxies:
-        if galaxy["pid"] == pid:
+        if galaxy["ra"] == ra and galaxy["dec"] == dec:
             galaxy["img_url"] = url
             break
 
@@ -38,26 +40,25 @@ stars_urls_file = open("imgs/compiled_stars_imgs.json", "r")
 stars_urls = json.load(stars_urls_file)
 stars_urls_file.close()
 for item in stars_urls:
-    pid = item["pid"]
     url = item["url"]
-
+    ra = item["ra"]
+    dec = item["dec"]
+    
     for star in stars:
-        if star["pid"] == pid:
+        if star["ra"] == ra and star["dec"] == dec:
             star["img_url"] = url
-            break			
-
-print("Adding hardcoded elements.")
+            break
 
 # hardcode elements
 
 earth = {"pid":planets[len(planets)-1]["pid"] + 1,
          "name":"Earth",
-         "diameter":float(12742),
+         "diameter":float(0.091130),
          "ra":0.0,
          "dec":0.0,
-         "gravity":9.81,
+         "gravity":.0031464 / ((0.091130 / 2) ** 2),
          "orbital_period":float(365),
-         "mass":float(5.972 * (10 ** 24)),
+         "mass":float(.0031464),
          "temperature":287,
          "img_url":"https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
          "star_pid":stars[len(stars)-1]["pid"] + 1,
@@ -65,9 +66,9 @@ earth = {"pid":planets[len(planets)-1]["pid"] + 1,
 
 sun = {"pid":stars[len(stars)-1]["pid"] + 1,
        "name":"Sun",
-       "diameter":1.3914 * (10 **6),
-       "ra":0.49288194,
-       "dec":3.1928926,
+       "diameter":1.0,
+       "ra":23.1458,
+       "dec":9.6697,
        "temperature":5778,
        "mass":1.0,
        "img_url": "http://nineplanets.org/images/thesun.jpg",
@@ -79,26 +80,21 @@ milky_way = {"pid":galaxies[len(galaxies)-1]["pid"] + 1,
              "dec":-47.2833,
              "morph_type":"Spiral",
              "redshift":0.0,
-             "size":360.0,
-             "img_url": "https://apod.nasa.gov/apod/image/0801/16500feetmilkywaykc2_brunier.jpg"}
-
-planets.append(earth)
-stars.append(sun)
-galaxies.append(milky_way)
+             "size":360.0 * 60,
+             "img_url": "https://apod.nasa.gov/apod/image/0801/16500feetmilkywaykc2_brunier.jpg"}            
 
 print("Patching data together with pids.")
 
 for p in planets :
     p["galaxy_pid"] = milky_way["pid"]
-    if "hostname" in p :
-        hostname = p.pop("hostname")
+    hostname = p.pop("hostname")
 
-        star_pid = -1;
+    star_pid = -1;
 
-        for s in stars :
-            if s["name"] == hostname :
-                star_pid = s["pid"]
-                break
+    for s in stars :
+        if s["name"] == hostname :
+            star_pid = s["pid"]
+            break
 
     p["star_pid"] = star_pid;
 
@@ -109,8 +105,12 @@ for s in satellites :
     s["planet_pid"] = earth["pid"]
     s["star_pid"] = sun["pid"]
     s["galaxy_pid"] = milky_way["pid"]
-		
+    
+print("Adding hardcoded elements.")
 
+planets.append(earth)
+stars.append(sun)
+galaxies.append(milky_way)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
