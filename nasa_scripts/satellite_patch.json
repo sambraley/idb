@@ -151,5 +151,9 @@
 	{
 		"name": "Chang'e 6",
 		"remove":1
-	}
+	},
+  {
+    "name":"MAVEN",
+    "remove":1
+  }
 ]

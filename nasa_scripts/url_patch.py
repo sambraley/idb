@@ -11,6 +11,7 @@ planet_urls_file = open("imgs/compiled_planet_imgs.json", "r")
 images += json.load(planet_urls_file)
 planet_urls_file.close()
 
+
 galaxies_urls_file = open("imgs/compiled_galaxies_imgs.json", "r")
 images += json.load(galaxies_urls_file)
 galaxies_urls_file.close()
@@ -45,12 +46,12 @@ mw_image = {"pid":images[len(images)-1]["pid"] + 3,
                
 earth = {"pid":planets[len(planets)-1]["pid"] + 1,
          "name":"Earth",
-         "diameter":float(12742),
+         "diameter":float(0.091130),
          "ra":0.0,
          "dec":0.0,
-         "gravity":9.81,
+         "gravity":.0031464 / ((0.091130 / 2) ** 2),
          "orbital_period":float(365),
-         "mass":float(5.972 * (10 ** 24)),
+         "mass":float(.0031464),
          "temperature":287,
          "star_pid":stars[len(stars)-1]["pid"] + 1,
          "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1,
@@ -58,9 +59,9 @@ earth = {"pid":planets[len(planets)-1]["pid"] + 1,
 
 sun = {"pid":stars[len(stars)-1]["pid"] + 1,
        "name":"Sun",
-       "diameter":1.3914 * (10 **6),
-       "ra":0.49288194,
-       "dec":3.1928926,
+       "diameter":1.0,
+       "ra":23.1458,
+       "dec":9.6697,
        "temperature":5778,
        "mass":1.0,
        "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1,
@@ -87,15 +88,14 @@ print("Patching data together with pids.")
 num = 1
 for p in planets :
     p["galaxy_pid"] = milky_way["pid"]
-    if "hostname" in p :
-        hostname = p.pop("hostname")
+    hostname = p.pop("hostname")
 
-        star_pid = -1;
+    star_pid = -1;
 
-        for s in stars :
-            if s["name"] == hostname :
-                star_pid = s["pid"]
-                break
+    for s in stars :
+        if s["name"] == hostname :
+            star_pid = s["pid"]
+            break
 
     p["star_pid"] = star_pid;
     p["image_pid"] = num
@@ -128,7 +128,12 @@ for s in satellites :
     
     if "img_url" in s:
         s.pop("img_url")
+    
+print("Adding hardcoded elements.")
 
+planets.append(earth)
+stars.append(sun)
+galaxies.append(milky_way)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")

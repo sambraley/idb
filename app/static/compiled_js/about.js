@@ -70,7 +70,7 @@ var Github_Commits = function (_React$Component) {
 
 exports.default = Github_Commits;
 
-},{"isomorphic-fetch":6}],2:[function(require,module,exports){
+},{"isomorphic-fetch":7}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -139,7 +139,7 @@ var Github_Issues = function (_React$Component) {
 
 exports.default = Github_Issues;
 
-},{"isomorphic-fetch":6}],3:[function(require,module,exports){
+},{"isomorphic-fetch":7}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -170,22 +170,25 @@ var Github_Member = function (_React$Component) {
 		};
 		var per_page = "&per_page=100";
 		var token = "&access_token=" + _this.props.token + per_page;
-		var commits = "/commits?author=" + _this.props.member_info["github_id"] + token;
-		var issues = "/issues?state=all&creator=" + _this.props.member_info["github_id"] + token;
-		fetch(_this.props.url + commits).then(function (r) {
-			return r.json();
-		}).then(function (data) {
-			return _this.count_commits(data);
-		}).catch(function (e) {
-			return console.log(e);
-		});
-		fetch(_this.props.url + issues).then(function (r) {
-			return r.json();
-		}).then(function (data) {
-			return _this.count_issues(data);
-		}).catch(function (e) {
-			return console.log(e);
-		});
+		for (var i = 0; i < _this.props.member_info["github_id"].length; i += 1) {
+			var commits = "/commits?author=" + _this.props.member_info["github_id"][i] + token;
+			var issues = "/issues?state=all&creator=" + _this.props.member_info["github_id"][i] + token;
+			fetch(_this.props.url + commits).then(function (r) {
+				return r.json();
+			}).then(function (data) {
+				return _this.count_commits(data);
+			}).catch(function (e) {
+				return console.log(e);
+			});
+			fetch(_this.props.url + issues).then(function (r) {
+				return r.json();
+			}).then(function (data) {
+				return _this.count_issues(data);
+			}).catch(function (e) {
+				return console.log(e);
+			});
+		}
+
 		return _this;
 	}
 
@@ -299,7 +302,7 @@ var Github_Member = function (_React$Component) {
 
 exports.default = Github_Member;
 
-},{"isomorphic-fetch":6}],4:[function(require,module,exports){
+},{"isomorphic-fetch":7}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -353,7 +356,160 @@ var Github_Member_Info = function (_React$Component) {
 
 exports.default = Github_Member_Info;
 
-},{"./github_member.jsx":3,"isomorphic-fetch":6}],5:[function(require,module,exports){
+},{"./github_member.jsx":3,"isomorphic-fetch":7}],5:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+require("isomorphic-fetch");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var url = "/run_tests";
+
+var React_Tests = function (_React$Component) {
+  _inherits(React_Tests, _React$Component);
+
+  function React_Tests(props) {
+    _classCallCheck(this, React_Tests);
+
+    var _this = _possibleConstructorReturn(this, (React_Tests.__proto__ || Object.getPrototypeOf(React_Tests)).call(this, props));
+
+    _this.state = {
+      "test_output": "Running Tests"
+    };
+    _this.run_tests = _this.run_tests.bind(_this);
+    _this.update_state = _this.update_state.bind(_this);
+    return _this;
+  }
+
+  _createClass(React_Tests, [{
+    key: "run_tests",
+    value: function run_tests() {
+      var _this2 = this;
+
+      fetch(url).then(function (r) {
+        return r.text();
+      }).then(function (data) {
+        return _this2.update_state(data);
+      }).catch(function (e) {
+        return console.log(e);
+      });
+    }
+  }, {
+    key: "update_state",
+    value: function update_state(data) {
+      this.state.test_output = data;
+      this.forceUpdate();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "div",
+          { className: "col-md-3 text-center" },
+          React.createElement(
+            "a",
+            { href: "https://github.com/samuelbraley/idb" },
+            "Repository"
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "col-md-3 text-center" },
+          React.createElement(
+            "a",
+            { href: "https://github.com/samuelbraley/idb/issues" },
+            "Issue Tracker"
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "col-md-3 text-center" },
+          React.createElement(
+            "a",
+            { href: "http://docs.spacecowboys.apiary.io" },
+            "Rest API"
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "col-md-3 text-center" },
+          React.createElement(
+            "a",
+            { "data-toggle": "modal", "data-target": "#myModal", onClick: this.run_tests },
+            "Run Unit Tests"
+          )
+        ),
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "div",
+            { id: "myModal", className: "modal fade", role: "dialog" },
+            React.createElement(
+              "div",
+              { className: "modal-dialog" },
+              React.createElement(
+                "div",
+                { className: "modal-content" },
+                React.createElement(
+                  "div",
+                  { className: "modal-header" },
+                  React.createElement(
+                    "button",
+                    { type: "button", className: "close", "data-dismiss": "modal" },
+                    "\xD7"
+                  ),
+                  React.createElement(
+                    "h4",
+                    { className: "modal-title" },
+                    "Test Results"
+                  )
+                ),
+                React.createElement(
+                  "div",
+                  { className: "modal-body" },
+                  React.createElement(
+                    "pre",
+                    null,
+                    this.state.test_output
+                  )
+                ),
+                React.createElement(
+                  "div",
+                  { className: "modal-footer" },
+                  React.createElement(
+                    "button",
+                    { type: "button", className: "btn btn-primary", onClick: this.run_tests },
+                    "Rerun tests"
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return React_Tests;
+}(React.Component);
+
+exports.default = React_Tests;
+
+},{"isomorphic-fetch":7}],6:[function(require,module,exports){
 'use strict';
 
 var _github_commits = require('../github_commits.jsx');
@@ -368,11 +524,15 @@ var _github_member_info = require('../github_member_info.jsx');
 
 var _github_member_info2 = _interopRequireDefault(_github_member_info);
 
+var _reactTest = require('../react-test.jsx');
+
+var _reactTest2 = _interopRequireDefault(_reactTest);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var access_token = "55dc1276759f6ff631870b2c509b632382276575";
 
-var member_info = [{ 'name': 'Nick Kantor', 'github_id': 'njk464', 'image': 'nick_kantor.png', 'p1_lead': true, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I'm a Senior Computer Science student and tend to spend my free time playing my trumpet for the longhorn band. After I graduate I plan on pursuing a Master's degree in Information Security." }, { 'name': 'Samuel Braley', 'github_id': 'samuelbraley', 'image': 'samuel_braley.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Documentation and Apiary", 'bio': "I am a Computer Science senior with certificates in Business Foundations and Game Design. I enjoy being one of the many Sams in the world and plan on being a programmer manager after I graduate." }, { 'name': 'Taben Malik', 'github_id': 'tabenmalik', 'image': 'taben.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Data Collection and Modeling", 'bio': "A double major in Computer Science and Aerospace Engineering. I am a strong advocate of a Mars mission and hope to be a part of one someday." }, { 'name': 'Gustavo Osorio', 'github_id': 'lpztavo', 'image': 'gustavo.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 12, 'responsibilities': "UML Design and Modeling", 'bio': "I'm a senior Computer Science student. I enjoy dancing and coding, but I'm not skilled enough to do both simultaneously." }, { 'name': 'Scott Farrior', 'github_id': 'sfarrior', 'image': 'sfarrior.jpg', 'p1_lead': false, 'p2_lead': true, 'p3_lead': false, 'tests': 0, 'responsibilities': "Server setup/administration and SQLAlchemy backend", 'bio': "I'm a Computer Science major. I work as a TA/Grader as well as Computer Lab technician for the community college, and would like to be an instructor one day." }, { 'name': 'David Ares', 'github_id': 'dares23', 'image': 'david.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': true, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I am a non-traditional student with one year of Full-stack web development. Before returning to school, I gained seven years of experience in sales, marketing, and management." }];
+var member_info = [{ 'name': 'Nick Kantor', 'github_id': ['njk464'], 'image': 'nick_kantor.png', 'p1_lead': true, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I'm a Senior Computer Science student and tend to spend my free time playing my trumpet for the longhorn band. After I graduate I plan on pursuing a Master's degree in Information Security." }, { 'name': 'Samuel Braley', 'github_id': ['samuelbraley', 'spacecowboys373@gmail.com'], 'image': 'samuel_braley.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Documentation and Apiary", 'bio': "I am a Computer Science senior with certificates in Business Foundations and Game Design. I enjoy being one of the many Sams in the world and plan on being a programmer manager after I graduate." }, { 'name': 'Taben Malik', 'github_id': ['tabenmalik'], 'image': 'taben.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 0, 'responsibilities': "Data Collection and Modeling", 'bio': "A double major in Computer Science and Aerospace Engineering. I am a strong advocate of a Mars mission and hope to be a part of one someday." }, { 'name': 'Gustavo Osorio', 'github_id': ['lpztavo'], 'image': 'gustavo.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': false, 'tests': 12, 'responsibilities': "UML Design and Modeling", 'bio': "I'm a senior Computer Science student. I enjoy dancing and coding, but I'm not skilled enough to do both simultaneously." }, { 'name': 'Scott Farrior', 'github_id': ['farrior@cs.utexas.edu', 'sfarrior'], 'image': 'sfarrior.jpg', 'p1_lead': false, 'p2_lead': true, 'p3_lead': false, 'tests': 0, 'responsibilities': "Server setup/administration and SQLAlchemy backend", 'bio': "I'm a Computer Science major. I work as a TA/Grader as well as Computer Lab technician for the community college, and would like to be an instructor one day." }, { 'name': 'David Ares', 'github_id': ['dares23', 'dares23@cs.utexas.edu'], 'image': 'david.jpg', 'p1_lead': false, 'p2_lead': false, 'p3_lead': true, 'tests': 0, 'responsibilities': "Front-End Developer", 'bio': "I am a non-traditional student with one year of Full-stack web development. Before returning to school, I gained seven years of experience in sales, marketing, and management." }];
 
 ReactDOM.render(React.createElement(_github_commits2.default, { url: 'https://api.github.com/repos/samuelbraley/idb/stats/commit_activity', token: access_token }), document.getElementById('overall-commits'));
 
@@ -380,7 +540,9 @@ ReactDOM.render(React.createElement(_github_issues2.default, { url: 'https://api
 
 ReactDOM.render(React.createElement(_github_member_info2.default, { member_info: member_info, url: 'https://api.github.com/repos/samuelbraley/idb', token: access_token }), document.getElementById('member-info'));
 
-},{"../github_commits.jsx":1,"../github_issues.jsx":2,"../github_member_info.jsx":4}],6:[function(require,module,exports){
+ReactDOM.render(React.createElement(_reactTest2.default, null), document.getElementById('react-tests'));
+
+},{"../github_commits.jsx":1,"../github_issues.jsx":2,"../github_member_info.jsx":4,"../react-test.jsx":5}],7:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //
@@ -388,7 +550,7 @@ ReactDOM.render(React.createElement(_github_member_info2.default, { member_info:
 require('whatwg-fetch');
 module.exports = self.fetch.bind(self);
 
-},{"whatwg-fetch":7}],7:[function(require,module,exports){
+},{"whatwg-fetch":8}],8:[function(require,module,exports){
 (function(self) {
   'use strict';
 
@@ -851,4 +1013,4 @@ module.exports = self.fetch.bind(self);
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-},{}]},{},[5]);
+},{}]},{},[6]);

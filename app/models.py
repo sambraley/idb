@@ -52,6 +52,10 @@ class Satellite(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
+<<<<<<< HEAD
+=======
+    img_url = db.Column(db.Text())
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
     year_launched = db.Column(db.String())
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
@@ -127,7 +131,11 @@ class Satellite(db.Model):
 class Planet(db.Model):
 
     """
+<<<<<<< HEAD
     Models planets. Attributes are: name, diameter, right_ascension,
+=======
+    Models planets. Attributes are: name, img_url, diameter, right_ascension,
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
     declination, gravity, orbital period, mass, and temperature. They may relate
     many-to-one to galaxies and stars, and one-to-many to satellites and other planets.
     """
@@ -147,6 +155,10 @@ class Planet(db.Model):
     orbital_period = db.Column(db.String())
     mass = db.Column(db.String())
     temperature = db.Column(db.String())
+<<<<<<< HEAD
+=======
+    img_url = db.Column(db.Text())
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
 
     # Foreign Keys
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
@@ -192,6 +204,10 @@ class Planet(db.Model):
         self.orbital_period = str(orbital_period)
         self.mass = str(mass)
         self.temperature = str(temperature)
+<<<<<<< HEAD
+=======
+        self.img_url = img_url
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
         self.star = star
         self.galaxy = galaxy
         self.image = image
@@ -222,7 +238,11 @@ class Planet(db.Model):
 class Star(db.Model):
 
     """
+<<<<<<< HEAD
     Models stars. Attributes are: name, temperature, right_ascension,
+=======
+    Models stars. Attributes are: name, img_url, temperature, right_ascension,
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
     to satellites and planets.
     """
@@ -240,6 +260,10 @@ class Star(db.Model):
     dec = db.Column(db.String())
     temperature = db.Column(db.String())
     mass = db.Column(db.String())
+<<<<<<< HEAD
+=======
+    img_url = db.Column(db.Text())
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
 
     # Foreign Keys
     galaxy_pid = db.Column(db.Integer, db.ForeignKey("galaxy.pid"))
@@ -278,6 +302,10 @@ class Star(db.Model):
         self.dec = str(dec)
         self.temperature = str(temperature)
         self.mass = str(mass)
+<<<<<<< HEAD
+=======
+        self.img_url = img_url
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
         self.galaxy = galaxy
         self.image = image
         
@@ -304,7 +332,11 @@ class Star(db.Model):
 class Galaxy(db.Model):
 
     """
+<<<<<<< HEAD
     Models galaxies. Attributes are: name, right_ascension, declination,
+=======
+    Models galaxies. Attributes are: name, img_url, right_ascension, declination,
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
     to satellites, stars, and planets.
     """
@@ -322,6 +354,7 @@ class Galaxy(db.Model):
     morph_type = db.Column(db.String())
     redshift = db.Column(db.String())
     size = db.Column(db.String())
+<<<<<<< HEAD
     
     # Foreign Keys
     image_pid = db.Column(db.Integer, db.ForeignKey("image.pid"))
@@ -330,6 +363,10 @@ class Galaxy(db.Model):
     image = db.relationship(
         "Image", backref="Galaxy")
         
+=======
+    img_url = db.Column(db.String())
+
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
     #
     # Methods
     #
@@ -354,7 +391,11 @@ class Galaxy(db.Model):
         self.morph_type = morph_type
         self.redshift = str(redshift)
         self.size = str(size)
+<<<<<<< HEAD
         self.image = image
+=======
+        self.img_url = img_url
+>>>>>>> c39878b10c2e24cbfaa721dac84713821e3ba16e
 
     def to_dict(self):
         """
