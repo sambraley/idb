@@ -18,6 +18,7 @@ def api_setup_satellite(manager) :
         "collection_name":"satellites",
         "exclude_columns":["planet", "star", "galaxy", "image", "image_pid",
             "year_launched_str"],
+        "include_methods":["model_type"],
         "results_per_page":9,
         "max_results_per_page":50
     }
@@ -33,6 +34,7 @@ def api_setup_planet(manager) :
         "exclude_columns":["satellites", "star", "galaxy", "image", "img_pid",
             "diameter_str", "ra_str", "dec_str", "gravity_str", "orbital_period_str",
             "mass_str", "temperature_str"],
+        "include_methods":["model_type"],
         "results_per_page":9,
         "max_results_per_page":50
     }
@@ -47,6 +49,7 @@ def api_setup_star(manager) :
         "collection_name":"stars",
         "exclude_columns":["satellites", "planets", "galaxy", "image", "img_pid",
             "diameter_str", "ra_str", "dec_str", "mass_str", "temperature_str"],
+        "include_methods":["model_type"],
         "results_per_page":9,
         "max_results_per_page":50
     }
@@ -61,6 +64,7 @@ def api_setup_galaxy(manager) :
         "collection_name":"galaxies",
         "exclude_columns":["satellites", "planets", "stars", "image", "img_pid",
             "ra_str", "dec_str", "redshift_str", "size_str"],
+        "include_methods":["model_type"],
         "results_per_page":9,
         "max_results_per_page":50
     }
