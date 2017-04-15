@@ -77,9 +77,9 @@ def t_dec(web_planet) :
     return ("dec", float(web_planet["dec"]))
 
 def t_gravity(web_planet) : 
-    mass = web_planet["pl_massj"] * Spacecowboy.massj
-    radius = web_planet["pl_radj"] * Spacecowboy.radj
-    gravity = (Spacecowboy.G * mass) / (radius ** 2)
+    mass = web_planet["pl_massj"]
+    radius = web_planet["pl_radj"]
+    gravity = mass / (radius ** 2)
     return ("gravity", float(gravity))
 
 def t_op(web_planet) : 

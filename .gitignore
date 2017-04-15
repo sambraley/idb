@@ -92,5 +92,13 @@ TestIDB.tmp
 *.swp
 node_modules/
 
-# Whoosh Search indexing
+# Ignore Whoosh search index folders
 app/whooshee/
+
+# Ignore data folders
+app/data/
+nasa_scripts/data/
+nasa_scripts/imgs/galaxies/
+nasa_scripts/imgs/planets/
+nasa_scripts/imgs/stars/
+app/lib/__pycache__/

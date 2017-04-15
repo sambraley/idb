@@ -112,7 +112,7 @@ def run_tests():
     test_output = test_output.getvalue()
     coverage = open("coverage.txt")
     coverage_output = coverage.read()
-    output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
+    output = test_output + "\n" + coverage_output
     return output
 
 @app.route('/search')

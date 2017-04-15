@@ -9,14 +9,17 @@ class Github_Member extends React.Component {
 			};
 			var per_page = "&per_page=100";
 			var token = "&access_token="+this.props.token + per_page;
-			var commits = "/commits?author="+this.props.member_info["github_id"] + token;
-			var issues = "/issues?state=all&creator="+this.props.member_info["github_id"] + token;
-			fetch(this.props.url + commits).then(r => r.json())
-			.then(data => this.count_commits(data))
-			.catch(e => console.log(e));
-			fetch(this.props.url + issues).then(r => r.json())
-			.then(data => this.count_issues(data))
-			.catch(e => console.log(e));
+			for (var i = 0; i < this.props.member_info["github_id"].length; i += 1) {
+				var commits = "/commits?author="+this.props.member_info["github_id"][i] + token;
+				var issues = "/issues?state=all&creator="+this.props.member_info["github_id"][i] + token;
+				fetch(this.props.url + commits).then(r => r.json())
+				.then(data => this.count_commits(data))
+				.catch(e => console.log(e));
+				fetch(this.props.url + issues).then(r => r.json())
+				.then(data => this.count_issues(data))
+				.catch(e => console.log(e));
+			}
+			
 		}
 		count_commits(json) {
 			this.state.commits += json.length;

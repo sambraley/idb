@@ -21,11 +21,18 @@
 		var aladin = A.aladin('#aladin-lite-div', {showReticle:false, survey: "P/DSS2/color", fov:.1});
 		aladin.gotoRaDec(spacecowboy_ra, spacecowboy_dec);
 
-		download = function(){
-			console.log(aladin.getViewDataURL())
-    	data = {"url":aladin.getViewDataURL()}
+    
+    function sleep(ms){
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+		async function download(){
+      console.log("yay");
+			await sleep(3000);
+      console.log(aladin.getViewDataURL())
+    	data = {"url":aladin.getViewDataURL(), "ra":spacecowboy_ra, "dec":spacecowboy_dec}
     	console.save(data, 'spacecowboy_file');
-		};
+		}
 		
 		console.save = function(data, filename){
 
@@ -50,5 +57,7 @@
 				e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
 				a.dispatchEvent(e)
 		};
+    
+    download();
 </script>
 </html>

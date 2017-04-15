@@ -71,7 +71,7 @@ def t_name(web_star) :
     return ("name", str(web_star["pl_hostname"]))
 
 def t_diameter(web_star) :
-    diameter = Spacecowboy.sol_rad * web_star["st_rad"] * 2
+    diameter = web_star["st_rad"] * 2
     return ("diameter", float(diameter))
 
 def t_ra(web_star) :
