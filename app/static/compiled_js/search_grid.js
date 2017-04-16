@@ -358,7 +358,7 @@ var ModelListItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
 
-		var base_url = "/" + _this.props.model.model_type + "/";
+		var base_url = "/" + _this.props.model.model_type + "s/";
 		var link = base_url + _this.props.model.pid;
 		_this.state = {
 			style: {
@@ -423,7 +423,7 @@ var ModelTitle = function ModelTitle(_ref) {
 		{ className: "row" },
 		React.createElement(
 			"div",
-			{ className: "col-lg-12" },
+			{ className: "col-lg-12 text-center" },
 			React.createElement(
 				"h1",
 				null,
@@ -839,7 +839,7 @@ var App = function (_React$Component) {
 					{ className: 'row' },
 					React.createElement(
 						'div',
-						{ className: 'col-md-9 text-right' },
+						{ className: 'col-md-12 text-center' },
 						React.createElement(_pages2.default, {
 							current_page: this.state.current_page,
 							total_pages: this.state.total_pages,
@@ -851,7 +851,7 @@ var App = function (_React$Component) {
 					page: this.current_page }),
 				React.createElement(
 					'div',
-					{ key: 'pages', className: 'col-md-12 text-right' },
+					{ key: 'pages', className: 'col-md-12 text-center' },
 					React.createElement(_pages2.default, {
 						current_page: this.state.current_page,
 						total_pages: this.state.total_pages,

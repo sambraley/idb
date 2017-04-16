@@ -58,7 +58,7 @@ class App extends React.Component {
 				<div className="model-container">
 					<ModelTitle title="Search Results" />
 					<div className="row">
-						<div className="col-md-9 text-right">
+						<div className="col-md-12 text-center">
 							<Pages 
 								current_page={this.state.current_page}
 								total_pages={this.state.total_pages} 
@@ -68,7 +68,7 @@ class App extends React.Component {
 					<ModelList 
 						models={this.state.models}
 						page={this.current_page} />
-					<div key="pages" className="col-md-12 text-right">
+					<div key="pages" className="col-md-12 text-center">
 						<Pages 
 							current_page={this.state.current_page}
 							total_pages={this.state.total_pages} 

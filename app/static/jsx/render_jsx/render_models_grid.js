@@ -124,18 +124,24 @@ class App extends React.Component {
 			<div className="model-container">
 				<ModelTitle title={this.state.title} />
 				<div className="row"> 
-					<div className="col-md-2 text-left sort-filter-button">
+					<div className="col-md-4 col-sm-3">
+					</div>
+					<div className="col-sm-3 col-md-2 text-center sort-filter-button">
 						<DropDown 
 							sort_title={this.state.sort_title}
 							modelType={this.state.modelType}
 							sortBy={this.sortBy.bind(this)} />
 					</div>
-					<div className="col-md-1 text-left sort-filter-button">
+					<div className="col-sm-3 col-md-2 text-center sort-filter-button">
 						<Modals
 							modelType={this.state.modelType} 
 							filterBy={this.filterBy.bind(this)} />
 					</div>
-					<div className="col-md-9 text-right">
+					<div className="col-md-4 col-sm-3">
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-md-12 text-center">
 						<Pages 
 							current_page={this.state.current_page}
 							total_pages={this.state.total_pages} 
@@ -145,7 +151,7 @@ class App extends React.Component {
 				<ModelList 
 					models={this.state.models}
 					page={this.current_page} />
-				<div key="pages" className="col-md-12 text-right">
+				<div key="pages" className="col-md-12 text-center">
 					<Pages 
 						current_page={this.state.current_page}
 						total_pages={this.state.total_pages} 

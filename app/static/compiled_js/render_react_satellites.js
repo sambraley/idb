@@ -123,7 +123,7 @@ var ModelListItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
 
-		var base_url = "/" + _this.props.model.model_type + "/";
+		var base_url = "/" + _this.props.model.model_type + "s/";
 		var link = base_url + _this.props.model.pid;
 		_this.state = {
 			style: {
@@ -188,7 +188,7 @@ var ModelTitle = function ModelTitle(_ref) {
 		{ className: "row" },
 		React.createElement(
 			"div",
-			{ className: "col-lg-12" },
+			{ className: "col-lg-12 text-center" },
 			React.createElement(
 				"h1",
 				null,
