@@ -34,9 +34,8 @@ class App extends React.Component {
 
 	getModels(page) {
 		if (this.state.sort_title === "Sort By") {
-			const baseUrl = window.location.href.split('/')[2];
 			const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
-			const url = "http://" + baseUrl + apiExt;
+			const url = apiExt;
 			fetch(url)
 		      .then((response) => response.json())
 		      .then((responseJson) => {
@@ -62,9 +61,8 @@ class App extends React.Component {
 	sortBy(attr, dir, sort_title, page) {
 		// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
 		// console.log(attr, dir);
-		const baseUrl = window.location.href.split('/')[2];
-		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
-		const url = "http://" + baseUrl + apiExt;
+		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
+		const url = apiExt;
 		// console.log(url);
 		fetch(url)
 	      .then((response) => response.json())
@@ -86,9 +84,8 @@ class App extends React.Component {
 
 	filterBy(v1, v2, v3, page) {
 		// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
-		const baseUrl = window.location.href.split('/')[2];
-		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
-		const url = "http://" + baseUrl + apiExt;
+		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
+		const url = apiExt;
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {

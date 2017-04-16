@@ -284,9 +284,8 @@ console.log(window.location.hostname);
 var modelType = window.location.href.split('/')[3];
 var planet_id = window.location.href.split("/")[4];
 console.log("got planet_id: " + planet_id);
-var baseUrl = window.location.href.split('/')[2];
 var apiExt = "/api/v1/" + modelType + "/" + planet_id;
-var url = "http://" + baseUrl + apiExt;
+var url = apiExt;
 
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);

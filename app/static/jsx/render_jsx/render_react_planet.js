@@ -8,9 +8,8 @@ console.log(window.location.hostname);
 const modelType = window.location.href.split('/')[3];
 const planet_id = window.location.href.split("/")[4];
 console.log("got planet_id: " + planet_id);
-const baseUrl = window.location.href.split('/')[2];
 const apiExt = "/api/v1/" + modelType + "/" + planet_id;
-const url = "http://" + baseUrl + apiExt;
+const url = apiExt;
 
 
 class App extends React.Component {

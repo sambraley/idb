@@ -358,7 +358,7 @@ var ModelListItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
 
-		var base_url = "/" + _this.props.model.model_type + "s/";
+		var base_url = "/" + _this.props.model.model_type.toLowerCase() + "s/";
 		var link = base_url + _this.props.model.pid;
 		_this.state = {
 			style: {
@@ -807,9 +807,8 @@ var App = function (_React$Component) {
 			var _this2 = this;
 
 			if (this.state.sort_title === "Sort By") {
-				var baseUrl = window.location.href.split('/')[2];
 				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
-				var url = "http://" + baseUrl + apiExt;
+				var url = apiExt;
 				fetch(url).then(function (response) {
 					return response.json();
 				}).then(function (responseJson) {
@@ -836,9 +835,8 @@ var App = function (_React$Component) {
 
 			// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
 			// console.log(attr, dir);
-			var baseUrl = window.location.href.split('/')[2];
-			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
-			var url = "http://" + baseUrl + apiExt;
+			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
+			var url = apiExt;
 			// console.log(url);
 			fetch(url).then(function (response) {
 				return response.json();
@@ -862,9 +860,8 @@ var App = function (_React$Component) {
 			var _this4 = this;
 
 			// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
-			var baseUrl = window.location.href.split('/')[2];
-			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
-			var url = "http://" + baseUrl + apiExt;
+			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
+			var url = apiExt;
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
