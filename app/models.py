@@ -16,17 +16,17 @@ class Image(db.Model):
     Models image urls for all objects. Attributes are img_url.
     Image relates one-to-one to all other models
     """
-    
+
     #
     # Attributes
     #
-    
+
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
-    
+
     # Model Attributes
     img_url = db.Column(db.Text)
-    
+
      #
     # Methods
     #
@@ -35,13 +35,13 @@ class Image(db.Model):
         assert isinstance(img_url, str)
         self.img_url = img_url
 
-@whooshee.register_model('name', 'year_launched', 'mission_type', 'agency')
+@whooshee.register_model('name', 'year_launched_str', 'mission_type', 'agency')
 class Satellite(db.Model):
 
     """
     Models artificial satellites. Attributes are: name, agency, mission type,
     and year launched. They may relate many-to-one to galaxies, stars, and planets.
-		
+
     """
     #
     # Attributes
@@ -52,11 +52,13 @@ class Satellite(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    img_url = db.Column(db.Text())
-    year_launched = db.Column(db.String())
+    year_launched = db.Column(db.Integer)
     mission_type = db.Column(db.String())
     info_url = db.Column(db.String())
     agency = db.Column(db.String())
+
+    # String attributes for searching
+    year_launched_str = db.Column(db.String())
 
     # Foreign Keys
     planet_pid = db.Column(db.Integer, db.ForeignKey('planet.pid'))
@@ -96,7 +98,7 @@ class Satellite(db.Model):
 
         # Create instance
         self.name = name
-        self.year_launched = str(year_launched)
+        self.year_launched = year_launched
         self.mission_type = mission_type
         self.info_url = info_url
         self.agency = agency
@@ -105,6 +107,9 @@ class Satellite(db.Model):
         self.galaxy = galaxy
         self.image = image
 
+        # String attributes for searching
+        self.year_launched_str = str(year_launched)
+
     def to_dict(self):
         """
         Returns a dictionary representation of this model.
@@ -112,19 +117,24 @@ class Satellite(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "year_launched": int(self.year_launched),
+            "year_launched": self.year_launched,
             "mission_type": self.mission_type,
             "info_url": self.info_url,
             "agency": self.agency,
             "planet_pid": self.planet_pid,
             "star_pid": self.star_pid,
-            "galaxy_pid": self.galaxy_pid
+            "galaxy_pid": self.galaxy_pid,
+            "model_type": self.__class__.__name__
         }
+    
+    def model_type(self):
+        return self.__class__.__name__
 
     def __repr__(self):
         return "<Satellite %r>" % self.name
 
-@whooshee.register_model('name', 'diameter', 'ra', 'dec', 'gravity', 'orbital_period', 'mass', 'temperature')
+@whooshee.register_model('name', 'diameter_str', 'ra_str', 'dec_str', 'gravity_str',
+                         'orbital_period_str', 'mass_str', 'temperature_str')
 class Planet(db.Model):
 
     """
@@ -141,13 +151,22 @@ class Planet(db.Model):
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    diameter = db.Column(db.String())
-    ra = db.Column(db.String())
-    dec = db.Column(db.String())
-    gravity = db.Column(db.String())
-    orbital_period = db.Column(db.String())
-    mass = db.Column(db.String())
-    temperature = db.Column(db.String())
+    diameter = db.Column(db.Float)
+    ra = db.Column(db.Float)
+    dec = db.Column(db.Float)
+    gravity = db.Column(db.Float)
+    orbital_period = db.Column(db.Float)
+    mass = db.Column(db.Float)
+    temperature = db.Column(db.Integer)
+
+    # String attributes for searching
+    diameter_str = db.Column(db.String())
+    ra_str = db.Column(db.String())
+    dec_str = db.Column(db.String())
+    gravity_str = db.Column(db.String())
+    orbital_period_str = db.Column(db.String())
+    mass_str = db.Column(db.String())
+    temperature_str = db.Column(db.String())
 
     # Foreign Keys
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
@@ -186,13 +205,22 @@ class Planet(db.Model):
 
         # Create Instance
         self.name = name
-        self.diameter = str(diameter)
-        self.ra = str(ra)
-        self.dec = str(dec)
-        self.gravity = str(gravity)
-        self.orbital_period = str(orbital_period)
-        self.mass = str(mass)
-        self.temperature = str(temperature)
+        self.diameter = diameter
+        self.ra = ra
+        self.dec = dec
+        self.gravity = gravity
+        self.orbital_period = orbital_period
+        self.mass = mass
+        self.temperature = temperature
+
+        self.diameter_str = str(diameter)
+        self.ra_str = str(ra)
+        self.dec_str = str(dec)
+        self.gravity_str = str(gravity)
+        self.orbital_period_str = str(orbital_period)
+        self.mass_str = str(mass)
+        self.temperature_str = str(temperature)
+
         self.star = star
         self.galaxy = galaxy
         self.image = image
@@ -204,22 +232,26 @@ class Planet(db.Model):
         return {
             "pid": self.pid,
             "name": self.name,
-            "diameter": float(self.diameter),
-            "ra": float(self.ra),
-            "dec": float(self.dec),
-            "gravity": float(self.gravity),
-            "orbital_period": float(self.orbital_period),
-            "mass": float(self.mass),
-            "temperature": int(self.temperature),
+            "diameter": self.diameter,
+            "ra": self.ra,
+            "dec": self.dec,
+            "gravity": self.gravity,
+            "orbital_period": self.orbital_period,
+            "mass": self.mass,
+            "temperature": self.temperature,
             "star_pid": self.star_pid,
-            "galaxy_pid": self.galaxy_pid
+            "galaxy_pid": self.galaxy_pid,
+            "model_type": self.__class__.__name__
         }
 
+    def model_type(self):
+        return self.__class__.__name__
+    
     def __repr__(self):
         return "<Planet %r>" % self.name
 
 
-@whooshee.register_model('name', 'diameter', 'ra', 'dec', 'temperature', 'mass')
+@whooshee.register_model('name', 'diameter_str', 'ra_str', 'dec_str', 'temperature_str', 'mass_str')
 class Star(db.Model):
 
     """
@@ -230,29 +262,36 @@ class Star(db.Model):
     #
     # Attributes
     #
-    
+
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
     # Model Attributes
     name = db.Column(db.String(), unique=True)
-    diameter = db.Column(db.String())
-    ra = db.Column(db.String())
-    dec = db.Column(db.String())
-    temperature = db.Column(db.String())
-    mass = db.Column(db.String())
+    diameter = db.Column(db.Float)
+    ra = db.Column(db.Float)
+    dec = db.Column(db.Float)
+    temperature = db.Column(db.Integer)
+    mass = db.Column(db.Float)
+    
+    # String attributes for searching
+    diameter_str = db.Column(db.String())
+    ra_str = db.Column(db.String())
+    dec_str = db.Column(db.String())
+    temperature_str = db.Column(db.String())
+    mass_str = db.Column(db.String())
 
     # Foreign Keys
     galaxy_pid = db.Column(db.Integer, db.ForeignKey("galaxy.pid"))
     image_pid = db.Column(db.Integer, db.ForeignKey("image.pid"))
-    
+
     # Relations
     galaxy = db.relationship(
         "Galaxy", backref=db.backref("stars", lazy='dynamic'))
-    
+
     image = db.relationship(
         "Image", backref="Star")
-    
+
     #
     # Methods
     #
@@ -275,13 +314,19 @@ class Star(db.Model):
         # Create instance
         self.name = name
         self.diameter = diameter
-        self.ra = str(ra)
-        self.dec = str(dec)
-        self.temperature = str(temperature)
-        self.mass = str(mass)
+        self.ra = ra
+        self.dec = dec
+        self.temperature = temperature
+        self.mass = mass
         self.galaxy = galaxy
         self.image = image
-        
+      
+        self.diameter_str = str(diameter)
+        self.ra_str = str(ra)
+        self.dec_str = str(dec)
+        self.temperature_str = str(temperature)
+        self.mass_str = str(mass)
+
     def to_dict(self):
         """
         Returns a dictionary representation of this model.
@@ -290,18 +335,22 @@ class Star(db.Model):
             "pid": self.pid,
             "name": self.name,
             "diameter": self.diameter,
-            "ra": float(self.ra),
-            "dec": float(self.dec),
-            "temperature": int(self.temperature),
-            "mass": float(self.mass),
-            "galaxy_pid": self.galaxy_pid
+            "ra": self.ra,
+            "dec": self.dec,
+            "temperature": self.temperature,
+            "mass": self.mass,
+            "galaxy_pid": self.galaxy_pid,
+            "model_type": self.__class__.__name__
         }
 
+    def model_type(self):
+        return self.__class__.__name__
+    
     def __repr__(self):
         return "<Star %r>" % self.name
 
 
-@whooshee.register_model('name', 'ra', 'dec', 'morph_type', 'size', 'redshift')
+@whooshee.register_model('name', 'ra_str', 'dec_str', 'morph_type', 'size_str', 'redshift_str')
 class Galaxy(db.Model):
 
     """
@@ -312,25 +361,31 @@ class Galaxy(db.Model):
     #
     # Attributes
     #
-    
+
     # Primary Key
     pid = db.Column(db.Integer, primary_key=True)
 
     # Model Attributes
     name = db.Column(db.String, unique=True)
-    ra = db.Column(db.String())
-    dec = db.Column(db.String())
+    ra = db.Column(db.Float)
+    dec = db.Column(db.Float)
     morph_type = db.Column(db.String())
-    redshift = db.Column(db.String())
-    size = db.Column(db.String())
+    redshift = db.Column(db.Float)
+    size = db.Column(db.Float)
+
+    # String attributes for searching
+    ra_str = db.Column(db.String())
+    dec_str = db.Column(db.String())
+    redshift_str = db.Column(db.String())
+    size_str = db.Column(db.String())
     
     # Foreign Keys
     image_pid = db.Column(db.Integer, db.ForeignKey("image.pid"))
-    
+
     # Relations
     image = db.relationship(
         "Image", backref="Galaxy")
-        
+
     #
     # Methods
     #
@@ -350,12 +405,17 @@ class Galaxy(db.Model):
         assert isinstance(image, Image)
 
         self.name = name
-        self.ra = str(ra)
-        self.dec = str(dec)
+        self.ra = ra
+        self.dec = dec
         self.morph_type = morph_type
-        self.redshift = str(redshift)
-        self.size = str(size)
+        self.redshift = redshift
+        self.size = size
         self.image = image
+
+        self.ra_str = str(ra)
+        self.dec_str = str(dec)
+        self.redshift_str = str(redshift)
+        self.size_str = str(size)
 
     def to_dict(self):
         """
@@ -363,12 +423,16 @@ class Galaxy(db.Model):
         """
         return {
             "name": self.name,
-            "ra": float(self.ra),
-            "dec": float(self.dec),
+            "ra": self.ra,
+            "dec": self.dec,
             "morph_type": self.morph_type,
-            "redshift": float(self.redshift),
-            "size": float(self.size),
+            "redshift": self.redshift,
+            "size": self.size,
+            "model_type": self.__class__.__name__
         }
 
+    def model_type(self):
+        return self.__class__.__name__
+    
     def __repr__(self):
         return "<Galaxy %r>" % self.name
