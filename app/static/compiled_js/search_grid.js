@@ -358,7 +358,7 @@ var ModelListItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
 
-		var base_url = "/" + _this.props.model.model_type.toLowerCase() + "s/";
+		var base_url = "/" + _this.props.model.model_type + "/";
 		var link = base_url + _this.props.model.pid;
 		_this.state = {
 			style: {

@@ -358,7 +358,7 @@ var ModelListItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
 
-		var base_url = "/" + _this.props.model.model_type.toLowerCase() + "s/";
+		var base_url = "/" + _this.props.model.model_type + "/";
 		var link = base_url + _this.props.model.pid;
 		_this.state = {
 			style: {
@@ -781,11 +781,29 @@ var App = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
+		var dict = {};
+		dict['page'] = 1;
+		var href = window.location.href;
+		if (href.indexOf('?') >= 0 && href.indexOf('&') >= 0) {
+			var parameters = window.location.href.split('?')[1].split('&');
+			for (var i = 0; i < parameters.length; i += 1) {
+				var key = parameters[i].split('=')[0];
+				var value = parameters[i].split('=')[1];
+				dict[key] = value;
+			}
+			modelType = modelType.split('?')[0];
+		} else if (href.indexOf('?') >= 0) {
+			var parameters = window.location.href.split('?')[1];
+			var key = parameters.split('=')[0];
+			var value = parameters.split('=')[1];
+			dict[key] = value;
+			modelType = modelType.split('?')[0];
+		}
 		_this.state = {
 			models: [],
-			title: exts[window.location.href.split('/')[3]],
+			title: exts[modelType],
 			total_pages: 1,
-			current_page: 1,
+			current_page: Number(dict['page']),
 			modelType: modelType,
 			sort_title: "Sort By",
 			current_sort_attr: null,
@@ -796,37 +814,40 @@ var App = function (_React$Component) {
 			current_filter_v3: null,
 			loaded: false
 		};
-
-		_this.getModels(_this.state.current_page);
+		_this.getModels();
 		return _this;
 	}
 
 	_createClass(App, [{
 		key: 'getModels',
-		value: function getModels(page) {
+		value: function getModels() {
 			var _this2 = this;
 
-			if (this.state.sort_title === "Sort By") {
-				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
-				var url = apiExt;
-				fetch(url).then(function (response) {
-					return response.json();
-				}).then(function (responseJson) {
-					_this2.setState({
-						models: responseJson.objects,
-						total_pages: responseJson.total_pages,
-						current_page: responseJson.page,
-						loaded: true
-					});
-				}).catch(function (error) {
-					console.error(error);
+			var url = "/api/v1/" + this.state.modelType + "?page=" + this.state.current_page + "&results_per_page=6";
+			fetch(url).then(function (response) {
+				return response.json();
+			}).then(function (responseJson) {
+				_this2.setState({
+					models: responseJson.objects,
+					total_pages: responseJson.total_pages,
+					current_page: responseJson.page,
+					loaded: true
 				});
-			} else {
-				// console.log("pages are sorted by " + this.state.sort_title);
-				// console.log("using attr " + this.state.current_sort_attr);
-				// console.log("by order " + this.state.current_sort_dir);
-				this.sortBy(this.state.current_sort_attr, this.state.current_sort_dir, this.state.sort_title, page);
-			}
+			}).catch(function (error) {
+				console.error(error);
+			});
+		}
+	}, {
+		key: 'redirect',
+		value: function redirect() {
+			var url = "/" + this.state.modelType + "?page=" + this.state.current_page;
+			window.location = url;
+		}
+	}, {
+		key: 'changePage',
+		value: function changePage(page) {
+			this.state['current_page'] = page;
+			this.redirect();
 		}
 	}, {
 		key: 'sortBy',
@@ -931,7 +952,7 @@ var App = function (_React$Component) {
 						React.createElement(_pages2.default, {
 							current_page: this.state.current_page,
 							total_pages: this.state.total_pages,
-							onPageSelect: this.getModels.bind(this) })
+							onPageSelect: this.changePage.bind(this) })
 					)
 				),
 				React.createElement(_models_list2.default, {

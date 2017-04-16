@@ -7,17 +7,35 @@ import Modals from './../components/modals';
 import "isomorphic-fetch";
 
 const exts = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
-const modelType = window.location.href.split('/')[3];
+var modelType = window.location.href.split('/')[3];
 
 class App extends React.Component {
 	constructor (props) {
 		super(props);
-
+		var dict = {};
+		dict['page'] = 1;
+		var href = window.location.href;
+		if (href.indexOf('?') >= 0 && href.indexOf('&') >= 0){
+			var parameters = window.location.href.split('?')[1].split('&');
+			for (var i = 0; i < parameters.length; i += 1) {
+				var key = parameters[i].split('=')[0];
+				var value = parameters[i].split('=')[1];
+				dict[key] = value;
+			}
+			modelType = modelType.split('?')[0];
+		}
+		else if (href.indexOf('?') >= 0){
+			var parameters = window.location.href.split('?')[1];
+			var key = parameters.split('=')[0];
+			var value = parameters.split('=')[1];
+			dict[key] = value;
+			modelType = modelType.split('?')[0];
+		}
 		this.state = { 
 			models: [],
-			title: exts[window.location.href.split('/')[3]],
+			title: exts[modelType],
 			total_pages: 1,
-			current_page: 1,
+			current_page: Number(dict['page']),
 			modelType: modelType,
 			sort_title: "Sort By",
 			current_sort_attr: null,
@@ -28,34 +46,33 @@ class App extends React.Component {
 			current_filter_v3: null,
 			loaded: false
 		};
-		
-		this.getModels(this.state.current_page);
+		this.getModels();
 	}	
 
-	getModels(page) {
-		if (this.state.sort_title === "Sort By") {
-			const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
-			const url = apiExt;
-			fetch(url)
-		      .then((response) => response.json())
-		      .then((responseJson) => {
-		        this.setState({ 
-		        	models: responseJson.objects,
-		        	total_pages: responseJson.total_pages,
-		        	current_page: responseJson.page,
-		        	loaded: true
-		        })
-			    })
-			    .catch((error) => {
-			        console.error(error);
-		      	})
-		}
-		else {
-			// console.log("pages are sorted by " + this.state.sort_title);
-			// console.log("using attr " + this.state.current_sort_attr);
-			// console.log("by order " + this.state.current_sort_dir);
-			this.sortBy(this.state.current_sort_attr, this.state.current_sort_dir, this.state.sort_title, page);
-		}
+	getModels() {
+		const url = "/api/v1/" + this.state.modelType + "?page=" + this.state.current_page + "&results_per_page=6";
+		fetch(url)
+	      .then((response) => response.json())
+	      .then((responseJson) => {
+	        this.setState({ 
+	        	models: responseJson.objects,
+	        	total_pages: responseJson.total_pages,
+	        	current_page: responseJson.page,
+	        	loaded: true
+	        })
+		    })
+		    .catch((error) => {
+		        console.error(error);
+	      	})
+	}
+	redirect() {
+		const url = "/" + this.state.modelType + "?page=" + this.state.current_page;
+		window.location = url;
+	}
+
+	changePage(page) {
+		this.state['current_page'] = page;
+		this.redirect();
 	}
 
 	sortBy(attr, dir, sort_title, page) {
@@ -142,7 +159,7 @@ class App extends React.Component {
 						<Pages 
 							current_page={this.state.current_page}
 							total_pages={this.state.total_pages} 
-							onPageSelect={this.getModels.bind(this)} />
+							onPageSelect={this.changePage.bind(this)} />
 					</div>
 				</div>
 				<ModelList 
