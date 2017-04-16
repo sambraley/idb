@@ -342,30 +342,69 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var ModelListItem = function ModelListItem(_ref) {
-	var model = _ref.model;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var link = "/" + window.location.href.split('/')[3] + "/" + model.pid;
-	var image_url = model.img_url;
-	var style = {
-		width: '400px',
-		height: '400px'
-	};
-	return React.createElement(
-		"div",
-		{ className: "col-lg-4 col-md-6 col-sm-12 text-center model-list-item" },
-		React.createElement(
-			"a",
-			{ href: link },
-			React.createElement("img", { className: "img-thumbnail about-image", style: style, src: image_url }),
-			React.createElement(
-				"h3",
-				null,
-				model.name
-			)
-		)
-	);
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ModelListItem = function (_React$Component) {
+	_inherits(ModelListItem, _React$Component);
+
+	function ModelListItem(props) {
+		_classCallCheck(this, ModelListItem);
+
+		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
+
+		var base_url = "/" + _this.props.model.model_type + "s/";
+		var link = base_url + _this.props.model.pid;
+		_this.state = {
+			style: {
+				width: '400px',
+				height: '400px'
+			},
+			image_url: "/undefined",
+			link: link
+		};
+		var image_url = "/api/v1" + base_url + _this.props.model.pid + "/image";
+		fetch(image_url).then(function (response) {
+			return response.json();
+		}).then(function (responseJson) {
+			_this.setState({
+				image_url: responseJson.img_url
+			});
+		}).catch(function (error) {
+			console.error(error);
+		});
+		return _this;
+	}
+
+	_createClass(ModelListItem, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "col-lg-4 col-md-6 col-sm-12 text-center model-list-item" },
+				React.createElement(
+					"a",
+					{ href: this.state.link },
+					React.createElement("img", { className: "img-thumbnail about-image", style: this.state.style, src: this.state.image_url }),
+					React.createElement(
+						"h3",
+						null,
+						this.props.model.name
+					)
+				)
+			);
+		}
+	}]);
+
+	return ModelListItem;
+}(React.Component);
+
+;
 
 exports.default = ModelListItem;
 
@@ -384,7 +423,7 @@ var ModelTitle = function ModelTitle(_ref) {
 		{ className: "row" },
 		React.createElement(
 			"div",
-			{ className: "col-lg-12" },
+			{ className: "col-lg-12 text-center" },
 			React.createElement(
 				"h1",
 				null,
@@ -410,19 +449,8 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	if (props.models === []) {
-		console.log("nothing in props");
-		return React.createElement(
-			"div",
-			null,
-			"No results Found"
-		);
-	}
-
 	var modelItem = props.models.map(function (model) {
-		return React.createElement(_model_list_item2.default, {
-			key: model.pid,
-			model: model });
+		return React.createElement(_model_list_item2.default, { model: model });
 	});
 	return React.createElement(
 		"div",
@@ -765,7 +793,8 @@ var App = function (_React$Component) {
 			isFiltered: false,
 			current_filter_v1: null,
 			current_filter_v2: null,
-			current_filter_v3: null
+			current_filter_v3: null,
+			loaded: false
 		};
 
 		_this.getModels(_this.state.current_page);
@@ -778,20 +807,17 @@ var App = function (_React$Component) {
 			var _this2 = this;
 
 			if (this.state.sort_title === "Sort By") {
-				// console.log("pages are not sorted");
-
 				var baseUrl = window.location.href.split('/')[2];
 				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
 				var url = "http://" + baseUrl + apiExt;
-				// console.log(url);
 				fetch(url).then(function (response) {
 					return response.json();
 				}).then(function (responseJson) {
-					// console.log("I'm back with some values");
 					_this2.setState({
 						models: responseJson.objects,
 						total_pages: responseJson.total_pages,
-						current_page: responseJson.page
+						current_page: responseJson.page,
+						loaded: true
 					});
 				}).catch(function (error) {
 					console.error(error);
@@ -859,6 +885,21 @@ var App = function (_React$Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			if (!this.state.loaded) {
+				return React.createElement(
+					'h1',
+					{ className: 'text-center' },
+					'Loading ',
+					this.state.title
+				);
+			}
+			if (this.state.models.length <= 0) {
+				return React.createElement(
+					'h1',
+					{ className: 'text-center' },
+					'No Results Found'
+				);
+			}
 			return React.createElement(
 				'div',
 				{ className: 'model-container' },
@@ -866,9 +907,10 @@ var App = function (_React$Component) {
 				React.createElement(
 					'div',
 					{ className: 'row' },
+					React.createElement('div', { className: 'col-md-4 col-sm-3' }),
 					React.createElement(
 						'div',
-						{ className: 'col-md-2 text-left sort-filter-button' },
+						{ className: 'col-sm-3 col-md-2 text-center sort-filter-button' },
 						React.createElement(_drop_down2.default, {
 							sort_title: this.state.sort_title,
 							modelType: this.state.modelType,
@@ -876,14 +918,19 @@ var App = function (_React$Component) {
 					),
 					React.createElement(
 						'div',
-						{ className: 'col-md-1 text-left sort-filter-button' },
+						{ className: 'col-sm-3 col-md-2 text-center sort-filter-button' },
 						React.createElement(_modals2.default, {
 							modelType: this.state.modelType,
 							filterBy: this.filterBy.bind(this) })
 					),
+					React.createElement('div', { className: 'col-md-4 col-sm-3' })
+				),
+				React.createElement(
+					'div',
+					{ className: 'row' },
 					React.createElement(
 						'div',
-						{ className: 'col-md-9 text-right' },
+						{ className: 'col-md-12 text-center' },
 						React.createElement(_pages2.default, {
 							current_page: this.state.current_page,
 							total_pages: this.state.total_pages,
@@ -895,7 +942,7 @@ var App = function (_React$Component) {
 					page: this.current_page }),
 				React.createElement(
 					'div',
-					{ key: 'pages', className: 'col-md-12 text-right' },
+					{ key: 'pages', className: 'col-md-12 text-center' },
 					React.createElement(_pages2.default, {
 						current_page: this.state.current_page,
 						total_pages: this.state.total_pages,

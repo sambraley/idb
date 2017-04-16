@@ -11,6 +11,30 @@ use in a PostgreSQL database using Flask-SQLAlchemy.
 """
 from database import db, whooshee
 
+class Image(db.Model):
+    """
+    Models image urls for all objects. Attributes are img_url.
+    Image relates one-to-one to all other models
+    """
+    
+    #
+    # Attributes
+    #
+    
+    # Primary Key
+    pid = db.Column(db.Integer, primary_key=True)
+    
+    # Model Attributes
+    img_url = db.Column(db.Text)
+    
+     #
+    # Methods
+    #
+
+    def __init__(self, img_url):
+        assert isinstance(img_url, str)
+        self.img_url = img_url
+
 @whooshee.register_model('name', 'year_launched', 'mission_type', 'agency')
 class Satellite(db.Model):
 
@@ -38,6 +62,7 @@ class Satellite(db.Model):
     planet_pid = db.Column(db.Integer, db.ForeignKey('planet.pid'))
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
+    image_pid = db.Column(db.Integer, db.ForeignKey('image.pid'))
 
     # Relations
     planet = db.relationship(
@@ -46,19 +71,19 @@ class Satellite(db.Model):
         "Star", backref=db.backref("satellites", lazy="dynamic"))
     galaxy = db.relationship(
         "Galaxy", backref=db.backref("satellites", lazy="dynamic"))
-
+    image = db.relationship(
+        "Image", backref="Satellite")
     #
     # Methods
     #
 
     def __init__(
-            self, name, img_url, year_launched, mission_type, info_url, agency,
-            planet, star, galaxy):
+            self, name, year_launched, mission_type, info_url, agency,
+            planet, star, galaxy, image):
         """
-        name a str, img_url a str, info_url a str, agency a str, mission_type a str, year_launched an int.
+        name a str, info_url a str, agency a str, mission_type a str, year_launched an int.
         """
         # Check types
-        assert isinstance(img_url, str)
         assert isinstance(year_launched, int)
         assert isinstance(name, str)
         assert isinstance(mission_type, str)
@@ -67,6 +92,7 @@ class Satellite(db.Model):
         assert isinstance(planet, Planet)
         assert isinstance(star, Star)
         assert isinstance(galaxy, Galaxy)
+        assert isinstance(image, Image)
 
         # Create instance
         self.name = name
@@ -77,6 +103,7 @@ class Satellite(db.Model):
         self.planet = planet
         self.star = star
         self.galaxy = galaxy
+        self.image = image
 
     def to_dict(self):
         """
@@ -101,7 +128,7 @@ class Satellite(db.Model):
 class Planet(db.Model):
 
     """
-    Models planets. Attributes are: name, img_url, diameter, right_ascension,
+    Models planets. Attributes are: name, diameter, right_ascension,
     declination, gravity, orbital period, mass, and temperature. They may relate
     many-to-one to galaxies and stars, and one-to-many to satellites and other planets.
     """
@@ -121,17 +148,19 @@ class Planet(db.Model):
     orbital_period = db.Column(db.String())
     mass = db.Column(db.String())
     temperature = db.Column(db.String())
-    img_url = db.Column(db.Text())
 
     # Foreign Keys
     star_pid = db.Column(db.Integer, db.ForeignKey('star.pid'))
     galaxy_pid = db.Column(db.Integer, db.ForeignKey('galaxy.pid'))
+    image_pid = db.Column(db.Integer, db.ForeignKey('image.pid'))
 
     # Relations
     star = db.relationship(
         "Star", backref=db.backref("planets", lazy="dynamic"))
     galaxy = db.relationship(
         "Galaxy", backref=db.backref("planets", lazy="dynamic"))
+    image = db.relationship(
+        "Image", backref="Planet")
 
     #
     # Methods
@@ -139,9 +168,9 @@ class Planet(db.Model):
 
     def __init__(
             self, name, diameter, ra, dec, gravity, orbital_period, mass,
-            temperature, img_url, star, galaxy):
+            temperature, star, galaxy, image):
         """
-        name a str, img_url a str, diameter a float, temperature a int, right_ascension, declination,
+        name a str, diameter a float, temperature a int, right_ascension, declination,
         mass, gravity, orbital_period are all floats.
         """
         # Check types
@@ -152,8 +181,8 @@ class Planet(db.Model):
         assert isinstance(gravity, float)
         assert isinstance(orbital_period, float)
         assert isinstance(mass, float)
-        assert isinstance(img_url, str)
         assert isinstance(temperature, int)
+        assert isinstance(image, Image)
 
         # Create Instance
         self.name = name
@@ -164,9 +193,9 @@ class Planet(db.Model):
         self.orbital_period = str(orbital_period)
         self.mass = str(mass)
         self.temperature = str(temperature)
-        self.img_url = img_url
         self.star = star
         self.galaxy = galaxy
+        self.image = image
 
     def to_dict(self):
         """
@@ -194,7 +223,7 @@ class Planet(db.Model):
 class Star(db.Model):
 
     """
-    Models stars. Attributes are: name, img_url, temperature, right_ascension,
+    Models stars. Attributes are: name, temperature, right_ascension,
     declination, and mass. They may relate many-to-one to galaxies and one-to-many
     to satellites and planets.
     """
@@ -212,22 +241,25 @@ class Star(db.Model):
     dec = db.Column(db.String())
     temperature = db.Column(db.String())
     mass = db.Column(db.String())
-    img_url = db.Column(db.Text())
 
     # Foreign Keys
     galaxy_pid = db.Column(db.Integer, db.ForeignKey("galaxy.pid"))
-
+    image_pid = db.Column(db.Integer, db.ForeignKey("image.pid"))
+    
     # Relations
     galaxy = db.relationship(
         "Galaxy", backref=db.backref("stars", lazy='dynamic'))
-
+    
+    image = db.relationship(
+        "Image", backref="Star")
+    
     #
     # Methods
     #
 
-    def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy, img_url):
+    def __init__(self, name, diameter, ra, dec, temperature, mass, galaxy, image):
         """
-        name a str, img_url a str, temperature a int, right_ascension, declination, and mass
+        name a str, temperature a int, right_ascension, declination, and mass
         are all floats.
         """
         # Check types
@@ -237,8 +269,8 @@ class Star(db.Model):
         assert isinstance(dec, float)
         assert isinstance(temperature, int)
         assert isinstance(mass, float)
-        assert isinstance(img_url, str)
         assert isinstance(galaxy, Galaxy)
+        assert isinstance(image, Image)
 
         # Create instance
         self.name = name
@@ -247,9 +279,9 @@ class Star(db.Model):
         self.dec = str(dec)
         self.temperature = str(temperature)
         self.mass = str(mass)
-        self.img_url = img_url
         self.galaxy = galaxy
-
+        self.image = image
+        
     def to_dict(self):
         """
         Returns a dictionary representation of this model.
@@ -273,7 +305,7 @@ class Star(db.Model):
 class Galaxy(db.Model):
 
     """
-    Models galaxies. Attributes are: name, img_url, right_ascension, declination,
+    Models galaxies. Attributes are: name, right_ascension, declination,
     galaxy type (spiral, etc), redshift, and angular size. They may relate one-to-many
     to satellites, stars, and planets.
     """
@@ -291,15 +323,21 @@ class Galaxy(db.Model):
     morph_type = db.Column(db.String())
     redshift = db.Column(db.String())
     size = db.Column(db.String())
-    img_url = db.Column(db.String())
-
+    
+    # Foreign Keys
+    image_pid = db.Column(db.Integer, db.ForeignKey("image.pid"))
+    
+    # Relations
+    image = db.relationship(
+        "Image", backref="Galaxy")
+        
     #
     # Methods
     #
 
-    def __init__(self, name, ra, dec, morph_type, redshift, size, img_url):
+    def __init__(self, name, ra, dec, morph_type, redshift, size, image):
         """
-        name a str, img_url a str, right_ascension and declination floats, galaxy_type a str,
+        name a str, right_ascension and declination floats, galaxy_type a str,
         redshift and size floats.
         """
         # Check types
@@ -309,7 +347,7 @@ class Galaxy(db.Model):
         assert isinstance(morph_type, str)
         assert isinstance(redshift, float)
         assert isinstance(size, float)
-        assert isinstance(img_url, str)
+        assert isinstance(image, Image)
 
         self.name = name
         self.ra = str(ra)
@@ -317,7 +355,7 @@ class Galaxy(db.Model):
         self.morph_type = morph_type
         self.redshift = str(redshift)
         self.size = str(size)
-        self.img_url = img_url
+        self.image = image
 
     def to_dict(self):
         """

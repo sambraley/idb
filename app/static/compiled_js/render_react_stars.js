@@ -107,30 +107,69 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var ModelListItem = function ModelListItem(_ref) {
-	var model = _ref.model;
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var link = "/" + window.location.href.split('/')[3] + "/" + model.pid;
-	var image_url = model.img_url;
-	var style = {
-		width: '400px',
-		height: '400px'
-	};
-	return React.createElement(
-		"div",
-		{ className: "col-lg-4 col-md-6 col-sm-12 text-center model-list-item" },
-		React.createElement(
-			"a",
-			{ href: link },
-			React.createElement("img", { className: "img-thumbnail about-image", style: style, src: image_url }),
-			React.createElement(
-				"h3",
-				null,
-				model.name
-			)
-		)
-	);
-};
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ModelListItem = function (_React$Component) {
+	_inherits(ModelListItem, _React$Component);
+
+	function ModelListItem(props) {
+		_classCallCheck(this, ModelListItem);
+
+		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
+
+		var base_url = "/" + _this.props.model.model_type + "s/";
+		var link = base_url + _this.props.model.pid;
+		_this.state = {
+			style: {
+				width: '400px',
+				height: '400px'
+			},
+			image_url: "/undefined",
+			link: link
+		};
+		var image_url = "/api/v1" + base_url + _this.props.model.pid + "/image";
+		fetch(image_url).then(function (response) {
+			return response.json();
+		}).then(function (responseJson) {
+			_this.setState({
+				image_url: responseJson.img_url
+			});
+		}).catch(function (error) {
+			console.error(error);
+		});
+		return _this;
+	}
+
+	_createClass(ModelListItem, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "col-lg-4 col-md-6 col-sm-12 text-center model-list-item" },
+				React.createElement(
+					"a",
+					{ href: this.state.link },
+					React.createElement("img", { className: "img-thumbnail about-image", style: this.state.style, src: this.state.image_url }),
+					React.createElement(
+						"h3",
+						null,
+						this.props.model.name
+					)
+				)
+			);
+		}
+	}]);
+
+	return ModelListItem;
+}(React.Component);
+
+;
 
 exports.default = ModelListItem;
 
@@ -149,7 +188,7 @@ var ModelTitle = function ModelTitle(_ref) {
 		{ className: "row" },
 		React.createElement(
 			"div",
-			{ className: "col-lg-12" },
+			{ className: "col-lg-12 text-center" },
 			React.createElement(
 				"h1",
 				null,
@@ -175,19 +214,8 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	if (props.models === []) {
-		console.log("nothing in props");
-		return React.createElement(
-			"div",
-			null,
-			"No results Found"
-		);
-	}
-
 	var modelItem = props.models.map(function (model) {
-		return React.createElement(_model_list_item2.default, {
-			key: model.pid,
-			model: model });
+		return React.createElement(_model_list_item2.default, { model: model });
 	});
 	return React.createElement(
 		"div",

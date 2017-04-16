@@ -137,6 +137,7 @@ def search_api():
     if request.args.get('junction') == 'AND':
         qparser = whoosh.qparser.AndGroup
 
+    output = {}
     results = []
     if q:
         satellites = Satellite.query.whooshee_search(q, group=qparser)
@@ -145,9 +146,13 @@ def search_api():
         galaxies = Galaxy.query.whooshee_search(q, group=qparser)
         results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
 
+    total_pages = len(results) // results_per_page
     results = results[(page - 1) * results_per_page:page * results_per_page]
-    results = [{ x.__class__.__name__ : x.to_dict() } for x in results]
-    return jsonify(results)
+    results = [x.to_dict() for x in results]
+    output["page"] = page
+    output["total_pages"] = total_pages
+    output["objects"] = results
+    return jsonify(output)
 
 if __name__ == "__main__": # pragma: no cover
     app.run()
