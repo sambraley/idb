@@ -448,7 +448,7 @@ var React_Tests = function (_React$Component) {
           { className: "col-md-3 text-center" },
           React.createElement(
             "a",
-            { "data-toggle": "modal", "data-target": "#myModal", onClick: this.run_tests },
+            { id: "test-link", "data-toggle": "modal", "data-target": "#myModal", onClick: this.run_tests },
             "Run Unit Tests"
           )
         ),
@@ -512,19 +512,19 @@ exports.default = React_Tests;
 },{"isomorphic-fetch":7}],6:[function(require,module,exports){
 'use strict';
 
-var _github_commits = require('../github_commits.jsx');
+var _github_commits = require('../components/github_commits.jsx');
 
 var _github_commits2 = _interopRequireDefault(_github_commits);
 
-var _github_issues = require('../github_issues.jsx');
+var _github_issues = require('../components/github_issues.jsx');
 
 var _github_issues2 = _interopRequireDefault(_github_issues);
 
-var _github_member_info = require('../github_member_info.jsx');
+var _github_member_info = require('../components/github_member_info.jsx');
 
 var _github_member_info2 = _interopRequireDefault(_github_member_info);
 
-var _reactTest = require('../react-test.jsx');
+var _reactTest = require('../components/react-test.jsx');
 
 var _reactTest2 = _interopRequireDefault(_reactTest);
 
@@ -542,7 +542,7 @@ ReactDOM.render(React.createElement(_github_member_info2.default, { member_info:
 
 ReactDOM.render(React.createElement(_reactTest2.default, null), document.getElementById('react-tests'));
 
-},{"../github_commits.jsx":1,"../github_issues.jsx":2,"../github_member_info.jsx":4,"../react-test.jsx":5}],7:[function(require,module,exports){
+},{"../components/github_commits.jsx":1,"../components/github_issues.jsx":2,"../components/github_member_info.jsx":4,"../components/react-test.jsx":5}],7:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //

@@ -25,7 +25,8 @@ class App extends React.Component {
 			isFiltered: false,
 			current_filter_v1: null,
 			current_filter_v2: null,
-			current_filter_v3: null
+			current_filter_v3: null,
+			loaded: false
 		};
 		
 		this.getModels(this.state.current_page);
@@ -43,6 +44,7 @@ class App extends React.Component {
 		        	models: responseJson.objects,
 		        	total_pages: responseJson.total_pages,
 		        	current_page: responseJson.page,
+		        	loaded: true
 		        })
 			    })
 			    .catch((error) => {
@@ -108,22 +110,38 @@ class App extends React.Component {
 
 	
 	render () {
+		if (!this.state.loaded) {
+			return (
+					<h1 className="text-center">Loading {this.state.title}</h1>
+				);
+		}
+		if (this.state.models.length <= 0) {
+			return (
+					<h1 className="text-center">No Results Found</h1>
+				);
+		}
 		return (
 			<div className="model-container">
 				<ModelTitle title={this.state.title} />
 				<div className="row"> 
-					<div className="col-md-2 text-left sort-filter-button">
+					<div className="col-md-4 col-sm-3">
+					</div>
+					<div className="col-sm-3 col-md-2 text-center sort-filter-button">
 						<DropDown 
 							sort_title={this.state.sort_title}
 							modelType={this.state.modelType}
 							sortBy={this.sortBy.bind(this)} />
 					</div>
-					<div className="col-md-1 text-left sort-filter-button">
+					<div className="col-sm-3 col-md-2 text-center sort-filter-button">
 						<Modals
 							modelType={this.state.modelType} 
 							filterBy={this.filterBy.bind(this)} />
 					</div>
-					<div className="col-md-9 text-right">
+					<div className="col-md-4 col-sm-3">
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-md-12 text-center">
 						<Pages 
 							current_page={this.state.current_page}
 							total_pages={this.state.total_pages} 
@@ -133,7 +151,7 @@ class App extends React.Component {
 				<ModelList 
 					models={this.state.models}
 					page={this.current_page} />
-				<div key="pages" className="col-md-12 text-right">
+				<div key="pages" className="col-md-12 text-center">
 					<Pages 
 						current_page={this.state.current_page}
 						total_pages={this.state.total_pages} 

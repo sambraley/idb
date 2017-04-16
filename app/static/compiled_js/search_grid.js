@@ -771,7 +771,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var exts = { "planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars" };
-var modelType = window.location.href.split('/')[3];
 
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);
@@ -783,17 +782,8 @@ var App = function (_React$Component) {
 
 		_this.state = {
 			models: [],
-			title: exts[window.location.href.split('/')[3]],
 			total_pages: 1,
 			current_page: 1,
-			modelType: modelType,
-			sort_title: "Sort By",
-			current_sort_attr: null,
-			current_sort_dir: null,
-			isFiltered: false,
-			current_filter_v1: null,
-			current_filter_v2: null,
-			current_filter_v3: null,
 			loaded: false
 		};
 
@@ -806,77 +796,18 @@ var App = function (_React$Component) {
 		value: function getModels(page) {
 			var _this2 = this;
 
-			if (this.state.sort_title === "Sort By") {
-				var baseUrl = window.location.href.split('/')[2];
-				var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
-				var url = "http://" + baseUrl + apiExt;
-				fetch(url).then(function (response) {
-					return response.json();
-				}).then(function (responseJson) {
-					_this2.setState({
-						models: responseJson.objects,
-						total_pages: responseJson.total_pages,
-						current_page: responseJson.page,
-						loaded: true
-					});
-				}).catch(function (error) {
-					console.error(error);
-				});
-			} else {
-				// console.log("pages are sorted by " + this.state.sort_title);
-				// console.log("using attr " + this.state.current_sort_attr);
-				// console.log("by order " + this.state.current_sort_dir);
-				this.sortBy(this.state.current_sort_attr, this.state.current_sort_dir, this.state.sort_title, page);
-			}
-		}
-	}, {
-		key: 'sortBy',
-		value: function sortBy(attr, dir, sort_title, page) {
-			var _this3 = this;
-
-			// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
-			// console.log(attr, dir);
-			var baseUrl = window.location.href.split('/')[2];
-			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
-			var url = "http://" + baseUrl + apiExt;
-			// console.log(url);
+			var apiExt = "/api/v1/" + window.location.href.split("/")[3] + "&page=" + page + "&results_per_page=6";
+			var url = apiExt;
+			console.log(url);
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
-				// console.log("Back from sorting call");
-				_this3.setState({
+				console.log(responseJson);
+				_this2.setState({
 					models: responseJson.objects,
 					total_pages: responseJson.total_pages,
 					current_page: responseJson.page,
-					sort_title: sort_title,
-					current_sort_attr: attr,
-					current_sort_dir: dir
-				});
-			}).catch(function (error) {
-				console.error(error);
-			});
-		}
-	}, {
-		key: 'filterBy',
-		value: function filterBy(v1, v2, v3, page) {
-			var _this4 = this;
-
-			// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
-			var baseUrl = window.location.href.split('/')[2];
-			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
-			var url = "http://" + baseUrl + apiExt;
-			fetch(url).then(function (response) {
-				return response.json();
-			}).then(function (responseJson) {
-				console.log("return in filterBy func: v1: " + v1 + " v2: " + v2 + " v3: " + v3);
-				_this4.setState({
-					models: responseJson.objects,
-					total_pages: responseJson.total_pages,
-					current_page: responseJson.page,
-					isFiltered: true,
-					current_filter_v1: v1,
-					current_filter_v2: v2,
-					current_filter_v3: v3
+					loaded: true
 				});
 			}).catch(function (error) {
 				console.error(error);
@@ -889,8 +820,7 @@ var App = function (_React$Component) {
 				return React.createElement(
 					'h1',
 					{ className: 'text-center' },
-					'Loading ',
-					this.state.title
+					'Loading Search Results'
 				);
 			}
 			if (this.state.models.length <= 0) {
@@ -903,28 +833,7 @@ var App = function (_React$Component) {
 			return React.createElement(
 				'div',
 				{ className: 'model-container' },
-				React.createElement(_model_title2.default, { title: this.state.title }),
-				React.createElement(
-					'div',
-					{ className: 'row' },
-					React.createElement('div', { className: 'col-md-4 col-sm-3' }),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-3 col-md-2 text-center sort-filter-button' },
-						React.createElement(_drop_down2.default, {
-							sort_title: this.state.sort_title,
-							modelType: this.state.modelType,
-							sortBy: this.sortBy.bind(this) })
-					),
-					React.createElement(
-						'div',
-						{ className: 'col-sm-3 col-md-2 text-center sort-filter-button' },
-						React.createElement(_modals2.default, {
-							modelType: this.state.modelType,
-							filterBy: this.filterBy.bind(this) })
-					),
-					React.createElement('div', { className: 'col-md-4 col-sm-3' })
-				),
+				React.createElement(_model_title2.default, { title: 'Search Results' }),
 				React.createElement(
 					'div',
 					{ className: 'row' },

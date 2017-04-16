@@ -123,7 +123,7 @@ var ModelListItem = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
 
-		var base_url = "/" + window.location.href.split('/')[3] + "/";
+		var base_url = "/" + _this.props.model.model_type + "s/";
 		var link = base_url + _this.props.model.pid;
 		_this.state = {
 			style: {
@@ -188,7 +188,7 @@ var ModelTitle = function ModelTitle(_ref) {
 		{ className: "row" },
 		React.createElement(
 			"div",
-			{ className: "col-lg-12" },
+			{ className: "col-lg-12 text-center" },
 			React.createElement(
 				"h1",
 				null,
@@ -214,19 +214,8 @@ var _model_list_item2 = _interopRequireDefault(_model_list_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ModelList = function ModelList(props) {
-	if (props.models === []) {
-		console.log("nothing in props");
-		return React.createElement(
-			"div",
-			null,
-			"No results Found"
-		);
-	}
-
 	var modelItem = props.models.map(function (model) {
-		return React.createElement(_model_list_item2.default, {
-			key: model.pid,
-			model: model });
+		return React.createElement(_model_list_item2.default, { model: model });
 	});
 	return React.createElement(
 		"div",

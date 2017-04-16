@@ -1,7 +1,7 @@
-import Github_Commits from '../github_commits.jsx';
-import Github_Issues from '../github_issues.jsx';
-import Github_Member_Info from '../github_member_info.jsx'
-import React_Tests from '../react-test.jsx'
+import Github_Commits from '../components/github_commits.jsx';
+import Github_Issues from '../components/github_issues.jsx';
+import Github_Member_Info from '../components/github_member_info.jsx'
+import React_Tests from '../components/react-test.jsx'
 
 var access_token = "55dc1276759f6ff631870b2c509b632382276575";
 
