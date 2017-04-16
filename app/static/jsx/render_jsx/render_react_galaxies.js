@@ -5,9 +5,8 @@ import DropDown from './../components/drop_down';
 import "isomorphic-fetch";
 
 const modelType = window.location.href.split('/')[3];
-const baseUrl = window.location.href.split('/')[2];
 const apiExt = "/api/v1/galaxies?page=1&results_per_page=9";
-const url = "http://" + baseUrl + apiExt;
+const url = apiExt;
 
 
 class App extends React.Component {

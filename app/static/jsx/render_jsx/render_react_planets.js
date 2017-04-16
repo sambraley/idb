@@ -6,9 +6,8 @@ import "isomorphic-fetch";
 
 const exts = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
 const modelType = window.location.href.split('/')[3];
-const baseUrl = window.location.href.split('/')[2];
 const apiExt = "/api/v1/" + modelType + "?page=1&results_per_page=9";
-const url = "http://" + baseUrl + apiExt;
+const url = apiExt;
 
 
 class App extends React.Component {

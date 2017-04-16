@@ -373,9 +373,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var exts = { "planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars" };
 var modelType = window.location.href.split('/')[3];
-var baseUrl = window.location.href.split('/')[2];
 var apiExt = "/api/v1/" + modelType + "?page=1&results_per_page=9";
-var url = "http://" + baseUrl + apiExt;
+var url = apiExt;
 
 var App = function (_React$Component) {
 	_inherits(App, _React$Component);
