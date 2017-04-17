@@ -4,9 +4,8 @@ class Satellite_Img extends React.Component {
 		this.state = {
 			image_url: "undefined"
 		};
-		var base_url = "/" + window.location.href.split('/')[3] + "/" + window.location.href.split('/')[4];
+		var base_url = "/" + window.location.href.split('/')[3] + "/" + window.location.href.split('/')[4].split('?')[0];
 		var image_url = "/api/v1" + base_url + "/image";
-		console.log(image_url);
 		fetch(image_url)
 	    .then((response) => response.json())
 	    .then((responseJson) => {

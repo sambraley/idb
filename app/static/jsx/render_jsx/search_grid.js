@@ -85,7 +85,8 @@ class App extends React.Component {
 					</div>
 					<ModelList 
 						models={this.state.models}
-						page={this.current_page} />
+						page={this.current_page}
+						search={this.state.search} />
 					<div key="pages" className="col-md-12 text-center">
 						<Pages 
 							current_page={this.state.current_page}

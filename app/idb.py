@@ -68,7 +68,7 @@ def planets_table():
 @app.route('/planets/<int:planet_id>')
 def planet_instance(planet_id):
     # earth
-    if planet_id == 299:
+    if planet_id == 300:
         return render_template('earth.html', planet=Planet.query.get(planet_id))
     return render_template('planetoid.html', planet=Planet.query.get(planet_id))
 

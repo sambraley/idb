@@ -4,7 +4,7 @@
 <div class="container content-container">
   <div class="row">
   	<div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
-  		<h1>{{star.name}}</h1>
+  		<h1 class="react-highlight">{{star.name}}</h1>
   	</div>
   </div>
   <div class="row">
@@ -25,18 +25,19 @@
     <div class="col-sm-12 col-md-5 text-center">
       <div class="col-md-12">
         <h3>Temperature:</h3> 
-        <p>{{star.temperature}}</p>
+        <p class="react-highlight">{{star.temperature}}</p>
         <h3>Mass:</h3> 
-        <p>{{star.mass}}</p>
+        <p class="react-highlight">{{star.mass}}</p>
         <h3>Right Ascension:</h3> 
-        <p>{{star.ra}}</p>
+        <p class="react-highlight">{{star.ra}}</p>
         <h3>Declination:</h3> 
-        <p>{{star.dec}}</p>
+        <p class="react-highlight">{{star.dec}}</p>
         <h3>Diameter:</h3> 
-        <p>{{star.diameter}}</p>
+        <p class="react-highlight">{{star.diameter}}</p>
         <h3><a href="/galaxies/{{star.galaxy_pid}}">Link to home Galaxy</a></h3>
       </div>
     </div>
   </div>
 </div>
+<script src="{{ url_for('static', filename='compiled_js/model-highlight.js') }}"></script>
 {% endblock %}

@@ -1,9 +1,13 @@
+import Highlighter from 'react-highlight-words'
 
 class ModelListItem extends React.Component {
 	constructor(props) {
 		super(props);
 		var base_url = "/" + this.props.model.model_type + "/";
 		var link = base_url + this.props.model.pid;
+		if (this.props.search !== undefined){
+			link += "?q=" + this.props.search;
+		}
 		this.state = {
 			style: {
 						width: '400px',
@@ -21,12 +25,20 @@ class ModelListItem extends React.Component {
 	        })})
 		.catch((error) => {console.error(error);})
 	}
+	highlight(name, search) {
+		if (search === undefined){
+			search = "";
+		}
+		search = search.split('+');
+
+		return (<Highlighter highlightClassName='strong' className='h3' searchWords={search} textToHighlight={name}/>);
+	}
 	render() {
 		return (
 			<div className="col-lg-4 col-md-6 col-sm-12 text-center model-list-item">
 				<a href={this.state.link}>
 					<img className="img-thumbnail about-image" style={this.state.style} src={this.state.image_url} />
-					<h3>{this.props.model.name}</h3>
+					{this.highlight(this.props.model.name, this.props.search)}
 				</a>
 			</div> 
 			);
