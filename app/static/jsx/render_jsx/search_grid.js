@@ -1,35 +1,44 @@
 import NavBar from './../components/nav_bar';
 import ModelList from './../components/models_list';
 import ModelTitle from './../components/model_title';
-import DropDown from './../components/drop_down';
 import Pages from './../components/pages';
-import Modals from './../components/modals';
 import "isomorphic-fetch";
-
-const exts = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
 
 class App extends React.Component {
 	constructor (props) {
 		super(props);
-
+		var dict = {};
+		dict['page'] = 1;
+		var href = window.location.href;
+		if (href.indexOf('?') >= 0 && href.indexOf('&') >= 0){
+			var parameters = window.location.href.split('?')[1].split('&');
+			for (var i = 0; i < parameters.length; i += 1) {
+				var key = parameters[i].split('=')[0];
+				var value = parameters[i].split('=')[1];
+				dict[key] = value;
+			}
+		}
+		else if (href.indexOf('?') >= 0){
+			var parameters = window.location.href.split('?')[1];
+			var key = parameters.split('=')[0];
+			var value = parameters.split('=')[1];
+			dict[key] = value;
+		}
 		this.state = { 
 			models: [],
 			total_pages: 1,
-			current_page: 1,
-			loaded: false
+			current_page: Number(dict['page']),
+			loaded: false,
+			search: dict['q']
 		};
-		
-		this.getModels(this.state.current_page);
+		this.getModels();
 	}	
 
-	getModels(page) {
-		const apiExt = "/api/v1/" + window.location.href.split("/")[3] + "&page=" + page + "&results_per_page=6";
-		const url = apiExt;
-		console.log(url);
+	getModels() {
+		var url = "/api/v1/search?page=" + this.state.current_page + "&results_per_page=6&q=" + this.state.search;
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {
-	      	console.log(responseJson);
 	        this.setState({ 
 	        	models: responseJson.objects,
 	        	total_pages: responseJson.total_pages,
@@ -40,6 +49,15 @@ class App extends React.Component {
 		    .catch((error) => {
 		        console.error(error);
 	      	})
+	}
+	redirect() {
+		var url = "/search?page=" + this.state.current_page + "&q=" + this.state.search;
+		window.location = url;
+	}
+
+	changePage(page) {
+		this.state['current_page'] = page;
+		this.redirect();
 	}
 
 	
@@ -62,7 +80,7 @@ class App extends React.Component {
 							<Pages 
 								current_page={this.state.current_page}
 								total_pages={this.state.total_pages} 
-								onPageSelect={this.getModels.bind(this)} />
+								onPageSelect={this.changePage.bind(this)} />
 						</div>
 					</div>
 					<ModelList 
@@ -72,7 +90,7 @@ class App extends React.Component {
 						<Pages 
 							current_page={this.state.current_page}
 							total_pages={this.state.total_pages} 
-							onPageSelect={this.getModels.bind(this)} />
+							onPageSelect={this.changePage.bind(this)} />
 					</div>
 				</div>
 			);
