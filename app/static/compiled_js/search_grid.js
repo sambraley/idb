@@ -357,7 +357,7 @@ var Pages = function Pages(_ref) {
 		}
 	}
 	//adding next button
-	if (current_page != total_pages && current_page > 1) {
+	if (current_page != total_pages && current_page >= 1) {
 		pages.push(React.createElement(
 			"li",
 			{ onClick: function onClick() {
