@@ -43,10 +43,10 @@ endif
 		--disable=locally-disabled --reports=no --generate-rcfile > $@
 
 IDB.html: app/models.py
-	cd app; $(PYDOC) -w models; mv models.html ../IDB1.html
+	cd app; $(PYDOC) -w models; mv models.html ../IDB3.html
 
 IDB.log:
-	git log > IDB1.log
+	git log > IDB3.log
 
 RunIDB: app/idb.py .pylintrc
 	@rm -rf app/whooshee/
