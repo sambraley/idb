@@ -24,16 +24,20 @@ class App extends React.Component {
 		if (href.indexOf('?') >= 0 && href.indexOf('&') >= 0){
 			var parameters = window.location.href.split('?')[1].split('&');
 			for (var i = 0; i < parameters.length; i += 1) {
-				var key = parameters[i].split('=')[0];
-				var value = parameters[i].split('=')[1];
+				var e = parameters[i].indexOf('=');
+				var l = parameters[i].length;
+				var key = parameters[i].substring(0,e);
+				var value = parameters[i].substring(e+1,l);
 				dict[key] = value;
 			}
 			modelType = modelType.split('?')[0];
 		}
 		else if (href.indexOf('?') >= 0){
 			var parameters = window.location.href.split('?')[1];
-			var key = parameters.split('=')[0];
-			var value = parameters.split('=')[1];
+			var e = parameters.indexOf('=');
+			var l = parameters.length;
+			var key = parameters.substring(0,e);
+			var value = parameters.substring(e+1,l);
 			dict[key] = value;
 			modelType = modelType.split('?')[0];
 		}
@@ -62,7 +66,7 @@ class App extends React.Component {
 			url += "&q={%22order_by%22:[{%22field%22:%22" + this.state.current_sort_attr + "%22,%22direction%22:%22" + this.state.current_sort_dir + "%22}]}";
 		}
 		if (this.state.isFiltered) {
-			url += "&q={%22filters%22:[{%22name%22:%22" + this.state.current_filter_v1 + "%22,%22op%22:%22" + this.state.current_filter_v2 + "%22,%22val%22:" + 1 + "}]}";
+			url += "&q={%22filters%22:[{%22name%22:%22" + this.state.current_filter_v1 + "%22,%22op%22:%22" + this.state.current_filter_v2 + "%22,%22val%22:" + this.state.current_filter_v3 + "}]}";
 		}
 		fetch(url)
 	      .then((response) => response.json())
