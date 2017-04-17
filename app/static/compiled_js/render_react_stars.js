@@ -74,28 +74,29 @@ exports.default = DropDown;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-				value: true
+					value: true
 });
+var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+					"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+					"mission_type": "Mission Type", "year_launched": "Launch Year", "Sorted By": "Sorted By" };
+
 var Attribute = function Attribute(_ref) {
-				var attr = _ref.attr,
-				    sortBy = _ref.sortBy,
-				    dir = _ref.dir;
+					var attr = _ref.attr,
+					    sortBy = _ref.sortBy,
+					    dir = _ref.dir;
 
-				var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
-								"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
-								"mission_type": "Mission Type", "year_launched": "Launch Year" };
 
-				return React.createElement(
-								"li",
-								{ onClick: function onClick() {
-																return sortBy(attr, dir, label[attr], 1);
-												} },
-								React.createElement(
-												"a",
-												null,
-												label[attr]
-								)
-				);
+					return React.createElement(
+										"li",
+										{ onClick: function onClick() {
+																				return sortBy(attr, dir);
+															} },
+										React.createElement(
+															"a",
+															null,
+															label[attr]
+										)
+					);
 };
 
 exports.default = Attribute;

@@ -6,7 +6,10 @@ import Pages from './../components/pages';
 import Modals from './../components/modals';
 import "isomorphic-fetch";
 
-const exts = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
+const exts  = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
+const label = {"name": "Name" , "temperature": "Temperature", "diameter": "Diameter", 
+					"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+					"mission_type": "Mission Type", "year_launched": "Launch Year", "Sorted By": "Sorted By"};
 var modelType = window.location.href.split('/')[3];
 
 class App extends React.Component {
@@ -14,6 +17,9 @@ class App extends React.Component {
 		super(props);
 		var dict = {};
 		dict['page'] = 1;
+		dict['sorted'] = false;
+		dict['attr'] = "Sorted By"
+		dict['filtered'] = false;
 		var href = window.location.href;
 		if (href.indexOf('?') >= 0 && href.indexOf('&') >= 0){
 			var parameters = window.location.href.split('?')[1].split('&');
@@ -37,20 +43,27 @@ class App extends React.Component {
 			total_pages: 1,
 			current_page: Number(dict['page']),
 			modelType: modelType,
-			sort_title: "Sort By",
-			current_sort_attr: null,
-			current_sort_dir: null, 
-			isFiltered: false,
-			current_filter_v1: null,
-			current_filter_v2: null,
-			current_filter_v3: null,
+			sort_title: label[dict['attr']],
+			sorted: dict['sorted'],
+			current_sort_attr: dict['attr'],
+			current_sort_dir: dict['dir'], 
+			isFiltered: dict['filtered'],
+			current_filter_v1: dict['v1'],
+			current_filter_v2: dict['v2'],
+			current_filter_v3: dict['v3'],
 			loaded: false
 		};
 		this.getModels();
 	}	
 
 	getModels() {
-		const url = "/api/v1/" + this.state.modelType + "?page=" + this.state.current_page + "&results_per_page=6";
+		var url = "/api/v1/" + this.state.modelType + "?page=" + this.state.current_page + "&results_per_page=6";
+		if (this.state.sorted) {
+			url += "&q={%22order_by%22:[{%22field%22:%22" + this.state.current_sort_attr + "%22,%22direction%22:%22" + this.state.current_sort_dir + "%22}]}";
+		}
+		if (this.state.isFiltered) {
+			url += "&q={%22filters%22:[{%22name%22:%22" + this.state.current_filter_v1 + "%22,%22op%22:%22" + this.state.current_filter_v2 + "%22,%22val%22:" + 1 + "}]}";
+		}
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {
@@ -66,7 +79,16 @@ class App extends React.Component {
 	      	})
 	}
 	redirect() {
-		const url = "/" + this.state.modelType + "?page=" + this.state.current_page;
+		var url = "/" + this.state.modelType + "?page=" + this.state.current_page;
+		if (this.state.sorted) {
+			url += "&sorted=" + this.state.sorted + "&attr=" + this.state.current_sort_attr + "&dir=" + this.state.current_sort_dir;
+		}
+		if (this.state.isFiltered) {
+			url += "&filtered=" + this.state.isFiltered;
+			url += "&v1=" + this.state.current_filter_v1;
+			url += "&v2=" + this.state.current_filter_v2;
+			url += "&v3=" + this.state.current_filter_v3;
+		}
 		window.location = url;
 	}
 
@@ -75,51 +97,23 @@ class App extends React.Component {
 		this.redirect();
 	}
 
-	sortBy(attr, dir, sort_title, page) {
-		// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
-		// console.log(attr, dir);
-		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
-		const url = apiExt;
-		// console.log(url);
-		fetch(url)
-	      .then((response) => response.json())
-	      .then((responseJson) => {
-	      	// console.log("Back from sorting call");
-	        this.setState({ 
-	        	models: responseJson.objects,
-	        	total_pages: responseJson.total_pages,
-	        	current_page: responseJson.page,
-	        	sort_title: sort_title,
-	        	current_sort_attr: attr,
-	        	current_sort_dir: dir
-	        })
-		    })
-		    .catch((error) => {
-		        console.error(error);
-	      	})
+	sortBy(attr, dir) {
+		this.state.sorted = true;
+		this.state.isFiltered = false;
+		this.state.current_sort_attr = attr;
+		this.state.current_sort_dir = dir;
+		this.state.current_page = 1;
+		this.redirect();
 	}
 
-	filterBy(v1, v2, v3, page) {
-		// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
-		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
-		const url = apiExt;
-		fetch(url)
-	      .then((response) => response.json())
-	      .then((responseJson) => {
-	      	console.log("return in filterBy func: v1: " + v1 + " v2: " + v2 + " v3: " + v3);
-	        this.setState({ 
-	        	models: responseJson.objects,
-	        	total_pages: responseJson.total_pages,
-	        	current_page: responseJson.page,
-	        	isFiltered: true,
-				current_filter_v1: v1,
-				current_filter_v2: v2,
-				current_filter_v3: v3
-	        })
-		    })
-		    .catch((error) => {
-		        console.error(error);
-	      	})
+	filterBy(v1, v2, v3) {
+		this.state.isFiltered = true;
+		this.state.sorted = false;
+		this.state.current_filter_v1 = v1;
+		this.state.current_filter_v2 = v2;
+		this.state.current_filter_v3 = v3;
+		this.state.current_page = 1;
+		this.redirect();
 	}
 
 	

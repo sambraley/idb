@@ -74,28 +74,29 @@ exports.default = DropDown;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-				value: true
+					value: true
 });
+var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+					"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+					"mission_type": "Mission Type", "year_launched": "Launch Year", "Sorted By": "Sorted By" };
+
 var Attribute = function Attribute(_ref) {
-				var attr = _ref.attr,
-				    sortBy = _ref.sortBy,
-				    dir = _ref.dir;
+					var attr = _ref.attr,
+					    sortBy = _ref.sortBy,
+					    dir = _ref.dir;
 
-				var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
-								"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
-								"mission_type": "Mission Type", "year_launched": "Launch Year" };
 
-				return React.createElement(
-								"li",
-								{ onClick: function onClick() {
-																return sortBy(attr, dir, label[attr], 1);
-												} },
-								React.createElement(
-												"a",
-												null,
-												label[attr]
-								)
-				);
+					return React.createElement(
+										"li",
+										{ onClick: function onClick() {
+																				return sortBy(attr, dir);
+															} },
+										React.createElement(
+															"a",
+															null,
+															label[attr]
+										)
+					);
 };
 
 exports.default = Attribute;
@@ -771,6 +772,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var exts = { "planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars" };
+var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+	"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+	"mission_type": "Mission Type", "year_launched": "Launch Year", "Sorted By": "Sorted By" };
 var modelType = window.location.href.split('/')[3];
 
 var App = function (_React$Component) {
@@ -783,6 +787,9 @@ var App = function (_React$Component) {
 
 		var dict = {};
 		dict['page'] = 1;
+		dict['sorted'] = false;
+		dict['attr'] = "Sorted By";
+		dict['filtered'] = false;
 		var href = window.location.href;
 		if (href.indexOf('?') >= 0 && href.indexOf('&') >= 0) {
 			var parameters = window.location.href.split('?')[1].split('&');
@@ -805,13 +812,14 @@ var App = function (_React$Component) {
 			total_pages: 1,
 			current_page: Number(dict['page']),
 			modelType: modelType,
-			sort_title: "Sort By",
-			current_sort_attr: null,
-			current_sort_dir: null,
-			isFiltered: false,
-			current_filter_v1: null,
-			current_filter_v2: null,
-			current_filter_v3: null,
+			sort_title: label[dict['attr']],
+			sorted: dict['sorted'],
+			current_sort_attr: dict['attr'],
+			current_sort_dir: dict['dir'],
+			isFiltered: dict['filtered'],
+			current_filter_v1: dict['v1'],
+			current_filter_v2: dict['v2'],
+			current_filter_v3: dict['v3'],
 			loaded: false
 		};
 		_this.getModels();
@@ -824,6 +832,12 @@ var App = function (_React$Component) {
 			var _this2 = this;
 
 			var url = "/api/v1/" + this.state.modelType + "?page=" + this.state.current_page + "&results_per_page=6";
+			if (this.state.sorted) {
+				url += "&q={%22order_by%22:[{%22field%22:%22" + this.state.current_sort_attr + "%22,%22direction%22:%22" + this.state.current_sort_dir + "%22}]}";
+			}
+			if (this.state.isFiltered) {
+				url += "&q={%22filters%22:[{%22name%22:%22" + this.state.current_filter_v1 + "%22,%22op%22:%22" + this.state.current_filter_v2 + "%22,%22val%22:" + 1 + "}]}";
+			}
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
@@ -841,6 +855,15 @@ var App = function (_React$Component) {
 		key: 'redirect',
 		value: function redirect() {
 			var url = "/" + this.state.modelType + "?page=" + this.state.current_page;
+			if (this.state.sorted) {
+				url += "&sorted=" + this.state.sorted + "&attr=" + this.state.current_sort_attr + "&dir=" + this.state.current_sort_dir;
+			}
+			if (this.state.isFiltered) {
+				url += "&filtered=" + this.state.isFiltered;
+				url += "&v1=" + this.state.current_filter_v1;
+				url += "&v2=" + this.state.current_filter_v2;
+				url += "&v3=" + this.state.current_filter_v3;
+			}
 			window.location = url;
 		}
 	}, {
@@ -851,54 +874,24 @@ var App = function (_React$Component) {
 		}
 	}, {
 		key: 'sortBy',
-		value: function sortBy(attr, dir, sort_title, page) {
-			var _this3 = this;
-
-			// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
-			// console.log(attr, dir);
-			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
-			var url = apiExt;
-			// console.log(url);
-			fetch(url).then(function (response) {
-				return response.json();
-			}).then(function (responseJson) {
-				// console.log("Back from sorting call");
-				_this3.setState({
-					models: responseJson.objects,
-					total_pages: responseJson.total_pages,
-					current_page: responseJson.page,
-					sort_title: sort_title,
-					current_sort_attr: attr,
-					current_sort_dir: dir
-				});
-			}).catch(function (error) {
-				console.error(error);
-			});
+		value: function sortBy(attr, dir) {
+			this.state.sorted = true;
+			this.state.isFiltered = false;
+			this.state.current_sort_attr = attr;
+			this.state.current_sort_dir = dir;
+			this.state.current_page = 1;
+			this.redirect();
 		}
 	}, {
 		key: 'filterBy',
-		value: function filterBy(v1, v2, v3, page) {
-			var _this4 = this;
-
-			// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
-			var apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
-			var url = apiExt;
-			fetch(url).then(function (response) {
-				return response.json();
-			}).then(function (responseJson) {
-				console.log("return in filterBy func: v1: " + v1 + " v2: " + v2 + " v3: " + v3);
-				_this4.setState({
-					models: responseJson.objects,
-					total_pages: responseJson.total_pages,
-					current_page: responseJson.page,
-					isFiltered: true,
-					current_filter_v1: v1,
-					current_filter_v2: v2,
-					current_filter_v3: v3
-				});
-			}).catch(function (error) {
-				console.error(error);
-			});
+		value: function filterBy(v1, v2, v3) {
+			this.state.isFiltered = true;
+			this.state.sorted = false;
+			this.state.current_filter_v1 = v1;
+			this.state.current_filter_v2 = v2;
+			this.state.current_filter_v3 = v3;
+			this.state.current_page = 1;
+			this.redirect();
 		}
 	}, {
 		key: 'render',
