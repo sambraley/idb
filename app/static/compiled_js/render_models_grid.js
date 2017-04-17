@@ -957,7 +957,7 @@ var App = function (_React$Component) {
 					React.createElement(_pages2.default, {
 						current_page: this.state.current_page,
 						total_pages: this.state.total_pages,
-						onPageSelect: this.getModels.bind(this) })
+						onPageSelect: this.changePage.bind(this) })
 				)
 			);
 		}

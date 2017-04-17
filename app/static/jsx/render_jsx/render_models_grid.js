@@ -163,7 +163,7 @@ class App extends React.Component {
 					<Pages 
 						current_page={this.state.current_page}
 						total_pages={this.state.total_pages} 
-						onPageSelect={this.getModels.bind(this)} />
+						onPageSelect={this.changePage.bind(this)} />
 				</div>
 			</div>
 			);
