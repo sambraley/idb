@@ -44,7 +44,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
 ### Filtering and Ordering Collections [GET /satellites{?q}]
 
 + Parameters
-    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","value":"SARAL"}]}` - A flask restless query string
+    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"SARAL"}]}` - A flask restless query string
         + Valid Operators
             + `==`
             + `!=`
@@ -103,7 +103,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
 ### Filtering and Ordering Collections [GET /planets{?q}]
 
 + Parameters
-    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","value":"Earth"}]}` - A flask restless query string
+    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"Earth"}]}` - A flask restless query string
         + Valid Operators
             + `==`
             + `!=`
@@ -164,7 +164,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
 ### Filtering and Ordering Collections [GET /stars{?q}]
 
 + Parameters
-    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","value":"Sun"}]}` - A flask restless query string
+    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"Sun"}]}` - A flask restless query string
         + Valid Operators
             + `==`
             + `!=`
@@ -224,7 +224,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
 ### Filtering and Ordering Collections [GET /galaxies{?q}]
 
 + Parameters
-    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","value":"Milky Way"}]}` - A flask restless query string
+    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"Milky Way"}]}` - A flask restless query string
         + Valid Operators
             + `==`
             + `!=`
@@ -250,7 +250,6 @@ For all of these objects, you can retrieve the full collection of each or retrie
 + pid: 1 (number)
 + name: SARAL (string)
 + info_url: https://en.wikipedia.org/wiki/SARAL
-+ img_url: https://upload.wikimedia.org/wikipedia/en/1/17/SARAL.jpg (string)
 + year_launched: 2013 (number)
 + mission_type: Planetary Science (string)
 + agency: Indian Space Research Organization (string)
@@ -260,35 +259,32 @@ For all of these objects, you can retrieve the full collection of each or retrie
 
 ### Planet (object)
 + pid: 1 (number)
-+ name: HAT-P-36 b (string)
++ name: `HAT-P-36 b` (string)
 + dec: 4.915352 (number)
 + ra: 188.266255 (number)
-+ image: HAT-P-36 b.png (string)
 + gravity: 0.0297185700606153 (number)
 + orbital_period: 1.327347 (number)
-+ diameter: 176735.008 (number)
++ diameter: 2.826 (number)
 + temperature: 1823 (number)
-+ mass: 3.477136e+27 (number)
++ mass: 1.85 (number)
 + star_pid: 230 (number)
 + galaxy_pid: 143 (number)
 
 ### Star (object)
 + pid: 2 (number)
-+ name: HAT P 33 (string)
++ name: `HAT P 33` (string)
 + dec: 26.426662 (number)
 + ra: 271.537705 (number)
-+ image: HAT P 33.png (string)
 + temperature: 6065 (number)
 + mass: 1.22 (number)
-+ diameter: 1892304.0 (number)
++ diameter: 3.366 (number)
 + galaxy_pid: 143 (number)
 
 ### Galaxy (object)
 + pid: 1 (number)
-+ name: UGC 11693 (string)
++ name: `UGC 11693` (string)
 + dec: 37.884811 (number)
 + ra: 317.819183 (number)
-+ image: UGC 11822.png (string)
 + morph_type: Spiral (string)
 + redshift: 0.027192 (number)
 + size: 1.227 (number)
