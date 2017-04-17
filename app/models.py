@@ -422,6 +422,7 @@ class Galaxy(db.Model):
         Returns a dictionary representation of this model.
         """
         return {
+            "pid": self.pid,
             "name": self.name,
             "ra": self.ra,
             "dec": self.dec,
