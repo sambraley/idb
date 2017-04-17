@@ -4368,7 +4368,7 @@ var _carouselItem2 = _interopRequireDefault(_carouselItem);
 
 require("isomorphic-fetch");
 
-var _moment = require("../bower_components/moment/moment.js");
+var _moment = require("../../bower_components/moment/moment.js");
 
 var _moment2 = _interopRequireDefault(_moment);
 
@@ -4395,25 +4395,37 @@ var Carousel = function (_React$Component) {
 			"urls": []
 		};
 		var cur_date = (0, _moment2.default)();
-		for (var i = 0; i < 5; i += 1) {
-			var url = nasa_url + cur_date.format("YYYY-MM-DD");
-			fetch(url).then(function (r) {
-				return r.json();
-			}).then(function (data) {
-				return _this.url_push(data);
-			}).catch(function (e) {
-				return console.log(e);
-			});
-			cur_date = cur_date.subtract(1, 'days');
-		}
+		var url = nasa_url + cur_date.format("YYYY-MM-DD");
+		fetch(url).then(function (r) {
+			return r.json();
+		}).then(function (data) {
+			return _this.url_push(data, cur_date);
+		}).catch(function (e) {
+			return console.log(e);
+		});
 		return _this;
 	}
 
 	_createClass(Carousel, [{
 		key: "url_push",
-		value: function url_push(data) {
-			this.state.urls.push(data.hdurl);
-			this.forceUpdate();
+		value: function url_push(data, cur_date) {
+			var _this2 = this;
+
+			var url = nasa_url + cur_date.format("YYYY-MM-DD");
+			if (data.hdurl !== undefined) {
+				this.state.urls.push(data.hdurl);
+				this.forceUpdate();
+			}
+			if (this.state.urls.length < 5) {
+				cur_date = cur_date.subtract(1, 'days');
+				fetch(url).then(function (r) {
+					return r.json();
+				}).then(function (data) {
+					return _this2.url_push(data, cur_date);
+				}).catch(function (e) {
+					return console.log(e);
+				});
+			}
 		}
 	}, {
 		key: "render",
@@ -4448,7 +4460,7 @@ var Carousel = function (_React$Component) {
 
 exports.default = Carousel;
 
-},{"../bower_components/moment/moment.js":1,"./carouselItem.jsx":3,"isomorphic-fetch":5}],3:[function(require,module,exports){
+},{"../../bower_components/moment/moment.js":1,"./carouselItem.jsx":3,"isomorphic-fetch":5}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4491,7 +4503,7 @@ exports.default = CarouselItem;
 },{}],4:[function(require,module,exports){
 'use strict';
 
-var _carousel = require('../carousel.jsx');
+var _carousel = require('../components/carousel.jsx');
 
 var _carousel2 = _interopRequireDefault(_carousel);
 
@@ -4506,7 +4518,7 @@ ReactDOM.render(React.createElement(_carousel2.default, null), temp);
 var container = document.getElementById("space-carousel");
 container.replaceChild(temp.querySelector("#react-carousel"), document.getElementById("react-carousel"));
 
-},{"../carousel.jsx":2}],5:[function(require,module,exports){
+},{"../components/carousel.jsx":2}],5:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //

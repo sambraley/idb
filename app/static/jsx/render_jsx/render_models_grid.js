@@ -6,138 +6,164 @@ import Pages from './../components/pages';
 import Modals from './../components/modals';
 import "isomorphic-fetch";
 
-const exts = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
-const modelType = window.location.href.split('/')[3];
+const exts  = {"planets": "Planets", "galaxies": "Galaxies", "satellites": "Satellites", "stars": "Stars", };
+const label = {"name": "Name" , "temperature": "Temperature", "diameter": "Diameter", 
+					"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+					"mission_type": "Mission Type", "year_launched": "Launch Year", "Sorted By": "Sorted By"};
+var modelType = window.location.href.split('/')[3];
 
 class App extends React.Component {
 	constructor (props) {
 		super(props);
-
+		var dict = {};
+		dict['page'] = 1;
+		dict['sorted'] = false;
+		dict['attr'] = "Sorted By"
+		dict['filtered'] = false;
+		var href = window.location.href;
+		if (href.indexOf('?') >= 0 && href.indexOf('&') >= 0){
+			var parameters = window.location.href.split('?')[1].split('&');
+			for (var i = 0; i < parameters.length; i += 1) {
+				var key = parameters[i].split('=')[0];
+				var value = parameters[i].split('=')[1];
+				dict[key] = value;
+			}
+			modelType = modelType.split('?')[0];
+		}
+		else if (href.indexOf('?') >= 0){
+			var parameters = window.location.href.split('?')[1];
+			var key = parameters.split('=')[0];
+			var value = parameters.split('=')[1];
+			dict[key] = value;
+			modelType = modelType.split('?')[0];
+		}
 		this.state = { 
 			models: [],
-			title: exts[window.location.href.split('/')[3]],
+			title: exts[modelType],
 			total_pages: 1,
-			current_page: 1,
+			current_page: Number(dict['page']),
 			modelType: modelType,
-			sort_title: "Sort By",
-			current_sort_attr: null,
-			current_sort_dir: null, 
-			isFiltered: false,
-			current_filter_v1: null,
-			current_filter_v2: null,
-			current_filter_v3: null
+			sort_title: label[dict['attr']],
+			sorted: dict['sorted'],
+			current_sort_attr: dict['attr'],
+			current_sort_dir: dict['dir'], 
+			isFiltered: dict['filtered'],
+			current_filter_v1: dict['v1'],
+			current_filter_v2: dict['v2'],
+			current_filter_v3: dict['v3'],
+			loaded: false
 		};
-		
-		this.getModels(this.state.current_page);
+		this.getModels();
 	}	
 
-	getModels(page) {
-		if (this.state.sort_title === "Sort By") {
-			const baseUrl = window.location.href.split('/')[2];
-			const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=6";
-			const url = "http://" + baseUrl + apiExt;
-			fetch(url)
-		      .then((response) => response.json())
-		      .then((responseJson) => {
-		        this.setState({ 
-		        	models: responseJson.objects,
-		        	total_pages: responseJson.total_pages,
-		        	current_page: responseJson.page,
-		        })
-			    })
-			    .catch((error) => {
-			        console.error(error);
-		      	})
+	getModels() {
+		var url = "/api/v1/" + this.state.modelType + "?page=" + this.state.current_page + "&results_per_page=6";
+		if (this.state.sorted) {
+			url += "&q={%22order_by%22:[{%22field%22:%22" + this.state.current_sort_attr + "%22,%22direction%22:%22" + this.state.current_sort_dir + "%22}]}";
 		}
-		else {
-			// console.log("pages are sorted by " + this.state.sort_title);
-			// console.log("using attr " + this.state.current_sort_attr);
-			// console.log("by order " + this.state.current_sort_dir);
-			this.sortBy(this.state.current_sort_attr, this.state.current_sort_dir, this.state.sort_title, page);
+		if (this.state.isFiltered) {
+			url += "&q={%22filters%22:[{%22name%22:%22" + this.state.current_filter_v1 + "%22,%22op%22:%22" + this.state.current_filter_v2 + "%22,%22val%22:" + 1 + "}]}";
 		}
-	}
-
-	sortBy(attr, dir, sort_title, page) {
-		// ?q={"order_by":[{"field": <fieldname>, "direction": <directionname>}]}
-		// console.log(attr, dir);
-		const baseUrl = window.location.href.split('/')[2];
-		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22order_by%22:[{%22field%22:%22" + attr + "%22,%22direction%22:%22" + dir + "%22}]}";
-		const url = "http://" + baseUrl + apiExt;
-		// console.log(url);
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {
-	      	// console.log("Back from sorting call");
 	        this.setState({ 
 	        	models: responseJson.objects,
 	        	total_pages: responseJson.total_pages,
 	        	current_page: responseJson.page,
-	        	sort_title: sort_title,
-	        	current_sort_attr: attr,
-	        	current_sort_dir: dir
+	        	loaded: true
 	        })
 		    })
 		    .catch((error) => {
 		        console.error(error);
 	      	})
 	}
+	redirect() {
+		var url = "/" + this.state.modelType + "?page=" + this.state.current_page;
+		if (this.state.sorted) {
+			url += "&sorted=" + this.state.sorted + "&attr=" + this.state.current_sort_attr + "&dir=" + this.state.current_sort_dir;
+		}
+		if (this.state.isFiltered) {
+			url += "&filtered=" + this.state.isFiltered;
+			url += "&v1=" + this.state.current_filter_v1;
+			url += "&v2=" + this.state.current_filter_v2;
+			url += "&v3=" + this.state.current_filter_v3;
+		}
+		window.location = url;
+	}
 
-	filterBy(v1, v2, v3, page) {
-		// ?q={"filters":[{"name":"<fieldname>", "op":"<operator>", "value": <value>}]}
-		const baseUrl = window.location.href.split('/')[2];
-		const apiExt = "/api/v1/" + this.state.modelType + "?page=" + page + "&results_per_page=9&q={%22filters%22:[{%22name%22:%22" + v1 + "%22,%22op%22:%22" + v2 + "%22,%22val%22:" + 1 + "}]}";
-		const url = "http://" + baseUrl + apiExt;
-		fetch(url)
-	      .then((response) => response.json())
-	      .then((responseJson) => {
-	      	console.log("return in filterBy func: v1: " + v1 + " v2: " + v2 + " v3: " + v3);
-	        this.setState({ 
-	        	models: responseJson.objects,
-	        	total_pages: responseJson.total_pages,
-	        	current_page: responseJson.page,
-	        	isFiltered: true,
-				current_filter_v1: v1,
-				current_filter_v2: v2,
-				current_filter_v3: v3
-	        })
-		    })
-		    .catch((error) => {
-		        console.error(error);
-	      	})
+	changePage(page) {
+		this.state['current_page'] = page;
+		this.redirect();
+	}
+
+	sortBy(attr, dir) {
+		this.state.sorted = true;
+		this.state.isFiltered = false;
+		this.state.current_sort_attr = attr;
+		this.state.current_sort_dir = dir;
+		this.state.current_page = 1;
+		this.redirect();
+	}
+
+	filterBy(v1, v2, v3) {
+		this.state.isFiltered = true;
+		this.state.sorted = false;
+		this.state.current_filter_v1 = v1;
+		this.state.current_filter_v2 = v2;
+		this.state.current_filter_v3 = v3;
+		this.state.current_page = 1;
+		this.redirect();
 	}
 
 	
 	render () {
+		if (!this.state.loaded) {
+			return (
+					<h1 className="text-center">Loading {this.state.title}</h1>
+				);
+		}
+		if (this.state.models.length <= 0) {
+			return (
+					<h1 className="text-center">No Results Found</h1>
+				);
+		}
 		return (
 			<div className="model-container">
 				<ModelTitle title={this.state.title} />
 				<div className="row"> 
-					<div className="col-md-2 text-left sort-filter-button">
+					<div className="col-md-4 col-sm-3">
+					</div>
+					<div className="col-sm-3 col-md-2 text-center sort-filter-button">
 						<DropDown 
 							sort_title={this.state.sort_title}
 							modelType={this.state.modelType}
 							sortBy={this.sortBy.bind(this)} />
 					</div>
-					<div className="col-md-1 text-left sort-filter-button">
+					<div className="col-sm-3 col-md-2 text-center sort-filter-button">
 						<Modals
 							modelType={this.state.modelType} 
 							filterBy={this.filterBy.bind(this)} />
 					</div>
-					<div className="col-md-9 text-right">
+					<div className="col-md-4 col-sm-3">
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-md-12 text-center">
 						<Pages 
 							current_page={this.state.current_page}
 							total_pages={this.state.total_pages} 
-							onPageSelect={this.getModels.bind(this)} />
+							onPageSelect={this.changePage.bind(this)} />
 					</div>
 				</div>
 				<ModelList 
 					models={this.state.models}
 					page={this.current_page} />
-				<div key="pages" className="col-md-12 text-right">
+				<div key="pages" className="col-md-12 text-center">
 					<Pages 
 						current_page={this.state.current_page}
 						total_pages={this.state.total_pages} 
-						onPageSelect={this.getModels.bind(this)} />
+						onPageSelect={this.changePage.bind(this)} />
 				</div>
 			</div>
 			);

@@ -123,8 +123,12 @@ class Satellite(db.Model):
             "agency": self.agency,
             "planet_pid": self.planet_pid,
             "star_pid": self.star_pid,
-            "galaxy_pid": self.galaxy_pid
+            "galaxy_pid": self.galaxy_pid,
+            "model_type": "satellites"
         }
+    
+    def model_type(self):
+        return "satellites"
 
     def __repr__(self):
         return "<Satellite %r>" % self.name
@@ -236,9 +240,13 @@ class Planet(db.Model):
             "mass": self.mass,
             "temperature": self.temperature,
             "star_pid": self.star_pid,
-            "galaxy_pid": self.galaxy_pid
+            "galaxy_pid": self.galaxy_pid,
+            "model_type": "planets"
         }
 
+    def model_type(self):
+        return "planets"
+    
     def __repr__(self):
         return "<Planet %r>" % self.name
 
@@ -331,9 +339,13 @@ class Star(db.Model):
             "dec": self.dec,
             "temperature": self.temperature,
             "mass": self.mass,
-            "galaxy_pid": self.galaxy_pid
+            "galaxy_pid": self.galaxy_pid,
+            "model_type": "stars"
         }
 
+    def model_type(self):
+        return "stars"
+    
     def __repr__(self):
         return "<Star %r>" % self.name
 
@@ -410,13 +422,18 @@ class Galaxy(db.Model):
         Returns a dictionary representation of this model.
         """
         return {
+            "pid": self.pid,
             "name": self.name,
             "ra": self.ra,
             "dec": self.dec,
             "morph_type": self.morph_type,
             "redshift": self.redshift,
             "size": self.size,
+            "model_type": "galaxies"
         }
 
+    def model_type(self):
+        return "galaxies"
+    
     def __repr__(self):
         return "<Galaxy %r>" % self.name

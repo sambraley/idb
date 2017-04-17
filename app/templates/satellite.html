@@ -3,22 +3,22 @@
 <div class="container content-container">
   <div class="row">
   	<div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
-  		<h1>{{satellite.name}}</h1>
+  		<h1 class="react-highlight">{{satellite.name}}</h1>
   	</div>
   </div>
   <div class="row">
     <div class="row">
-      <div class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
+      <div id="react-satellite" class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
         <img class="img-thumbnail" style="width:400px;height:400px;" src="{{satellite.img_url}}"> 
       </div>
       <div class="col-sm-12 col-md-5 text-center">
         <div class="col-md-12">
           <h3>Agency:</h3> 
-          <p>{{satellite.agency}}</p>
+          <p class="react-highlight">{{satellite.agency}}</p>
           <h3>Type of Mission:</h3> 
-          <p>{{satellite.mission_type}}</p>
+          <p class="react-highlight">{{satellite.mission_type}}</p>
           <h3>Launch Year:</h3> 
-          <p>{{satellite.year_launched}}</p>
+          <p class="react-highlight">{{satellite.year_launched}}</p>
           <h3><a href="/galaxies/{{satellite.galaxy_pid}}">Link to home Galaxy</a></h3>
           <h3><a href="/stars/{{satellite.star_pid}}">Link to home Star</a></h3>
           <h3><a href="/planets/{{satellite.planet_pid}}">Link to home Planet</a></h3>
@@ -28,4 +28,6 @@
     </div>
   </div>
 </div>
+<script src="{{ url_for('static', filename='compiled_js/satellite.js') }}"></script>
+<script src="{{ url_for('static', filename='compiled_js/model-highlight.js') }}"></script>
 {% endblock %}
