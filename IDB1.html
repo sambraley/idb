@@ -9,8 +9,8 @@
 <font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>models</strong></big></big></font></td
 ><td align=right valign=bottom
 ><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v38q001/taben/Documents/idb/app/models.py">/v/filer4b/v38q001/taben/Documents/idb/app/models.py</a></font></td></tr></table>
-    <p><tt>This&nbsp;module&nbsp;is&nbsp;designed&nbsp;to&nbsp;model&nbsp;galaxies,&nbsp;stars,&nbsp;planets,&nbsp;and&nbsp;satellites&nbsp;for<br>
-use&nbsp;in&nbsp;a&nbsp;PostgreSQL&nbsp;database&nbsp;using&nbsp;Flask-SQLAlchemy.</tt></p>
+    <p><tt>This&nbsp;module&nbsp;is&nbsp;designed&nbsp;to&nbsp;model&nbsp;galaxies,&nbsp;stars,&nbsp;planets,&nbsp;satellites,<br>
+and&nbsp;images&nbsp;for&nbsp;use&nbsp;in&nbsp;a&nbsp;PostgreSQL&nbsp;database&nbsp;using&nbsp;Flask-SQLAlchemy.</tt></p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
 <tr bgcolor="#ee77aa">
@@ -23,6 +23,7 @@ use&nbsp;in&nbsp;a&nbsp;PostgreSQL&nbsp;database&nbsp;using&nbsp;Flask-SQLAlchem
 </font></dt><dd>
 <dl>
 <dt><font face="helvetica, arial"><a href="models.html#Galaxy">Galaxy</a>
+</font></dt><dt><font face="helvetica, arial"><a href="models.html#Image">Image</a>
 </font></dt><dt><font face="helvetica, arial"><a href="models.html#Planet">Planet</a>
 </font></dt><dt><font face="helvetica, arial"><a href="models.html#Satellite">Satellite</a>
 </font></dt><dt><font face="helvetica, arial"><a href="models.html#Star">Star</a>
@@ -36,9 +37,18 @@ use&nbsp;in&nbsp;a&nbsp;PostgreSQL&nbsp;database&nbsp;using&nbsp;Flask-SQLAlchem
 <font color="#000000" face="helvetica, arial"><a name="Galaxy">class <strong>Galaxy</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Models&nbsp;galaxies.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;image,&nbsp;right_ascension,&nbsp;declination,<br>
-galaxy&nbsp;type&nbsp;(spiral,&nbsp;etc),&nbsp;redshift,&nbsp;and&nbsp;angular&nbsp;size.&nbsp;They&nbsp;may&nbsp;relate&nbsp;one-to-many<br>
-to&nbsp;satellites,&nbsp;stars,&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Models&nbsp;galaxies.&nbsp;Attributes&nbsp;are:&nbsp;<br>
+name:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;galaxy&nbsp;<br>
+ra:&nbsp;The&nbsp;right&nbsp;ascension&nbsp;in&nbsp;the&nbsp;ICRS&nbsp;J2000&nbsp;coordinate&nbsp;system&nbsp;in&nbsp;decimal&nbsp;archour&nbsp;form<br>
+dec:&nbsp;The&nbsp;declination&nbsp;in&nbsp;the&nbsp;ICRS&nbsp;J2000&nbsp;coordinate&nbsp;system&nbsp;in&nbsp;decimal&nbsp;degree&nbsp;form<br>
+morph_type:&nbsp;The&nbsp;morphilogical&nbsp;type&nbsp;of&nbsp;the&nbsp;galaxy&nbsp;such&nbsp;as&nbsp;Spiral,&nbsp;Irregular,&nbsp;etc.<br>
+redshift:&nbsp;The&nbsp;redshift&nbsp;of&nbsp;the&nbsp;galaxy<br>
+size:&nbsp;The&nbsp;angular&nbsp;size&nbsp;in&nbsp;decimal&nbsp;arcminutes&nbsp;form&nbsp;of&nbsp;the&nbsp;major&nbsp;axis&nbsp;of&nbsp;the&nbsp;galaxy<br>
+&nbsp;<br>
+Galaxies&nbsp;may&nbsp;relate&nbsp;one-to-many&nbsp;to&nbsp;satellites,&nbsp;stars,&nbsp;and&nbsp;planets.<br>
+&nbsp;<br>
+String&nbsp;versions&nbsp;of&nbsp;ra,&nbsp;dec,&nbsp;redshift,&nbsp;and&nbsp;size&nbsp;also&nbsp;exist&nbsp;to&nbsp;allow<br>
+full&nbsp;text&nbsp;searches&nbsp;to&nbsp;be&nbsp;simpler.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Galaxy">Galaxy</a></dd>
@@ -48,18 +58,48 @@ to&nbsp;satellites,&nbsp;stars,&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Galaxy-__init__"><strong>__init__</strong></a>(self, name, ra, dec, morph_type, redshift, size, img_url)</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;right_ascension&nbsp;and&nbsp;declination&nbsp;floats,&nbsp;galaxy_type&nbsp;a&nbsp;str,<br>
-redshift&nbsp;and&nbsp;size&nbsp;floats.</tt></dd></dl>
+<dl><dt><a name="Galaxy-__init__"><strong>__init__</strong></a>(self, name, ra, dec, morph_type, redshift, size, image)</dt><dd><tt>name&nbsp;a&nbsp;str&nbsp;of&nbsp;the&nbsp;galaxy&nbsp;name<br>
+ra&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;right&nbsp;ascension&nbsp;<br>
+dec&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;declination<br>
+morph_type&nbsp;a&nbsp;str&nbsp;of&nbsp;the&nbsp;morphilogical&nbsp;type<br>
+redshift&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;redshift&nbsp;value<br>
+size&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;angular&nbsp;size<br>
+image&nbsp;a&nbsp;<a href="#Image">Image</a>&nbsp;object&nbsp;that&nbsp;is&nbsp;the&nbsp;image&nbsp;for&nbsp;the&nbsp;galaxy</tt></dd></dl>
 
-<dl><dt><a name="Galaxy-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+<dl><dt><a name="Galaxy-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;<a href="#Galaxy">Galaxy</a></tt></dd></dl>
 
-<dl><dt><a name="Galaxy-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Galaxy-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;the&nbsp;<a href="#Galaxy">Galaxy</a>.</tt></dd></dl>
+
+<dl><dt><a name="Galaxy-whoosh_search"><strong>whoosh_search</strong></a> = search(search_string, values_of='', group=&lt;class 'whoosh.qparser.syntax.OrGroup'&gt;, match_substrings=True, limit=None)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Searches&nbsp;the&nbsp;fields&nbsp;for&nbsp;given&nbsp;search_string.<br>
+Returns&nbsp;the&nbsp;found&nbsp;records&nbsp;if&nbsp;'values_of'&nbsp;is&nbsp;left&nbsp;empty,<br>
+else&nbsp;the&nbsp;values&nbsp;of&nbsp;the&nbsp;given&nbsp;columns.<br>
+&nbsp;<br>
+:param&nbsp;search_string:&nbsp;The&nbsp;string&nbsp;to&nbsp;search&nbsp;for.<br>
+:param&nbsp;values_of:&nbsp;If&nbsp;given,&nbsp;the&nbsp;method&nbsp;will&nbsp;not&nbsp;return&nbsp;the&nbsp;whole<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;records,&nbsp;but&nbsp;only&nbsp;values&nbsp;of&nbsp;given&nbsp;column.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;returning&nbsp;whole&nbsp;records.<br>
+:param&nbsp;group:&nbsp;The&nbsp;whoosh&nbsp;group&nbsp;to&nbsp;use&nbsp;for&nbsp;searching.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;:class:`whoosh.qparser.OrGroup`&nbsp;which<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searches&nbsp;for&nbsp;all&nbsp;words&nbsp;in&nbsp;all&nbsp;columns.<br>
+:param&nbsp;match_substrings:&nbsp;``True``&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;match&nbsp;substrings,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``False``&nbsp;otherwise.<br>
+:param&nbsp;limit:&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;top&nbsp;records&nbsp;to&nbsp;be&nbsp;returned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;``None``&nbsp;and&nbsp;returns&nbsp;all&nbsp;records.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Galaxy-model_type"><strong>model_type</strong></a>()</dt><dd><tt>Returns&nbsp;the&nbsp;type&nbsp;of&nbsp;this&nbsp;model.<br>
+The&nbsp;type&nbsp;is&nbsp;defined&nbsp;as&nbsp;the&nbsp;plural&nbsp;form&nbsp;of&nbsp;the&nbsp;class&nbsp;name.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>dec</strong></dt>
 </dl>
-<dl><dt><strong>img_url</strong></dt>
+<dl><dt><strong>dec_str</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+</dl>
+<dl><dt><strong>image_pid</strong></dt>
 </dl>
 <dl><dt><strong>morph_type</strong></dt>
 </dl>
@@ -69,15 +109,92 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>ra</strong></dt>
 </dl>
+<dl><dt><strong>ra_str</strong></dt>
+</dl>
 <dl><dt><strong>redshift</strong></dt>
+</dl>
+<dl><dt><strong>redshift_str</strong></dt>
 </dl>
 <dl><dt><strong>size</strong></dt>
 </dl>
+<dl><dt><strong>size_str</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbb04470; Galaxy&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f8b53309fd0; Galaxy&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('galaxy', MetaData(bind=None), Column('pid...img_url', String(), table=&lt;galaxy&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('galaxy', MetaData(bind=None), Column('pid...gnKey('image.pid'), table=&lt;galaxy&gt;), schema=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshee.WhoosheeQuery'&gt;<dd><tt>An&nbsp;override&nbsp;for&nbsp;SQLAlchemy&nbsp;query&nbsp;used&nbsp;to&nbsp;do&nbsp;fulltext&nbsp;search.</tt></dl>
+
+<hr>
+Methods inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>query</strong></dt>
+</dl>
+
+<hr>
+Data and other attributes inherited from flask_sqlalchemy.Model:<br>
+<dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
+
+<hr>
+Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__tablename__</strong></dt>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Image">class <strong>Image</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Models&nbsp;image&nbsp;urls&nbsp;for&nbsp;all&nbsp;objects.&nbsp;Attributes&nbsp;are:<br>
+img_url:&nbsp;a&nbsp;url&nbsp;of&nbsp;the&nbsp;image<br>
+<a href="#Image">Image</a>&nbsp;relates&nbsp;one-to-one&nbsp;to&nbsp;all&nbsp;other&nbsp;models<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="models.html#Image">Image</a></dd>
+<dd>flask_sqlalchemy.Model</dd>
+<dd><a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Image-__init__"><strong>__init__</strong></a>(self, img_url)</dt><dd><tt>img_url&nbsp;a&nbsp;str&nbsp;of&nbsp;the&nbsp;url</tt></dd></dl>
+
+<dl><dt><a name="Image-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;<a href="#Satellite">Satellite</a></tt></dd></dl>
+
+<dl><dt><a name="Image-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;an&nbsp;image</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Image-model_type"><strong>model_type</strong></a>()</dt><dd><tt>Returns&nbsp;the&nbsp;type&nbsp;of&nbsp;this&nbsp;model.<br>
+The&nbsp;type&nbsp;is&nbsp;defined&nbsp;as&nbsp;the&nbsp;plural&nbsp;form&nbsp;of&nbsp;the&nbsp;class&nbsp;name.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>Galaxy</strong></dt>
+</dl>
+<dl><dt><strong>Planet</strong></dt>
+</dl>
+<dl><dt><strong>Satellite</strong></dt>
+</dl>
+<dl><dt><strong>Star</strong></dt>
+</dl>
+<dl><dt><strong>img_url</strong></dt>
+</dl>
+<dl><dt><strong>pid</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f8b533b16a0; Image&gt;</dl>
+
+<dl><dt><strong>__table__</strong> = Table('image', MetaData(bind=None), Column('pid'...n('img_url', Text(), table=&lt;image&gt;), schema=None)</dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -110,9 +227,21 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <font color="#000000" face="helvetica, arial"><a name="Planet">class <strong>Planet</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Models&nbsp;planets.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;image,&nbsp;diameter,&nbsp;right_ascension,<br>
-declination,&nbsp;gravity,&nbsp;orbital&nbsp;period,&nbsp;mass,&nbsp;and&nbsp;temperature.&nbsp;They&nbsp;may&nbsp;relate<br>
-many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;stars,&nbsp;and&nbsp;one-to-many&nbsp;to&nbsp;satellites&nbsp;and&nbsp;other&nbsp;planets.<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Models&nbsp;planets.&nbsp;Attributes&nbsp;are:&nbsp;<br>
+name:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;planet&nbsp;<br>
+diameter:&nbsp;The&nbsp;diameter&nbsp;of&nbsp;the&nbsp;planet&nbsp;in&nbsp;terms&nbsp;of&nbsp;Jupiter&nbsp;diameters<br>
+ra:&nbsp;The&nbsp;right&nbsp;ascension&nbsp;in&nbsp;the&nbsp;ICRS&nbsp;J2000&nbsp;coordinate&nbsp;system&nbsp;in&nbsp;decimal&nbsp;archour&nbsp;form<br>
+dec:&nbsp;The&nbsp;declination&nbsp;in&nbsp;the&nbsp;ICRS&nbsp;J2000&nbsp;coordinate&nbsp;system&nbsp;in&nbsp;decimal&nbsp;degree&nbsp;form<br>
+gravity:&nbsp;The&nbsp;surface&nbsp;gravity&nbsp;of&nbsp;the&nbsp;planet&nbsp;in&nbsp;multiples&nbsp;of&nbsp;the&nbsp;Jupiter&nbsp;gravity<br>
+orbital_period:&nbsp;The&nbsp;orbital&nbsp;period&nbsp;of&nbsp;the&nbsp;planet&nbsp;in&nbsp;earth&nbsp;days<br>
+mass:&nbsp;The&nbsp;mass&nbsp;of&nbsp;the&nbsp;planet&nbsp;in&nbsp;Jupiter&nbsp;masses<br>
+temperature:&nbsp;The&nbsp;surface&nbsp;temperature&nbsp;of&nbsp;the&nbsp;planet&nbsp;in&nbsp;Kelvin&nbsp;<br>
+&nbsp;<br>
+They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;stars,&nbsp;<br>
+and&nbsp;one-to-many&nbsp;to&nbsp;satellites.<br>
+&nbsp;<br>
+String&nbsp;versions&nbsp;of&nbsp;diameter,&nbsp;ra,&nbsp;dec,&nbsp;gravity,&nbsp;oribital_period,&nbsp;mass,&nbsp;and&nbsp;temperature<br>
+also&nbsp;exist&nbsp;to&nbsp;make&nbsp;full&nbsp;text&nbsp;database&nbsp;searching&nbsp;simpler.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Planet">Planet</a></dd>
@@ -122,18 +251,52 @@ many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;stars,&nbsp;and&nbsp;one-to-many
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Planet-__init__"><strong>__init__</strong></a>(self, name, diameter, ra, dec, gravity, orbital_period, mass, temperature, img_url, star, galaxy)</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;diameter&nbsp;a&nbsp;float,&nbsp;temperature&nbsp;a&nbsp;int,&nbsp;right_ascension,&nbsp;declination,<br>
-mass,&nbsp;gravity,&nbsp;orbital_period&nbsp;are&nbsp;all&nbsp;floats.</tt></dd></dl>
+<dl><dt><a name="Planet-__init__"><strong>__init__</strong></a>(self, name, diameter, ra, dec, gravity, orbital_period, mass, temperature, star, galaxy, image)</dt><dd><tt>name&nbsp;a&nbsp;str&nbsp;of&nbsp;the&nbsp;<a href="#Planet">Planet</a>&nbsp;name<br>
+diameter&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;<a href="#Planet">Planet</a>&nbsp;diameter&nbsp;in&nbsp;Jupiter&nbsp;diameters<br>
+temperature&nbsp;a&nbsp;int&nbsp;of&nbsp;the&nbsp;surface&nbsp;temperature&nbsp;of&nbsp;the&nbsp;planet<br>
+ra&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;right&nbsp;ascension<br>
+dec&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;declination<br>
+mass&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;mass&nbsp;of&nbsp;the&nbsp;planet&nbsp;in&nbsp;Jupiter&nbsp;masses<br>
+gravity&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;surface&nbsp;gravity&nbsp;of&nbsp;the&nbsp;planet<br>
+orbital_period&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;orbital&nbsp;period&nbsp;in&nbsp;earth&nbsp;days.<br>
+star&nbsp;a&nbsp;<a href="#Star">Star</a>&nbsp;object&nbsp;in&nbsp;which&nbsp;the&nbsp;<a href="#Star">Star</a>&nbsp;orbits&nbsp;around<br>
+galaxy&nbsp;a&nbsp;<a href="#Galaxy">Galaxy</a>&nbsp;object&nbsp;in&nbsp;which&nbsp;the&nbsp;planet&nbsp;resides&nbsp;in<br>
+image&nbsp;an&nbsp;<a href="#Image">Image</a>&nbsp;object&nbsp;containing&nbsp;the&nbsp;image&nbsp;of&nbsp;the&nbsp;planet</tt></dd></dl>
 
-<dl><dt><a name="Planet-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+<dl><dt><a name="Planet-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;<a href="#Planet">Planet</a>.</tt></dd></dl>
 
-<dl><dt><a name="Planet-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Planet-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;the&nbsp;<a href="#Planet">Planet</a>.</tt></dd></dl>
+
+<dl><dt><a name="Planet-whoosh_search"><strong>whoosh_search</strong></a> = search(search_string, values_of='', group=&lt;class 'whoosh.qparser.syntax.OrGroup'&gt;, match_substrings=True, limit=None)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Searches&nbsp;the&nbsp;fields&nbsp;for&nbsp;given&nbsp;search_string.<br>
+Returns&nbsp;the&nbsp;found&nbsp;records&nbsp;if&nbsp;'values_of'&nbsp;is&nbsp;left&nbsp;empty,<br>
+else&nbsp;the&nbsp;values&nbsp;of&nbsp;the&nbsp;given&nbsp;columns.<br>
+&nbsp;<br>
+:param&nbsp;search_string:&nbsp;The&nbsp;string&nbsp;to&nbsp;search&nbsp;for.<br>
+:param&nbsp;values_of:&nbsp;If&nbsp;given,&nbsp;the&nbsp;method&nbsp;will&nbsp;not&nbsp;return&nbsp;the&nbsp;whole<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;records,&nbsp;but&nbsp;only&nbsp;values&nbsp;of&nbsp;given&nbsp;column.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;returning&nbsp;whole&nbsp;records.<br>
+:param&nbsp;group:&nbsp;The&nbsp;whoosh&nbsp;group&nbsp;to&nbsp;use&nbsp;for&nbsp;searching.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;:class:`whoosh.qparser.OrGroup`&nbsp;which<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searches&nbsp;for&nbsp;all&nbsp;words&nbsp;in&nbsp;all&nbsp;columns.<br>
+:param&nbsp;match_substrings:&nbsp;``True``&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;match&nbsp;substrings,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``False``&nbsp;otherwise.<br>
+:param&nbsp;limit:&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;top&nbsp;records&nbsp;to&nbsp;be&nbsp;returned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;``None``&nbsp;and&nbsp;returns&nbsp;all&nbsp;records.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Planet-model_type"><strong>model_type</strong></a>()</dt><dd><tt>Returns&nbsp;the&nbsp;type&nbsp;of&nbsp;this&nbsp;model.<br>
+The&nbsp;type&nbsp;is&nbsp;defined&nbsp;as&nbsp;the&nbsp;plural&nbsp;form&nbsp;of&nbsp;the&nbsp;class&nbsp;name.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>dec</strong></dt>
 </dl>
+<dl><dt><strong>dec_str</strong></dt>
+</dl>
 <dl><dt><strong>diameter</strong></dt>
+</dl>
+<dl><dt><strong>diameter_str</strong></dt>
 </dl>
 <dl><dt><strong>galaxy</strong></dt>
 </dl>
@@ -141,17 +304,27 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>gravity</strong></dt>
 </dl>
-<dl><dt><strong>img_url</strong></dt>
+<dl><dt><strong>gravity_str</strong></dt>
+</dl>
+<dl><dt><strong>image</strong></dt>
+</dl>
+<dl><dt><strong>image_pid</strong></dt>
 </dl>
 <dl><dt><strong>mass</strong></dt>
+</dl>
+<dl><dt><strong>mass_str</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
 <dl><dt><strong>orbital_period</strong></dt>
 </dl>
+<dl><dt><strong>orbital_period_str</strong></dt>
+</dl>
 <dl><dt><strong>pid</strong></dt>
 </dl>
 <dl><dt><strong>ra</strong></dt>
+</dl>
+<dl><dt><strong>ra_str</strong></dt>
 </dl>
 <dl><dt><strong>satellites</strong></dt>
 </dl>
@@ -161,11 +334,15 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>temperature</strong></dt>
 </dl>
+<dl><dt><strong>temperature_str</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbaf03c8; Planet&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f8b53363d30; Planet&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('planet', MetaData(bind=None), Column('pid...nKey('galaxy.pid'), table=&lt;planet&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('planet', MetaData(bind=None), Column('pid...gnKey('image.pid'), table=&lt;planet&gt;), schema=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshee.WhoosheeQuery'&gt;<dd><tt>An&nbsp;override&nbsp;for&nbsp;SQLAlchemy&nbsp;query&nbsp;used&nbsp;to&nbsp;do&nbsp;fulltext&nbsp;search.</tt></dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -175,11 +352,6 @@ Methods inherited from flask_sqlalchemy.Model:<br>
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
-&nbsp;<br>
-This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
-Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -198,8 +370,17 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <font color="#000000" face="helvetica, arial"><a name="Satellite">class <strong>Satellite</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Models&nbsp;artificial&nbsp;satellites.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;agency,&nbsp;mission&nbsp;type,<br>
-and&nbsp;year&nbsp;launched.&nbsp;They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies,&nbsp;stars,&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Models&nbsp;artificial&nbsp;satellites.&nbsp;Attributes&nbsp;are:&nbsp;<br>
+name:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;satellite<br>
+agency:&nbsp;The&nbsp;full&nbsp;name&nbsp;of&nbsp;the&nbsp;agency&nbsp;that&nbsp;owns&nbsp;or&nbsp;leads&nbsp;the&nbsp;satellite&nbsp;project<br>
+mission_type:&nbsp;The&nbsp;purpose&nbsp;of&nbsp;the&nbsp;satellite&nbsp;such&nbsp;as&nbsp;Earth&nbsp;Science,&nbsp;Astrophysics&nbsp;etc.<br>
+info_url:&nbsp;a&nbsp;url&nbsp;to&nbsp;a&nbsp;page&nbsp;that&nbsp;contains&nbsp;more&nbsp;information&nbsp;about&nbsp;the&nbsp;satellite<br>
+year&nbsp;launched:&nbsp;The&nbsp;year&nbsp;the&nbsp;satellite&nbsp;was&nbsp;launched<br>
+&nbsp;<br>
+Satellites&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies,&nbsp;stars,&nbsp;and&nbsp;planets.<br>
+&nbsp;<br>
+A&nbsp;string&nbsp;version&nbsp;of&nbsp;year_launched&nbsp;also&nbsp;exists&nbsp;to&nbsp;allow&nbsp;full&nbsp;text<br>
+searches&nbsp;of&nbsp;a&nbsp;database&nbsp;simpler<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Satellite">Satellite</a></dd>
@@ -209,11 +390,39 @@ and&nbsp;year&nbsp;launched.&nbsp;They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbs
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Satellite-__init__"><strong>__init__</strong></a>(self, name, img_url, year_launched, mission_type, info_url, agency, planet, star, galaxy)</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;info_url&nbsp;a&nbsp;str,&nbsp;agency&nbsp;a&nbsp;str,&nbsp;mission_type&nbsp;a&nbsp;str,&nbsp;year_launched&nbsp;an&nbsp;int.</tt></dd></dl>
+<dl><dt><a name="Satellite-__init__"><strong>__init__</strong></a>(self, name, year_launched, mission_type, info_url, agency, planet, star, galaxy, image)</dt><dd><tt>name&nbsp;a&nbsp;str&nbsp;of&nbsp;the&nbsp;<a href="#Satellite">Satellite</a>'s&nbsp;name<br>
+info_url&nbsp;a&nbsp;str&nbsp;a&nbsp;url&nbsp;to&nbsp;more&nbsp;information&nbsp;about&nbsp;the&nbsp;satellite<br>
+agency&nbsp;a&nbsp;str&nbsp;of&nbsp;full&nbsp;name&nbsp;of&nbsp;the&nbsp;agency&nbsp;<br>
+mission_type&nbsp;a&nbsp;str&nbsp;of&nbsp;the&nbsp;mission&nbsp;type<br>
+year_launched&nbsp;an&nbsp;int&nbsp;the&nbsp;year&nbsp;the&nbsp;satellite&nbsp;was&nbsp;launched<br>
+planet&nbsp;a&nbsp;<a href="#Planet">Planet</a>&nbsp;object&nbsp;that&nbsp;the&nbsp;satellite&nbsp;orbits&nbsp;around<br>
+galaxy&nbsp;a&nbsp;<a href="#Galaxy">Galaxy</a>&nbsp;object&nbsp;that&nbsp;the&nbsp;satellite&nbsp;exists&nbsp;in<br>
+image&nbsp;an&nbsp;<a href="#Image">Image</a>&nbsp;object&nbsp;that&nbsp;contains&nbsp;the&nbsp;image&nbsp;of&nbsp;the&nbsp;satellite</tt></dd></dl>
 
-<dl><dt><a name="Satellite-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+<dl><dt><a name="Satellite-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;<a href="#Satellite">Satellite</a></tt></dd></dl>
 
-<dl><dt><a name="Satellite-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Satellite-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;a&nbsp;<a href="#Satellite">Satellite</a></tt></dd></dl>
+
+<dl><dt><a name="Satellite-whoosh_search"><strong>whoosh_search</strong></a> = search(search_string, values_of='', group=&lt;class 'whoosh.qparser.syntax.OrGroup'&gt;, match_substrings=True, limit=None)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Searches&nbsp;the&nbsp;fields&nbsp;for&nbsp;given&nbsp;search_string.<br>
+Returns&nbsp;the&nbsp;found&nbsp;records&nbsp;if&nbsp;'values_of'&nbsp;is&nbsp;left&nbsp;empty,<br>
+else&nbsp;the&nbsp;values&nbsp;of&nbsp;the&nbsp;given&nbsp;columns.<br>
+&nbsp;<br>
+:param&nbsp;search_string:&nbsp;The&nbsp;string&nbsp;to&nbsp;search&nbsp;for.<br>
+:param&nbsp;values_of:&nbsp;If&nbsp;given,&nbsp;the&nbsp;method&nbsp;will&nbsp;not&nbsp;return&nbsp;the&nbsp;whole<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;records,&nbsp;but&nbsp;only&nbsp;values&nbsp;of&nbsp;given&nbsp;column.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;returning&nbsp;whole&nbsp;records.<br>
+:param&nbsp;group:&nbsp;The&nbsp;whoosh&nbsp;group&nbsp;to&nbsp;use&nbsp;for&nbsp;searching.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;:class:`whoosh.qparser.OrGroup`&nbsp;which<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searches&nbsp;for&nbsp;all&nbsp;words&nbsp;in&nbsp;all&nbsp;columns.<br>
+:param&nbsp;match_substrings:&nbsp;``True``&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;match&nbsp;substrings,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``False``&nbsp;otherwise.<br>
+:param&nbsp;limit:&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;top&nbsp;records&nbsp;to&nbsp;be&nbsp;returned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;``None``&nbsp;and&nbsp;returns&nbsp;all&nbsp;records.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Satellite-model_type"><strong>model_type</strong></a>()</dt><dd><tt>Returns&nbsp;the&nbsp;type&nbsp;of&nbsp;this&nbsp;model.<br>
+The&nbsp;type&nbsp;is&nbsp;defined&nbsp;as&nbsp;the&nbsp;plural&nbsp;form&nbsp;of&nbsp;the&nbsp;class&nbsp;name.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -223,7 +432,9 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>galaxy_pid</strong></dt>
 </dl>
-<dl><dt><strong>img_url</strong></dt>
+<dl><dt><strong>image</strong></dt>
+</dl>
+<dl><dt><strong>image_pid</strong></dt>
 </dl>
 <dl><dt><strong>info_url</strong></dt>
 </dl>
@@ -243,11 +454,15 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>year_launched</strong></dt>
 </dl>
+<dl><dt><strong>year_launched_str</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbb44710; Satellite&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f8b533542b0; Satellite&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('satellite', MetaData(bind=None), Column('...y('galaxy.pid'), table=&lt;satellite&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('satellite', MetaData(bind=None), Column('...ey('image.pid'), table=&lt;satellite&gt;), schema=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshee.WhoosheeQuery'&gt;<dd><tt>An&nbsp;override&nbsp;for&nbsp;SQLAlchemy&nbsp;query&nbsp;used&nbsp;to&nbsp;do&nbsp;fulltext&nbsp;search.</tt></dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -257,11 +472,6 @@ Methods inherited from flask_sqlalchemy.Model:<br>
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
-&nbsp;<br>
-This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
-Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -280,9 +490,19 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <font color="#000000" face="helvetica, arial"><a name="Star">class <strong>Star</strong></a>(flask_sqlalchemy.Model)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>Models&nbsp;stars.&nbsp;Attributes&nbsp;are:&nbsp;name,&nbsp;image,&nbsp;temperature,&nbsp;right_ascension,<br>
-declination,&nbsp;and&nbsp;mass.&nbsp;They&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;one-to-many<br>
-to&nbsp;satellites&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Models&nbsp;stars.&nbsp;Main&nbsp;attributes&nbsp;are:&nbsp;<br>
+name:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;<a href="#Star">Star</a><br>
+diameter:&nbsp;The&nbsp;diameter&nbsp;of&nbsp;the&nbsp;<a href="#Star">Star</a>&nbsp;in&nbsp;solar&nbsp;diameters<br>
+ra:&nbsp;The&nbsp;right&nbsp;ascension&nbsp;in&nbsp;the&nbsp;ICRS&nbsp;J2000&nbsp;coordinate&nbsp;system&nbsp;in&nbsp;decimal&nbsp;hour&nbsp;form<br>
+dec:&nbsp;The&nbsp;declination&nbsp;in&nbsp;the&nbsp;ICRS&nbsp;J2000&nbsp;coordinate&nbsp;system&nbsp;in&nbsp;decimal&nbsp;degree&nbsp;form&nbsp;<br>
+temperature:&nbsp;The&nbsp;surface&nbsp;temperature&nbsp;of&nbsp;the&nbsp;<a href="#Star">Star</a><br>
+mass:&nbsp;The&nbsp;mass&nbsp;of&nbsp;the&nbsp;star&nbsp;in&nbsp;solar&nbsp;masses<br>
+&nbsp;<br>
+Stars&nbsp;may&nbsp;relate&nbsp;many-to-one&nbsp;to&nbsp;galaxies&nbsp;and&nbsp;one-to-many<br>
+to&nbsp;satellites&nbsp;and&nbsp;planets.<br>
+&nbsp;<br>
+String&nbsp;versions&nbsp;of&nbsp;diameter,&nbsp;ra,&nbsp;dec,&nbsp;temperature,&nbsp;and&nbsp;mass&nbsp;also&nbsp;exist<br>
+to&nbsp;make&nbsp;full&nbsp;text&nbsp;searches&nbsp;of&nbsp;the&nbsp;database&nbsp;simpler.<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%"><dl><dt>Method resolution order:</dt>
 <dd><a href="models.html#Star">Star</a></dd>
@@ -292,26 +512,61 @@ to&nbsp;satellites&nbsp;and&nbsp;planets.<br>&nbsp;</tt></td></tr>
 </dl>
 <hr>
 Methods defined here:<br>
-<dl><dt><a name="Star-__init__"><strong>__init__</strong></a>(self, name, diameter, ra, dec, temperature, mass, galaxy, img_url='star.png')</dt><dd><tt>name&nbsp;a&nbsp;str,&nbsp;img_url&nbsp;a&nbsp;str,&nbsp;temperature&nbsp;a&nbsp;int,&nbsp;right_ascension,&nbsp;declination,&nbsp;and&nbsp;mass<br>
-are&nbsp;all&nbsp;floats.</tt></dd></dl>
+<dl><dt><a name="Star-__init__"><strong>__init__</strong></a>(self, name, diameter, ra, dec, temperature, mass, galaxy, image)</dt><dd><tt>name&nbsp;a&nbsp;str&nbsp;of&nbsp;the&nbsp;<a href="#Star">Star</a>&nbsp;name<br>
+diameter&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;<a href="#Star">Star</a>'s&nbsp;diameter&nbsp;in&nbsp;Solar&nbsp;diameters<br>
+ra&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;right&nbsp;ascension<br>
+dec&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;declination<br>
+temperature&nbsp;an&nbsp;int&nbsp;of&nbsp;the&nbsp;surface&nbsp;temperature<br>
+mass&nbsp;a&nbsp;float&nbsp;of&nbsp;the&nbsp;<a href="#Star">Star</a>'s&nbsp;mass&nbsp;in&nbsp;Solar&nbsp;masses<br>
+galaxy&nbsp;a&nbsp;<a href="#Galaxy">Galaxy</a>&nbsp;object&nbsp;that&nbsp;the&nbsp;star&nbsp;exists&nbsp;in<br>
+image&nbsp;an&nbsp;<a href="#Image">Image</a>&nbsp;object&nbsp;of&nbsp;the&nbsp;image&nbsp;for&nbsp;the&nbsp;star</tt></dd></dl>
 
-<dl><dt><a name="Star-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+<dl><dt><a name="Star-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;string&nbsp;representation&nbsp;of&nbsp;the&nbsp;<a href="#Star">Star</a>.</tt></dd></dl>
 
-<dl><dt><a name="Star-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;model.</tt></dd></dl>
+<dl><dt><a name="Star-to_dict"><strong>to_dict</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;representation&nbsp;of&nbsp;this&nbsp;<a href="#Star">Star</a>.</tt></dd></dl>
+
+<dl><dt><a name="Star-whoosh_search"><strong>whoosh_search</strong></a> = search(search_string, values_of='', group=&lt;class 'whoosh.qparser.syntax.OrGroup'&gt;, match_substrings=True, limit=None)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt><dd><tt>Searches&nbsp;the&nbsp;fields&nbsp;for&nbsp;given&nbsp;search_string.<br>
+Returns&nbsp;the&nbsp;found&nbsp;records&nbsp;if&nbsp;'values_of'&nbsp;is&nbsp;left&nbsp;empty,<br>
+else&nbsp;the&nbsp;values&nbsp;of&nbsp;the&nbsp;given&nbsp;columns.<br>
+&nbsp;<br>
+:param&nbsp;search_string:&nbsp;The&nbsp;string&nbsp;to&nbsp;search&nbsp;for.<br>
+:param&nbsp;values_of:&nbsp;If&nbsp;given,&nbsp;the&nbsp;method&nbsp;will&nbsp;not&nbsp;return&nbsp;the&nbsp;whole<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;records,&nbsp;but&nbsp;only&nbsp;values&nbsp;of&nbsp;given&nbsp;column.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;returning&nbsp;whole&nbsp;records.<br>
+:param&nbsp;group:&nbsp;The&nbsp;whoosh&nbsp;group&nbsp;to&nbsp;use&nbsp;for&nbsp;searching.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;:class:`whoosh.qparser.OrGroup`&nbsp;which<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searches&nbsp;for&nbsp;all&nbsp;words&nbsp;in&nbsp;all&nbsp;columns.<br>
+:param&nbsp;match_substrings:&nbsp;``True``&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;match&nbsp;substrings,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``False``&nbsp;otherwise.<br>
+:param&nbsp;limit:&nbsp;The&nbsp;number&nbsp;of&nbsp;the&nbsp;top&nbsp;records&nbsp;to&nbsp;be&nbsp;returned.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Defaults&nbsp;to&nbsp;``None``&nbsp;and&nbsp;returns&nbsp;all&nbsp;records.</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="Star-model_type"><strong>model_type</strong></a>()</dt><dd><tt>Returns&nbsp;the&nbsp;type&nbsp;of&nbsp;this&nbsp;model.<br>
+The&nbsp;type&nbsp;is&nbsp;defined&nbsp;as&nbsp;the&nbsp;plural&nbsp;form&nbsp;of&nbsp;the&nbsp;class&nbsp;name.</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
 <dl><dt><strong>dec</strong></dt>
 </dl>
+<dl><dt><strong>dec_str</strong></dt>
+</dl>
 <dl><dt><strong>diameter</strong></dt>
+</dl>
+<dl><dt><strong>diameter_str</strong></dt>
 </dl>
 <dl><dt><strong>galaxy</strong></dt>
 </dl>
 <dl><dt><strong>galaxy_pid</strong></dt>
 </dl>
-<dl><dt><strong>img_url</strong></dt>
+<dl><dt><strong>image</strong></dt>
+</dl>
+<dl><dt><strong>image_pid</strong></dt>
 </dl>
 <dl><dt><strong>mass</strong></dt>
+</dl>
+<dl><dt><strong>mass_str</strong></dt>
 </dl>
 <dl><dt><strong>name</strong></dt>
 </dl>
@@ -321,15 +576,21 @@ Data descriptors defined here:<br>
 </dl>
 <dl><dt><strong>ra</strong></dt>
 </dl>
+<dl><dt><strong>ra_str</strong></dt>
+</dl>
 <dl><dt><strong>satellites</strong></dt>
 </dl>
 <dl><dt><strong>temperature</strong></dt>
 </dl>
+<dl><dt><strong>temperature_str</strong></dt>
+</dl>
 <hr>
 Data and other attributes defined here:<br>
-<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f0ebbaf0d30; Star&gt;</dl>
+<dl><dt><strong>__mapper__</strong> = &lt;Mapper at 0x7f8b5337a940; Star&gt;</dl>
 
-<dl><dt><strong>__table__</strong> = Table('star', MetaData(bind=None), Column('pid',...ignKey('galaxy.pid'), table=&lt;star&gt;), schema=None)</dl>
+<dl><dt><strong>__table__</strong> = Table('star', MetaData(bind=None), Column('pid',...eignKey('image.pid'), table=&lt;star&gt;), schema=None)</dl>
+
+<dl><dt><strong>query_class</strong> = &lt;class 'flask_whooshee.WhoosheeQuery'&gt;<dd><tt>An&nbsp;override&nbsp;for&nbsp;SQLAlchemy&nbsp;query&nbsp;used&nbsp;to&nbsp;do&nbsp;fulltext&nbsp;search.</tt></dl>
 
 <hr>
 Methods inherited from flask_sqlalchemy.Model:<br>
@@ -339,11 +600,6 @@ Methods inherited from flask_sqlalchemy.Model:<br>
 <hr>
 Data and other attributes inherited from flask_sqlalchemy.Model:<br>
 <dl><dt><strong>metadata</strong> = MetaData(bind=None)</dl>
-
-<dl><dt><strong>query_class</strong> = &lt;class 'flask_sqlalchemy.BaseQuery'&gt;<dd><tt>SQLAlchemy&nbsp;:class:`~sqlalchemy.orm.query.Query`&nbsp;subclass&nbsp;with&nbsp;convenience&nbsp;methods&nbsp;for&nbsp;querying&nbsp;in&nbsp;a&nbsp;web&nbsp;application.<br>
-&nbsp;<br>
-This&nbsp;is&nbsp;the&nbsp;default&nbsp;:attr:`~Model.query`&nbsp;object&nbsp;used&nbsp;for&nbsp;models,&nbsp;and&nbsp;exposed&nbsp;as&nbsp;:attr:`~SQLAlchemy.Query`.<br>
-Override&nbsp;the&nbsp;query&nbsp;class&nbsp;for&nbsp;an&nbsp;individual&nbsp;model&nbsp;by&nbsp;subclassing&nbsp;this&nbsp;and&nbsp;setting&nbsp;:attr:`~Model.query_class`.</tt></dl>
 
 <hr>
 Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqlalchemy.Model</a>:<br>
@@ -362,5 +618,6 @@ Data descriptors inherited from <a href="flask_sqlalchemy.html#Model">flask_sqla
 <font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
     
 <tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
-<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine=None&gt;</td></tr></table>
+<td width="100%"><strong>db</strong> = &lt;SQLAlchemy engine=None&gt;<br>
+<strong>whooshee</strong> = &lt;flask_whooshee.Whooshee object&gt;</td></tr></table>
 </body></html>
