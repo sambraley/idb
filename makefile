@@ -1,9 +1,9 @@
 .DEFAULT_GOAL := RunIDB
 
 FILES :=                              \
-    IDB1.html                         \
-    IDB1.log                          \
-    IDB1.pdf                          \
+    IDB3.html                         \
+    IDB3.log                          \
+    IDB3.pdf                          \
     app/idb.py                        \
     app/test.py                       \
     .travis.yml                       \
