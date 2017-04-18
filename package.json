@@ -23,6 +23,7 @@
     "browserify": "^10.2.6"
   },
   "dependencies": {
+    "d3": "^4.8.0",
     "es6-promise": "^4.1.0",
     "isomorphic-fetch": "^2.2.1",
     "react": "^15.5.4",

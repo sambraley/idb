@@ -4411,13 +4411,13 @@ var Carousel = function (_React$Component) {
 		value: function url_push(data, cur_date) {
 			var _this2 = this;
 
+			cur_date = cur_date.subtract(1, 'days');
 			var url = nasa_url + cur_date.format("YYYY-MM-DD");
 			if (data.hdurl !== undefined) {
 				this.state.urls.push(data.hdurl);
 				this.forceUpdate();
 			}
 			if (this.state.urls.length < 5) {
-				cur_date = cur_date.subtract(1, 'days');
 				fetch(url).then(function (r) {
 					return r.json();
 				}).then(function (data) {

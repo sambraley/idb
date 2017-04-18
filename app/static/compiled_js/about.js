@@ -418,7 +418,7 @@ var React_Tests = function (_React$Component) {
         null,
         React.createElement(
           "div",
-          { className: "col-md-3 text-center" },
+          { className: "col-md-4 text-center" },
           React.createElement(
             "a",
             { href: "https://github.com/samuelbraley/idb" },
@@ -427,7 +427,7 @@ var React_Tests = function (_React$Component) {
         ),
         React.createElement(
           "div",
-          { className: "col-md-3 text-center" },
+          { className: "col-md-4 text-center" },
           React.createElement(
             "a",
             { href: "https://github.com/samuelbraley/idb/issues" },
@@ -436,7 +436,7 @@ var React_Tests = function (_React$Component) {
         ),
         React.createElement(
           "div",
-          { className: "col-md-3 text-center" },
+          { className: "col-md-4 text-center" },
           React.createElement(
             "a",
             { href: "http://docs.spacecowboys.apiary.io" },
@@ -445,11 +445,20 @@ var React_Tests = function (_React$Component) {
         ),
         React.createElement(
           "div",
-          { className: "col-md-3 text-center" },
+          { className: "col-md-4 text-center" },
           React.createElement(
             "a",
             { id: "test-link", "data-toggle": "modal", "data-target": "#myModal", onClick: this.run_tests },
             "Run Unit Tests"
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "col-md-4 text-center" },
+          React.createElement(
+            "a",
+            { href: "/visualization" },
+            "Visualizations of BoswemianRhapsody.me"
           )
         ),
         React.createElement(

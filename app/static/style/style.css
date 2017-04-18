@@ -73,9 +73,6 @@ body {
 #test-link {
 	cursor: pointer;
 }
-.highlight {
-  background-color: yellow;
-}
 @media (max-width: 970px) {
   .navbar-header {
       float: none;

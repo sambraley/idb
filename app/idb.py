@@ -120,6 +120,10 @@ def run_tests():
 def search():
     return render_template('search.html', title='search')
 
+@app.route('/visualization')
+def visualize():
+    return render_template('visualization.html', title='visualization')
+
 @app.route('/api/v1/search')
 def search_api():
     q = request.args.get('q')
