@@ -36,44 +36,86 @@ for i in images:
 print("Patching data together with pids.")
 
 # hardcode elements
-earth_image = {"pid":images[len(images)-1]["pid"] + 1,
-               "img_url":"https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"}
-sun_image = {"pid":images[len(images)-1]["pid"] + 2,
-               "img_url":"http://nineplanets.org/images/thesun.jpg"}
-mw_image = {"pid":images[len(images)-1]["pid"] + 3,
-            "img_url":"https://apod.nasa.gov/apod/image/0801/16500feetmilkywaykc2_brunier.jpg"}
-               
-earth = {"pid":planets[len(planets)-1]["pid"] + 1,
-         "name":"Earth",
-         "diameter":float(0.091130),
-         "ra":0.0,
-         "dec":0.0,
-         "gravity":.0031464 / ((0.091130 / 2) ** 2),
-         "orbital_period":float(365),
-         "mass":float(.0031464),
-         "temperature":287,
-         "star_pid":stars[len(stars)-1]["pid"] + 1,
-         "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1,
-         "image_pid":earth_image["pid"]}
+jupiter_image = {
+        "pid":images[len(images)-1]["pid"] + 1,
+        "img_url":"https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg"
+        }
 
-sun = {"pid":stars[len(stars)-1]["pid"] + 1,
-       "name":"Sun",
-       "diameter":1.0,
-       "ra":23.1458,
-       "dec":9.6697,
-       "temperature":5778,
-       "mass":1.0,
-       "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1,
-       "image_pid":sun_image["pid"]}
+earth_image = {
+        "pid":images[len(images)-1]["pid"] + 2,
+        "img_url":"https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
+        }
 
-milky_way = {"pid":galaxies[len(galaxies)-1]["pid"] + 1,
-             "name": "Milky Way",
-             "ra":17.7533,
-             "dec":-47.2833,
-             "morph_type":"Spiral",
-             "redshift":0.0,
-             "size":360.0,
-             "image_pid":mw_image["pid"]}
+sun_image = {
+        "pid":images[len(images)-1]["pid"] + 3,
+        "img_url":"http://nineplanets.org/images/thesun.jpg"
+        }
+
+mw_image = {
+        "pid":images[len(images)-1]["pid"] + 4,
+        "img_url":"https://apod.nasa.gov/apod/image/0801/16500feetmilkywaykc2_brunier.jpg"
+        }
+
+milky_way = {
+        "pid":galaxies[len(galaxies)-1]["pid"] + 1,
+        "name": "Milky Way",
+        "ra":17.7533,
+        "dec":-47.2833,
+        "morph_type":"Spiral",
+        "redshift":0.0,
+        "size":360.0,
+        "image_pid":mw_image["pid"]
+        }
+            
+            
+sun =   {
+        "pid":stars[len(stars)-1]["pid"] + 1,
+        "name":"Sun",
+        "diameter":1.0,
+        "ra":23.1458,
+        "dec":9.6697,
+        "temperature":5778,
+        "mass":1.0,
+        "galaxy_pid":galaxies[len(galaxies)-1]["pid"] + 1,
+        "image_pid":sun_image["pid"]
+        }
+
+jupiter_mass_kg = 1.898 * (10 ** 27)
+jupiter_radius_km = 69911
+jupiter = {
+        "pid":planets[len(planets)-1]["pid"] + 1,
+        "name":"Jupiter",
+        "diameter":float(1),
+        "ra":196.0167,
+        "dec":-5.1181,
+        "gravity":float(1),
+        "orbital_period":float(4380),
+        "mass":float(1),
+        "temperature":128,
+        "star_pid":sun["pid"],
+        "galaxy_pid":milky_way["pid"],
+        "image_pid":jupiter_image["pid"]
+        }
+
+earth_mass_kg = 5.972 * (10 ** 24)
+earth_radius_km = 6371
+earth = {
+        "pid":planets[len(planets)-1]["pid"] + 2,
+        "name":"Earth",
+        "diameter":float((earth_radius_km * 2)) / (jupiter_radius_km * 2),
+        "ra":0.0,
+        "dec":0.0,
+        "gravity":float((earth_mass_kg / jupiter_mass_kg)) / ((earth_radius_km / jupiter_radius_km) ** 2),
+        "orbital_period":float(365),
+        "mass":float(earth_mass_kg) / jupiter_mass_kg,
+        "temperature":287,
+        "star_pid":sun["pid"],
+        "galaxy_pid":milky_way["pid"],
+        "image_pid":earth_image["pid"]
+        }
+
+
+
 
 for p in planets :
     p["galaxy_pid"] = milky_way["pid"]
@@ -154,9 +196,11 @@ for i in images:
     
 print("Adding hardcoded elements.")
 
+planets.append(jupiter)
 planets.append(earth)
 stars.append(sun)
 galaxies.append(milky_way)
+images.append(jupiter_image)
 images.append(earth_image)
 images.append(sun_image)
 images.append(mw_image)

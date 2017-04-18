@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
 <div class="container content-container">
   <div class="row">
     <div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
@@ -8,8 +7,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" style="width:400px;height:400px;margin: 0 auto;"/>
+    <div id="react-satellite" class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
+        <img class="img-thumbnail" style="width:400px;height:400px;" src="{{planet.img_url}}"> 
     </div>
     <div class="col-sm-12 col-md-5 text-center">
       <div class="col-md-12">
@@ -34,5 +33,6 @@
       </div> 
   </div>
 </div>
+<script src="{{ url_for('static', filename='compiled_js/satellite.js') }}"></script>
 <script src="{{ url_for('static', filename='compiled_js/model-highlight.js') }}"></script>
 {% endblock %}
