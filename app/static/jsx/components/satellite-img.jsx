@@ -16,7 +16,7 @@ class Satellite_Img extends React.Component {
 	}
     render() {
         return (
-					<img className="img-thumbnail" style={{width: '400px', height: '400px'}} src={this.state.image_url}/> 
+					<img className="img-thumbnail" style={{width: '400px', height: '400px'}} src={this.state.image_url} onerror="if (this.src != '/static/images/satellite_default.jpg') this.src='/static/images/satellite_default.jpg';"/> 
 				);
     }
 }
