@@ -70,7 +70,7 @@ milky_way = {
     "redshift":0.0,
     "size":360.0,
     "image_pid":mw_image["pid"]
-        }
+    }
             
             
 sun =   {
@@ -135,7 +135,6 @@ mercury = {
     "galaxy_pid":milky_way["pid"],
     "image_pid":mercury_image["pid"]
     }
-
 
 
 
