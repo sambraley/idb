@@ -75,6 +75,16 @@ saturn_image = {
     "pid":images[len(images)-1]["pid"] + 8,
     "img_url": "http://spaceaim.com/wp-content/uploads/2015/07/Saturn.png"
     }
+    
+uranus_image = {
+    "pid":images[len(images)-1]["pid"] + 9,
+    "img_url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg"
+    }
+    
+neptune_image = {
+    "pid":images[len(images)-1]["pid"] + 10,
+    "img_url":"https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg"
+    }
 
 milky_way = {
     "pid":galaxies[len(galaxies)-1]["pid"] + 1,
@@ -201,6 +211,40 @@ saturn = {
     "galaxy_pid":milky_way["pid"],
     "image_pid":saturn_image["pid"]
     }
+    
+uranus_mass_kg = 8.681 * (10 ** 25)
+uranus_radius_km = 25362
+uranus = {
+    "pid":planets[len(planets)-1]["pid"] + 7,
+    "name":"Uranus",
+    "diameter":float((uranus_radius_km * 2)) / (jupiter_radius_km * 2),
+    "ra":22.8417,
+    "dec":8.9517,
+    "gravity":float((uranus_mass_kg / jupiter_mass_kg)) / ((uranus_radius_km / jupiter_radius_km) ** 2),
+    "orbital_period":float(30660),
+    "mass":float(uranus_mass_kg) / jupiter_mass_kg,
+    "temperature":75.95,
+    "star_pid":sun["pid"],
+    "galaxy_pid":milky_way["pid"],
+    "image_pid":uranus_image["pid"]
+    }
+    
+neptune_mass_kg = 1.024 * (10 ** 26)
+neptune_radius_km = 24622
+neptune = {
+    "pid":planets[len(planets)-1]["pid"] + 8,
+    "name":"Neptune",
+    "diameter":float((neptune_radius_km * 2)) / (jupiter_radius_km * 2),
+    "ra":344.7625,
+    "dec":-7.4342,
+    "gravity":float((neptune_mass_kg / jupiter_mass_kg)) / ((neptune_radius_km / jupiter_radius_km) ** 2),
+    "orbital_period":float(60225),
+    "mass":float(saturn_mass_kg) / jupiter_mass_kg,
+    "temperature":59.15,
+    "star_pid":sun["pid"],
+    "galaxy_pid":milky_way["pid"],
+    "image_pid":neptune_image["pid"]
+    }
 
 
 
@@ -289,6 +333,7 @@ planets.append(mercury)
 planets.append(venus)
 planets.append(mars)
 planets.append(saturn)
+planets.append(uranus)
 
 stars.append(sun)
 
@@ -302,6 +347,7 @@ images.append(mercury_image)
 images.append(venus_image)
 images.append(mars_image)
 images.append(saturn_image)
+images.append(uranus_image)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
