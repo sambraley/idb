@@ -5,14 +5,12 @@
 # pylint: disable = missing-docstring
 # pylint: disable = line-too-long
 import io
-from math import ceil
 import unittest
 import test
-from lib.helper import roundrobin
+from lib.search_db import search
 from flask import Flask, render_template, request, jsonify
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
-from flask_whooshee import whoosh
 
 app = Flask(__name__)
 db = connect_db(app)
@@ -117,45 +115,12 @@ def run_tests():
     return output
 
 @app.route('/search')
-def search():
+def search_page():
     return render_template('search.html', title='search')
 
 @app.route('/api/v1/search')
 def search_api():
-    q = request.args.get('q')
-
-    results_per_page = request.args.get('results_per_page', default=10)
-    results_per_page = int(results_per_page)
-    if results_per_page <= 0:
-        results_per_page = 10
-
-    page = request.args.get('page', default=1)
-    page = int(page)
-    if page <= 0:
-        page = 1
-
-    qparser = whoosh.qparser.OrGroup
-    if request.args.get('junction') == 'AND':
-        qparser = whoosh.qparser.AndGroup
-
-    output = {}
-    results = []
-    if q:
-        satellites = Satellite.query.whooshee_search(q, group=qparser)
-        planets = Planet.query.whooshee_search(q, group=qparser)
-        stars = Star.query.whooshee_search(q, group=qparser)
-        galaxies = Galaxy.query.whooshee_search(q, group=qparser)
-        results = [x for x in roundrobin(satellites.all(), planets.all(), stars.all(), galaxies.all())]
-
-
-    num_results = len(results)
-    total_pages = ceil(len(results) / results_per_page)
-    results = results[(page - 1) * results_per_page:page * results_per_page]
-    results = [x.to_dict() for x in results]
-    output["num_results"] = num_results
-    output["page"] = page
-    output["total_pages"] = total_pages
-    output["objects"] = results
+    output = search(request.args)
     return jsonify(output)
 
 if __name__ == "__main__": # pragma: no cover
