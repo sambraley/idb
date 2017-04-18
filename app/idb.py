@@ -104,7 +104,7 @@ def star_instance(star_id):
     star = Star.query.get(star_id)
     star_name = star.to_dict()["name"]
     if in_solar_system(star_name):
-        return render_template('sol.html', star=star)
+        return render_template('sol_star.html', star=star)
     return render_template('star.html', star=star)
 
 
