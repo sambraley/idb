@@ -70,6 +70,11 @@ mars_image = {
     "pid":images[len(images)-1]["pid"] + 7,
     "img_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg"
     }
+    
+saturn_image = {
+    "pid":images[len(images)-1]["pid"] + 8,
+    "img_url": "http://spaceaim.com/wp-content/uploads/2015/07/Saturn.png"
+    }
 
 milky_way = {
     "pid":galaxies[len(galaxies)-1]["pid"] + 1,
@@ -138,7 +143,7 @@ mercury = {
     "ra":28.6958,
     "dec":14.0792,
     "gravity":float((mercury_mass_kg / jupiter_mass_kg)) / ((mercury_radius_km / jupiter_radius_km) ** 2),
-    "orbital_period":float(365),
+    "orbital_period":float(88),
     "mass":float(mercury_mass_kg) / jupiter_mass_kg,
     "temperature":440.15,
     "star_pid":sun["pid"],
@@ -155,7 +160,7 @@ venus = {
     "ra":355.5375,
     "dec":2.2594,
     "gravity":float((venus_mass_kg / jupiter_mass_kg)) / ((venus_radius_km / jupiter_radius_km) ** 2),
-    "orbital_period":float(365),
+    "orbital_period":float(225),
     "mass":float(venus_mass_kg) / jupiter_mass_kg,
     "temperature":735,
     "star_pid":sun["pid"],
@@ -167,17 +172,34 @@ mars_mass_kg = 6.39 * (10 ** 23)
 mars_radius_km = 3390
 mars = {
     "pid":planets[len(planets)-1]["pid"] + 5,
-    "name":"Venus",
+    "name":"Mars",
     "diameter":float((mars_radius_km * 2)) / (jupiter_radius_km * 2),
     "ra":50.9625,
     "dec":20.1067,
     "gravity":float((mars_mass_kg / jupiter_mass_kg)) / ((mars_radius_km / jupiter_radius_km) ** 2),
-    "orbital_period":float(365),
+    "orbital_period":float(687),
     "mass":float(mars_mass_kg) / jupiter_mass_kg,
     "temperature":213.15,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":mars_image["pid"]
+    }
+    
+saturn_mass_kg = 5.683 * (10 ** 26)
+saturn_radius_km = 58232
+saturn = {
+    "pid":planets[len(planets)-1]["pid"] + 6,
+    "name":"Saturn",
+    "diameter":float((saturn_radius_km * 2)) / (jupiter_radius_km * 2),
+    "ra":267.2333,
+    "dec":-22.0558,
+    "gravity":float((saturn_mass_kg / jupiter_mass_kg)) / ((saturn_radius_km / jupiter_radius_km) ** 2),
+    "orbital_period":float(10585),
+    "mass":float(saturn_mass_kg) / jupiter_mass_kg,
+    "temperature":95.15,
+    "star_pid":sun["pid"],
+    "galaxy_pid":milky_way["pid"],
+    "image_pid":saturn_image["pid"]
     }
 
 
@@ -265,6 +287,8 @@ planets.append(jupiter)
 planets.append(earth)
 planets.append(mercury)
 planets.append(venus)
+planets.append(mars)
+planets.append(saturn)
 
 stars.append(sun)
 
@@ -276,6 +300,8 @@ images.append(sun_image)
 images.append(mw_image)
 images.append(mercury_image)
 images.append(venus_image)
+images.append(mars_image)
+images.append(saturn_image)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
