@@ -61,6 +61,11 @@ mercury_image = {
     "img_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Mercury_in_color_-_Prockter07-edit1.jpg"
     }
 
+venus_image = {
+    "pid": images[len(images)-1]["pid"] + 6,
+    "img_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg"
+    }
+
 milky_way = {
     "pid":galaxies[len(galaxies)-1]["pid"] + 1,
     "name": "Milky Way",
@@ -127,7 +132,7 @@ mercury = {
     "diameter":float((mercury_radius_km * 2)) / (jupiter_radius_km * 2),
     "ra":28.6958,
     "dec":14.0792,
-    "gravity":float((mercury_mass_kg / jupiter_mass_kg)) / ((mercury_radius_km / mercury_radius_km) ** 2),
+    "gravity":float((mercury_mass_kg / jupiter_mass_kg)) / ((mercury_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(365),
     "mass":float(mercury_mass_kg) / jupiter_mass_kg,
     "temperature":440.15,
@@ -135,7 +140,23 @@ mercury = {
     "galaxy_pid":milky_way["pid"],
     "image_pid":mercury_image["pid"]
     }
-
+    
+venus_mass_kg = 4.867 * (10 ** 24)
+venus_radius_km = 6052
+venus = {
+    "pid":planets[len(planets)-1]["pid"] + 4,
+    "name":"Venus",
+    "diameter":float((venus_radius_km * 2)) / (jupiter_radius_km * 2),
+    "ra":28.6958,
+    "dec":14.0792,
+    "gravity":float((venus_mass_kg / jupiter_mass_kg)) / ((venus_radius_km / jupiter_radius_km) ** 2),
+    "orbital_period":float(365),
+    "mass":float(venus_mass_kg) / jupiter_mass_kg,
+    "temperature":440.15,
+    "star_pid":sun["pid"],
+    "galaxy_pid":milky_way["pid"],
+    "image_pid":venus_image["pid"]
+    }
 
 
 
@@ -221,6 +242,7 @@ print("Adding hardcoded elements.")
 planets.append(jupiter)
 planets.append(earth)
 planets.append(mercury)
+planets.append(venus)
 
 stars.append(sun)
 
@@ -231,6 +253,7 @@ images.append(earth_image)
 images.append(sun_image)
 images.append(mw_image)
 images.append(mercury_image)
+images.append(venus_image)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
