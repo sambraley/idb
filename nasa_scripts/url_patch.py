@@ -65,6 +65,11 @@ venus_image = {
     "pid": images[len(images)-1]["pid"] + 6,
     "img_url": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg"
     }
+    
+mars_image = {
+    "pid":images[len(images)-1]["pid"] + 7,
+    "img_url": "https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg"
+    }
 
 milky_way = {
     "pid":galaxies[len(galaxies)-1]["pid"] + 1,
@@ -147,15 +152,32 @@ venus = {
     "pid":planets[len(planets)-1]["pid"] + 4,
     "name":"Venus",
     "diameter":float((venus_radius_km * 2)) / (jupiter_radius_km * 2),
-    "ra":28.6958,
-    "dec":14.0792,
+    "ra":355.5375,
+    "dec":2.2594,
     "gravity":float((venus_mass_kg / jupiter_mass_kg)) / ((venus_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(365),
     "mass":float(venus_mass_kg) / jupiter_mass_kg,
-    "temperature":440.15,
+    "temperature":735,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":venus_image["pid"]
+    }
+    
+mars_mass_kg = 6.39 * (10 ** 23)
+mars_radius_km = 3390
+mars = {
+    "pid":planets[len(planets)-1]["pid"] + 5,
+    "name":"Venus",
+    "diameter":float((mars_radius_km * 2)) / (jupiter_radius_km * 2),
+    "ra":50.9625,
+    "dec":20.1067,
+    "gravity":float((mars_mass_kg / jupiter_mass_kg)) / ((mars_radius_km / jupiter_radius_km) ** 2),
+    "orbital_period":float(365),
+    "mass":float(mars_mass_kg) / jupiter_mass_kg,
+    "temperature":213.15,
+    "star_pid":sun["pid"],
+    "galaxy_pid":milky_way["pid"],
+    "image_pid":mars_image["pid"]
     }
 
 
