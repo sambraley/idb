@@ -4,7 +4,6 @@
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
 # pylint: disable = line-too-long
-# pylint: disable = too-many-boolean-expressions
 
 import io
 import unittest
@@ -19,7 +18,7 @@ db = connect_db(app)
 api_setup(app, db)
 
 def in_solar_system(name):
-    if (name == "Mercury" or
+    return (name == "Mercury" or
             name == "Venus" or
             name == "Earth" or
             name == "Mars" or
@@ -28,10 +27,7 @@ def in_solar_system(name):
             name == "Uranus" or
             name == "Neptune" or
             name == "Pluto" or
-            name == "Sun"):
-        return True
-
-    return False
+            name == "Sun")
 
 ####################
 # Misc. Page Routing
