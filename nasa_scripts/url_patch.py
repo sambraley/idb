@@ -91,6 +91,16 @@ pluto_image = {
     "img_url":"https://upload.wikimedia.org/wikipedia/commons/2/2a/Nh-pluto-in-true-color_2x_JPEG-edit-frame.jpg"
     }
 
+maven_image = {
+    "pid":images[len(images)-1]["pid"] + 12,
+    "img_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/MAVEN_Transparent.png"
+    }
+    
+juno_image = {
+    "pid":images[len(images)-1]["pid"] + 13,
+    "img_url":"https://upload.wikimedia.org/wikipedia/commons/5/51/Juno_Transparent.png"
+    }
+
 milky_way = {
     "pid":galaxies[len(galaxies)-1]["pid"] + 1,
     "name": "Milky Way",
@@ -267,7 +277,32 @@ pluto = {
     "galaxy_pid":milky_way["pid"],
     "image_pid":pluto_image["pid"]
     }
+    
+maven = {
+    "planet_pid": mars["pid"],
+    "pid": satellites[len(satellites)-1]["pid"] + 1,
+    "galaxy_pid": milky_way["pid"],
+    "agency": "National Aeronautics and Space Administration",
+    "name": "MAVEN",
+    "year_launched": 2013,
+    "info_url": "https://en.wikipedia.org/wiki/MAVEN",
+    "mission_type": "Planetary Science",
+    "image_pid":maven_image["pid"],
+    "star_pid": sun["pid"]
+	}
 
+juno = {
+    "planet_pid": jupiter["pid"],
+    "pid": satellites[len(satellites)-1]["pid"] + 2,
+    "galaxy_pid": milky_way["pid"],
+    "agency": "National Aeronautics and Space Administration",
+    "name": "Juno",
+    "year_launched": 2011,
+    "info_url": "https://en.wikipedia.org/wiki/Juno_(spacecraft)",
+    "mission_type": "Planetary Science",
+    "image_pid":juno_image["pid"],
+    "star_pid": sun["pid"]
+	}
 
 for p in planets :
     p["galaxy_pid"] = milky_way["pid"]
@@ -348,6 +383,9 @@ for i in images:
     
 print("Adding hardcoded elements.")
 
+satellites.append(maven)
+satellites.append(juno)
+
 planets.append(jupiter)
 planets.append(earth)
 planets.append(mercury)
@@ -373,6 +411,8 @@ images.append(saturn_image)
 images.append(uranus_image)
 images.append(neptune_image)
 images.append(pluto_image)
+images.append(maven_image)
+images.append(juno_image)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
