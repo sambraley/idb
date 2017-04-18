@@ -85,6 +85,11 @@ neptune_image = {
     "pid":images[len(images)-1]["pid"] + 10,
     "img_url":"https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg"
     }
+    
+pluto_image = {
+    "pid":images[len(images)-1]["pid"] + 11,
+    "img_url":"https://upload.wikimedia.org/wikipedia/commons/2/2a/Nh-pluto-in-true-color_2x_JPEG-edit-frame.jpg"
+    }
 
 milky_way = {
     "pid":galaxies[len(galaxies)-1]["pid"] + 1,
@@ -239,13 +244,29 @@ neptune = {
     "dec":-7.4342,
     "gravity":float((neptune_mass_kg / jupiter_mass_kg)) / ((neptune_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(60225),
-    "mass":float(saturn_mass_kg) / jupiter_mass_kg,
+    "mass":float(neptune_mass_kg) / jupiter_mass_kg,
     "temperature":59.15,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":neptune_image["pid"]
     }
-
+    
+pluto_mass_kg = 1.309 * (10 ** 22)
+pluto_radius_km = 1187
+pluto = {
+    "pid":planets[len(planets)-1]["pid"] + 9,
+    "name":"Pluto",
+    "diameter":float((pluto_radius_km * 2)) / (jupiter_radius_km * 2),
+    "ra":290.600,
+    "dec":-21.1981,
+    "gravity":float((pluto_mass_kg / jupiter_mass_kg)) / ((pluto_radius_km / jupiter_radius_km) ** 2),
+    "orbital_period":float(90520),
+    "mass":float(pluto_mass_kg) / jupiter_mass_kg,
+    "temperature":44.15,
+    "star_pid":sun["pid"],
+    "galaxy_pid":milky_way["pid"],
+    "image_pid":pluto_image["pid"]
+    }
 
 
 for p in planets :
@@ -334,6 +355,8 @@ planets.append(venus)
 planets.append(mars)
 planets.append(saturn)
 planets.append(uranus)
+planets.append(neptune)
+planets.append(pluto)
 
 stars.append(sun)
 
@@ -348,6 +371,8 @@ images.append(venus_image)
 images.append(mars_image)
 images.append(saturn_image)
 images.append(uranus_image)
+images.append(neptune_image)
+images.append(pluto_image)
 
 planet_file = open("data/planets.json", "w")
 star_file = open("data/stars.json", "w")
