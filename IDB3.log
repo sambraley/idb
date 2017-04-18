@@ -1,3 +1,653 @@
+commit 1fff927320ed349cadd962337a24348ddb154410
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Mon Apr 17 18:02:18 2017 -0500
+
+    Fixing Travis!
+
+commit 9650e05eb186775ed1112a829afc019ebfab341f
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Mon Apr 17 17:58:52 2017 -0500
+
+    Changed filenames from IDB1 to IDB3
+
+commit 8bae1a6afdd61ac2aa566b882d2901ddfa44e492
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Mon Apr 17 17:51:14 2017 -0500
+
+    Update pydoc for models.py
+
+commit 0e98a8977815d38f82b4b5f46f98b69e59661e19
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Mon Apr 17 17:37:50 2017 -0500
+
+    Update doc strings in models.py
+
+commit 433faf2c867b3b6513c7180f9a8d8a8d724cd7d4
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Mon Apr 17 16:59:45 2017 -0500
+
+    Added units.
+
+commit 5ca2fddd762f35e3804f20e92764e04a072ef34f
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Mon Apr 17 16:29:27 2017 -0500
+
+    Fixes #80
+
+commit c63cc49a6c2e1136af1fe33d58040efad0cca4f6
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Mon Apr 17 16:25:36 2017 -0500
+
+    Added links to models within models.
+
+commit 60b23549d07329c64eb5fe30a2472d05ed0d0200
+Merge: 2bf3984 f9d34f4
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Mon Apr 17 14:18:15 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 2bf398495bc761f95fba4249be901688be6c9b51
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Mon Apr 17 14:16:38 2017 -0500
+
+    Fixes some apiary bugs/Updates the models
+
+commit f9d34f44887e8306f28a71cbcf02698f06431ed6
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Mon Apr 17 13:50:25 2017 -0500
+
+    Fixed carousel problem with youtube links.
+
+commit 6f410c18690f471087a183892d2cf28533ea18ff
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Mon Apr 17 13:36:47 2017 -0500
+
+    Highlighting now works!
+
+commit 1cb4e35ee332da31c26698e95d2069f2a471146f
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sun Apr 16 23:24:58 2017 -0500
+
+    fixed bottom page buttons.
+
+commit 8acb9f81e473b64264abdfe8b6bc6bb200a1bae0
+Merge: c4ebb47 7430dd1
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sun Apr 16 22:03:36 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 7430dd128d52ab8258e7fbf6491cb60101b44ea7
+Merge: d56986f 89274a2
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Sun Apr 16 22:03:23 2017 -0500
+
+    Merge pull request #76 from samuelbraley/dev-persist-sort
+    
+    All sorting and filtering now persists.
+
+commit c4ebb47dd0f520777c94fe8681930bed25076da6
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sun Apr 16 21:59:22 2017 -0500
+
+    Adds pid to galaxy's to_dict method
+
+commit 89274a2d742e5d03cf68d884cedfade6358af16f
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sun Apr 16 21:40:23 2017 -0500
+
+    All sorting and filtering now persists.
+
+commit d56986f5c5d545a693944cc74a9a2bbb0fd7d5fb
+Merge: f55a36d 2ad674e
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Sun Apr 16 00:33:52 2017 -0500
+
+    Merge pull request #74 from samuelbraley/dev-persist-sort
+    
+    paging now persists.
+
+commit 2ad674e3308751278dd1baf9db779c3b0f6501b4
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sun Apr 16 00:29:34 2017 -0500
+
+    paging now persists.
+
+commit f55a36db001f92c4217d5a603427b54c258e97d3
+Merge: cbac25d d54438a
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 23:25:52 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit cbac25df9ffeeb5096271d60a7d73975f5f8663a
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 23:25:38 2017 -0500
+
+    Changes model_type to reflect the api endpoint
+
+commit d54438a797c2e691ca4815908334f28ca4a0a09e
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sat Apr 15 23:01:35 2017 -0500
+
+    Fixed https problem.
+
+commit 4e2ab96e9fe18a0fb7fee8144365ba269e86cf13
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sat Apr 15 22:49:57 2017 -0500
+
+    Images are now showing up.
+
+commit 4ce29bb788f64689cc84e90921a3ac8beb67846b
+Merge: 2ae6e69 875ffa2
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sat Apr 15 22:43:41 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 2ae6e69ef8e23a745c49c0d3d5515507a99b96bb
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sat Apr 15 22:39:23 2017 -0500
+
+    Fixes #68
+
+commit 875ffa2bfb30ab88f570badf5e03bd8af9c5e596
+Merge: 0499edf 582f94d
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 22:38:46 2017 -0500
+
+    Merge pull request #72 from samuelbraley/dev-database
+    
+    Merging in dev-database
+
+commit 582f94d9abba3372d98fc2735b952cc11d28bda5
+Merge: d461903 0499edf
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 22:38:13 2017 -0500
+
+    Merge branch 'develop' into dev-database
+
+commit 0499edfa036de5df19c398e643ab4377ac90a505
+Merge: c39878b 656667b
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Sat Apr 15 22:23:57 2017 -0500
+
+    Merge pull request #71 from samuelbraley/dev-frontend-search
+    
+    Dev frontend search
+
+commit 656667b82e0c538a7a89348c3d5160cf39273f43
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sat Apr 15 22:10:45 2017 -0500
+
+    Fixed a lot of styling issues.
+
+commit d4619030f640488bc2bce867c8d7ebc11f818a19
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 18:30:39 2017 -0500
+
+    Hides img_pid from all results
+
+commit 15e844911d1b34d86d4c25efb9332a1afde5159e
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sat Apr 15 18:29:52 2017 -0500
+
+    Finished frontend search features.
+
+commit 21f93416d3710a5008641225470c366f1740d015
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 18:28:11 2017 -0500
+
+    Makes search output much more like other api pages
+
+commit 419a775414b6ebf7c673c5c9605096766ab86541
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 18:09:41 2017 -0500
+
+    Adds pseudo column model_type to API
+
+commit a628876dce32ede5933173b9dffa1eace93684df
+Merge: 1281337 79b68ba
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 17:38:24 2017 -0500
+
+    Merge pull request #69 from samuelbraley/scott-database
+    
+    Merging database changes to database development branch
+
+commit 79b68baddfad21ef88d1e1fd32e4e1edee8fde33
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 17:15:52 2017 -0500
+
+    Fixes a few null field bugs
+
+commit 7a94c6951678af26b0717fdd0fe7dbe1f356ec3b
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 17:07:14 2017 -0500
+
+    Set the rest API to not display new string columns
+
+commit 0cb8fd0b373c5c9a329e0ff931975d878eded679
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 16:25:46 2017 -0500
+
+    Stars and Galaxies updated for fix
+
+commit b193326be368f8dc27daaf21bbd539dd46709a46
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 16:04:11 2017 -0500
+
+    Satellite and Planet models updated for filter fix
+
+commit 6b6c5bc0a8774ddf9cc694438a9d12e5607c2382
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 15:53:01 2017 -0500
+
+    Removes redundant whooshee setting
+
+commit b0dcfd2e476d74708fd7bf5b6b259c42c2d6203e
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Sat Apr 15 11:12:51 2017 -0500
+
+    Fixed issue with satellite images not showing up.
+
+commit 1281337cf35a934225d52e6caa2629247462a43b
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 10:13:56 2017 -0500
+
+    Removes a little debug code from patch_json and adds __init__.py to lib to fix import errors
+
+commit cc7963346886947bd1da78a935538bf115ac3c7d
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 10:05:25 2017 -0500
+
+    Fixes a bug in patch_json where pids would not be correct for satellites not in the patch file
+
+commit a21fbae14ffc36ed576ff60bf07c5485c010c02b
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Sat Apr 15 09:30:52 2017 -0500
+
+    Synchronizing data on dev-database
+
+commit 315ca065c3a25a41b285df99aa3bf2678ec01c65
+Merge: 4c1e339 c39878b
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Sat Apr 15 09:01:41 2017 -0500
+
+    Merged develop into dev-dtabase
+
+commit 4c1e339058e947a1f24e00337f05553632629434
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Sat Apr 15 08:48:12 2017 -0500
+
+    Added back lib folder
+
+commit c39878b10c2e24cbfaa721dac84713821e3ba16e
+Merge: fb00e9a dae9f9c
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 02:45:51 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+    
+    Conflicts:
+    	app/lib/__pycache__/helper.cpython-34.pyc
+
+commit fb00e9a0d24c6a132f896aa62e7ca4a2b466fcaf
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 02:43:47 2017 -0500
+
+    Updates requirements.txt to have a version number for Flask-
+    Whooshee
+
+commit fbafeca7a7b5ecdb0c2260862f7f74f21d6f7f11
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 02:43:05 2017 -0500
+
+    Updates database.py to use whooshee with a live database
+
+commit ce143ef2e63f128ea5c2d8cb5229ab5de0b51ee9
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 02:38:56 2017 -0500
+
+    Adds database connectivity stuff back to app.yaml
+
+commit f2d9530bb3bb095838a621ab02cbf3709911fd36
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 02:32:32 2017 -0500
+
+    This thing nick added changed, so I guess I'll commit it.
+
+commit c32f2f37bc12170271ecbcc20a3f2aa326c75d85
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Sat Apr 15 02:31:38 2017 -0500
+
+    Removes two empty log.py files
+
+commit c32143811ae5ff8537251235f3b9aa55cbdecb0a
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Fri Apr 14 23:45:04 2017 -0500
+
+    Added react code to handle new database model.
+
+commit dae9f9c766d161a8fab8be871c9b5e9d24c70266
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Fri Apr 14 22:12:27 2017 -0500
+
+    Updated the .gitignore to ignore python cache files.
+
+commit 216b0a1c792465c5fd4921fa90b060ab9f59f996
+Merge: 9ec4523 fa3021a
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Fri Apr 14 22:01:47 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 9ec45230c2cb7ff83b147f74e89f81303d34f16a
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Fri Apr 14 22:01:37 2017 -0500
+
+    Fixed the commit count issue and made the test results look nicer.
+
+commit fa3021a400e5c5c674e098a3da3922c627de9ce7
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Fri Apr 14 21:48:06 2017 -0500
+
+    Re-re-compiled images and data
+
+commit 7d01168d0475a070d2e8a913aaa28ddc3a191803
+Merge: a752e9f ac418d4
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Fri Apr 14 21:18:53 2017 -0500
+
+    Merge to local
+
+commit a752e9f33c653277bafec8d7e19f2b3c35a82028
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Fri Apr 14 20:32:32 2017 -0500
+
+    Made img scraper automatic
+
+commit 9dd44235d14c9ac3f3f46d3c0cac89331af392a9
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Fri Apr 14 17:15:07 2017 -0500
+
+    Removed Data folders. Data must be recompiled
+
+commit 4487d8b598bb16bf5ed35b9cf02a3cdf295cb6f6
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Fri Apr 14 06:41:48 2017 -0500
+
+    Added image for new planet and star
+
+commit ad4217b1545f7c6d30fcc565955ad749db29d30c
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Fri Apr 14 00:07:31 2017 -0500
+
+    Removed image api
+
+commit c3fc7b997d3e3da58fc388378e2b685eb6d5a8ea
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 13 23:39:39 2017 -0500
+
+    Removed data from repo
+
+commit 554f869e9dd787dad3923dd44841e4d50494a118
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 13 23:34:49 2017 -0500
+
+    Recommiting database changes
+
+commit ac418d442a5da4905f7f23be6765eed31e58e8ae
+Merge: 26eedfb a194442
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 23:22:26 2017 -0500
+
+    Merge pull request #61 from samuelbraley/dev-search
+    
+    Merge API search functionality
+
+commit a19444279a436f2c9a5bd1b5b0f39826332b63ac
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 20:53:29 2017 -0500
+
+    Fixed some pylint issues
+
+commit 779ded6e2e9f958b1bd1a8328f15d571e5197435
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 20:48:58 2017 -0500
+
+    Adds AND capabilities to search
+
+commit 06f21376c75c6d509d6384f82b6cae6d8acd58de
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 20:40:56 2017 -0500
+
+    Removes img_url and adds type information to search JSON
+
+commit 69a2718b37cb04c78deaa9fde89967b411e45346
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 20:38:33 2017 -0500
+
+    Outputs search results as a JSON
+
+commit d950410d7e79bca4648b163278d927481ae3c68c
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 20:32:42 2017 -0500
+
+    Allows the user to specify results per page
+
+commit 581db6eabbce7b0b4243c706b49285e876c8cfc8
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 20:28:07 2017 -0500
+
+    Adds rudimentary pagination
+
+commit 66a287e91ec4154481b21cf46e630fc3daf60bf3
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 20:11:57 2017 -0500
+
+    Mixes up results from search so they're not all of one type
+
+commit 907543cf8e688084f1f42ed570bd1ecdb1d91700
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 15:35:19 2017 -0500
+
+    Fixes error where q was not none, but was still empty when searching
+
+commit 2acc66fab633e2f28da3d80391c064132ccef6a4
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 13 15:29:53 2017 -0500
+
+    Prevents whooshee from throwing an error for search queries of length < 3
+
+commit 0d85c56b864c563b05666ade7d11c136ab12dd9e
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 13 15:04:46 2017 -0500
+
+    Back end searching of all models
+
+commit 218df5855ec811cda8dcc4a119c6707297965b7e
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 13 14:34:10 2017 -0500
+
+    Satellite searchable with flask-whooshee
+
+commit 1001fa225c7ea6db6c59bede18c1d66e7d735206
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Wed Apr 12 23:06:22 2017 -0500
+
+    Searching satellites. Having trouble searching other models
+
+commit 2f07ccbdd58939c72652bc9ba04668f85ba0a1a9
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Wed Apr 12 22:43:13 2017 -0500
+
+    Changed all model fields to strings
+
+commit 8ad9eaaf2a9f9e6ae5dc3f9d7c8ff0da17dff8f2
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Wed Apr 12 22:31:13 2017 -0500
+
+    Make removes search index on every build
+
+commit 34d0607546c458f72d6705fbdba58051efd92064
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Wed Apr 12 18:57:12 2017 -0500
+
+    Testing text search with satellites
+
+commit 37ebd21993311df36f7e11b9a1f80974629fd184
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Wed Apr 12 18:56:15 2017 -0500
+
+    Changed to new flask whoosh dependency
+
+commit 632b7f929eeab790865ae8fdec54591cfcae229f
+Author:  <taben@Borg.localdomain>
+Date:   Wed Apr 12 18:14:51 2017 -0500
+
+    Added Flask-WhooshAlchemy dependency
+
+commit 26eedfbb92c66b7387bbb009b33daa1157ff1873
+Author:  <taben@Borg.localdomain>
+Date:   Wed Apr 12 18:09:01 2017 -0500
+
+    Changed img_url database column from String to Text
+
+commit 84c999383d28406babaef75f9e852db66ac479d5
+Author:  <taben@Borg.localdomain>
+Date:   Wed Apr 12 17:55:07 2017 -0500
+
+    Fixed star images
+
+commit d9f61d10ce1463c1d996e68d3ea65b72ad31e647
+Author:  <taben@Borg.localdomain>
+Date:   Wed Apr 12 16:31:31 2017 -0500
+
+    Recompiled images of planets, stars, and galaxies
+
+commit afc715c8667a6cb2792b5dd98aa0055c1441187f
+Merge: 5864f58 8defab4
+Author:  <taben@Borg.localdomain>
+Date:   Wed Apr 12 12:43:03 2017 -0500
+
+    Merge branch 'develop' into dev-imgs-taben
+
+commit 5864f58343ae6eaf56c90e2f3835cb5f980c64ff
+Author:  <taben@Borg.localdomain>
+Date:   Wed Apr 12 12:41:50 2017 -0500
+
+    Update planet images
+
+commit 8defab463eae1be58ed68a97a874fdfc61dd9af4
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 23:39:03 2017 -0500
+
+    Added the search page and search bar.
+
+commit a69010ffebdd09a077c8318a70278221fc3dec4f
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 23:27:05 2017 -0500
+
+    Changed the navbar style.
+
+commit 4f5d7566b7e8e82d649fb8ac6a2f1d2a38f48d38
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 21:58:18 2017 -0500
+
+    Cleaned up the carousel and modified the background image.
+
+commit ae6052aafe1ad11ab405de7dfa27d327e4264f0b
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 21:24:52 2017 -0500
+
+    Trying to fix a bug.
+
+commit aec9e69b806df449673dbdad8e1553bd81a9e8d6
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 19:42:30 2017 -0500
+
+    Attempted to add a search bar.
+
+commit 30e0d1f90c7b821b523c9ebb73a8698e8cb5166c
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 19:29:51 2017 -0500
+
+    Changed the navbar for better mobile view.
+
+commit f4a1e5fced55f74d0b046451e72ccfc2035d4022
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 19:15:43 2017 -0500
+
+    Changed the model pages to display 6 results per page so resizing looks better.
+
+commit e296ce56d4440f1928a02676b80e32629e769695
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 19:10:49 2017 -0500
+
+    Changed the style of the website and resizing of the about page.
+
+commit 676c7cb9cd60605f4df31e0c04f0bd2039bf7281
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 13:57:29 2017 -0500
+
+    Earth page now displays an image of earth.
+
+commit 7d766738457182b97ec443cfab89eb6926f4966b
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 02:03:59 2017 -0500
+
+    Added David as the phase 3 leader.
+
+commit 78e30aca4aaaabc9b446759b67d998708b905fa7
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 02:00:47 2017 -0500
+
+    Removed unessesary template files.
+
+commit 1a5bb0cca372db366232065cd3959ffc5b074b8e
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 01:56:46 2017 -0500
+
+    Added isomorphic fetch for browser compatibility issues.
+
+commit 8b3b52c0167cf47f913429292e2496b429ff4bfe
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 01:47:11 2017 -0500
+
+    Changed the apod pictures from hd to not hd. Also fixed the grid flow.
+
+commit 460469b9bcddcf49a1af2c2f9e811b60752ae476
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 01:35:29 2017 -0500
+
+    shrunk a link that was too long for the report.
+
+commit ef439fa773d7955ae90c2fcbbe5cb129e9d60d7f
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 11 01:28:02 2017 -0500
+
+    Fixed title display issues.
+
+commit 8d11c03ef9fd0334aa1da04ab9a15b4c8dd5a325
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Sun Apr 9 17:59:03 2017 -0500
+
+    Added makefile for data scripts.
+
+commit e7240eb9e4b99a2b8cf8d9b203f7b9763edc4f47
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Sun Apr 9 15:45:35 2017 -0500
+
+    Fixed off-by-one error
+
+commit 5b4a861df3a8cdc8b291477b80e7e13c2c973a72
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 6 21:53:55 2017 -0500
+
+    Updated log
+
 commit 59da6deadadc9c682acbe2e763ee5332abb941a2
 Author: tabenmalik <tabenjmalik@gmail.com>
 Date:   Thu Apr 6 21:52:57 2017 -0500
