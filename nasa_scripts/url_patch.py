@@ -160,7 +160,7 @@ mercury = {
     "gravity":float((mercury_mass_kg / jupiter_mass_kg)) / ((mercury_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(88),
     "mass":float(mercury_mass_kg) / jupiter_mass_kg,
-    "temperature":440.15,
+    "temperature":440,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":mercury_image["pid"]
@@ -194,7 +194,7 @@ mars = {
     "gravity":float((mars_mass_kg / jupiter_mass_kg)) / ((mars_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(687),
     "mass":float(mars_mass_kg) / jupiter_mass_kg,
-    "temperature":213.15,
+    "temperature":213,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":mars_image["pid"]
@@ -211,7 +211,7 @@ saturn = {
     "gravity":float((saturn_mass_kg / jupiter_mass_kg)) / ((saturn_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(10585),
     "mass":float(saturn_mass_kg) / jupiter_mass_kg,
-    "temperature":95.15,
+    "temperature":95,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":saturn_image["pid"]
@@ -228,7 +228,7 @@ uranus = {
     "gravity":float((uranus_mass_kg / jupiter_mass_kg)) / ((uranus_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(30660),
     "mass":float(uranus_mass_kg) / jupiter_mass_kg,
-    "temperature":75.95,
+    "temperature":76,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":uranus_image["pid"]
@@ -245,7 +245,7 @@ neptune = {
     "gravity":float((neptune_mass_kg / jupiter_mass_kg)) / ((neptune_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(60225),
     "mass":float(neptune_mass_kg) / jupiter_mass_kg,
-    "temperature":59.15,
+    "temperature":59,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":neptune_image["pid"]
@@ -262,7 +262,7 @@ pluto = {
     "gravity":float((pluto_mass_kg / jupiter_mass_kg)) / ((pluto_radius_km / jupiter_radius_km) ** 2),
     "orbital_period":float(90520),
     "mass":float(pluto_mass_kg) / jupiter_mass_kg,
-    "temperature":44.15,
+    "temperature":44,
     "star_pid":sun["pid"],
     "galaxy_pid":milky_way["pid"],
     "image_pid":pluto_image["pid"]

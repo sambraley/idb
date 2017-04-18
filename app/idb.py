@@ -16,6 +16,20 @@ app = Flask(__name__)
 db = connect_db(app)
 api_setup(app, db)
 
+def in_solar_system(name):
+    if (name == "Mercury" or
+           name == "Venus" or
+           name == "Earth" or
+           name == "Mars" or
+           name == "Jupiter" or
+           name == "Saturn" or
+           name == "Uranus" or
+           name == "Neptune" or
+           name == "Pluto" or
+           name == "Sun"):
+       return True
+
+    return False
 
 ####################
 # Misc. Page Routing
@@ -68,7 +82,7 @@ def planet_instance(planet_id):
     # earth
     planet = Planet.query.get(planet_id)
     planet_name = planet.to_dict()["name"]
-    if planet_name == "Earth" or planet_name == "Jupiter":
+    if in_solar_system(planet_name):
         return render_template('sol.html', planet=planet)
     return render_template('planet.html', planet=planet)
 
@@ -89,7 +103,11 @@ def stars_table():
 
 @app.route('/stars/<int:star_id>')
 def star_instance(star_id):
-    return render_template('star.html', star=Star.query.get(star_id))
+    star = Star.query.get(star_id)
+    star_name = star.to_dict()["name"]
+    if in_solar_system(star_name):
+        return render_template('sol.html', star=star)
+    return render_template('star.html', star=star)
 
 
 ##################
