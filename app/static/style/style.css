@@ -4,6 +4,10 @@ html, body {
 }
 body {
 	background-image: url("/static/images/body-background.gif");
+  font-family: 'Montserrat', sans-serif;
+}
+mark {
+  background-color: yellow;
 }
 
 .navbar-default {
