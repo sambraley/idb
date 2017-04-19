@@ -61,7 +61,7 @@ var ModelListItem = function (_React$Component) {
 			}
 			search = search.split('+');
 
-			return React.createElement(_reactHighlightWords2.default, { highlightClassName: "strong", className: "h3", searchWords: search, textToHighlight: name });
+			return React.createElement(_reactHighlightWords2.default, { className: "h3", searchWords: search, textToHighlight: name });
 		}
 	}, {
 		key: "render",
@@ -73,6 +73,7 @@ var ModelListItem = function (_React$Component) {
 					"a",
 					{ href: this.state.link },
 					React.createElement("img", { className: "img-thumbnail about-image", style: this.state.style, src: this.state.image_url }),
+					React.createElement("br", null),
 					this.highlight(this.props.model.name, this.props.search)
 				)
 			);

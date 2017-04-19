@@ -31,13 +31,14 @@ class ModelListItem extends React.Component {
 		}
 		search = search.split('+');
 
-		return (<Highlighter highlightClassName='strong' className='h3' searchWords={search} textToHighlight={name}/>);
+		return (<Highlighter className='h3' searchWords={search} textToHighlight={name}/>);
 	}
 	render() {
 		return (
 			<div className="col-lg-4 col-md-6 col-sm-12 text-center model-list-item">
 				<a href={this.state.link}>
 					<img className="img-thumbnail about-image" style={this.state.style} src={this.state.image_url} />
+					<br/>
 					{this.highlight(this.props.model.name, this.props.search)}
 				</a>
 			</div> 
