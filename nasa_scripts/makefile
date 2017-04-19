@@ -56,3 +56,5 @@ scraped_data/scraped_satellites.json: scraped_data scrapers/scrape_satellites.py
 database: scraped_data/scraped_galaxies.json scraped_data/scraped_stars.json scraped_data/scraped_planets.json scraped_data/scraped_satellites.json data
 		@$(PYTHON) patch_json.py
 		@$(PYTHON) url_patch.py
+		rm -rf ../app/data/
+		cp -r data/ ../app/

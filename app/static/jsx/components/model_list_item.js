@@ -20,10 +20,19 @@ class ModelListItem extends React.Component {
 		fetch(image_url)
 	    .then((response) => response.json())
 	    .then((responseJson) => {
-	        this.setState({ 
-	        	image_url: responseJson.img_url,
-	        })})
+	    	if (responseJson.img_url === "satellite.png"){
+	    		this.setState({ 
+		        	image_url: '/static/images/satellite_default.jpg',
+		        })
+	    	}
+	    	else {
+		        this.setState({ 
+		        	image_url: responseJson.img_url,
+		        })
+	    	}
+	    })
 		.catch((error) => {console.error(error);})
+		this.default = this.default.bind(this);
 	}
 	highlight(name, search) {
 		if (search === undefined){
@@ -33,11 +42,18 @@ class ModelListItem extends React.Component {
 
 		return (<Highlighter highlightClassName='strong' className='h3' searchWords={search} textToHighlight={name}/>);
 	}
+
+	default() {
+		this.setState({
+			image_url: '/static/images/satellite_default.jpg'
+		})
+	}
+
 	render() {
 		return (
 			<div className="col-lg-4 col-md-6 col-sm-12 text-center model-list-item">
 				<a href={this.state.link}>
-					<img className="img-thumbnail about-image" style={this.state.style} src={this.state.image_url} />
+					<img className="img-thumbnail about-image" style={this.state.style} src={this.state.image_url} onError={this.default}/>
 					{this.highlight(this.props.model.name, this.props.search)}
 				</a>
 			</div> 
