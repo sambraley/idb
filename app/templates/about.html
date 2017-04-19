@@ -5,20 +5,13 @@
 	<h3 class="text-center">Our goal is to communicate the findings of NASA and the Jet propulsion laboratory in an easy to read format that is enjoyable for the viewer.</h3>
 	<br>
 	<br>
-	<h1>Members</h1>
+  <div class="row">
+    <div class="col-lg-12 text-center">
+	    <h1>Members</h1>
+    </div>
+  </div>
+  <br/>
   <div class="row" id="member-info">
-  	{% for member in member_info %}
-		<div class="col-md-4 text-center service-box">
-      <img class="img-thumbnail about-image" src="/static/images/{{member['image']}}">
-      <h3>{{member["name"]}}</h3>
-      <p class="text-muted">{{member["bio"]}}</p>
-      <p class="text-muted"><strong>Major Responsibilites:</strong> {{member["responsibilities"]}}</p>
-      <p class="text-muted"><strong>Commits:</strong> {{member["commits"]}}</p>
-      <p class="text-muted"><strong>Issues:</strong> {{member["issues"]}}</p>
-      <p class="text-muted"><strong>Unit tests:</strong> {{member["tests"]}}</p>
-      {% if member["p0_lead"] %}<p class="text-muted"><strong>Phase 0 Leader</strong></p>{% endif %}
-  	</div>
-    {% endfor %}
   </div>
   <div class="row">
     <div class="col-lg-12 text-center">
@@ -34,19 +27,7 @@
   		<h3><strong>Overall Tests:</strong> 12</h3>
   	</div>
   </div>
-  <div class="row">
-  	<div class="col-md-3 text-center">
-  		<a href="https://github.com/samuelbraley/idb">Repository</a>
-  	</div>
-  	<div class="col-md-3 text-center">
-  		<a href="https://github.com/samuelbraley/idb/issues">Issue Tracker</a>
-  	</div>
-  	<div class="col-md-3 text-center">
-  		<a href="http://docs.spacecowboys.apiary.io">Rest API</a>
-  	</div>
-  	<div class="col-md-3 text-center">
-  		<a href="/run_tests">Run Unit Tests</a>
-  	</div>
+  <div id="react-tests" class="row">
   </div>
   
   <div class="row">
@@ -104,6 +85,14 @@
   		<h3><a href="http://flask.pocoo.org/">Flask</a></h3>
   		<p>Back End Server</p>
   	</div>
+    <div class="col-md-3 text-center">
+        <h3><a href="https://flask-restless.readthedocs.io/en/stable/">Flask-Restless</a></h3>
+        <p>Flask API Extension</p>
+    </div>
+    <div class="col-md-3 text-center">
+        <h3><a href="https://flask-whooshee.readthedocs.io/en/latest/">Flask-Whooshee</a></h3>
+        <p>Flask Database Searching Extension</p>
+    </div>
   	<div class="col-md-3 text-center">
   		<h3><a href="https://cloud.google.com">Google Cloud Platform</a></h3>
   		<p>Hosting Service</p>

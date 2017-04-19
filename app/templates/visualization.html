@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container content-container" id="react-visualize">
+</div>
+<script src="{{ url_for('static', filename='compiled_js/visualize.js') }}"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="{{ url_for('static', filename='js/bubble_graph.js') }}"></script>
+{% endblock %}

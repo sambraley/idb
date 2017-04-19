@@ -4,10 +4,12 @@
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
 # pylint: disable = line-too-long
+
 import io
 import unittest
 import test
-from flask import Flask, render_template
+from lib.search_db import search
+from flask import Flask, render_template, request, jsonify
 from database import connect_db, Satellite, Planet, Star, Galaxy
 from api import api_setup
 
@@ -15,6 +17,17 @@ app = Flask(__name__)
 db = connect_db(app)
 api_setup(app, db)
 
+def in_solar_system(name):
+    return (name == "Mercury" or
+            name == "Venus" or
+            name == "Earth" or
+            name == "Mars" or
+            name == "Jupiter" or
+            name == "Saturn" or
+            name == "Uranus" or
+            name == "Neptune" or
+            name == "Pluto" or
+            name == "Sun")
 
 ####################
 # Misc. Page Routing
@@ -64,7 +77,12 @@ def planets_table():
 
 @app.route('/planets/<int:planet_id>')
 def planet_instance(planet_id):
-    return render_template('planetoid.html', planet=Planet.query.get(planet_id))
+    # earth
+    planet = Planet.query.get(planet_id)
+    planet_name = planet.to_dict()["name"]
+    if in_solar_system(planet_name):
+        return render_template('sol.html', planet=planet)
+    return render_template('planet.html', planet=planet)
 
 # return render_template('planet.html', planet=Planet.query.get(planet_id))
 
@@ -83,7 +101,11 @@ def stars_table():
 
 @app.route('/stars/<int:star_id>')
 def star_instance(star_id):
-    return render_template('star.html', star=Star.query.get(star_id))
+    star = Star.query.get(star_id)
+    star_name = star.to_dict()["name"]
+    if in_solar_system(star_name):
+        return render_template('sol_star.html', star=star)
+    return render_template('star.html', star=star)
 
 
 ##################
@@ -107,8 +129,21 @@ def run_tests():
     test_output = test_output.getvalue()
     coverage = open("coverage.txt")
     coverage_output = coverage.read()
-    output = "<pre>" + test_output + "\n" + coverage_output + "</pre>"
+    output = test_output + "\n" + coverage_output
     return output
+
+@app.route('/search')
+def search_page():
+    return render_template('search.html', title='search')
+
+@app.route('/visualization')
+def visualize():
+    return render_template('visualization.html', title='visualization')
+
+@app.route('/api/v1/search')
+def search_api():
+    output = search(request.args)
+    return jsonify(output)
 
 if __name__ == "__main__": # pragma: no cover
     app.run()

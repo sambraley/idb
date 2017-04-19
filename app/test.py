@@ -9,7 +9,7 @@
 
 from unittest import main, TestCase
 from flask import Flask
-from test_models import test_db, Satellite, Star, Galaxy, Planet
+from test_models import test_db, Satellite, Star, Galaxy, Planet, Image
 
 test_app = Flask(__name__)
 test_app.config["SQLACLHEMY_DATABASE_URI"] = "sqlite:///:memory:"
@@ -21,19 +21,20 @@ with test_app.app_context():
     test_db.create_all()
 
 star_data = {"name": "dummy_star", "temperature": 5945, "mass": 1.09, "diameter": 1405314.0,\
-        "dec": -5.086445, "ra": 102.721137, "img_url":"star.png"}
+        "dec": -5.086445, "ra": 102.721137}
 
 planet_data = {"name": "dummy_planet", "orbital_period": 1.327347, "temperature": 1823, \
                 "mass": 3.477136e+27, "diameter": 176735.008, "gravity": 0.029718570060615346, \
-                "dec": 44.915352, "ra": 188.266255, "img_url":"planet.png"}
+                "dec": 44.915352, "ra": 188.266255}
 
 satellite_data = {"name": "dummy_satellite", "mission_type": "Planetary Science", \
                     "info_url": "https://en.wikipedia.org/wiki/SARAL", "agency": \
-                    "Indian Space Research Organization", "year_launched": 2013, \
-                    "img_url": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"}
+                    "Indian Space Research Organization", "year_launched": 2013}
 
 galaxy_data = {"name": "dummy_galaxy", "morph_type": "Spiral", "size": 1.227, "dec": 37.884811, \
-        "ra": 317.819183, "redshift": 0.027192, "img_url":"galaxy.png"}
+        "ra": 317.819183, "redshift": 0.027192}
+
+img_data = {"img_url" : "URL"}
 
 class TestModels (TestCase):
 
@@ -41,7 +42,8 @@ class TestModels (TestCase):
         """
         Examines model's to_dictionary() method for correctness in content.
         """
-        galaxy = Galaxy(**galaxy_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
 
         actual = galaxy.to_dict()
 
@@ -52,7 +54,8 @@ class TestModels (TestCase):
         """
         Adds row to database to make sure it gets added properly and removed properly.
         """
-        galaxy = Galaxy(**galaxy_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
 
         with test_app.test_request_context():
             test_db.session.add(galaxy)
@@ -77,7 +80,8 @@ class TestModels (TestCase):
         """
         Checks model's correct representation is returned.
         """
-        galaxy = Galaxy(**galaxy_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
 
         actual = repr(galaxy)
         expected = "<Galaxy 'dummy_galaxy'>"
@@ -88,8 +92,9 @@ class TestModels (TestCase):
         """
         Examines model's to_dictionary() method for correctness in content.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
 
         actual = star.to_dict()
 
@@ -100,8 +105,9 @@ class TestModels (TestCase):
         """
         Adds row to database to make sure it gets added properly and removed properly.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
 
         with test_app.test_request_context():
             test_db.session.add(galaxy)
@@ -136,8 +142,9 @@ class TestModels (TestCase):
         """
         Checks model's correct representation is returned.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
 
         actual = repr(star)
         expected = "<Star 'dummy_star'>"
@@ -148,9 +155,10 @@ class TestModels (TestCase):
         """
         Examines model's to_dictionary() method for correctness in content.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
-        planet = Planet (galaxy = galaxy, star = star, **planet_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
+        planet = Planet (image = img, galaxy = galaxy, star = star, **planet_data)
 
         actual = planet.to_dict()
 
@@ -161,9 +169,10 @@ class TestModels (TestCase):
         """
         Adds row to database to make sure it gets added properly and removed properly.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
-        planet = Planet (galaxy = galaxy, star = star, **planet_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
+        planet = Planet (image = img, galaxy = galaxy, star = star, **planet_data)
 
         with test_app.test_request_context():
             test_db.session.add(galaxy)
@@ -204,9 +213,10 @@ class TestModels (TestCase):
         """
         Checks model's correct representation is returned.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
-        planet = Planet (galaxy = galaxy, star = star, **planet_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
+        planet = Planet (image = img, galaxy = galaxy, star = star, **planet_data)
 
         actual = repr(planet)
         expected = "<Planet 'dummy_planet'>"
@@ -216,10 +226,11 @@ class TestModels (TestCase):
         """
         Examines model's to_dictionary() method for correctness in content.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
-        planet = Planet (galaxy = galaxy, star = star, **planet_data)
-        satellite = Satellite (galaxy = galaxy, star = star, planet = planet, **satellite_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
+        planet = Planet (image = img, galaxy = galaxy, star = star, **planet_data)
+        satellite = Satellite (image = img, galaxy = galaxy, star = star, planet = planet, **satellite_data)
 
         actual = satellite.to_dict()
 
@@ -230,10 +241,11 @@ class TestModels (TestCase):
         """
         Adds row to database to make sure it gets added properly and removed properly.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
-        planet = Planet (galaxy = galaxy, star = star, **planet_data)
-        satellite = Satellite (galaxy = galaxy, star = star, planet = planet, **satellite_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
+        planet = Planet (image = img, galaxy = galaxy, star = star, **planet_data)
+        satellite = Satellite (image = img, galaxy = galaxy, star = star, planet = planet, **satellite_data)
 
         with test_app.test_request_context():
             test_db.session.add(galaxy)
@@ -281,10 +293,11 @@ class TestModels (TestCase):
         """
         Checks model's correct representation is returned.
         """
-        galaxy = Galaxy(**galaxy_data)
-        star = Star(galaxy = galaxy, **star_data)
-        planet = Planet (galaxy = galaxy, star = star, **planet_data)
-        satellite = Satellite (galaxy = galaxy, star = star, planet = planet, **satellite_data)
+        img = Image(**img_data)
+        galaxy = Galaxy(image = img, **galaxy_data)
+        star = Star(image = img, galaxy = galaxy, **star_data)
+        planet = Planet (image = img, galaxy = galaxy, star = star, **planet_data)
+        satellite = Satellite (image = img, galaxy = galaxy, star = star, planet = planet, **satellite_data)
 
         actual = repr(satellite)
         expected = "<Satellite 'dummy_satellite'>"

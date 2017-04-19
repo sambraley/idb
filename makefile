@@ -1,9 +1,9 @@
 .DEFAULT_GOAL := RunIDB
 
 FILES :=                              \
-    IDB1.html                         \
-    IDB1.log                          \
-    IDB1.pdf                          \
+    IDB3.html                         \
+    IDB3.log                          \
+    IDB3.pdf                          \
     app/idb.py                        \
     app/test.py                       \
     .travis.yml                       \
@@ -43,12 +43,13 @@ endif
 		--disable=locally-disabled --reports=no --generate-rcfile > $@
 
 IDB.html: app/models.py
-	cd app; $(PYDOC) -w models; mv models.html ../IDB1.html
+	cd app; $(PYDOC) -w models; mv models.html ../IDB3.html
 
 IDB.log:
-	git log > IDB1.log
+	git log > IDB3.log
 
 RunIDB: app/idb.py .pylintrc
+	@rm -rf app/whooshee/
 	-$(PYLINT) app/idb.py
 	cd app; \
 	$(PYTHON) idb.py
@@ -56,12 +57,6 @@ RunIDB: app/idb.py .pylintrc
 install:
 	$(PIP) install -r app/requirements.txt
 	npm install
-
-data: nasa_scripts/scraper.py
-	cd nasa_scripts; \
-	$(PYTHON) scraper.py;\
-	$(PYTHON) patch_json.py;\
-	$(PYTHON) url_path.py
 
 TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
@@ -145,3 +140,11 @@ versions:
 	$(AUTOPEP8) --version
 	@echo
 	$(PIP) list
+
+#
+# Data Creation and Compilation
+#
+
+
+
+  

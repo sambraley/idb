@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
-<div class="container model-container">
+<div class="container content-container">
   <div class="row">
     <div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
-      <h1>{{galaxy.name}}</h1>
+      <h1 class="react-highlight">{{galaxy.name}}</h1>
     </div>
   </div>
   <div class="row">
@@ -25,17 +25,21 @@
     <div class="col-sm-12 col-md-5 text-center">
       <div class="col-md-12">
         <h3>Morphological Type:</h3> 
-        <p>{{galaxy.morph_type}}</p>
+        <p class="react-highlight">{{galaxy.morph_type}}</p>
         <h3>Right Ascension:</h3> 
-        <p>{{galaxy.ra}}</p>
+        <p class="react-highlight">{{galaxy.ra}} Hour(s)</p>
         <h3>Declination:</h3> 
-        <p>{{galaxy.dec}}</p>
+        <p class="react-highlight">{{galaxy.dec}} Degree(s)</p>
         <h3>Red Shift:</h3> 
-        <p>{{galaxy.redshift}}</p>
+        <p class="react-highlight">{{galaxy.redshift}}</p>
         <h3>Size:</h3> 
-        <p>{{galaxy.size}}</p>
+        <p class="react-highlight">{{galaxy.size}} Arcminute(s)</p>
+        <h3><a href="/planets?filtered=true&v1=galaxy_pid&v2=%3D%3D&v3={{galaxy.pid}}" >Link to Planets in galaxy</a></h3>
+        <h3><a href="/stars?filtered=true&v1=galaxy_pid&v2=%3D%3D&v3={{galaxy.pid}}" >Link to Stars in galaxy</a></h3>
+        <h3><a href="/satellites?filtered=true&v1=galaxy_pid&v2=%3D%3D&v3={{galaxy.pid}}" >Link to Satellites in galaxy</a></h3>
       </div>
     </div>
   </div>
 </div>
+<script src="{{ url_for('static', filename='compiled_js/model-highlight.js') }}"></script>
 {% endblock %}

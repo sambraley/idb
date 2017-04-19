@@ -1,7 +1,8 @@
 import json
 import collections
 
-satellite_file = "data/satellites.json"
+print("Adding urls to satellites\n")
+satellite_file = "scraped_data/scraped_satellites.json"
 patch_file = "satellite_patch.json"
 
 def patch_json(target_file, fix_file, key):
@@ -43,7 +44,7 @@ def apply_patch(to_patch, patch):
             else:
                 for key in patch[entry]:
                     to_patch[entry][key] = patch[entry][key]
-        if entry in patch and "remove" not in patch[entry] and 'pid' in to_patch[entry]:
+        if (entry not in patch or "remove" not in patch[entry]) and 'pid' in to_patch[entry]:
             to_patch[entry]['pid'] -= num_removed
 
 patch_json(satellite_file, patch_file, 'name')

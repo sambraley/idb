@@ -1,18 +1,50 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="{{ url_for('static', filename='bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="/static/style/style.css">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
-    <script src="{{ url_for('static', filename='bower_components/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/react/react.js') }}"></script>
-    <script src="{{ url_for('static', filename='bower_components/react/react-dom.js') }}"></script>
-  </head>
-  <body>
-    <div class="container"></div>
-  </body>
-</html>
-<script src="{{ url_for('static', filename='compiled_js/render_react_planet.js') }}"></script>
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
+<div class="container content-container">
+  <div class="row">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
+        <h1 class="react-highlight">{{planet.name}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-5 col-md-offset-1 text-center" style="padding-top:25px;">
+        <div id="aladin-lite-div" style="width:400px;height:400px;margin: 0 auto;"></div>
+        <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            var aladin = A.aladin('#aladin-lite-div', 
+              {
+                survey: "P/DSS2/color",
+                fov: .02, 
+                showReticle: false,
+                showGotoControl: false
+              });
+            aladin.gotoRaDec({{planet.ra}}, {{planet.dec}});
+        </script>
+    </div>
+    <div class="col-sm-12 col-md-5 text-center">
+      <div class="col-md-12">
+        <h3>Diameter:</h3> 
+        <p class="react-highlight">{{planet.diameter}} x Jupiter's Diameter</p>
+        <h3>Surface Temperatures:</h3> 
+        <p class="react-highlight">{{planet.temperature}} K</p>
+        <h3>Right Ascension:</h3> 
+        <p class="react-highlight">{{planet.ra}} Hour(s)</p>
+        <h3>Declination:</h3> 
+        <p class="react-highlight">{{planet.dec}} Degree(s)</p>
+        <h3>Mass:</h3> 
+        <p class="react-highlight">{{planet.mass}} x Jupiter's Mass</p>
+        <h3>Gravity:</h3> 
+        <p class="react-highlight">{{planet.gravity}} x Jupiter's Gravity</p>
+        <h3>Orbital Period:</h3> 
+        <p class="react-highlight">{{planet.orbital_period}} Earth Day(s)</p>
+        <h3><a href="/galaxies/{{planet.galaxy_pid}}" >Link to home Galaxy</a></h3>
+        <h3><a href="/stars/{{planet.star_pid}}">Link to host Star</a></h3>
+        <h3><a href="/satellites?filtered=true&v1=planet_pid&v2=%3D%3D&v3={{planet.pid}}" >Link to Satellites orbiting Planet</a></h3>
+      </div> 
+      </div> 
+  </div>
+</div>
+<script src="{{ url_for('static', filename='compiled_js/model-highlight.js') }}"></script>
+{% endblock %}
+
