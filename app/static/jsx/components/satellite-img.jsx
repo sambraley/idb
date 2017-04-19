@@ -10,13 +10,22 @@ class Satellite_Img extends React.Component {
 	    .then((response) => response.json())
 	    .then((responseJson) => {
 	        this.setState({ 
-	        	image_url: responseJson.img_url,
-	        })})
-		.catch((error) => {console.error(error);})
+	        	image_url: responseJson.img_url
+	        })
+		})
+		.catch((error) => {console.log(error)})
+		this.default = this.default.bind(this);
 	}
+
+	default() {
+		this.setState({
+			image_url: '/static/images/satellite_default.jpg'
+		})
+	}
+
     render() {
         return (
-					<img className="img-thumbnail" style={{width: '400px', height: '400px'}} src={this.state.image_url} onerror="if (this.src != '/static/images/satellite_default.jpg') this.src='/static/images/satellite_default.jpg';"/> 
+					<img className="img-thumbnail" style={{width: '400px', height: '400px'}} src={this.state.image_url} onError={this.default}/> 
 				);
     }
 }
