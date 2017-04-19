@@ -44,7 +44,8 @@ For all of these objects, you can retrieve the full collection of each or retrie
 ### Filtering and Ordering Collections [GET /satellites{?q}]
 
 + Parameters
-    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"SARAL"}]}` - A flask restless query string
+    + q : {"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"SARAL"}]} - 
+        A flask restless query string.
         + Valid Operators
             + `==`
             + `!=`
@@ -62,6 +63,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
     + Attributes (Collection Response)
         + objects (array)
             + (Satellite)
+            
 
 
 ## Planets [/planets]
@@ -103,7 +105,7 @@ For all of these objects, you can retrieve the full collection of each or retrie
 ### Filtering and Ordering Collections [GET /planets{?q}]
 
 + Parameters
-    + q: `{"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"Earth"}]}` - A flask restless query string
+    + q: {"order_by":[{"field":"name","direction":"desc"}],"filters":[{"name":"name","op":"==","val":"Earth"}]}` (string)- A flask restless query string
         + Valid Operators
             + `==`
             + `!=`
@@ -243,53 +245,72 @@ For all of these objects, you can retrieve the full collection of each or retrie
         + objects (array)
             + (Galaxy)
 
+## Full Text Searching [/search]
 
+### Searching [GET /search{?q}{?results_per_page}{?page}]
+
++ Parameters
+    + q : `Earth` (required) - A query string of the text to search
+    + results_per_page : 10 (number, optional)
+    + page : 1 (number, optional)
+
++ Response 200 (application/json)
+
+    + Attributes (Collection Response)
+        + objects (array)
+            + (Satellite)
+            + (Planet)
+        
 ## Data Structures
 
 ### Satellite (object)
-+ pid: 1 (number)
-+ name: SARAL (string)
-+ info_url: https://en.wikipedia.org/wiki/SARAL
-+ year_launched: 2013 (number)
-+ mission_type: Planetary Science (string)
-+ agency: Indian Space Research Organization (string)
-+ planet_pid: 299 (number)
-+ star_pid: 271 (number)
-+ galaxy_pid: 143 (number)
++ pid: 1 (number) - `The primary key`
++ name: SARAL (string) - `The name of the Satellite`
++ info_url: https://en.wikipedia.org/wiki/SARAL (string)- `A url to an outside page that contains more information`
++ year_launched: 2013 (number) - `The year the satellite was launched`
++ mission_type: Planetary Science (string) - `The purpose of the satellite`
++ agency: Indian Space Research Organization (string) - `The full name of the agency that owns or operates the satellite`
++ planet_pid: 299 (number) - `The pid of the planet the satellite orbits`
++ star_pid: 271 (number) - `The pid of the host star of the satellite`
++ galaxy_pid: 143 (number) - `The pid of the galaxy the satellite exists in`
++ image_pid: 1 (number) - `The pid of the image of the satellite`
 
 ### Planet (object)
-+ pid: 1 (number)
-+ name: `HAT-P-36 b` (string)
-+ dec: 4.915352 (number)
-+ ra: 188.266255 (number)
-+ gravity: 0.0297185700606153 (number)
-+ orbital_period: 1.327347 (number)
-+ diameter: 2.826 (number)
-+ temperature: 1823 (number)
-+ mass: 1.85 (number)
-+ star_pid: 230 (number)
-+ galaxy_pid: 143 (number)
++ pid: 1 (number) - `The primary key`
++ name: `HAT-P-36 b` (string) - `The name of the planet`
++ dec: 4.915352 (number) - `The declination of the planet in the ICRS J2000 coordinate system`
++ ra: 188.266255 (number) - `The right ascension of the planet in the ICRS J2000 coordinate system`
++ gravity: 0.0297185700606153 (number) - `The gravity of the planet expressed in multiples of Jupiter's gravity`
++ orbital_period: 1.327347 (number) - `The orbital period of the planet in Earth days`
++ diameter: 2.826 (number) - `The diameter of the planet expressed in multiples of Jupiter's diameter`
++ temperature: 1823 (number) - `The effective surface temperature of the planet in Kelvin`
++ mass: 1.85 (number) - `The mass of the planet expressed in multiples of Jupiter's mass`
++ star_pid: 230 (number) - `The pid of the star that the planet orbits`
++ galaxy_pid: 143 (number) - `The pid of the galaxy that the star resides in`
++ image_pid: 1 (number) - `The pid of the image of the planet`
 
 ### Star (object)
-+ pid: 2 (number)
-+ name: `HAT P 33` (string)
-+ dec: 26.426662 (number)
-+ ra: 271.537705 (number)
-+ temperature: 6065 (number)
-+ mass: 1.22 (number)
-+ diameter: 3.366 (number)
-+ galaxy_pid: 143 (number)
++ pid: 2 (number) - `The primary key`
++ name: `HAT P 33` (string) - `The name of the star`
++ dec: 26.426662 (number) - `The declination of the star in the ICRS J2000 coordinate system`
++ ra: 271.537705 (number) - `The right ascension of the the star in the ICRS J2000 coordiante system`
++ temperature: 6065 (number) - `The surface temperature of the star`
++ mass: 1.22 (number) - `The mass of the star in solar masses`
++ diameter: 3.366 (number) - `The diameter of the star expressed in multiples of the Sun's diameter`
++ galaxy_pid: 143 (number) - `The pid of the galaxy that the star exists in`
++ image_pid: 1 (number) - `The pid of the image of the star`
 
 ### Galaxy (object)
-+ pid: 1 (number)
-+ name: `UGC 11693` (string)
-+ dec: 37.884811 (number)
-+ ra: 317.819183 (number)
-+ morph_type: Spiral (string)
-+ redshift: 0.027192 (number)
-+ size: 1.227 (number)
++ pid: 1 (number) - `The primary key`
++ name: `UGC 11693` (string) - `The name of the galaxy`
++ dec: 37.884811 (number) - `The declination of the galaxy in the ICRS J2000 coordinate system`
++ ra: 317.819183 (number) - `The right ascension of the galaxy in the ICRS J2000 coordinate system`
++ morph_type: Spiral (string) - `The morphological type of the galaxy such as Spiral, Irregular, etc.`
++ redshift: 0.027192 (number) - `The radial velocity of the galaxy as described by redshift`
++ size: 1.227 (number) - `The angular size in arcminutes of the major axis of the galaxy`
++ image_pid: 1 (number) - `The pid of the image of the galaxy`
 
 ### Collection Response (object)
-+ num_results: 36
-+ page : 1 
-+ total_pages: 18
++ num_results: 36 - `The total number of results that the query resulted in`
++ page : 1  - `The current page number`
++ total_pages: 18 - `The total number of pages the query resulted in`

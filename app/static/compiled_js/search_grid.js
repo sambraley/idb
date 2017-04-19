@@ -44,12 +44,19 @@ var ModelListItem = function (_React$Component) {
 		fetch(image_url).then(function (response) {
 			return response.json();
 		}).then(function (responseJson) {
-			_this.setState({
-				image_url: responseJson.img_url
-			});
+			if (responseJson.img_url === "satellite.png") {
+				_this.setState({
+					image_url: '/static/images/satellite_default.jpg'
+				});
+			} else {
+				_this.setState({
+					image_url: responseJson.img_url
+				});
+			}
 		}).catch(function (error) {
 			console.error(error);
 		});
+		_this.default = _this.default.bind(_this);
 		return _this;
 	}
 
@@ -64,6 +71,13 @@ var ModelListItem = function (_React$Component) {
 			return React.createElement(_reactHighlightWords2.default, { className: "h3", searchWords: search, textToHighlight: name });
 		}
 	}, {
+		key: "default",
+		value: function _default() {
+			this.setState({
+				image_url: '/static/images/satellite_default.jpg'
+			});
+		}
+	}, {
 		key: "render",
 		value: function render() {
 			return React.createElement(
@@ -72,7 +86,7 @@ var ModelListItem = function (_React$Component) {
 				React.createElement(
 					"a",
 					{ href: this.state.link },
-					React.createElement("img", { className: "img-thumbnail about-image", style: this.state.style, src: this.state.image_url }),
+					React.createElement("img", { className: "img-thumbnail about-image", style: this.state.style, src: this.state.image_url, onError: this.default }),
 					React.createElement("br", null),
 					this.highlight(this.props.model.name, this.props.search)
 				)

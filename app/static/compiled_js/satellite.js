@@ -33,15 +33,23 @@ var Satellite_Img = function (_React$Component) {
 				image_url: responseJson.img_url
 			});
 		}).catch(function (error) {
-			console.error(error);
+			console.log(error);
 		});
+		_this.default = _this.default.bind(_this);
 		return _this;
 	}
 
 	_createClass(Satellite_Img, [{
+		key: "default",
+		value: function _default() {
+			this.setState({
+				image_url: '/static/images/satellite_default.jpg'
+			});
+		}
+	}, {
 		key: "render",
 		value: function render() {
-			return React.createElement("img", { className: "img-thumbnail", style: { width: '400px', height: '400px' }, src: this.state.image_url });
+			return React.createElement("img", { className: "img-thumbnail", style: { width: '400px', height: '400px' }, src: this.state.image_url, onError: this.default });
 		}
 	}]);
 
