@@ -437,6 +437,11 @@ var App = function (_React$Component) {
 		}
 		_this.state = {
 			models: [],
+			model_results: false,
+			and: [],
+			and_results: false,
+			or: [],
+			or_results: false,
 			total_pages: 1,
 			current_page: Number(dict['page']),
 			loaded: false,
@@ -455,12 +460,26 @@ var App = function (_React$Component) {
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
-				_this2.setState({
-					models: responseJson.objects,
-					total_pages: responseJson.total_pages,
-					current_page: responseJson.page,
-					loaded: true
-				});
+				console.log(responseJson);
+				if (responseJson.objects === undefined) {
+					_this2.setState({
+						models: [],
+						and: responseJson.AND,
+						or: responseJson.OR,
+						total_pages: responseJson.total_pages,
+						current_page: responseJson.page,
+						loaded: true
+					});
+				} else {
+					_this2.setState({
+						models: responseJson.objects,
+						and: [],
+						or: [],
+						total_pages: responseJson.total_pages,
+						current_page: responseJson.page,
+						loaded: true
+					});
+				}
 			}).catch(function (error) {
 				console.error(error);
 			});
@@ -487,7 +506,7 @@ var App = function (_React$Component) {
 					'Loading Search Results'
 				);
 			}
-			if (this.state.models.length <= 0) {
+			if (this.state.models.length + this.state.or.length + this.state.and.length <= 0) {
 				return React.createElement(
 					'h1',
 					{ className: 'text-center' },
@@ -510,10 +529,36 @@ var App = function (_React$Component) {
 							onPageSelect: this.changePage.bind(this) })
 					)
 				),
-				React.createElement(_models_list2.default, {
+				this.state.models.length > 0 && React.createElement(_models_list2.default, {
 					models: this.state.models,
 					page: this.current_page,
 					search: this.state.search }),
+				this.state.and.length > 0 && React.createElement(
+					'div',
+					null,
+					React.createElement(
+						'h3',
+						{ className: 'text-center' },
+						'And Search Results'
+					),
+					React.createElement(_models_list2.default, {
+						models: this.state.and,
+						page: this.current_page,
+						search: this.state.search })
+				),
+				this.state.or.length > 0 && React.createElement(
+					'div',
+					null,
+					React.createElement(
+						'h3',
+						{ className: 'text-center' },
+						'Or Search Results'
+					),
+					React.createElement(_models_list2.default, {
+						models: this.state.or,
+						page: this.current_page,
+						search: this.state.search })
+				),
 				React.createElement(
 					'div',
 					{ key: 'pages', className: 'col-md-12 text-center' },

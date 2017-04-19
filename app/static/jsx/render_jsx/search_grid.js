@@ -26,6 +26,11 @@ class App extends React.Component {
 		}
 		this.state = { 
 			models: [],
+			model_results: false,
+			and: [],
+			and_results: false,
+			or: [],
+			or_results: false,
 			total_pages: 1,
 			current_page: Number(dict['page']),
 			loaded: false,
@@ -39,12 +44,27 @@ class App extends React.Component {
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {
-	        this.setState({ 
-	        	models: responseJson.objects,
-	        	total_pages: responseJson.total_pages,
-	        	current_page: responseJson.page,
-	        	loaded: true
-	        })
+	        console.log(responseJson);
+	        if (responseJson.objects === undefined) {	
+		        this.setState({ 
+		        	models: [],
+		        	and: responseJson.AND,
+		      		or: responseJson.OR,
+		        	total_pages: responseJson.total_pages,
+		        	current_page: responseJson.page,
+		        	loaded: true
+		        });
+	        }
+	        else {
+	        	this.setState({ 
+		        	models: responseJson.objects,
+		        	and: [],
+		      		or: [],
+		        	total_pages: responseJson.total_pages,
+		        	current_page: responseJson.page,
+		        	loaded: true
+		        });
+	        }
 		    })
 		    .catch((error) => {
 		        console.error(error);
@@ -67,7 +87,7 @@ class App extends React.Component {
 					<h1 className="text-center">Loading Search Results</h1>
 				);
 		}
-		if (this.state.models.length <= 0) {
+		if (this.state.models.length + this.state.or.length + this.state.and.length<= 0 ) {
 			return (
 					<h1 className="text-center">No Results Found</h1>
 				);
@@ -83,10 +103,30 @@ class App extends React.Component {
 								onPageSelect={this.changePage.bind(this)} />
 						</div>
 					</div>
-					<ModelList 
-						models={this.state.models}
-						page={this.current_page}
-						search={this.state.search} />
+					{this.state.models.length > 0 &&
+				        <ModelList 
+				        	models={this.state.models}
+				        	page={this.current_page}
+				        	search={this.state.search} />
+				    }
+				    {this.state.and.length > 0 &&
+				    	<div>
+					        <h3 className="text-center">And Search Results</h3>
+					        <ModelList 
+					        	models={this.state.and}
+					        	page={this.current_page}
+					        	search={this.state.search} />
+					    </div>
+				    }
+				    {this.state.or.length > 0 &&
+				    	<div>
+				        	<h3 className="text-center">Or Search Results</h3>
+				        	<ModelList 
+				        		models={this.state.or}
+				        		page={this.current_page}
+				        		search={this.state.search} />
+				        </div>
+				    }
 					<div key="pages" className="col-md-12 text-center">
 						<Pages 
 							current_page={this.state.current_page}
