@@ -9,11 +9,6 @@ from models import Planet, Star, Satellite, Galaxy, Image
 
 def connect_db(flask_app):
     db_URI = os.getenv('SQLALCHEMY_DATABASE_URI_SPACECOWBOYS')
-    
-from models import Planet, Star, Satellite, Galaxy
-
-def connect_db(flask_app):
-    db_URI = os.getenv('SQLALCHEMY_DATABASE_URI_SPACECOWBOYS')
     flask_app.config['WHOOSHEE_MIN_STRING_LEN'] = 1
     
     if db_URI == None :
