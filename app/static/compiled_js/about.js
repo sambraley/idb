@@ -176,7 +176,7 @@ var Github_Member = function (_React$Component) {
 			fetch(_this.props.url + commits).then(function (r) {
 				return r.json();
 			}).then(function (data) {
-				return _this.count_commits(data);
+				return _this.count_commits(data, _this.props.url + commits, 1);
 			}).catch(function (e) {
 				return console.log(e);
 			});
@@ -194,9 +194,21 @@ var Github_Member = function (_React$Component) {
 
 	_createClass(Github_Member, [{
 		key: "count_commits",
-		value: function count_commits(json) {
+		value: function count_commits(json, url, page) {
+			var _this2 = this;
+
 			this.state.commits += json.length;
 			this.forceUpdate();
+			page += 1;
+			if (json.length == 100) {
+				fetch(url + "&page=" + page).then(function (r) {
+					return r.json();
+				}).then(function (data) {
+					return _this2.count_commits(data, url, page);
+				}).catch(function (e) {
+					return console.log(e);
+				});
+			}
 		}
 	}, {
 		key: "count_issues",
