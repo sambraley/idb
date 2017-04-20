@@ -139,7 +139,7 @@ def search_page():
 @app.route('/visualization')
 def visualize():
     script = "/static/js/" + request.args["graph"] + ".js"
-    return render_template('visualization.html', title='visualization', script=script)
+    return render_template('visualization.html', title='Visualization', script=script)
 
 @app.route('/api/v1/search')
 def search_api():
