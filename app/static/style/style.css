@@ -153,13 +153,10 @@ Used to see the borders of the grid
 	border: 1px solid red !important;
 } */
 
-/* ============================================================================================== 
-Stars by
-
-Nick Mkrtchyan
-http://www.facebook.com/sonick.pk
-http://www.Mkrtchyan.zz.mu
-================================================================================================= */
+/* =========================================================== 
+Stars adapted from code by Nick Mkrtchyan found here: 
+https://codepen.io/WebSonick/pen/vjmgu
+=============================================================*/
 @keyframes move-twink-back {
     from {background-position:0 0;}
     to {background-position:-10000px 5000px;}
@@ -178,7 +175,7 @@ http://www.Mkrtchyan.zz.mu
 }
 
 .stars, .twinkling {
-  position:absolute;
+  position:fixed;
   top:0;
   left:0;
   right:0;
@@ -194,7 +191,7 @@ http://www.Mkrtchyan.zz.mu
 }
 
 .twinkling{
-  background:transparent url(/static/images/twinkling.png) repeat top center;
+  background:transparent url(/static/images/twinkling.png) repeat top left;
   z-index:-1;
 
   -moz-animation:move-twink-back 1100s linear infinite;
