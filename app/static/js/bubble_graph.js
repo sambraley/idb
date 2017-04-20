@@ -18,10 +18,6 @@ var svg = d3.select('#graph').append('svg')
 
 var bubble = d3.pack()
   .size([diameter, diameter])
-  // .value(function(d) {return d.size;})
-   // .sort(function(a, b) {
-  //  return -(a.value - b.value)
-  // }) 
   .padding(3);
 
 var all_artists = [];

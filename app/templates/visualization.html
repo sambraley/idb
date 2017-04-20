@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container content-container" id="react-visualize">
+<div class="content-container container">
+	<h1 class="text-center">Boswemian Visualizations</h1>
+	<div class="dropdown">
+	    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose a visualization
+	    <span class="caret"></span></button>
+	    <ul class="dropdown-menu">
+	        <li><a href="/visualization?graph=bubble_graph">Bubble Visualization of Albums</a></li>
+	        <li><a href="/visualization?graph=adjacency_graph">Adjacency Matrix of Artists and Venues</a></li>
+	        <li><a href="/visualization?graph=geo_map">Geographic Map for Concerts</a></li>
+	    </ul>
+	</div>
 </div>
-<script src="{{ url_for('static', filename='compiled_js/visualize.js') }}"></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="{{ url_for('static', filename='js/bubble_graph.js') }}"></script>
-<!DOCTYPE html>
+<script src="{{script}}"></script>
 {% endblock %}
