@@ -1,5 +1,4 @@
-import NavBar from './../components/nav_bar';
-import ModelList from './../components/models_list';
+import SearchList from './../components/search_list.jsx';
 import ModelTitle from './../components/model_title';
 import Pages from './../components/pages';
 import "isomorphic-fetch";
@@ -40,7 +39,7 @@ class App extends React.Component {
 	}	
 
 	getModels() {
-		var url = "/api/v1/search?page=" + this.state.current_page + "&results_per_page=6&q=" + this.state.search;
+		var url = "/api/v1/search?page=" + this.state.current_page + "&results_per_page=10&q=" + this.state.search;
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {
@@ -103,30 +102,29 @@ class App extends React.Component {
 								onPageSelect={this.changePage.bind(this)} />
 						</div>
 					</div>
-					{this.state.models.length > 0 &&
-				        <ModelList 
-				        	models={this.state.models}
-				        	page={this.current_page}
-				        	search={this.state.search} />
-				    }
-				    {this.state.and.length > 0 &&
-				    	<div>
-					        <h3 className="text-center">And Search Results</h3>
-					        <ModelList 
-					        	models={this.state.and}
-					        	page={this.current_page}
+					<div className="col-md-offset-3 col-md-6 col-xs-offset-3 col-sm-offset-3 col-sm-6 col-xs-6">
+						{this.state.models.length > 0 &&
+					        <SearchList 
+					        	models={this.state.models}
 					        	search={this.state.search} />
-					    </div>
-				    }
-				    {this.state.or.length > 0 &&
-				    	<div>
-				        	<h3 className="text-center">Or Search Results</h3>
-				        	<ModelList 
-				        		models={this.state.or}
-				        		page={this.current_page}
-				        		search={this.state.search} />
-				        </div>
-				    }
+					    }
+					    {this.state.and.length > 0 &&
+					    	<div>
+						        <h3 className="text-center">And Search Results</h3>
+						        <SearchList 
+						        	models={this.state.and}
+						        	search={this.state.search} />
+						    </div>
+					    }
+					    {this.state.or.length > 0 &&
+					    	<div>
+					        	<h3 className="text-center">Or Search Results</h3>
+					        	<SearchList 
+					        		models={this.state.or}
+					        		search={this.state.search} />
+					        </div>
+					    }
+				    </div>
 					<div key="pages" className="col-md-12 text-center">
 						<Pages 
 							current_page={this.state.current_page}

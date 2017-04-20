@@ -77,7 +77,13 @@ mark {
 #test-link {
 	cursor: pointer;
 }
-@media (max-width: 970px) {
+.search-item {
+  margin: 25px;
+}
+/*.attributes {
+  margin-left: 20px;
+}*/
+@media (max-width: 992px) {
   .navbar-header {
       float: none;
   }
