@@ -6,10 +6,13 @@ body {
   background-color: #000000;
   font-family: 'Montserrat', sans-serif;
 }
-mark {
+.mark, mark {
   background-color: yellow;
   padding: 0px;
   color: inherit;
+}
+inline {
+  display: inline-block;
 }
 
 .navbar-default {

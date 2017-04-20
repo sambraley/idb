@@ -29,7 +29,8 @@ def in_solar_system(name):
             name == "Uranus" or
             name == "Neptune" or
             name == "Pluto" or
-            name == "Sun")
+            name == "Sun" or 
+            name == "Milky Way")
 
 ####################
 # Misc. Page Routing
@@ -121,7 +122,11 @@ def galaxies_table():
 
 @app.route('/galaxies/<int:galaxy_id>')
 def galaxy_instance(galaxy_id):
-    return render_template('galaxy.html', galaxy=Galaxy.query.get(galaxy_id))
+    galaxy = Galaxy.query.get(galaxy_id)
+    galaxy_name = galaxy.to_dict()["name"]
+    if in_solar_system(galaxy_name):
+        return render_template('sol_galaxy.html', galaxy=galaxy)
+    return render_template('galaxy.html', galaxy=galaxy)
 
 @app.route('/run_tests')
 def run_tests(): # pragma: no cover
