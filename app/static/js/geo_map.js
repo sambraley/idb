@@ -15,14 +15,14 @@ var path = d3.geo.path()
 
 var g = svg.append("g");
 
-var is_data = true;
 var all_concerts = [];
-var i = 0;
+var venues = []
+var max_size = 1;
 
 // while(is_data){
 function pull_concerts(page){
 
-	$.getJSON( "http://boswemianrhapsody.me/api/concerts?results_per_page=100&page="+page, function( data ) {
+	$.getJSON("http://boswemianrhapsody.me/api/concerts?results_per_page=100&page="+page, function( data ) {
 		all_concerts = all_concerts.concat(data.objects);
 		if (data.total_pages !== page) {
 		  	pull_concerts(page + 1);
@@ -37,6 +37,39 @@ pull_concerts(1);
 
 // load and display the World
 function processData() {
+    
+    for (i = 0; i < all_concerts.length; i++) {
+        
+        var venue_index = -1;
+        
+        for (j = 0; j < venues.length; j++) {
+            if (venues[j].name == all_concerts[i].venue.name) {
+                venue_index = j;
+                break;
+            }
+        }
+        
+        if (venue_index != -1) {
+            venues[venue_index].size += 1;
+        } else {
+            venue = all_concerts[i].venue;
+            venue.size = 1
+            venues[venues.length] = venue;
+        }
+    }
+    
+    for (i = 0; i < venues.length; i++) {
+        if (venues[i].size > max_size) {
+            max_size = venues[i].size;
+        }
+    }
+    
+    venues.sort(function (v1, v2){
+       return v2.size - v1.size;
+    });
+    
+    console.log(venues);
+    
 	d3.json("/static/csv/world-110m2.json", function(error, topology) {
         g.selectAll("path")
               .data(topojson.object(topology, topology.objects.countries)
@@ -46,21 +79,25 @@ function processData() {
               .attr("d", path);
         
         g.selectAll("circle")
-           .data(all_concerts)
+           .data(venues)
            .enter()
            .append("a")
                       .attr("xlink:href", function(d) {
-                          return "https://www.google.com/search?q="+d.venue.city;}
+                          return "https://www.google.com/search?q="+d.name;}
                       )
            .append("circle")
            .attr("cx", function(d) {
-                   return projection([d.venue.longitude, d.venue.latitude])[0];
+                   return projection([d.longitude, d.latitude])[0];
            })
            .attr("cy", function(d) {
-                   return projection([d.venue.longitude, d.venue.latitude])[1];
+                   return projection([d.longitude, d.latitude])[1];
            })
-           .attr("r", 5)
-           .style("fill", "red");
+           .attr("r", function(d) {
+                   return 20 * (d.size / max_size) > 7 ? 7 : 15 * (d.size / max_size);
+           })
+           .style("fill", "red")
+           .attr("stroke","black")
+           .attr("stroke-width", ".1");
 	});
 }
 
