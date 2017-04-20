@@ -189,7 +189,7 @@ http://www.Mkrtchyan.zz.mu
 }
 
 .stars {
-  background:#000 url(/static/images/stars.png) repeat top center;
+  background:#000 url(/static/images/stars.png) repeat top left;
   z-index:-2;
 }
 
@@ -197,9 +197,9 @@ http://www.Mkrtchyan.zz.mu
   background:transparent url(/static/images/twinkling.png) repeat top center;
   z-index:-1;
 
-  -moz-animation:move-twink-back 2000s linear infinite;
-  -ms-animation:move-twink-back 2000s linear infinite;
-  -o-animation:move-twink-back 2000s linear infinite;
-  -webkit-animation:move-twink-back 2000s linear infinite;
-  animation:move-twink-back 2000s linear infinite;
+  -moz-animation:move-twink-back 1100s linear infinite;
+  -ms-animation:move-twink-back 1100s linear infinite;
+  -o-animation:move-twink-back 1100s linear infinite;
+  -webkit-animation:move-twink-back 1100s linear infinite;
+  animation:move-twink-back 1100s linear infinite;
 }
