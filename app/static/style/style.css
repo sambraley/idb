@@ -8,6 +8,8 @@ body {
 }
 mark {
   background-color: yellow;
+  padding: 0px;
+  color: inherit;
 }
 
 .navbar-default {
@@ -80,9 +82,9 @@ mark {
 .search-item {
   margin: 25px;
 }
-/*.attributes {
-  margin-left: 20px;
-}*/
+.search-button {
+  height: 40px;
+}
 @media (max-width: 992px) {
   .navbar-header {
       float: none;
