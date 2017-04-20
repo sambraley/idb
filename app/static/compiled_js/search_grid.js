@@ -5,6 +5,109 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactHighlightWords = require("react-highlight-words");
+
+var _reactHighlightWords2 = _interopRequireDefault(_reactHighlightWords);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ModelListItem = function (_React$Component) {
+	_inherits(ModelListItem, _React$Component);
+
+	function ModelListItem(props) {
+		_classCallCheck(this, ModelListItem);
+
+		var _this = _possibleConstructorReturn(this, (ModelListItem.__proto__ || Object.getPrototypeOf(ModelListItem)).call(this, props));
+
+		var base_url = "/" + _this.props.model.model_type + "/";
+		var link = base_url + _this.props.model.pid;
+		if (_this.props.search !== undefined) {
+			link += "?q=" + _this.props.search;
+		}
+		_this.state = {
+			style: {
+				width: '400px',
+				height: '400px'
+			},
+			image_url: "/undefined",
+			link: link
+		};
+		var image_url = "/api/v1" + base_url + _this.props.model.pid + "/image";
+		fetch(image_url).then(function (response) {
+			return response.json();
+		}).then(function (responseJson) {
+			if (responseJson.img_url === "satellite.png") {
+				_this.setState({
+					image_url: '/static/images/satellite_default.jpg'
+				});
+			} else {
+				_this.setState({
+					image_url: responseJson.img_url
+				});
+			}
+		}).catch(function (error) {
+			console.error(error);
+		});
+		_this.default = _this.default.bind(_this);
+		return _this;
+	}
+
+	_createClass(ModelListItem, [{
+		key: "highlight",
+		value: function highlight(name, search) {
+			if (search === undefined) {
+				search = "";
+			}
+			search = search.split('+');
+
+			return React.createElement(_reactHighlightWords2.default, { className: "h3", searchWords: search, textToHighlight: name });
+		}
+	}, {
+		key: "default",
+		value: function _default() {
+			this.setState({
+				image_url: '/static/images/satellite_default.jpg'
+			});
+		}
+	}, {
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "col-lg-4 col-md-6 col-sm-12 text-center model-list-item" },
+				React.createElement(
+					"a",
+					{ href: this.state.link },
+					React.createElement("img", { className: "img-thumbnail about-image", style: this.state.style, src: this.state.image_url, onError: this.default }),
+					React.createElement("br", null),
+					this.highlight(this.props.model.name, this.props.search)
+				)
+			);
+		}
+	}]);
+
+	return ModelListItem;
+}(React.Component);
+
+;
+
+exports.default = ModelListItem;
+
+},{"react-highlight-words":18}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var ModelTitle = function ModelTitle(_ref) {
 	var title = _ref.title;
 
@@ -25,7 +128,33 @@ var ModelTitle = function ModelTitle(_ref) {
 
 exports.default = ModelTitle;
 
-},{}],2:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _model_list_item = require("./model_list_item");
+
+var _model_list_item2 = _interopRequireDefault(_model_list_item);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ModelList = function ModelList(props) {
+	var modelItem = props.models.map(function (model) {
+		return React.createElement(_model_list_item2.default, { model: model, search: props.search });
+	});
+	return React.createElement(
+		"div",
+		{ className: "row" },
+		modelItem
+	);
+};
+
+exports.default = ModelList;
+
+},{"./model_list_item":1}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -63,7 +192,7 @@ var PageItem = function PageItem(_ref) {
 };
 exports.default = PageItem;
 
-},{}],3:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -152,137 +281,14 @@ var Pages = function Pages(_ref) {
 
 exports.default = Pages;
 
-},{"./page_item":2}],4:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _search_list_item = require("./search_list_item.jsx");
-
-var _search_list_item2 = _interopRequireDefault(_search_list_item);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var SearchList = function SearchList(props) {
-	var searchItem = props.models.map(function (model) {
-		return React.createElement(_search_list_item2.default, { model: model, search: props.search });
-	});
-	return React.createElement(
-		"div",
-		{ className: "row" },
-		searchItem
-	);
-};
-
-exports.default = SearchList;
-
-},{"./search_list_item.jsx":5}],5:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _reactHighlightWords = require("react-highlight-words");
-
-var _reactHighlightWords2 = _interopRequireDefault(_reactHighlightWords);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SearchListItem = function (_React$Component) {
-	_inherits(SearchListItem, _React$Component);
-
-	function SearchListItem(props) {
-		_classCallCheck(this, SearchListItem);
-
-		var _this = _possibleConstructorReturn(this, (SearchListItem.__proto__ || Object.getPrototypeOf(SearchListItem)).call(this, props));
-
-		console.log(props.model);
-		var base_url = "/" + _this.props.model.model_type + "/";
-		var link = base_url + _this.props.model.pid;
-		if (_this.props.search !== undefined) {
-			link += "?q=" + _this.props.search;
-		}
-		_this.state = {
-			link: link
-		};
-		return _this;
-	}
-
-	_createClass(SearchListItem, [{
-		key: "highlight",
-		value: function highlight(text, search, className) {
-			if (search === undefined) {
-				search = "";
-			}
-			search = search.split('+');
-
-			return React.createElement(_reactHighlightWords2.default, { className: className, searchWords: search, textToHighlight: text });
-		}
-	}, {
-		key: "render",
-		value: function render() {
-			return React.createElement(
-				"div",
-				{ className: "search-item" },
-				React.createElement(
-					"a",
-					{ href: this.state.link },
-					this.highlight(this.props.model.name, this.props.search, "h3")
-				),
-				React.createElement(
-					"div",
-					{ className: "attributes" },
-					this.props.model.model_type === "satellites" && React.createElement(
-						"p",
-						null,
-						"Model Type: Satellite"
-					),
-					this.props.model.model_type === "planets" && React.createElement(
-						"p",
-						null,
-						"Model Type: Planet"
-					),
-					this.props.model.model_type === "galaxies" && React.createElement(
-						"p",
-						null,
-						"Model Type: Galaxy"
-					),
-					this.props.model.model_type === "stars" && React.createElement(
-						"p",
-						null,
-						"Model Type: Star"
-					)
-				)
-			);
-		}
-	}]);
-
-	return SearchListItem;
-}(React.Component);
-
-;
-
-exports.default = SearchListItem;
-
-},{"react-highlight-words":18}],6:[function(require,module,exports){
+},{"./page_item":4}],6:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _search_list = require('./../components/search_list.jsx');
+var _models_list = require('./../components/models_list');
 
-var _search_list2 = _interopRequireDefault(_search_list);
+var _models_list2 = _interopRequireDefault(_models_list);
 
 var _model_title = require('./../components/model_title');
 
@@ -347,11 +353,10 @@ var App = function (_React$Component) {
 		value: function getModels() {
 			var _this2 = this;
 
-			var url = "/api/v1/search?page=" + this.state.current_page + "&results_per_page=10&q=" + this.state.search;
+			var url = "/api/v1/search?page=" + this.state.current_page + "&results_per_page=12&q=" + this.state.search;
 			fetch(url).then(function (response) {
 				return response.json();
 			}).then(function (responseJson) {
-				console.log(responseJson);
 				if (responseJson.objects === undefined) {
 					_this2.setState({
 						models: [],
@@ -420,36 +425,32 @@ var App = function (_React$Component) {
 							onPageSelect: this.changePage.bind(this) })
 					)
 				),
-				React.createElement(
+				this.state.models.length > 0 && React.createElement(_models_list2.default, {
+					models: this.state.models,
+					search: this.state.search }),
+				this.state.and.length > 0 && React.createElement(
 					'div',
-					{ className: 'col-md-offset-3 col-md-6 col-xs-offset-3 col-sm-offset-3 col-sm-6 col-xs-6' },
-					this.state.models.length > 0 && React.createElement(_search_list2.default, {
-						models: this.state.models,
-						search: this.state.search }),
-					this.state.and.length > 0 && React.createElement(
-						'div',
-						null,
-						React.createElement(
-							'h3',
-							{ className: 'text-center' },
-							'And Search Results'
-						),
-						React.createElement(_search_list2.default, {
-							models: this.state.and,
-							search: this.state.search })
+					null,
+					React.createElement(
+						'h3',
+						{ className: 'text-center' },
+						'And Search Results'
 					),
-					this.state.or.length > 0 && React.createElement(
-						'div',
-						null,
-						React.createElement(
-							'h3',
-							{ className: 'text-center' },
-							'Or Search Results'
-						),
-						React.createElement(_search_list2.default, {
-							models: this.state.or,
-							search: this.state.search })
-					)
+					React.createElement(_models_list2.default, {
+						models: this.state.and,
+						search: this.state.search })
+				),
+				this.state.or.length > 0 && React.createElement(
+					'div',
+					null,
+					React.createElement(
+						'h3',
+						{ className: 'text-center' },
+						'Or Search Results'
+					),
+					React.createElement(_models_list2.default, {
+						models: this.state.or,
+						search: this.state.search })
 				),
 				React.createElement(
 					'div',
@@ -468,7 +469,7 @@ var App = function (_React$Component) {
 
 ReactDOM.render(React.createElement(App, null), document.querySelector('.content-container'));
 
-},{"./../components/model_title":1,"./../components/pages":3,"./../components/search_list.jsx":4,"isomorphic-fetch":11}],7:[function(require,module,exports){
+},{"./../components/model_title":2,"./../components/models_list":3,"./../components/pages":5,"isomorphic-fetch":11}],7:[function(require,module,exports){
 "use strict";
 
 /**
