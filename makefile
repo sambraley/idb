@@ -61,9 +61,9 @@ install:
 TestIDB.tmp: app/models.py app/test.py .pylintrc
 	-$(PYLINT) app/test.py
 	-$(PYLINT) app/models.py
-	-$(COVERAGE) run app/test.py >  TestIDB.tmp 2>&1  
-	-$(COVERAGE) report -m                      >> TestIDB.tmp 
-	-cat TestIDB.tmp
+	cd app; $(COVERAGE) run test.py >  TestIDB.tmp 2>&1
+	cd app; $(COVERAGE) report -m                      >> TestIDB.tmp 
+	cd app; cat TestIDB.tmp
 
 build:
 	sh compile.sh
@@ -91,7 +91,7 @@ clean:
 	rm -f  .coverage
 	rm -f  .pylintrc
 	rm -f  *.pyc
-	rm -f  TestIDB.tmp
+	rm -f  app/TestIDB.tmp
 	rm -rf __pycache__
 	rm -rf node_modules
 

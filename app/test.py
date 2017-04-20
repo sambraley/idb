@@ -6,17 +6,16 @@
 # pylint: disable = no-member
 # pylint: disable = pointless-string-statement
 
-
 from unittest import main, TestCase
 from flask import Flask
+from idb import app
 from test_models import test_db, Satellite, Star, Galaxy, Planet, Image
 
 test_app = Flask(__name__)
 test_app.config["SQLACLHEMY_DATABASE_URI"] = "sqlite:///:memory:"
 test_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-
 test_db.init_app(test_app)
+
 with test_app.app_context():
     test_db.create_all()
 
@@ -37,6 +36,61 @@ galaxy_data = {"name": "dummy_galaxy", "morph_type": "Spiral", "size": 1.227, "d
 img_data = {"img_url" : "URL"}
 
 class TestModels (TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+        self.app.testing = True
+
+    def test_home_status_code(self):
+        result = self.app.get("/")
+        self.assertEqual(result.status_code, 200)
+
+    def test_about_status_code(self):
+        result = self.app.get("/about")
+        self.assertEqual(result.status_code, 200)
+
+    def test_report_status_code(self):
+        result = self.app.get("/report")
+        self.assertEqual(result.status_code, 200)
+
+    def test_satellites_status_code(self):
+        result = self.app.get("/satellites")
+        self.assertEqual(result.status_code, 200)
+
+    def test_satellites_instance_status_code(self):
+        result = self.app.get("/satellites/1")
+        self.assertEqual(result.status_code, 200)
+
+    def test_planets_status_code(self):
+        result = self.app.get("/planets")
+        self.assertEqual(result.status_code, 200)
+
+    def test_planets_instance_status_code(self):
+        result = self.app.get("/planets/1")
+        self.assertEqual(result.status_code, 200)
+
+    def test_stars_status_code(self):
+        result = self.app.get("/stars")
+        self.assertEqual(result.status_code, 200)
+
+    def test_stars_instance_status_code(self):
+        result = self.app.get("/stars/1")
+        self.assertEqual(result.status_code, 200)
+
+    def test_galaxies_status_code(self):
+        result = self.app.get("/galaxies")
+        self.assertEqual(result.status_code, 200)
+
+    def test_galaxies_instance_status_code(self):
+        result = self.app.get("/galaxies/1")
+        self.assertEqual(result.status_code, 200)
+
+    def test_search_status_code(self):
+        result = self.app.get("/search")
+        self.assertEqual(result.status_code, 200)
+
+    def test_visualization_status_code(self):
+        result = self.app.get("/visualization")
+        self.assertEqual(result.status_code, 200)
 
     def test_galaxy_dictionary(self):
         """

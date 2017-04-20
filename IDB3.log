@@ -1,3 +1,287 @@
+commit e01d5fa8ef94dca1918a14e81e017f82ed431a3c
+Merge: c1b6cc6 e22aed3
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 00:58:52 2017 -0500
+
+    Merge pull request #89 from samuelbraley/scott-bg
+    
+    Merge new background for the website
+
+commit e22aed388bbba21f262a24f586529215680cd7ea
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 00:57:03 2017 -0500
+
+    Changes bg from absolute to fixed
+
+commit 509114b30be2c238464a45faea86e3c858f7c541
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Wed Apr 19 23:41:50 2017 -0500
+
+    Updated bg
+
+commit 30138d67b953db80d9db7289149ba7414e0606f6
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Wed Apr 19 23:17:53 2017 -0500
+
+    Changes the background
+
+commit c1b6cc60efacdc6371e243b31265da8659671423
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Wed Apr 19 22:44:46 2017 -0500
+
+    Reverted the search grid
+
+commit 5c693b0338c3c224b6cf6075b7c553307daf9fc5
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Wed Apr 19 21:28:23 2017 -0500
+
+    Changed styling a little bit.
+
+commit c0e95d0fc3df37e3c7e27bbb40149aa022fac01a
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Wed Apr 19 21:13:13 2017 -0500
+
+    Changed the way search results are shown.
+
+commit e08e68d68323122bbe819bec3492d498c69c9c51
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Wed Apr 19 10:41:16 2017 -0500
+
+    Fixed the problem where commit count was over 100.
+
+commit 5b486b9a0f8713d59d3d08a8881f903bd70709aa
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Wed Apr 19 10:36:30 2017 -0500
+
+    Changed the font and mark background-color
+
+commit 64ec1f11d62bbdb2e9f68e6ebe53e26e3e3024a5
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Wed Apr 19 09:40:52 2017 -0500
+
+    Added Restless and Whooshee to tools list
+
+commit 1703a645aefefeef026d5dfdae09a20ca9aa4294
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Tue Apr 18 23:09:37 2017 -0500
+
+    Removed a duplicate definition which was likely caused by a bad merge
+
+commit 772ec973862409033e8bd5785ae67ba0857232a4
+Merge: 01a08ab 8fe87ce
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 18 22:28:10 2017 -0500
+
+    Resolving merge.
+
+commit 01a08abd27dfdeba1a2c47f23e69720e7dff7b1f
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 18 22:24:11 2017 -0500
+
+    Fixed a werid multi-line issue with the grid.
+
+commit 8fe87ce16ca77ea092dabc170d55d3213acbc387
+Merge: f1619da cebd325
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Tue Apr 18 22:13:08 2017 -0500
+
+    Merge pull request #86 from samuelbraley/issue-83
+    
+    Issue 83
+
+commit cebd3250cf9969076679a3d059752b7d6dac1a0c
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 18 22:06:31 2017 -0500
+
+    fixed the issue.
+
+commit f1619da55fc1c04458248d46ffad7d9f1a93d37c
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 22:05:37 2017 -0500
+
+    Update apiary with new models and search for #64
+
+commit f5e011b00fec0a8e49312fa3d8e94f851267c324
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 18 21:42:12 2017 -0500
+
+    Frontend search stuff is done.
+
+commit 364dabb26067c872398e2a807316514d1bbd1b19
+Merge: bf98ad4 bd55479
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 18 21:29:35 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit bd554798fd667f8b3f6d443713a9392facae3938
+Merge: f0dcb85 ab87400
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Tue Apr 18 18:35:27 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit f0dcb852c03f4e505d333a1a65aca951f8925f7a
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Tue Apr 18 18:31:58 2017 -0500
+
+    Fixed tests to work with new models.
+
+commit 1b7f109f74ce68cccec9785872a391596a2174fa
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 17:48:14 2017 -0500
+
+    Possible defualt image solution
+
+commit ab87400a088ee2ad98324a6dae5af312b324e855
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Tue Apr 18 17:48:08 2017 -0500
+
+    Fixed some minor grammar issues
+
+commit 3f4caf8e9686fe0dc520040e3a7e2e540dfebc8c
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 17:18:53 2017 -0500
+
+    Fixed broken links
+
+commit c7082bd05cffa25c1b21c4c41a18455ee5caea83
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 17:18:35 2017 -0500
+
+    Fixes missing satellite images
+
+commit 5172c4043bfd4b5879be9e078e93ae0377c81d42
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Tue Apr 18 17:09:09 2017 -0500
+
+    Adds units to planets in our solar system
+
+commit 19960113c8682838d1baf690956e434f92cdc3dc
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Tue Apr 18 17:07:54 2017 -0500
+
+    Fixes issue where the website would attempt to load the sun as a planet
+
+commit 7aa2f5c93b00eb089b6d486de819ae4e20248c5e
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Tue Apr 18 16:57:07 2017 -0500
+
+    Angel tears
+
+commit 15b12b36fc449cbd8aa7f7ce226197e27994d359
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 16:30:55 2017 -0500
+
+    Formatted idb
+
+commit fceeab052b24264b826431cd4b5e098058a6e2a5
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 16:13:32 2017 -0500
+
+    Added Maven and Juno
+
+commit 5868688bfe0e55a148f81a3e19fb6e283290b9c0
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 15:48:23 2017 -0500
+
+    Added routing for solar system planets
+
+commit 751c6fb51026f354c62877328f31ed12cb698310
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 15:20:54 2017 -0500
+
+    Added Pluto cause screw the scientific community
+
+commit ea2f898eecf2d048355d4098812d750bca123428
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 15:13:41 2017 -0500
+
+    Added Uranus and Neptune
+
+commit b79ffdf2a56cbc12f40f900a1ed2b22bf7ff8674
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 14:58:21 2017 -0500
+
+    Added Saturn
+
+commit bf98ad4ae3f75d5d0758e8b51e48732501d7bfb8
+Merge: 4db2e3c cf7eb3b
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 18 14:56:26 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 70e5b4a58661b49fcf0b118bb1b6bb97f013c78e
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 14:46:36 2017 -0500
+
+    Added Mars
+
+commit 9e9c7418ee1fd951629bb1203b92d41771e838be
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 14:39:26 2017 -0500
+
+    Added Venus
+
+commit f7db48222f3b0b156e7190b1c9f15a031458508c
+Merge: 32d5ae6 8d8ebed
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 14:31:29 2017 -0500
+
+    Rebased off develop
+
+commit 32d5ae655da3db617903318ace829150b8bf890a
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 14:25:16 2017 -0500
+
+    Added Mercury
+
+commit 383907fd67c3c9ac5fdc636a1f011e26a564ba14
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 14:13:23 2017 -0500
+
+    Ignoring scraped data
+
+commit 21f750c55e2a26da0534abdefa9dc0557a0ae821
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 13:58:58 2017 -0500
+
+    Added Jupiter
+
+commit 4db2e3c3082198464fe593ce4cf995edd198b1e2
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Tue Apr 18 14:25:34 2017 -0500
+
+    Started with the d3 stuff.
+
+commit cf7eb3b9d832b7f3348d0131f541e5d823a44304
+Merge: 1fff927 41debda
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Tue Apr 18 14:07:39 2017 -0500
+
+    Merge pull request #85 from samuelbraley/scott-search
+    
+    Merging backend conjunction/disjunction search
+
+commit 8d8ebed67aaf355e34f42edc82fa8d289dc2f9f9
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Tue Apr 18 13:58:58 2017 -0500
+
+    Added Jupiter
+
+commit 41debdaabdf4a535cce35a88749c8bbc26c23109
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Tue Apr 18 13:55:51 2017 -0500
+
+    API now splits and and or results for multi-word search
+
+commit 38d44dd7655a28dd834e3374f68f617b80d9ba97
+Author:  <farrior@Midgard.localdomain>
+Date:   Tue Apr 18 12:18:36 2017 -0500
+
+    Moved search in to its own module
+
 commit 1fff927320ed349cadd962337a24348ddb154410
 Author: Taben Malik <tabenjmalik@gmail.com>
 Date:   Mon Apr 17 18:02:18 2017 -0500

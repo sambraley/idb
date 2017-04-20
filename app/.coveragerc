@@ -2,3 +2,4 @@
 omit =
     */site-packages/*
     */dist-packages/*
+    lib/search_db.py
