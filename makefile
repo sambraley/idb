@@ -64,7 +64,7 @@ install:
 TestIDB.tmp: app/models.py app/test.py app/.pylintrc
 	$(PYLINT) app/test.py
 	$(PYLINT) app/models.py
-	-$(COVERAGE) run test.py >  TestIDB.tmp 2>&1
+	-$(COVERAGE) run app/test.py >  TestIDB.tmp 2>&1
 	-$(COVERAGE) report -m                      >> TestIDB.tmp 
 	-cat TestIDB.tmp
 
