@@ -470,7 +470,7 @@ var React_Tests = function (_React$Component) {
           React.createElement(
             "a",
             { href: "/visualization" },
-            "Visualizations of BoswemianRhapsody.me"
+            "Visualization of BoswemianRhapsody.me"
           )
         ),
         React.createElement(
