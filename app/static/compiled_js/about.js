@@ -469,7 +469,7 @@ var React_Tests = function (_React$Component) {
           { className: "col-md-4 text-center" },
           React.createElement(
             "a",
-            { href: "/visualization" },
+            { href: "http://spacecowboys.me/visualization" },
             "Visualization of BoswemianRhapsody.me"
           )
         ),

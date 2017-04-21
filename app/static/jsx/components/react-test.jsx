@@ -37,7 +37,7 @@ class React_Tests extends React.Component {
     		  		<a id="test-link" data-toggle="modal" data-target="#myModal" onClick={this.run_tests}>Run Unit Tests</a>
     		  	</div>
                 <div className="col-md-4 text-center">
-                    <a href="/visualization">Visualization of BoswemianRhapsody.me</a>
+                    <a href="http://spacecowboys.me/visualization">Visualization of BoswemianRhapsody.me</a>
                 </div>
                 <div className="col-md-4 text-center">
                     <a href="https://docs.google.com/presentation/d/1X3319oG1hl4gFnTlD0G0pJLM1jfPCXxaoxlEnKwb6Qc/edit?usp=sharing">Presentation</a>
