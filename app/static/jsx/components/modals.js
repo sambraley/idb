@@ -1,17 +1,17 @@
 import selectOption from './select_options';
 
 const attrs = {
-	"planets": ["mass", "diameter", "gravity", "temperature"],
+	"planets": ["diameter", "gravity", "mass"],
 	"galaxies": ["size"],
-	"stars": ["name", "diameter", "temperature"],
-	"satellites": ["name", "agency", "mission_type", "year_launched"]
+	"stars": ["mass", "diameter"],
+	"satellites": ["year_launched"]
 };
-const ops = ["<", "<=", ">", ">=", "==", "!="];
+const ops = ["<", "<=", ">", ">=", "!="];
 const compareTo = {
-	"planets": ["Jupiter"],
-	"galaxies": ["1"],
-	"stars": ["name", "diameter", "temperature"],
-	"satellites": ["name", "agency", "mission_type", "year_launched"]
+	"planets": [1.0],
+	"galaxies": [1.0],
+	"stars": [1.0],
+	"satellites": [2012]
 };
 
 
@@ -45,14 +45,21 @@ class Modals extends React.Component {
 		});
 	}
 	onHandleChange3(event) {
+		var v3 = 1;
 		console.log("inside handle change 2 " + event.target.value);
+		if (this.state.modelType == "satellites") {
+			v3 = parseInt(event.target.value);
+		}
+		console.log(v3);
 		this.setState({
-			value3: event.target.value
+			value3: v3
 		});
 	}		
 
 	render () {
-		return (
+		console.log(this.state.modelType);
+		if (this.state.modelType === "planets"){
+			return (
 				<div>
 	  				<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal" >Filter By</button>
 	  				<div id="myModal" className="modal fade" role="dialog">
@@ -66,20 +73,18 @@ class Modals extends React.Component {
 							      		<div className="form-group">
 							      			<label>Attribute: 
 								      			<select className="form-control" onChange={this.onHandleChange1} >
-												  <option value="mass">Temperature</option>
-												  <option value="diameter">Diameter</option>
-												  <option value="gravity">Gravity</option>
-												  <option value="temperature">Mass</option>
+													<option value="diameter">Diameter</option>
+												  	<option value="gravity">Gravity</option>
+												  	<option value="mass">Mass</option>
 												</select>
 											</label>
 											<label>Operation: 
 												<select className="form-control"  onChange={this.onHandleChange2} >
-												  <option value="<">Less Than</option>
-												  <option value="<=">Less Than or Equal To</option>
-												  <option value=">">Greater Than</option>
-												  <option value=">=">Greater Than or Equal To</option>
-												  <option value="==">Equal To</option>
-												  <option value="!=">Not Equal To</option>
+											 		<option value="<">Less Than</option>
+												  	<option value="<=">Less Than or Equal To</option>
+												  	<option value=">">Greater Than</option>
+												  	<option value=">=">Greater Than or Equal To</option>
+												  	<option value="!=">Not Equal To</option>
 												</select>
 											</label>
 											<label>Compare To: 
@@ -98,6 +103,147 @@ class Modals extends React.Component {
 					</div>
 				</div>
 				);
+		}
+		if (this.state.modelType === "galaxies") {
+			return (
+				<div>
+	  				<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal" >Filter By</button>
+	  				<div id="myModal" className="modal fade" role="dialog">
+				  		<div className="modal-dialog">
+				    		<div className="modal-content">
+				      			<div className="modal-header">
+					        		<button type="button" className="close" data-dismiss="modal">&times;</button>
+					        		<h4 className="modal-title">Filtering</h4>
+					      		</div>
+					      		<div className="modal-body">
+							      		<div className="form-group">
+							      			<label>Attribute: 
+								      			<select className="form-control" onChange={this.onHandleChange1} >
+												  <option value="size">Size</option>
+												</select>
+											</label>
+											<label>Operation: 
+												<select className="form-control"  onChange={this.onHandleChange2} >
+												  <option value="<">Less Than</option>
+												  <option value="<=">Less Than or Equal To</option>
+												  <option value=">">Greater Than</option>
+												  <option value=">=">Greater Than or Equal To</option>
+												  <option value="!=">Not Equal To</option>
+												</select>
+											</label>
+											<label>Compare To: 
+												<select className="form-control"  onChange={this.onHandleChange3} >
+												  <option value="milkyway">Milky Way</option>
+												</select>
+											</label>
+										</div>
+					      		</div>
+						      	<div className="modal-footer">
+						      		<button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => this.state.filterBy(this.state.value1, this.state.value2, this.state.value3, 1)}>Submit</button>
+						        	<button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+						      	</div>
+			    			</div>
+				  		</div>
+					</div>
+				</div>
+				);
+		}
+		if (this.state.modelType === "stars") {
+			return (
+				<div>
+	  				<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal" >Filter By</button>
+	  				<div id="myModal" className="modal fade" role="dialog">
+				  		<div className="modal-dialog">
+				    		<div className="modal-content">
+				      			<div className="modal-header">
+					        		<button type="button" className="close" data-dismiss="modal">&times;</button>
+					        		<h4 className="modal-title">Filtering</h4>
+					      		</div>
+					      		<div className="modal-body">
+							      		<div className="form-group">
+							      			<label>Attribute: 
+								      			<select className="form-control" onChange={this.onHandleChange1} >
+												  <option value="mass">Mass</option>
+												  <option value="diameter">Diameter</option>
+												</select>
+											</label>
+											<label>Operation: 
+												<select className="form-control"  onChange={this.onHandleChange2} >
+												  <option value="<">Less Than</option>
+												  <option value="<=">Less Than or Equal To</option>
+												  <option value=">">Greater Than</option>
+												  <option value=">=">Greater Than or Equal To</option>
+												  <option value="!=">Not Equal To</option>
+												</select>
+											</label>
+											<label>Compare To: 
+												<select className="form-control"  onChange={this.onHandleChange3} >
+												  <option value="sun">The Sun</option>
+												</select>
+											</label>
+										</div>
+					      		</div>
+						      	<div className="modal-footer">
+						      		<button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => this.state.filterBy(this.state.value1, this.state.value2, this.state.value3, 1)}>Submit</button>
+						        	<button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+						      	</div>
+			    			</div>
+				  		</div>
+					</div>
+				</div>
+				);
+		}
+		if (this.state.modelType === "satellites") {
+			return (
+				<div>
+	  				<button type="button" className="btn btn-primary" data-toggle="modal" data-target="#myModal" >Filter By</button>
+	  				<div id="myModal" className="modal fade" role="dialog">
+				  		<div className="modal-dialog">
+				    		<div className="modal-content">
+				      			<div className="modal-header">
+					        		<button type="button" className="close" data-dismiss="modal">&times;</button>
+					        		<h4 className="modal-title">Filtering</h4>
+					      		</div>
+					      		<div className="modal-body">
+							      		<div className="form-group">
+							      			<label>Attribute: 
+								      			<select className="form-control" onChange={this.onHandleChange1} >
+												  <option value="year_launched">Launch Year</option>
+												</select>
+											</label>
+											<label>Operation: 
+												<select className="form-control"  onChange={this.onHandleChange2} >
+												  <option value="<">Less Than</option>
+												  <option value="<=">Less Than or Equal To</option>
+												  <option value=">">Greater Than</option>
+												  <option value=">=">Greater Than or Equal To</option>
+												  <option value="==">Equal To</option>
+												  <option value="!=">Not Equal To</option>
+												</select>
+											</label>
+											<label>Compare To: 
+												<select className="form-control"  onChange={this.onHandleChange3} >
+												  <option value="2012">2012</option>
+												  <option value="2013">2013</option>
+												  <option value="2014">2014</option>
+												  <option value="2015">2015</option>
+												  <option value="2016">2016</option>
+												  <option value="2017">2017</option>
+												  <option value="2018">2018</option>
+												</select>
+											</label>
+										</div>
+					      		</div>
+						      	<div className="modal-footer">
+						      		<button type="button" className="btn btn-primary" data-dismiss="modal" onClick={() => this.state.filterBy(this.state.value1, this.state.value2, this.state.value3, 1)}>Submit</button>
+						        	<button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
+						      	</div>
+			    			</div>
+				  		</div>
+					</div>
+				</div>
+				);
+		}
 	}
 
 }

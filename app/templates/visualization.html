@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container content-container" id="react-visualize">
+<div class="content-container container">
+	<h1 class="text-center"><a href="http://boswemianrhapsody.me">BoswemianRhapsody</a> Visualization</h1>
+	<p class="text-center">Our visualization displays the locations of concert venues around the world. The size is determined by the number of concerts at each venue.</p>
+	<svg id="visualization"></svg>
+	<h3 id="loading" class="text-center">Loading data from BowsemianRhapsody</h3>
 </div>
-<script src="{{ url_for('static', filename='compiled_js/visualize.js') }}"></script>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="{{ url_for('static', filename='js/bubble_graph.js') }}"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/topojson.v0.min.js"></script>
+<script src="/static/js/geo_map.js"></script>
 {% endblock %}

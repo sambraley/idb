@@ -123,17 +123,17 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var attrs = {
-	"planets": ["mass", "diameter", "gravity", "temperature"],
+	"planets": ["diameter", "gravity", "mass"],
 	"galaxies": ["size"],
-	"stars": ["name", "diameter", "temperature"],
-	"satellites": ["name", "agency", "mission_type", "year_launched"]
+	"stars": ["mass", "diameter"],
+	"satellites": ["year_launched"]
 };
-var ops = ["<", "<=", ">", ">=", "==", "!="];
+var ops = ["<", "<=", ">", ">=", "!="];
 var compareTo = {
-	"planets": ["Jupiter"],
-	"galaxies": ["1"],
-	"stars": ["name", "diameter", "temperature"],
-	"satellites": ["name", "agency", "mission_type", "year_launched"]
+	"planets": [1.0],
+	"galaxies": [1.0],
+	"stars": [1.0],
+	"satellites": [2012]
 };
 
 var Modals = function (_React$Component) {
@@ -177,9 +177,14 @@ var Modals = function (_React$Component) {
 	}, {
 		key: "onHandleChange3",
 		value: function onHandleChange3(event) {
+			var v3 = 1;
 			console.log("inside handle change 2 " + event.target.value);
+			if (this.state.modelType == "satellites") {
+				v3 = parseInt(event.target.value);
+			}
+			console.log(v3);
 			this.setState({
-				value3: event.target.value
+				value3: v3
 			});
 		}
 	}, {
@@ -187,147 +192,549 @@ var Modals = function (_React$Component) {
 		value: function render() {
 			var _this2 = this;
 
-			return React.createElement(
-				"div",
-				null,
-				React.createElement(
-					"button",
-					{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
-					"Filter By"
-				),
-				React.createElement(
+			console.log(this.state.modelType);
+			if (this.state.modelType === "planets") {
+				return React.createElement(
 					"div",
-					{ id: "myModal", className: "modal fade", role: "dialog" },
+					null,
+					React.createElement(
+						"button",
+						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+						"Filter By"
+					),
 					React.createElement(
 						"div",
-						{ className: "modal-dialog" },
+						{ id: "myModal", className: "modal fade", role: "dialog" },
 						React.createElement(
 							"div",
-							{ className: "modal-content" },
+							{ className: "modal-dialog" },
 							React.createElement(
 								"div",
-								{ className: "modal-header" },
-								React.createElement(
-									"button",
-									{ type: "button", className: "close", "data-dismiss": "modal" },
-									"\xD7"
-								),
-								React.createElement(
-									"h4",
-									{ className: "modal-title" },
-									"Filtering"
-								)
-							),
-							React.createElement(
-								"div",
-								{ className: "modal-body" },
+								{ className: "modal-content" },
 								React.createElement(
 									"div",
-									{ className: "form-group" },
+									{ className: "modal-header" },
 									React.createElement(
-										"label",
-										null,
-										"Attribute:",
-										React.createElement(
-											"select",
-											{ className: "form-control", onChange: this.onHandleChange1 },
-											React.createElement(
-												"option",
-												{ value: "mass" },
-												"Temperature"
-											),
-											React.createElement(
-												"option",
-												{ value: "diameter" },
-												"Diameter"
-											),
-											React.createElement(
-												"option",
-												{ value: "gravity" },
-												"Gravity"
-											),
-											React.createElement(
-												"option",
-												{ value: "temperature" },
-												"Mass"
-											)
-										)
+										"button",
+										{ type: "button", className: "close", "data-dismiss": "modal" },
+										"\xD7"
 									),
 									React.createElement(
-										"label",
-										null,
-										"Operation:",
-										React.createElement(
-											"select",
-											{ className: "form-control", onChange: this.onHandleChange2 },
-											React.createElement(
-												"option",
-												{ value: "<" },
-												"Less Than"
-											),
-											React.createElement(
-												"option",
-												{ value: "<=" },
-												"Less Than or Equal To"
-											),
-											React.createElement(
-												"option",
-												{ value: ">" },
-												"Greater Than"
-											),
-											React.createElement(
-												"option",
-												{ value: ">=" },
-												"Greater Than or Equal To"
-											),
-											React.createElement(
-												"option",
-												{ value: "==" },
-												"Equal To"
-											),
-											React.createElement(
-												"option",
-												{ value: "!=" },
-												"Not Equal To"
-											)
-										)
-									),
+										"h4",
+										{ className: "modal-title" },
+										"Filtering"
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "modal-body" },
 									React.createElement(
-										"label",
-										null,
-										"Compare To:",
+										"div",
+										{ className: "form-group" },
 										React.createElement(
-											"select",
-											{ className: "form-control", onChange: this.onHandleChange3 },
+											"label",
+											null,
+											"Attribute:",
 											React.createElement(
-												"option",
-												{ value: "jupiter" },
-												"Jupiter"
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange1 },
+												React.createElement(
+													"option",
+													{ value: "diameter" },
+													"Diameter"
+												),
+												React.createElement(
+													"option",
+													{ value: "gravity" },
+													"Gravity"
+												),
+												React.createElement(
+													"option",
+													{ value: "mass" },
+													"Mass"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Operation:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange2 },
+												React.createElement(
+													"option",
+													{ value: "<" },
+													"Less Than"
+												),
+												React.createElement(
+													"option",
+													{ value: "<=" },
+													"Less Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: ">" },
+													"Greater Than"
+												),
+												React.createElement(
+													"option",
+													{ value: ">=" },
+													"Greater Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: "!=" },
+													"Not Equal To"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Compare To:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange3 },
+												React.createElement(
+													"option",
+													{ value: "jupiter" },
+													"Jupiter"
+												)
 											)
 										)
 									)
-								)
-							),
-							React.createElement(
-								"div",
-								{ className: "modal-footer" },
-								React.createElement(
-									"button",
-									{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
-											return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
-										} },
-									"Submit"
 								),
 								React.createElement(
-									"button",
-									{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-									"Close"
+									"div",
+									{ className: "modal-footer" },
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
+											} },
+										"Submit"
+									),
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+										"Close"
+									)
 								)
 							)
 						)
 					)
-				)
-			);
+				);
+			}
+			if (this.state.modelType === "galaxies") {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"button",
+						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+						"Filter By"
+					),
+					React.createElement(
+						"div",
+						{ id: "myModal", className: "modal fade", role: "dialog" },
+						React.createElement(
+							"div",
+							{ className: "modal-dialog" },
+							React.createElement(
+								"div",
+								{ className: "modal-content" },
+								React.createElement(
+									"div",
+									{ className: "modal-header" },
+									React.createElement(
+										"button",
+										{ type: "button", className: "close", "data-dismiss": "modal" },
+										"\xD7"
+									),
+									React.createElement(
+										"h4",
+										{ className: "modal-title" },
+										"Filtering"
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "modal-body" },
+									React.createElement(
+										"div",
+										{ className: "form-group" },
+										React.createElement(
+											"label",
+											null,
+											"Attribute:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange1 },
+												React.createElement(
+													"option",
+													{ value: "size" },
+													"Size"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Operation:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange2 },
+												React.createElement(
+													"option",
+													{ value: "<" },
+													"Less Than"
+												),
+												React.createElement(
+													"option",
+													{ value: "<=" },
+													"Less Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: ">" },
+													"Greater Than"
+												),
+												React.createElement(
+													"option",
+													{ value: ">=" },
+													"Greater Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: "!=" },
+													"Not Equal To"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Compare To:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange3 },
+												React.createElement(
+													"option",
+													{ value: "milkyway" },
+													"Milky Way"
+												)
+											)
+										)
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "modal-footer" },
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
+											} },
+										"Submit"
+									),
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+										"Close"
+									)
+								)
+							)
+						)
+					)
+				);
+			}
+			if (this.state.modelType === "stars") {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"button",
+						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+						"Filter By"
+					),
+					React.createElement(
+						"div",
+						{ id: "myModal", className: "modal fade", role: "dialog" },
+						React.createElement(
+							"div",
+							{ className: "modal-dialog" },
+							React.createElement(
+								"div",
+								{ className: "modal-content" },
+								React.createElement(
+									"div",
+									{ className: "modal-header" },
+									React.createElement(
+										"button",
+										{ type: "button", className: "close", "data-dismiss": "modal" },
+										"\xD7"
+									),
+									React.createElement(
+										"h4",
+										{ className: "modal-title" },
+										"Filtering"
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "modal-body" },
+									React.createElement(
+										"div",
+										{ className: "form-group" },
+										React.createElement(
+											"label",
+											null,
+											"Attribute:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange1 },
+												React.createElement(
+													"option",
+													{ value: "mass" },
+													"Mass"
+												),
+												React.createElement(
+													"option",
+													{ value: "diameter" },
+													"Diameter"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Operation:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange2 },
+												React.createElement(
+													"option",
+													{ value: "<" },
+													"Less Than"
+												),
+												React.createElement(
+													"option",
+													{ value: "<=" },
+													"Less Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: ">" },
+													"Greater Than"
+												),
+												React.createElement(
+													"option",
+													{ value: ">=" },
+													"Greater Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: "!=" },
+													"Not Equal To"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Compare To:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange3 },
+												React.createElement(
+													"option",
+													{ value: "sun" },
+													"The Sun"
+												)
+											)
+										)
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "modal-footer" },
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
+											} },
+										"Submit"
+									),
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+										"Close"
+									)
+								)
+							)
+						)
+					)
+				);
+			}
+			if (this.state.modelType === "satellites") {
+				return React.createElement(
+					"div",
+					null,
+					React.createElement(
+						"button",
+						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+						"Filter By"
+					),
+					React.createElement(
+						"div",
+						{ id: "myModal", className: "modal fade", role: "dialog" },
+						React.createElement(
+							"div",
+							{ className: "modal-dialog" },
+							React.createElement(
+								"div",
+								{ className: "modal-content" },
+								React.createElement(
+									"div",
+									{ className: "modal-header" },
+									React.createElement(
+										"button",
+										{ type: "button", className: "close", "data-dismiss": "modal" },
+										"\xD7"
+									),
+									React.createElement(
+										"h4",
+										{ className: "modal-title" },
+										"Filtering"
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "modal-body" },
+									React.createElement(
+										"div",
+										{ className: "form-group" },
+										React.createElement(
+											"label",
+											null,
+											"Attribute:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange1 },
+												React.createElement(
+													"option",
+													{ value: "year_launched" },
+													"Launch Year"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Operation:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange2 },
+												React.createElement(
+													"option",
+													{ value: "<" },
+													"Less Than"
+												),
+												React.createElement(
+													"option",
+													{ value: "<=" },
+													"Less Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: ">" },
+													"Greater Than"
+												),
+												React.createElement(
+													"option",
+													{ value: ">=" },
+													"Greater Than or Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: "==" },
+													"Equal To"
+												),
+												React.createElement(
+													"option",
+													{ value: "!=" },
+													"Not Equal To"
+												)
+											)
+										),
+										React.createElement(
+											"label",
+											null,
+											"Compare To:",
+											React.createElement(
+												"select",
+												{ className: "form-control", onChange: this.onHandleChange3 },
+												React.createElement(
+													"option",
+													{ value: "2012" },
+													"2012"
+												),
+												React.createElement(
+													"option",
+													{ value: "2013" },
+													"2013"
+												),
+												React.createElement(
+													"option",
+													{ value: "2014" },
+													"2014"
+												),
+												React.createElement(
+													"option",
+													{ value: "2015" },
+													"2015"
+												),
+												React.createElement(
+													"option",
+													{ value: "2016" },
+													"2016"
+												),
+												React.createElement(
+													"option",
+													{ value: "2017" },
+													"2017"
+												),
+												React.createElement(
+													"option",
+													{ value: "2018" },
+													"2018"
+												)
+											)
+										)
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "modal-footer" },
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
+											} },
+										"Submit"
+									),
+									React.createElement(
+										"button",
+										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+										"Close"
+									)
+								)
+							)
+						)
+					)
+				);
+			}
 		}
 	}]);
 
