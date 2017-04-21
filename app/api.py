@@ -5,7 +5,6 @@ url_prefix = "/api/v1"
 
 def add_cors_headers(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Credentials'] = 'true'
     return response
 
 def api_setup(flask_app, db) :
