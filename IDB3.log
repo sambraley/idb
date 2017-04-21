@@ -1,3 +1,209 @@
+commit 2200cc3e76552326ebb925936f9969c33c1025da
+Merge: 6b1081a 7e83a21
+Author: Taben <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 21:02:47 2017 -0500
+
+    Merge pull request #93 from samuelbraley/develop
+    
+    Develop
+
+commit 7e83a213193085e781aac82a0f7c10a01f5ef03b
+Merge: fb17079 cba7617
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 20:53:14 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit fb17079ce80ffb5b44c0d44b559080a712948953
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 20:52:44 2017 -0500
+
+    Minor update to report.
+
+commit cba761749877b87d8c5ecf4ffa5318a991313ff1
+Merge: 7a1ccd1 fb4b4da
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 20:50:04 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 7a1ccd1c59410642355f13df0b035cac41b0e4b6
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 20:49:44 2017 -0500
+
+    Fixed more pylint things
+
+commit fb4b4dae8d68526414ce680bbe437c3985f5ce30
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 20:44:51 2017 -0500
+
+    Pydoc models
+
+commit 2e44a5750f7a75ba2536eca50cfc0eff14d3e4d9
+Author: Samuel Braley <samuelbraley@users.noreply.github.com>
+Date:   Thu Apr 20 20:44:21 2017 -0500
+
+    Updated report with the latest information
+
+commit 6e05f4f5dde8021114b22e1cfac002e04f8d5c25
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 20:42:33 2017 -0500
+
+    Makes the makefile a bit more useful, cleans things up for pylint
+
+commit f1c0b3afabd26f1ec4405d1f1bd9c07d4da6396e
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 20:19:52 2017 -0500
+
+    Format everything
+
+commit fef7d9f35649adafb5fdc614b93b5740185f9cd4
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 20:15:27 2017 -0500
+
+    presentation now displays.
+
+commit 9336cf545c6706800dd447f040c654a5110b1367
+Merge: 2d4f415 00f38d8
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 20:10:20 2017 -0500
+
+    Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
+
+commit 2d4f4153571ea85a0e4d85827b986f1cf3598c97
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 20:09:18 2017 -0500
+
+    Added link to powerpoint
+
+commit 00f38d875b868967134c69cf1ef60565f1244356
+Merge: 4ccb414 c05cfd3
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Thu Apr 20 20:05:37 2017 -0500
+
+    Merge pull request #92 from samuelbraley/nick-d3
+    
+    Nick d3
+
+commit c05cfd3710d7844c13a2c7e5dc89e8afc286639a
+Merge: 48ea598 4ccb414
+Author: Nick Kantor <njk464@users.noreply.github.com>
+Date:   Thu Apr 20 20:03:04 2017 -0500
+
+    Merge branch 'develop' into nick-d3
+
+commit 48ea598eb63bc1ce0440a2f1a0369a4fc1db7c73
+Merge: b347f73 d5704d4
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 19:59:15 2017 -0500
+
+    Finished the visualization.
+
+commit b347f7313dbfeebc5ddac237ad8000dea3e3d5cc
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 19:35:21 2017 -0500
+
+    Merge issues.
+
+commit 4ccb41481b5f933f40118c582bd12b9ce9637f6c
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Thu Apr 20 19:30:55 2017 -0500
+
+    Added string attributes for search to UML
+
+commit d5704d443fc2f7627963c3c165608c54ee519154
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 19:20:51 2017 -0500
+
+    Removed visualization dropdown
+
+commit 7b7d3f7b497601f9cdee4c9d2a53c605e9945f11
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 19:15:19 2017 -0500
+
+    Limits cors permissions somewhat
+
+commit 515834bdcba149655fce817c463c79c98c99c4a7
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 18:16:20 2017 -0500
+
+    Geomap circles change size depending on amount of concerts
+
+commit 2c93a1460a8d57ba4dee229943a487a3747291de
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 20 17:54:47 2017 -0500
+
+    finished filtering
+
+commit 1dff7e5f9a5e027c824856a6b5126f3afe215038
+Merge: 9c395fe 7bebda1
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 17:52:42 2017 -0500
+
+    Merge pull request #90 from samuelbraley/cors
+    
+    Adds CORS support
+
+commit 9c395feaa5f1de68c2a649490d9d480d0a206afe
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 17:20:59 2017 -0500
+
+    Cleaning up the website.
+
+commit 22f03b63439ac93ec2f3b252d23d0e2f4a5386db
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 16:50:18 2017 -0500
+
+    Changed the mobile view.
+
+commit 8dbb6ddf527e509618ffaa42f323d8429b41b4ab
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 16:45:32 2017 -0500
+
+    Added the milky way page and units are no longer highlighted.
+
+commit 7bebda187c1856991205db68d87f44981af859c0
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 16:06:49 2017 -0500
+
+    Adds CORS support
+
+commit 48473c5e45bfa23fe3741c72cd94197a210356c1
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 14:49:19 2017 -0500
+
+    Puts markers ontop of geo map
+
+commit a7195a5fbd9488ce1c6af7fc2929b1b00bd0d356
+Author: Taben Malik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 13:55:50 2017 -0500
+
+    Fixed bug in apiary call
+
+commit c4e606f7c76a2e3998f6b986d20246a1b10b6fb9
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Thu Apr 20 04:38:26 2017 -0500
+
+    Moved .coveragerc back to correct location
+
+commit 61098fdedf301c7f31d6ac2045fe5f48bb2c59f6
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Thu Apr 20 04:33:25 2017 -0500
+
+    Reverted changes to makefile
+
+commit fb13c21d62452b7005e4c6a3bd75047e8fcb73fa
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Thu Apr 20 04:26:28 2017 -0500
+
+    Added tests to increase idb.py coverage.
+
+commit 910052c4400a4e8c860647442cbe2498f06069a2
+Author:  <gustavo.osorio@utexas.edu>
+Date:   Thu Apr 20 04:25:02 2017 -0500
+
+    Added image model and model_type() method to UML
+
 commit e01d5fa8ef94dca1918a14e81e017f82ed431a3c
 Merge: c1b6cc6 e22aed3
 Author: Scott Farrior <farrior@utexas.edu>
@@ -12,6 +218,12 @@ Author: Scott Farrior <farrior@utexas.edu>
 Date:   Thu Apr 20 00:57:03 2017 -0500
 
     Changes bg from absolute to fixed
+
+commit 7f82a5d99e8e209b5689aa6f37e8e078c21edd5c
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Thu Apr 20 00:25:25 2017 -0500
+
+    World map works. Just have to add minor fixes.
 
 commit 509114b30be2c238464a45faea86e3c858f7c541
 Author: Scott Farrior <farrior@utexas.edu>
@@ -31,6 +243,12 @@ Date:   Wed Apr 19 22:44:46 2017 -0500
 
     Reverted the search grid
 
+commit 05e01c37be999ab08ef5c91f34451bee0c4f9ee6
+Author: Nick <nick.kantor@utexas.edu>
+Date:   Wed Apr 19 22:31:47 2017 -0500
+
+    All d3 scripts now run and are able to be switched to.
+
 commit 5c693b0338c3c224b6cf6075b7c553307daf9fc5
 Author: Nick <nick.kantor@utexas.edu>
 Date:   Wed Apr 19 21:28:23 2017 -0500
@@ -43,6 +261,18 @@ Date:   Wed Apr 19 21:13:13 2017 -0500
 
     Changed the way search results are shown.
 
+commit 09110a11a90923ea8cff6e13a3c12ac209363fc8
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Wed Apr 19 15:13:19 2017 -0500
+
+    some progress on bubble chart vis
+
+commit 672ea78ab6812dcc2d738387a264c6cdbd330d5f
+Author: Samuel Braley <samuel.braley@utexas.edu>
+Date:   Wed Apr 19 14:48:42 2017 -0500
+
+    got data processing portion of bubble chart visualization
+
 commit e08e68d68323122bbe819bec3492d498c69c9c51
 Author: Nick <nick.kantor@utexas.edu>
 Date:   Wed Apr 19 10:41:16 2017 -0500
@@ -54,6 +284,15 @@ Author: Nick <nick.kantor@utexas.edu>
 Date:   Wed Apr 19 10:36:30 2017 -0500
 
     Changed the font and mark background-color
+
+commit 6b1081ae447c3e5c182a756c24c0c6247ea9feaf
+Merge: 5b4a861 64ec1f1
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Wed Apr 19 10:19:43 2017 -0500
+
+    Merge pull request #87 from samuelbraley/develop
+    
+    Merging develop in to master to test something for Nick
 
 commit 64ec1f11d62bbdb2e9f68e6ebe53e26e3e3024a5
 Author: Taben Malik <tabenjmalik@gmail.com>
@@ -575,7 +814,7 @@ Date:   Sat Apr 15 02:45:51 2017 -0500
     Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
     
     Conflicts:
-    	app/lib/__pycache__/helper.cpython-34.pyc
+            app/lib/__pycache__/helper.cpython-34.pyc
 
 commit fb00e9a0d24c6a132f896aa62e7ca4a2b466fcaf
 Author: Scott Farrior <farrior@utexas.edu>
