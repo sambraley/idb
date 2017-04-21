@@ -13,7 +13,7 @@ class Github_Member extends React.Component {
 				var commits = "/commits?author="+this.props.member_info["github_id"][i] + token;
 				var issues = "/issues?state=all&creator="+this.props.member_info["github_id"][i] + token;
 				fetch(this.props.url + commits).then(r => r.json())
-				.then(data => this.count_commits(data))
+				.then(data => this.count_commits(data, this.props.url + commits, 1))
 				.catch(e => console.log(e));
 				fetch(this.props.url + issues).then(r => r.json())
 				.then(data => this.count_issues(data))
@@ -21,9 +21,15 @@ class Github_Member extends React.Component {
 			}
 			
 		}
-		count_commits(json) {
+		count_commits(json, url, page) {
 			this.state.commits += json.length;
 			this.forceUpdate();
+			page += 1;
+			if (json.length == 100) {
+				fetch(url + "&page=" + page).then(r => r.json())
+				.then(data => this.count_commits(data, url, page))
+				.catch(e => console.log(e));
+			}
 		}
 		count_issues(json) {
 			this.state.issues += json.length;
@@ -31,7 +37,7 @@ class Github_Member extends React.Component {
 		}
     render() {
     		var info = (
-    			<div className="col-md-6 col-lg-4 text-center service-box">
+    			<div className="col-md-6 col-lg-4 col-sm-8 col-xs-8 col-md-offset-0 col-lg-offset-0 col-xs-offset-2 col-sm-offset-2 text-center service-box">
       			<img className="img-thumbnail about-image" src={"/static/images/" + this.props.member_info['image']} />
       			<h3>{this.props.member_info["name"]}</h3>
 			      <p className="text-muted">{this.props.member_info["bio"]}</p>

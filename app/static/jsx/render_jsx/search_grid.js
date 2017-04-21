@@ -1,4 +1,3 @@
-import NavBar from './../components/nav_bar';
 import ModelList from './../components/models_list';
 import ModelTitle from './../components/model_title';
 import Pages from './../components/pages';
@@ -40,11 +39,10 @@ class App extends React.Component {
 	}	
 
 	getModels() {
-		var url = "/api/v1/search?page=" + this.state.current_page + "&results_per_page=6&q=" + this.state.search;
+		var url = "/api/v1/search?page=" + this.state.current_page + "&results_per_page=12&q=" + this.state.search;
 		fetch(url)
 	      .then((response) => response.json())
 	      .then((responseJson) => {
-	        console.log(responseJson);
 	        if (responseJson.objects === undefined) {	
 		        this.setState({ 
 		        	models: [],
@@ -106,7 +104,6 @@ class App extends React.Component {
 					{this.state.models.length > 0 &&
 				        <ModelList 
 				        	models={this.state.models}
-				        	page={this.current_page}
 				        	search={this.state.search} />
 				    }
 				    {this.state.and.length > 0 &&
@@ -114,7 +111,6 @@ class App extends React.Component {
 					        <h3 className="text-center">And Search Results</h3>
 					        <ModelList 
 					        	models={this.state.and}
-					        	page={this.current_page}
 					        	search={this.state.search} />
 					    </div>
 				    }
@@ -123,7 +119,6 @@ class App extends React.Component {
 				        	<h3 className="text-center">Or Search Results</h3>
 				        	<ModelList 
 				        		models={this.state.or}
-				        		page={this.current_page}
 				        		search={this.state.search} />
 				        </div>
 				    }

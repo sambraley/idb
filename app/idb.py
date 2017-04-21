@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
-# pylint: disable = bad-whitespace
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
-# pylint: disable = line-too-long
+# pylint: disable = wrong-import-position
+# pylint: disable = import-error
 
 import io
-import unittest
-import test
+from unittest import TestLoader, TextTestRunner
 from lib.search_db import search
 from flask import Flask, render_template, request, jsonify
 from database import connect_db, Satellite, Planet, Star, Galaxy
@@ -16,6 +15,8 @@ from api import api_setup
 app = Flask(__name__)
 db = connect_db(app)
 api_setup(app, db)
+
+import test
 
 def in_solar_system(name):
     return (name == "Mercury" or
@@ -27,19 +28,24 @@ def in_solar_system(name):
             name == "Uranus" or
             name == "Neptune" or
             name == "Pluto" or
-            name == "Sun")
+            name == "Sun" or
+            name == "Milky Way")
 
 ####################
 # Misc. Page Routing
 ####################
+
+
 @app.route("/")
 def home():
     return render_template('home.html',
                            title='Spacecowboys')
 
+
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
+
 
 @app.route("/report")
 def report():
@@ -49,13 +55,15 @@ def report():
 # Satellite routing
 #####################
 
+
 @app.route('/satellites')
 def satellites_table():
     return render_template('models_grid.html', title="Satellites")
 
 # @app.route('/satellites')
 # def satellites_table():
-#     return render_template('satellites-grid.html', satellites=Satellite.query.all())
+# return render_template('satellites-grid.html',
+# satellites=Satellite.query.all())
 
 
 @app.route('/satellites/<int:satellite_id>')
@@ -67,6 +75,7 @@ def satellite_instance(satellite_id):
 # Planet routing
 ##################
 
+
 @app.route('/planets')
 def planets_table():
     return render_template('models_grid.html', title="Planets")
@@ -75,12 +84,13 @@ def planets_table():
 # def planet_table():
 #     return render_template('planets-grid.html', planets=Planet.query.all())
 
+
 @app.route('/planets/<int:planet_id>')
 def planet_instance(planet_id):
     # earth
     planet = Planet.query.get(planet_id)
     planet_name = planet.to_dict()["name"]
-    if in_solar_system(planet_name):
+    if in_solar_system(planet_name):  # pragma: no cover
         return render_template('sol.html', planet=planet)
     return render_template('planet.html', planet=planet)
 
@@ -89,6 +99,7 @@ def planet_instance(planet_id):
 ##################
 # Star routing
 ##################
+
 
 @app.route('/stars')
 def stars_table():
@@ -119,31 +130,40 @@ def galaxies_table():
 
 @app.route('/galaxies/<int:galaxy_id>')
 def galaxy_instance(galaxy_id):
-    return render_template('galaxy.html', galaxy=Galaxy.query.get(galaxy_id))
+    galaxy = Galaxy.query.get(galaxy_id)
+    galaxy_name = galaxy.to_dict()["name"]
+    if in_solar_system(galaxy_name):
+        return render_template('sol_galaxy.html', galaxy=galaxy)
+    return render_template('galaxy.html', galaxy=galaxy)
+
 
 @app.route('/run_tests')
-def run_tests():
-    suite = unittest.TestLoader().loadTestsFromTestCase(test.TestModels)
+def run_tests():  # pragma: no cover
+    suite = TestLoader().loadTestsFromTestCase(test.TestModels)
     test_output = io.StringIO()
-    unittest.TextTestRunner(stream=test_output).run(suite)
+    TextTestRunner(stream=test_output).run(suite)
     test_output = test_output.getvalue()
     coverage = open("coverage.txt")
     coverage_output = coverage.read()
     output = test_output + "\n" + coverage_output
     return output
 
+
 @app.route('/search')
 def search_page():
     return render_template('search.html', title='search')
 
+
 @app.route('/visualization')
 def visualize():
-    return render_template('visualization.html', title='visualization')
+    return render_template('visualization.html', title='Visualization')
+
 
 @app.route('/api/v1/search')
 def search_api():
     output = search(request.args)
     return jsonify(output)
 
-if __name__ == "__main__": # pragma: no cover
+
+if __name__ == "__main__":  # pragma: no cover
     app.run()
