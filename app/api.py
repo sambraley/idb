@@ -3,12 +3,16 @@ from models import Satellite, Planet, Star, Galaxy, Image
 
 url_prefix = "/api/v1"
 
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    return response
+
 def api_setup(flask_app, db) :
     manager = flask_restless.APIManager(flask_app, flask_sqlalchemy_db=db)
-    api_setup_satellite(manager)
-    api_setup_planet(manager)
-    api_setup_star(manager)
-    api_setup_galaxy(manager)
+    flask_app.register_blueprint(api_setup_satellite(manager))
+    flask_app.register_blueprint(api_setup_planet(manager))
+    flask_app.register_blueprint(api_setup_star(manager))
+    flask_app.register_blueprint(api_setup_galaxy(manager))
     
 def api_setup_satellite(manager) :
     blueprint = {
@@ -23,8 +27,10 @@ def api_setup_satellite(manager) :
         "max_results_per_page":50
     }
     
-    manager.create_api(**blueprint)
-    
+    blueprint = manager.create_api_blueprint(**blueprint) 
+    blueprint.after_request(add_cors_headers)    
+    return blueprint
+
 def api_setup_planet(manager) :
     blueprint = {
         "model":Planet,
@@ -39,8 +45,10 @@ def api_setup_planet(manager) :
         "max_results_per_page":50
     }
     
-    manager.create_api(**blueprint)
-    
+    blueprint = manager.create_api_blueprint(**blueprint) 
+    blueprint.after_request(add_cors_headers)    
+    return blueprint
+
 def api_setup_star(manager) :
     blueprint = {
         "model":Star,
@@ -54,7 +62,9 @@ def api_setup_star(manager) :
         "max_results_per_page":50
     }
     
-    manager.create_api(**blueprint)
+    blueprint = manager.create_api_blueprint(**blueprint) 
+    blueprint.after_request(add_cors_headers)    
+    return blueprint
     
 def api_setup_galaxy(manager) :
     blueprint = {
@@ -68,5 +78,7 @@ def api_setup_galaxy(manager) :
         "results_per_page":9,
         "max_results_per_page":50
     }
-    
-    manager.create_api(**blueprint)
+    blueprint = manager.create_api_blueprint(**blueprint) 
+    blueprint.after_request(add_cors_headers)    
+    return blueprint
+

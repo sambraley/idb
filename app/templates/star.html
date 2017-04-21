@@ -24,16 +24,16 @@
     </div>
     <div class="col-sm-12 col-md-5 text-center">
       <div class="col-md-12">
-        <h3>Temperature:</h3> 
-        <p class="react-highlight">{{star.temperature}} K</p>
-        <h3>Mass:</h3> 
-        <p class="react-highlight">{{star.mass}} Solar Mass(es)</p>
-        <h3>Right Ascension:</h3> 
-        <p class="react-highlight">{{star.ra}} Hour(s)</p>
-        <h3>Declination:</h3> 
-        <p class="react-highlight">{{star.dec}} Degree(s)</p>
-        <h3>Diameter:</h3> 
-        <p class="react-highlight">{{star.diameter}} Solar Diameter(s)</p>
+        <h3>Temperature:</h3>
+        <p><inline class="react-highlight">{{star.temperature}}</inline> K</p>
+        <h3>Mass:</h3>
+        <p><inline class="react-highlight">{{star.mass}}</inline> Solar Mass(es)</p>
+        <h3>Right Ascension:</h3>
+        <p><inline class="react-highlight">{{star.ra}}</inline> Hour(s)</p>
+        <h3>Declination:</h3>
+        <p><inline class="react-highlight">{{star.dec}}</inline> Degree(s)</p>
+        <h3>Diameter:</h3>
+        <p><inline class="react-highlight">{{star.diameter}}</inline> Solar Diameter(s)</p>
         <h3><a href="/galaxies/{{star.galaxy_pid}}">Link to home Galaxy</a></h3>
         <h3><a href="/planets?filtered=true&v1=star_pid&v2=%3D%3D&v3={{star.pid}}" >Link to orbiting Planets</a></h3>
         <h3><a href="/satellites?filtered=true&v1=star_pid&v2=%3D%3D&v3={{star.pid}}" >Link to orbiting Satellites</a></h3>
