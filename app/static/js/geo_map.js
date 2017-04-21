@@ -1,10 +1,11 @@
 var width = 1000,
-    height = 1000;
+    height = 600;
+    
 
 var projection = d3.geo.mercator()
     .center([0, 5 ])
     .scale(200)
-    .rotate([-180,0]);
+    .rotate([-180,0])
 
 var svg = d3.select("svg")
     .attr("width", width)
