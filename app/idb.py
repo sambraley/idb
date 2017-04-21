@@ -145,7 +145,7 @@ def search_page():
 
 @app.route('/visualization')
 def visualize():
-    return render_template('visualization.html', title='visualization')
+    return render_template('visualization.html', title='Visualization')
 
 @app.route('/api/v1/search')
 def search_api():
