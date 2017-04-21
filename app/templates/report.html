@@ -17,7 +17,10 @@
 		</div>	
 		<div class="col-lg-2">
 			<a href="#api">API</a>
-		</div>		
+		</div>
+		<div class="col-lg-2">
+			<a href="#planet-poker">Planning Poker User Stories</a>
+		</div>
 	</div>
 
 	<h1 id="intro"><strong>Introduction</strong></h1>
@@ -30,7 +33,7 @@
 		<p>David Ares</p>
 		<p>Scott Farrior</p>
 		<h3><strong>About our site</strong></h3>
-		<p>The knowledge we have about outer space is always changing and it is very useful for researchers and space enthusiasts to be able to view up to date information of the expansive realm that is outer space. Our goal is to provide is simple way for people to explore the many aspects of objects in space and their relationships to others. Currently this information is held in many different places. This makes it difficult for users to find information about the models we have chosen.</p>
+		<p>The knowledge we have about outer space is always changing and it is very useful for researchers and space enthusiasts to be able to view up to date information of the expansive realm that is outer space. Our goal is to provide a simple way for people to explore the many aspects of objects in space and their relationships to others. Currently, this information is held in many different places. This makes it difficult for users to find information about the models we have chosen.</p>
 		<h3><strong>How we accomplish our goal</strong></h3>
 		<p>We accomplished our goal by going out and scraping data from APIs that provide current information about our models. The names and descriptions of the APIs we used are located at <a href="http://spacecowboys.me/about">http://spacecowboys.me/about</a>. After scraping the data we stored them in json files so that we could read and render their data using python flask.</p>
 	</div>
@@ -39,23 +42,22 @@
 		<h3><strong>Space and UML Associations Explained</strong></h3>
 		<p>Our models, although for the most part are simple enough to understand on their own, still require a bit of astronomy 101 knowledge to fully grasp our setup. A planet, as defined by Wikipedia, is “an astronomical body orbiting a star or stellar remnant that is massive enough to be rounded by its own gravity, is not massive enough to cause thermonuclear fusion, and has cleared its neighbouring region of planetesimals.” For our purposes, we don’t really need to know the technical parts of what defines a planet, but only the part about it orbiting a star. As a result, planets can have at most one star since they absolutely need something to orbit and it’s typically a star. A planet will also usually be within a galaxy along with satellites and stars. However, there are instances when planets and stars get ejected from their respective galaxy and end up somewhere in between two different galaxies. These are typically referred to as stellar outcasts and rogue planets. This is why we represented these multiplicities as aggregation with an open diamond to galaxy as there can be one or no stars associated with these models. Another aspect of our models worth mentioning is that our satellite model refers to the man made kind. This should not be confused with natural satellites (like earth’s moon) which also orbit planets. Satellite is also the only model that has a many to many relation with stars, planetoids and galaxies. This makes sense because a star and planet can have several satellites in is orbit and of course a galaxy will contain all of those. Our models reflect these concepts: a galaxy is not contained in anything (well, galaxies can be placed in groups, clusters and superclusters, but that’s out of the scope of this project), a star exists in a galaxy and holds the ID of that galaxy, a planet orbits a star and has the ID for that, in addition to existing in a galaxy and holding that ID, and a satellite can orbit a planet and knows the ID of said planet, and it is in effect also orbiting a star and has an ID for that, and finally it is also inside of a galaxy, so the satellite will have an ID of that galaxy.</p>
 		<h3><strong>Frontend</strong></h3>
-		<p>For our frontend we used bootstrap, css, react, and jquery to make our site look beautiful. Each page consists of a navbar used for navigation between pages and page specific data. For the splash page we implemented a simple carousel to welcome visitors and invite them to explore. The carousel dynamically pulls information from NASA’s picture of the day <a href="https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY">API</a>. For the each of the model pages we created a grid based off of the data in our database. This data is populated through calls to our <a href="http://docs.spacecowboys.apiary.io/">RestAPI</a>. Each element in the grid also links to a page where one can learn more about that specific item. Elements that are associated to other elements, such as a planet that belongs to a galaxy or orbits a star, has a link to that element’s page. We created templates for each model. The data on each page is populated by the model that is passed into the template which was rendered by our backend. The about page displays information about each of the team members, the tools and APIs that are being used, and the statistics about the development of the website. The commits and issues stats are pulled through Github’s develop API. Through react we were able to paginate, sort, and filter our model data. We are able to sort and filter on FILL IN HERE. On the element page for the planet, galaxy, and star models we utilize aladin lite to display an interactive image currently pointed at the coordinates for that celestial object.</p>
+		<p>For our frontend we used bootstrap, css, react, and jquery to make our site look beautiful. Each page consists of a navbar used for navigation between pages and page specific data. For the splash page we implemented a simple carousel to welcome visitors and invite them to explore. The carousel dynamically pulls information from NASA’s picture of the day <a href="https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY">API</a>. For the each of the model pages we created a grid based off of the data in our database. This data is populated through calls to our <a href="http://docs.spacecowboys.apiary.io/">RestAPI</a>. Each element in the grid also links to a page where one can learn more about that specific item. Elements that are associated to other elements, such as a planet that belongs to a galaxy or orbits a star, has a link to that element’s page. We created templates for each model. The data on each page is populated by the model that is passed into the template which was rendered by our backend. The about page displays information about each of the team members, the tools and APIs that are being used, and the statistics about the development of the website. The commits and issues stats are pulled through Github’s <a href="https://developer.github.com/v3/">develop API</a>. Through react we were able to paginate, sort, and filter our model data. We are able to sort and filter on different attributes per model. For filtering, we use dropdown select options to capture the attribute, comparator, and value that the user wants to filter by. Because many of the model’s attributes are measured by relativity, the value that the users can compare to is limited to a base model like Jupiter for planets or the Sun for stars. For sorting, we have a dropdown that with two subsections, ascending and descending, with a list of the attributes that can be sorted by. All sorted and filtered results are paginated just like our main grid pages. On the element page for the planet, galaxy, and star models we utilize aladin lite to display an interactive image currently pointed at the coordinates for that celestial object.</p>
 		<h3><strong>Backend</strong></h3>
 		<p>Our backend uses python Flask to render dynamic templates.  These templates take in a dictionary with the keys matching the attributes of the model. The models are represented by classes using Flask-SQLAlchemy and are designed for a PostgreSQL database. We take advantage of the fact that you don’t need to specify a length for strings in PostgreSQL; all of our string columns are of variable length. As for Flask-SQLAlchemy, we take advantage of backreferences so our one-to-many relations automatically create a many-to-one relation in the child object, making all of our relations bidirectional. We also take advantage of auto-incrementing primary keys, and table names which have been auto-generated from our class names. Through the backend we are also able to run the unit tests and coverage results when requested through “/run_tests”. We do this through the python library unittest.</p>
-		<h3><strong>Future features</strong></h3>
-		<p>In the future we hope to add searching capabilities to our website. As well as the ability to change the units for data presented about our models. For instance mass could be represented in kilograms or pounds. Distance could be represented in miles or kilometers.</p>
 	</div>
 	<h1 id="hosting"><strong>Hosting</strong></h1>
 	<div>
 		<p>We elected to use the <a href="https://cloud.google.com/">Google Cloud Platform’s</a> app engine as our host for our site. This allows us to do our development in a Docker-esque environment with easy version control/deployment, git integration, and DNS management. There is one big downside, however, and that is you will need <strong>patience</strong>. It can take between five and ten minutes to deploy a new version (or to tell if your deployment failed) and trying to do things while GCP is processing something is a good way to get poorly-defined error messages.</p>
 		<h3><strong>Initial Setup</strong></h3>
-		<p>Make sure not to use an @utexas.edu account as you won’t have the permissions required to create projects under that organization. Register a new account and give everyone in the team access to it. If you have a coupon for GCP, you can use it on that account -- you don’t have to use the coupon on the account it was given to. To use the app engine, you will want to set up a “Hello World” page in the flexible environment, following  <a href="https://cloud.google.com/appengine/docs/flexible/python/quickstart">this tutorial</a>. This will initialize the application engine, setting up whatever google needs to have running under the hood for your app to run.</p>
+		<p>Make sure not to use an @utexas.edu account as you won’t have the permissions required to create projects under that organization. Register a new account and give everyone in the team access to it. If you have a coupon for GCP, you can use it on that account -- you don’t have to use the coupon on the account it was given to.</p> 
+		<p>To use the app engine, you will want to set up a “Hello World” page in the flexible environment, following  <a href="https://cloud.google.com/appengine/docs/flexible/python/quickstart">this tutorial</a>. This will initialize the application engine, setting up whatever google needs to have running under the hood for your app to run.</p>
 		<h3><strong>Setting up DNS</strong></h3>
 		<p>Now that you have a hello world web app up and running, you might as well link the DNS. Register a domain using <a href="https://www.namecheap.com/">https://www.namecheap.com/</a> (.me domains are free – ours is <a href="http://www.spacecowboys.me/">spacecowboys.me</a>). You’ll then want to set it as a custom domain using <a href="https://cloud.google.com/appengine/docs/standard/python/console/using-custom-domains-and-ssl">this tutorial</a>. You can stop once you reach the end of the “adding a custom domain for your application” section. Following this, you need to set things up on the namecheap side. You’ll want to navigate to <a href="https://ap.www.namecheap.com/">the management page</a> &gt; manage &gt; advanced DNS. Here is where you’ll want to create then entries stated in the google tutorial, using the host of “@” for all but the cname record, which has a host named “www”.</p>
  		<h3><strong>Connecting to GitHub</strong></h3>
-		GCP can connect to a few source control platforms, and the one we used was GitHub. To link your repository, go to the main menu (upper-left-hand corner) &gt; Development &gt; Repositories &gt; Create Repository. You’ll need to be the administrator of the GitHub repo you want to link, not just a collaborator. After your repository is linked, you can use it in the app engine by opening the google cloud shell, which is the button in the upper-right-hand corner that looks like a command prompt (alternatively you can use the google cloud sdk, which is not browser based) and issuing the command: <code>gcloud source repos clone &lt;repo name&gt;</code> <strong>NOTE:</strong> Even though your repository might be automatically mirrored to the google cloud source control, it is NOT automatically mirrored to the shell. You will still need to use git pull to fast-forward before deploying an app.
+		<p>GCP can connect to a few source control platforms, and the one we used was GitHub. To link your repository, go to the main menu (upper-left-hand corner) &gt; Development &gt; Repositories &gt; Create Repository. You’ll need to be the administrator of the GitHub repo you want to link, not just a collaborator. After your repository is linked, you can use it in the app engine by opening the google cloud shell, which is the button in the upper-right-hand corner that looks like a command prompt (alternatively you can use the google cloud sdk, which is not browser based) and issuing the command: <code>gcloud source repos clone &lt;repo name&gt;</code> <strong>NOTE:</strong> Even though your repository might be automatically mirrored to the google cloud source control, it is NOT automatically mirrored to the shell. You will still need to use git pull to fast-forward before deploying an app.</p>
 		<h3><strong>Deploying an App</strong></h3>
-		<p>You need two main files to deploy an app: app.yaml and requirements.txt. They should both be located at the root directory of your application (where your program entry point is). The app.yaml tells the app engine what runtime you’re using, if you’re using the standard or flexible environment, your program entry point, and many other possible options, <a href="https://cloud.google.com/appengine/docs/standard/python/config/appref">located here</a>. Our app.yaml is as follows:</p>
+		<p>You need two main files to deploy an app: app.yaml and requirements.txt. They should both be located at the root directory of your application (where your program entry point is). The app.yaml tells the app engine what runtime you’re using, if you’re using the standard or flexible environment, your program entry point, and many other options, <a href="https://cloud.google.com/appengine/docs/standard/python/config/appref">located here</a>. Our app.yaml is as follows:</p>
 		<code>runtime: python</code>
  		<br>
 		<code>env: flex</code>
@@ -64,18 +66,44 @@
  		<br>
 		<code>runtime_config:</code>
  		<br>
-  	<code>python_version: 3</code>
+  		<code>&nbsp;&nbsp;python_version: 3</code>
  		<br>
-		<p>Which is pretty much the standard yaml found <a href="https://cloud.google.com/appengine/docs/flexible/python/configuring-your-app-with-app-yaml">here</a>, but it has two notable changes. The first is relatively small, for the entrypoint we changed “main” to the name of our application -- idb. The other is a bit more important, and has to do with the app engine’s automatic scaling. By default, GCP will run two instances of your app 24/7. While this does reduce latency for the end user, you are charged by the hour for each instance. You will end up bleeding money if you don’t limit the automatic scaling to a maximum of a single instance when not idle, and zero instances when idle.</p>
+ 		<code>automatic_scaling:</code>
  		<br>
- 		<p>requirements.txt contains a list of libraries that GCP will automatically install upon deployment using pip. The format used is &lt;package name&gt;==&lt;version&gt; Our requirements.txt is as follows:</p>
+ 		<code>&nbsp;&nbsp;max_idle_instances: 0</code>
+ 		<br>
+ 		<code>&nbsp;&nbsp;max_num_instances: 1</code>
+ 		<br>
+ 		<code>env_variables:</code>
+ 		<br>
+ 		<code>&nbsp;&nbsp;SQLALCHEMY_DATABASE_URI_SPACECOWBOYS: &gt;-</code>
+ 		<br>
+ 		<code>&nbsp;&nbsp;&nbsp;&nbsp;postgresql+psycopg2://api:spacecowboys@/models?host=/cloudsql/spacecowboys-161302:us-central1:idb</code>
+ 		<br>
+ 		<code>beta_settings:</code>
+ 		<br>
+ 		<code>&nbsp;&nbsp;&nbsp;&nbsp;cloud_sql_instances: spacecowboys-161302:us-central1:idb</code>
+ 		<br>
+
+		<p>Which is pretty much the standard yaml found <a href="https://cloud.google.com/appengine/docs/flexible/python/configuring-your-app-with-app-yaml">here</a>, but it has several additions. Most of these will be discussed later in the document, but two of them are relevant to this section. The first is a relatively small change: for the entrypoint we changed “main” to the name of our application (idb). The other relevant addition is a bit more important and has to do with the app engine’s automatic scaling. By default, GCP will run two instances of your app 24/7. While this does potentially reduce latency for the end user, you are charged by the hour for each instance. You will end up bleeding money if you don’t limit the automatic scaling to a maximum of a single instance when not idle, and zero instances when idle.</p>
+ 		<br>
+ 		<p>The file requirements.txt contains a list of libraries that GCP will automatically install upon deployment using pip. The format used is &lt;package name&gt;==&lt;version&gt; If you are running in the flexible environment, deployment will install the python3 versions of these modules without any special intervention on your part. </p>
+		<br>
+		<p>Our requirements.txt is as follows:</p>
 		<code>Flask==0.12</code>
  		<br>
 		<code>Flask-SQLAlchemy==2.2</code>
  		<br>
+ 		<code>Flask-Restless==0.17.0</code>
+ 		<br>
 		<code>gunicorn==19.7.0</code>
  		<br>
-		<p>Once these two files are in place with the rest of your code, you can deploy your app by opening the cloud shell, navigating to the <strong>same directory</strong> as your app.yaml, and issuing the command: <code>gcloud app deploy [-v &lt;version name&gt;]</code> The -v &lt;version name&gt; is optional, but without it the name of your deployment will just be a timestamp. If you specify a name of an existing version, GCP will go ahead and overwrite that version for you.</p>
+ 		<code>psycopg2==2.7.1</code>
+ 		<br>
+ 		<code>Flask-Whooshee==0.4.1</code>
+ 		<br>
+		<p>Once these two files are in place with the rest of your code, you can deploy your app by opening the cloud shell, navigating to the <strong>same directory</strong> as your app.yaml, and issuing the command: <code>gcloud app deploy [-v &lt;version name&gt;]</code></p>
+		<p>The -v &lt;version name&gt; is optional, but without it the name of your deployment will just be a timestamp. If you specify a name of an existing version, GCP will go ahead and overwrite that version for you.</p>
 		<p>After 5-10 minutes, your deployment should be up and running, and you can see it in: Main Menu &gt; App Engine &gt; Versions</p>
  		<p>From this screen you can also do things like stop a version, delete a version, and also migrate traffic. You can click on the version name to pull up the web page that version is currently serving.</p>
 		<p>Which version users are sent to when they navigate to your domain name depends on your traffic allocation. You can split traffic among multiple versions, but for this project, that is not particularly useful. What may be useful is to migrate traffic from one version to another. To do this, click the checkbox next to the version you want to receive traffic, and click the migrate traffic button.</p>
@@ -85,18 +113,50 @@
 	<h1 id="database"><strong>Database</strong></h1>
 	<div>
 		<h3><strong>Setting up</strong></h3>
-		<p>We decided to use Google Cloud Platform’s storage system for SQL. To set it up we had to specify the type (PostgreSQL) and choose how much space and processing power we would allocate to the storage space. We then had to set up authentication. Since we didn’t want users of our website to be able to write to our database, we created two accounts. One with administrator access and one with read only access. For all queries to the database using our API calls the read only access authentication is used.</p>
+		<p>We decided to use Google Cloud Platform’s storage system for SQL. To set it up we had to follow <a href="https://cloud.google.com/sql/docs/postgres/create-instance">this tutorial</a> as well as choose how much space and processing power we would allocate to the postgresql server. We opted to use the weakest processor and lowest memory amount possible in order to keep down on costs since we don’t expect to have many users. This has not ended up affecting the performance of our website in any noticeable way. On the other hand, we did opt to use an SSD, as this is a one-time only choice, and for the amount of data we store the increase in cost was negligible.</p>
+		<p>Following setting up the SQL instance, if you don’t want to use the default postgres database, you will need to navigate to storage > SQL > your new instance > databases and create a database to use to store your models.</p>
+		<p>To add an extra level of security, we opted to create a read-only user for the database. By default, any users created using the GCP web interface will have root level privileges, so you will need to pick <a href="https://cloud.google.com/sql/docs/postgres/external-connection-methods?hl=en_US">your preferred connection method</a> and set the user up on the server manually.</p>
+		<p>To create the user, you can use the following commands:</p>
+		<code>CREATE ROLE &lt;rolename&gt; LOGIN PASSWORD '&lt;password&gt;';</code>
+		<br>
+		<code>GRANT CONNECT ON DATABASE &lt;database&gt; TO &lt;rolename&gt;</code>
 		<h3><strong>Storing data</strong></h3>
-		<p>For the most part we just used the parsed json files from the previous phase to populate the database. The only major difference was that we switched to aladin lite for images, so we had to re-scrap our image data in order to store it in a database.</p>
+		<p>To connect to the database in order to populate it with tables and data, we mostly followed <a href="https://cloud.google.com/appengine/docs/flexible/python/using-cloud-sql-postgres">this tutorial</a>. If you’ve been following this document, you can largely ignore the section about setting up the instance, but you do need to make note of the connection name -- this is needed both for setting up the proxy on your local machine, and the URI to connect to the database after deployment.</p>
+		<p>To connect to the database remotely you need to install and use the cloud SQL proxy, even if you’re running from the cloud shell (remember, the SQL instance is on its own server somewhere). You will want to use your postgres user/login to populate the database, as the created user won’t have permission to do so.</p>
+		<p>To actually populate the database with data, we used Flask-SQLAlchemy models. To initialize the models we used JSON files which were compiled from the data scraped from our various rest API sources and images which, for the most part, we scraped using the <a href="http://aladin.u-strasbg.fr/AladinLite/doc/">Aladin lite API</a>. The images for satellites were unfortunately a bit of a special case. We had to curate the images for them manually, as the various APIs either didn’t have pictures or had no way to programatically select an appropriate picture.</p>
 		<h3><strong>Querying data</strong></h3>
-		<p>We utilized flask-restless which automatically queried the database on API calls based off of our models. This implementation seemed to be the easiest route especially because of the thorough documentation of flask-restless is very thorough. </p>
+		<p>Once you have populated your database with tables, you have to grant your read-only user permission to select from the tables. This can be done by again manually connecting to your postgresql instance, using <code>\c &lt;database&gt;</code> to connect to the specific database, and issuing the command:</p>
+		<code>GRANT SELECT ON ALL TABLES IN SCHEMA public TO &lt;read-only username&gt;;</code>
+		<p>It’s worth noting that we had an issue where if we restarted our instance, this permission might be lost and have to be re-granted. Also, if you drop the tables to reform the database, you will need to re-issue the grant command.</p>
+		<p>To connect to the database after deployment, your app.yaml will need lines similar to the following:</p>
+		<br>
+		<code>env_variables:</code>
+		<br>
+		<code>&nbsp;&nbsp;SQLALCHEMY_DATABASE_URI_SPACECOWBOYS: &gt;-</code>
+		<br>
+		<code>&nbsp;&nbsp;&nbsp;&nbsp;postgresql+psycopg2://api:spacecowboys@/models?host=/cloudsql/spacecowboys-161302:us-central1:idb</code>
+        <br>
+        <br>
+        <code>beta_settings:</code>
+    	<br>
+    	<code>&nbsp;&nbsp;cloud_sql_instances: spacecowboys-161302:us-central1:idb</code>
+    	<br>
+		<p>Where api:spacecowboys is the user/pass for our read-only user, and spacecowboys-161302:us-central:idb is the connection name for our postgres instance. You will of course want to replace these with your own values.</p>
+		<p>In your flask application, to connect to your database you will need the following lines:
+			<code>db_URI = os.getenv('SQLALCHEMY_DATABASE_URI_SPACECOWBOYS')</code>
+			<code>flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_URI</code>
+		</p>
+		<p>Where flask_app is the variable name for the flask instance you will initialize your database to use.</p>
+		<p>To query our database and implement our API we utilized Flask-Restless, which made it easy for us to set-up endpoints and specify which attributes of our models we wanted to display, as well as how we wanted to display them. This implementation seemed to be the easiest route especially because of the thorough documentation of flask-restless is very thorough.</p>
+		<p>For our search endpoint we used Flask-Whooshee, a library which implements full text search for a database. Of the options out there, this seemed to integrate best with our versions of Flask-Restless and Flask-SQLAlchemy.</p>
+		<p>Flask-Restless, Flask-SQLAlchemy and Flask-Whooshee are all described more in-depth in the tools section of the document.</p>
 	</div>
 	<h1 id="tools"><strong>Tools</strong></h1>
 	<div>
 		<h3><strong>Frontend Tools</strong></h3>
 		<p>In order to make our website have visual appeal as well as quick responses to user interaction we had to utilize a few tools designed for frontend development.</p>
 		<h5><strong>React</strong></h5>
-		<p>React is a javascript framework developed by Facebook used to develop with a more object oriented design. Within React we utilized ES6 and JSX which gave us more JavaScript features and syntax. We primarily used React to paginate, sort, and filter our models, but we also used it for the carousel, navbar, and about page.</p>
+		<p>React is a javascript framework developed by Facebook used to develop with a more object oriented design. Within React we utilized ES6 and JSX which gave us more JavaScript features and syntax. We primarily used React to paginate, sort, and filter our models, but we also used it for the carousel, navbar, and about page. We also used React’s Isomorphic-fetch package to make our Rest API calls to get data from our database.</p>
 		<h5><strong>Babelify and Browserify</strong></h5>
 		<p>We used babelify to compile our ES6 React files into ES5 JavaScript. This was then passed to Browserify which compiled the ES5 JavaScript into vanilla browser readable code. We run the compilation script every time a change is made in our React files. We considered using automated compilers like webpack or gulp, but in the end decided to that those tools were an unnecessary feature for our project.</p>
 		<h5><strong>Bootstrap</strong></h5>
@@ -110,27 +170,30 @@
 		<p>Flask-Restless is an amazing python package that integrates with Flask and SQLAlchemy and automatically sets up the endpoints for a Restful API. Flask restless utilizes the models that you define for your database to create an API. It sets up a url endpoint such as “&lt;base-url&rt;/&lt;api-prefix&rt;/&lt;model-name&rt;/&lt;unique-identifier&rt;”. Restless also automatically sets up the ability to have search queries and filter queries. Out of all of the tools we have used in this project, Flask-Restless has been the easiest to use and the most useful tool in our development stack. The only downside is that the package is relatively new. Version 0.17 is stable, however there are some features that don’t exist just yet. While Restless automatically sets up everything for us, there are somethings that Restless does that we cannot eliminate or control, such as extraneous API endpoints.</p>
 		<h5><strong>Flask-SQLAlchemy</strong></h5>
 		<p>Flask-SQLAlchemy is an extension for Flask that adds support for the object relational mapper SQLAlchemy. The extension is relatively new but integrates well with flask and simplifies using SQLAlchemy. The main differences from regular SQLALchemy is that it gives you a scoped session to work with along with useful creatAll() and dropAll() functions that will create the necessary tables. Another difference is that any session that is not committed will automatically get removed by Flask-SQLAlchemy at the end of the request.</p>
+		<h5><strong>Flask-Whooshee</strong></h5>
+		<p>Flask-Whooshee is a flask and SQLAlchemy extension that allows easy full text searching of the database. Whooshee utilizes a python package called Whoosh that indexes models and attributes for searching. The flask extension is easy to use as it only requires a special whooshee decorator applied to our SQLAlchemy models in models.py. This decorators add a method to query so that we can search through a model similar to query the database. The downside to whooshee (and possible a downside to all simple search extensions) is that it can only index string attributes and the primary key of the model. The nature of our models is that most of the attributes are numeric values. Our first solution was to make every attribute a string. While this was a correct solution to allow searching of all attributes, it breaks filtering and ordering. Lexicographically, “2000” would come before “5” in an ascending sort. The end result is that we have to duplicate the data. Our database contains all of our original numeric attributes plus string versions of those attributes. That allows our API endpoints to use the numeric columns for ordering, filter, and display, while our searching utilizes the string columns behind the curtains but uses the numeric values for display.
+		Another possible disadvantage to Whoosh and Whooshee is that the indexing happens on the server as opposed to the database itself doing any indexing and searching. While I believe that most modern databases have the ability to do their own indexing and full text searching, we could not find an easy way to access in through SQLAlchemy. So our server bears some more burden than it should for searching. In future improvements, tapping into SQLAlchemy’s searching would be much better.</p>
 
 		<h3><strong>Data Sources</strong></h3>
 		<p>Data used on our website comes from several different APIs and databases. Each source is for a particular set of elements. The amount of different sources shows why we are creating this site. As mentioned in our goal, we strive to have a simple way to access astronomical information. Unfortunately, the APIs that exist for astronomical data are old and complex. Here are the APIs we use and the data we use from them:</p>
 		<h5><strong>Exoplanet Archive</strong></h5>
 		<p>The Exoplanet Archive is an extensive database of exoplanets and objects of interest discovered by the Kepler Space Telescope. The database is hosted by Caltech and is open to the public. Therefore, an API key or account is not required for the exoplanet archive. The archive is our source for exoplanets and stars that the exoplanets orbit.</p>
 		<h5><strong>SIMBAD</strong></h5>
-		<p>SIMBAD is an astronomical database containing information from several sources of satellites and research. SIMBAD has a restful API that allows users to search for astrophysical elements in the database. No API key or account is required to pull the information. For our project, SIMBAD is used to gather information on galaxies and stars. Despite it being a RESTful architecture, SIMBAD is rather old and doesn’t return json data. All data requested comes in plain ascii form. This requires some extra file manipulation in order to collect the data.</p>
+		<p>SIMBAD is an astronomical database containing information from several sources of satellites and research. SIMBAD has a restful API that allows users to search for astrophysical elements in the database. No API key or account is required to pull the information. For our project, SIMBAD is used to gather information on galaxies and stars. Despite it being a RESTful architecture, SIMBAD is rather old and doesn’t return JSON data. All data requested comes in plain ASCII form. This requires some extra file manipulation in order to collect the data.</p>
 		<h5><strong>Aladin Lite</strong></h5>
-		<p>Aladin Lite is a star mapping tool that allows users to find pictures of stars, galaxies, and arbitrary locations. This service is used in our website as the main source of pictures for stars and galaxies. While the javascript package is extremely useful, Aladin lite did not work well with React. Aladin Lite can only be embedded in a straight html page. We were able to change our pages to allow Aladin Lite in a single instance page, however making a view of multiple instances, such as the grid view of our galaxies, was not possible with Aladin.</p>
+		<p>Aladin Lite is a star mapping tool that allows users to find pictures of stars, galaxies, and arbitrary locations. This service is used in our website as the main source of pictures for stars and galaxies. While the javascript package is extremely useful, Aladin lite did not work well with React. Aladin Lite can only be embedded in a straight HTML page. We were able to change our pages to allow Aladin Lite in a single instance page, however making a view of multiple instances, such as the grid view of our galaxies, was not possible with Aladin.</p>
 		<br/>
 		<p>The solution to this was creating a script that uses Aladin lite to download a base64 encoded string URI that represents the picture. The script could be made to download a single picture but any attempt to programmatically get all of the images blows up the browsers used to download them. The script then was used to efficiently get a single picture of a given object. And then we have to run that script manually for every object. Considering how many stars, galaxies, and planets we could potentially have in the database, it would be beneficial to find a better way to programmatically collect these pictures. Or the better solution would be to integrate Aladin Lite in all places.</p>
 		<h5><strong>SDSS SkyServer</strong></h5>
 		<p>The SDSS SkyServer is a database containing the collection of star maps and astrophysical information from the Sloan Digital Sky Survey mission. SkyServer is also a public database and API with no account required. Due to its limited data set, SkyServer is only a secondary source for photos and star information. SDSS actually has a good solution to our image problem. Their API has an endpoint that generates a URL of an image. However, since the SDSS only covered a portion of the sky, not all of our planets, stars, and galaxies can be found on the SDSS SkyServer.</p>
 		<h5><strong>Launch Library</strong></h5>
-		<p>Launch Library is an API dedicated to pulling information on rocket launches. The API is public and no account is needed to access the information. While their main purpose is to supply data on all rocket launches, we use their database to find information on satellites. Again images were tricky to produce for satellites through this API. Launch Library provides a wikiURL attribute that links to more information about the satellite. Using MediaWikiAPI we can search for wiki photos and grab the first photo that appears in the search. At first this seemed to work great. Eventually we realized that, while the URLs were from the wiki page of the satellite, they were sometimes not the main picture of the satellite. So this was another chance to manually curate some of the data. Finding a way to programmatically collect images in general seems to be the hardest part of our dataset.</p>
+		<p>Launch Library is an API dedicated to pulling information on rocket launches. The API is public and no account is needed to access the information. While their main purpose is to supply data on all rocket launches, we use their database to find information on satellites. Again images were tricky to produce for satellites through this API. Launch Library provides a wikiURL attribute that links to more information about the satellite. Using MediaWikiAPI we can search for wiki photos and grab the first photo that appears in the search. At first, this seemed to work great. Eventually, we realized that, while the URLs were from the wiki page of the satellite, they were sometimes not the main picture of the satellite. So this was another chance to manually curate some of the data. Finding a way to programmatically collect images in general seems to be the hardest part of our dataset.</p>
 		<h5><strong>NASA apod</strong></h5>
 		<p>Apod (Astronomical picture of the day) is an API used to provide new pictures and information on a daily basis. We used their API for our splash page carousel, which automatically updates to the new image of the day. Our carousel uses pictures from the past five days of APOD which adds to a dynamic experience to the website.</p>
 		<h5><strong>Github API</strong></h5>
 		<p>The Github developer API provides statistics and details about publicly available repositories. We used the API to gather data about the number of commits and issues both overall and per member.</p>
 		<h3><strong>Limitations</strong></h3>
-		<p>With the provided APIs, there are some limitations to the data we can gather. Unfortunately, there is no database and API that provides information on the planets inside our solar system. Since there are only eight (or nine) instances of planets inside our solar system, it seems impractical to host a dedicated database for just those eight instances. Other databases that have information on planets always focus on exoplanets (planets outside the solar system). Also, any database with information about objects in our solar system focus on elements that have a large quantity such as asteroids and comets. Therefore any information regarding this solar system’s planets have to be hardcoded.</p>
+		<p>With the provided APIs, there are some limitations to the data we can gather. Unfortunately, there is no database and API that provides information on the planets inside of our solar system. Since there are only eight (or nine) instances of planets inside of our solar system, it seems impractical to host a dedicated database for just those eight instances. Other databases that have information on planets always focus on exoplanets (planets outside the solar system). Also, any database with information about objects in our solar system focuses on elements that have a large quantity such as asteroids and comets. Therefore any information regarding this solar system’s planets has to be hardcoded.</p>
 	</div>
 	<h1 id="api"><strong>RESTful API</strong></h1>
 	<div>
@@ -143,9 +206,63 @@
 		<a href="http://spacecowboys.me/api/v1/satellites?results_per_page=9&page=1">http://spacecowboys.me/api/v1/satellites?results_per_page=9&page=1</a>
 		<br/>
 		<p>The final GET returns the entire collection of a given model based off of a filter. You are able to filter off of any operation and any attribute of that specific model. You are also able to specify ascending or descending.</p>
-		<a width="100%" href="http://spacecowboys.me/api/v1/satellites?q=%7B%22order_by%22%3A%5B%7B%22field%22%3A%22name%22%2C%22direction%22%3A%22desc%22%7D%5D%2C%22filters%22%3A%5B%7B%22name%22%3A%22name%22%2C%22op%22%3A%22%3D%3D%22%2C%22value%22%3A%22SARAL%22%7D%5D%7D">http://spacecowboys.me/api/v1/satellites?q=...</a>
-		<br/>
+		<a href="http://spacecowboys.me/api/v1/satellites?q=%7B%22order_by%22%3A%5B%7B%22field%22%3A%22name%22%2C%22direction%22%3A%22desc%22%7D%5D%2C%22filters%22%3A%5B%7B%22name%22%3A%22name%22%2C%22op%22%3A%22%3D%3D%22%2C%22value%22%3A%22SARAL%22%7D%5D%7D">http://spacecowboys.me/api/v1/satellites?q=%7B%22order_by%22%3A%5B%7B%22field%22%3A%22name%22%2C%22direction%22%3A%22desc%22%7D%5D%2C%22filters%22%3A%5B%7B%22name%22%3A%22name%22%2C%22op%22%3A%22%3D%3D%22%2C%22value%22%3A%22SARAL%22%7D%5D%7D</a>
 		<p>We decided to not have any POST or DELETE queries because we don’t want anyone to add or remove stars, galaxies, planetoid bodies, or satellites from our database. A lot of these celestial objects are well documented and we can really only allow trusted sources (like NASA) to supply any data for us. We’d like to avoid letting someone add the whole Star Wars universe to our database.</p>
+	</div>
+	<h1 id="planet-poker"><strong>Planning Poker User Stories</strong></h1>
+	<div>
+		<ol>
+		  <li>Highlight search term results.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 3 hr</li>
+		  	<li type="a"><i>Actual: </i> 1 hr</li>
+		  </ol>
+		  <li>Change filtering to filter on other attributes.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 3 hr</li>
+		  	<li type="a"><i>Actual: </i> 4 hr</li>
+		  </ol>
+		  <li>Update UML to include new model and methods.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 1 hr</li>
+		  	<li type="a"><i>Actual: </i> 0.5 hr</li>
+		  </ol>
+		  <li>Update Apiary to include search documentation.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 1 hr</li>
+		  	<li type="a"><i>Actual: </i> 0.5 hr</li>
+		  </ol>
+		  <li>Implement search bar functionality in back end.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 8 hr</li>
+		  	<li type="a"><i>Actual: </i> 10 hr</li>
+		  </ol>
+		  <li>Meet with <a href="https://glamrous.me">https://glamrous.me</a> on how to use our API.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 0 hr</li>
+		  	<li type="a"><i>Actual: </i> 0 hr</li>
+		  </ol>
+		  <li>Create a visualization page that exercises API of <a href="http://boswemianrhapsody.me/">http://boswemianrhapsody.me/</a></li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 13 hr</li>
+		  	<li type="a"><i>Actual: </i> 10 hr</li>
+		  </ol>
+		  <li>Add 1,250 words to report for a total of 5,000 words by the end of it. User stories must be documented in report.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 1 hr</li>
+		  	<li type="a"><i>Actual: </i> 3 hr</li>
+		  </ol>
+		  <li>Make images their own table in database.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 3 hr</li>
+		  	<li type="a"><i>Actual: </i> 3 hr</li>
+		  </ol>
+		  <li>Add search bar to front end of website.</li>
+		  <ol>
+		  	<li type="a"><i>Estimate: </i> 2 hr</li>
+		  	<li type="a"><i>Actual: </i> 1 hr</li> 
+		  </ol>
+		</ol>
 	</div>
 </div>
 {% endblock %}
