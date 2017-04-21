@@ -145,3 +145,10 @@ path {
   stroke-width: 0.25px;
   fill: grey;
 }
+svg {
+  width: 100%;
+  height: 0px;
+}
+.loading {
+  margin-top: 50px;
+}
