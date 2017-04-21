@@ -475,6 +475,15 @@ var React_Tests = function (_React$Component) {
         ),
         React.createElement(
           "div",
+          { className: "col-md-4 text-center" },
+          React.createElement(
+            "a",
+            { href: "https://docs.google.com/presentation/d/1X3319oG1hl4gFnTlD0G0pJLM1jfPCXxaoxlEnKwb6Qc/edit?usp=sharing" },
+            "Presentation"
+          )
+        ),
+        React.createElement(
+          "div",
           null,
           React.createElement(
             "div",
