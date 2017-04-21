@@ -1,3 +1,15 @@
+commit 2981fa26c6c1e304da1036bf5a8f3c121f0af2b2
+Author: dares23 <davidares7@gmail.com>
+Date:   Thu Apr 20 21:50:40 2017 -0500
+
+    updated link
+
+commit 51ce7ab2b952b6e135bb9893d16940baafa39f1b
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 21:39:34 2017 -0500
+
+    Adds IDB3.log ..again
+
 commit 3dd13a51706f973192de5162c322045c557f6c2c
 Author: Scott Farrior <farrior@utexas.edu>
 Date:   Thu Apr 20 21:39:11 2017 -0500
@@ -838,7 +850,7 @@ Date:   Sat Apr 15 02:45:51 2017 -0500
     Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
     
     Conflicts:
-    	app/lib/__pycache__/helper.cpython-34.pyc
+            app/lib/__pycache__/helper.cpython-34.pyc
 
 commit fb00e9a0d24c6a132f896aa62e7ca4a2b466fcaf
 Author: Scott Farrior <farrior@utexas.edu>
