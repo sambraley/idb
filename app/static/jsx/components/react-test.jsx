@@ -39,6 +39,9 @@ class React_Tests extends React.Component {
                 <div className="col-md-4 text-center">
                     <a href="/visualization">Visualizations of BoswemianRhapsody.me</a>
                 </div>
+                <div>
+                    <a href="https://docs.google.com/presentation/d/1X3319oG1hl4gFnTlD0G0pJLM1jfPCXxaoxlEnKwb6Qc/edit?usp=sharing">Presentation</a>
+                </div>
     		    <div>
     		        <div id="myModal" className="modal fade" role="dialog">
     		          <div className="modal-dialog">
