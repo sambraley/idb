@@ -11,6 +11,7 @@ and images for use in a PostgreSQL database using Flask-SQLAlchemy.
 """
 from database import db, whooshee
 
+
 class Image(db.Model):
     """
     Models image urls for all objects. Attributes are:
@@ -38,15 +39,15 @@ class Image(db.Model):
         """
         assert isinstance(img_url, str)
         self.img_url = img_url
-        
+
     def to_dict(self):
         """
         Returns a dictionary representation of an image
         """
         return {
-            "img_url":self.img_url
+            "img_url": self.img_url
         }
-        
+
     @staticmethod
     def model_type():
         """
@@ -54,12 +55,13 @@ class Image(db.Model):
         The type is defined as the plural form of the class name.
         """
         return "images"
-        
+
     def __repr__(self):
         """
         Returns a string representation of the Satellite
         """
         return "<Image %r>" % self.pid
+
 
 @whooshee.register_model('name', 'year_launched_str', 'mission_type', 'agency')
 class Satellite(db.Model):
@@ -70,7 +72,7 @@ class Satellite(db.Model):
     mission_type: The purpose of the satellite such as Earth Science, Astrophysics etc.
     info_url: a url to a page that contains more information about the satellite
     year launched: The year the satellite was launched
-    
+
     Satellites may relate many-to-one to galaxies, stars, and planets.
 
     A string version of year_launched also exists to allow full text
@@ -166,7 +168,7 @@ class Satellite(db.Model):
             "galaxy_pid": self.galaxy_pid,
             "model_type": Satellite.model_type()
         }
-    
+
     @staticmethod
     def model_type():
         """
@@ -180,6 +182,7 @@ class Satellite(db.Model):
         Returns a string representation of the Satellite
         """
         return "<Satellite %r>" % self.name
+
 
 @whooshee.register_model('name', 'diameter_str', 'ra_str', 'dec_str', 'gravity_str',
                          'orbital_period_str', 'mass_str', 'temperature_str')
@@ -195,10 +198,10 @@ class Planet(db.Model):
     orbital_period: The orbital period of the planet in earth days
     mass: The mass of the planet in Jupiter masses
     temperature: The surface temperature of the planet in Kelvin 
-    
+
     They may relate many-to-one to galaxies and stars, 
     and one-to-many to satellites.
-    
+
     String versions of diameter, ra, dec, gravity, oribital_period, mass, and temperature
     also exist to make full text database searching simpler.
     """
@@ -261,7 +264,7 @@ class Planet(db.Model):
         galaxy a Galaxy object in which the planet resides in
         image an Image object containing the image of the planet
         """
-        
+
         # Check types
         assert isinstance(name, str)
         assert isinstance(diameter, float)
@@ -321,7 +324,7 @@ class Planet(db.Model):
         The type is defined as the plural form of the class name.
         """
         return "planets"
-    
+
     def __repr__(self):
         """
         Returns the string representation of the Planet.
@@ -340,10 +343,10 @@ class Star(db.Model):
     dec: The declination in the ICRS J2000 coordinate system in decimal degree form 
     temperature: The surface temperature of the Star
     mass: The mass of the star in solar masses
-    
+
     Stars may relate many-to-one to galaxies and one-to-many
     to satellites and planets.
-    
+
     String versions of diameter, ra, dec, temperature, and mass also exist
     to make full text searches of the database simpler.
     """
@@ -361,7 +364,7 @@ class Star(db.Model):
     dec = db.Column(db.Float)
     temperature = db.Column(db.Integer)
     mass = db.Column(db.Float)
-    
+
     # String attributes for searching
     diameter_str = db.Column(db.String())
     ra_str = db.Column(db.String())
@@ -414,7 +417,7 @@ class Star(db.Model):
         self.mass = mass
         self.galaxy = galaxy
         self.image = image
-      
+
         self.diameter_str = str(diameter)
         self.ra_str = str(ra)
         self.dec_str = str(dec)
@@ -444,7 +447,7 @@ class Star(db.Model):
         The type is defined as the plural form of the class name.
         """
         return "stars"
-    
+
     def __repr__(self):
         """
         Returns a string representation of the Star.
@@ -463,9 +466,9 @@ class Galaxy(db.Model):
     morph_type: The morphilogical type of the galaxy such as Spiral, Irregular, etc.
     redshift: The redshift of the galaxy
     size: The angular size in decimal arcminutes form of the major axis of the galaxy
-    
+
     Galaxies may relate one-to-many to satellites, stars, and planets.
-    
+
     String versions of ra, dec, redshift, and size also exist to allow
     full text searches to be simpler.
     """
@@ -489,7 +492,7 @@ class Galaxy(db.Model):
     dec_str = db.Column(db.String())
     redshift_str = db.Column(db.String())
     size_str = db.Column(db.String())
-    
+
     # Foreign Keys
     image_pid = db.Column(db.Integer, db.ForeignKey("image.pid"))
 
@@ -555,7 +558,7 @@ class Galaxy(db.Model):
         The type is defined as the plural form of the class name.
         """
         return "galaxies"
-    
+
     def __repr__(self):
         """
         Returns a string representation of the Galaxy
