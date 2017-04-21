@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 
-# pylint: disable = bad-whitespace
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
-# pylint: disable = line-too-long
-# pylint: disable = wrong-import-position
 
 import io
 from unittest import TestLoader, TextTestRunner
+import test
 from lib.search_db import search
 from flask import Flask, render_template, request, jsonify
 from database import connect_db, Satellite, Planet, Star, Galaxy
@@ -16,9 +14,6 @@ from api import api_setup
 app = Flask(__name__)
 db = connect_db(app)
 api_setup(app, db)
-
-import test
-
 
 def in_solar_system(name):
     return (name == "Mercury" or

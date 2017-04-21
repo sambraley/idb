@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-# pylint: disable = bad-whitespace
 # pylint: disable = invalid-name
 # pylint: disable = missing-docstring
-# pylint: disable = no-member
 # pylint: disable = pointless-string-statement
+# pylint: disable = import-error
+# pylint: disable = too-many-public-methods
 
 from unittest import main, TestCase
 from flask import Flask
@@ -36,7 +36,7 @@ galaxy_data = {"name": "dummy_galaxy", "morph_type": "Spiral", "size": 1.227, "d
 img_data = {"img_url": "URL"}
 
 
-class TestModels (TestCase):
+class TestModels(TestCase):
     def setUp(self):
         self.app = app.test_client()
         self.app.testing = True

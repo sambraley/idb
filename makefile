@@ -42,13 +42,16 @@ endif
 	$(PYLINT) --ignored-modules=flask_sqlalchemy --generated-members=commit,query,add,delete \
 		--disable=locally-disabled --reports=no --generate-rcfile > $@
 
+app/.pylintrc: .pylintrc
+	cp .pylintrc app/.pylintrc
+
 IDB.html: app/models.py
 	cd app; $(PYDOC) -w models; mv models.html ../IDB3.html
 
 IDB.log:
 	git log > IDB3.log
 
-RunIDB: app/idb.py .pylintrc
+RunIDB: app/idb.py app/.pylintrc
 	@rm -rf app/whooshee/
 	-$(PYLINT) app/idb.py
 	cd app; \
@@ -58,9 +61,9 @@ install:
 	$(PIP) install -r app/requirements.txt
 	npm install
 
-TestIDB.tmp: app/models.py app/test.py .pylintrc
-	-$(PYLINT) app/test.py
-	-$(PYLINT) app/models.py
+TestIDB.tmp: app/models.py app/test.py app/.pylintrc
+	$(PYLINT) app/test.py
+	$(PYLINT) app/models.py
 	-$(COVERAGE) run test.py >  TestIDB.tmp 2>&1
 	-$(COVERAGE) report -m                      >> TestIDB.tmp 
 	-cat TestIDB.tmp

@@ -2,7 +2,6 @@
 # pylint: disable = invalid-name
 # pylint: disable = import-error
 # pylint: disable = too-many-instance-attributes
-# pylint: disable = too-few-public-methods
 # pylint: disable = too-many-arguments
 
 """
@@ -66,7 +65,7 @@ class Image(db.Model):
 @whooshee.register_model('name', 'year_launched_str', 'mission_type', 'agency')
 class Satellite(db.Model):
     """
-    Models artificial satellites. Attributes are: 
+    Models artificial satellites. Attributes are:
     name: The name of the satellite
     agency: The full name of the agency that owns or leads the satellite project
     mission_type: The purpose of the satellite such as Earth Science, Astrophysics etc.
@@ -120,7 +119,7 @@ class Satellite(db.Model):
         """
         name a str of the Satellite's name
         info_url a str a url to more information about the satellite
-        agency a str of full name of the agency 
+        agency a str of full name of the agency
         mission_type a str of the mission type
         year_launched an int the year the satellite was launched
         planet a Planet object that the satellite orbits around
@@ -189,17 +188,17 @@ class Satellite(db.Model):
 class Planet(db.Model):
 
     """
-    Models planets. Attributes are: 
-    name: The name of the planet 
+    Models planets. Attributes are:
+    name: The name of the planet
     diameter: The diameter of the planet in terms of Jupiter diameters
     ra: The right ascension in the ICRS J2000 coordinate system in decimal archour form
     dec: The declination in the ICRS J2000 coordinate system in decimal degree form
     gravity: The surface gravity of the planet in multiples of the Jupiter gravity
     orbital_period: The orbital period of the planet in earth days
     mass: The mass of the planet in Jupiter masses
-    temperature: The surface temperature of the planet in Kelvin 
+    temperature: The surface temperature of the planet in Kelvin
 
-    They may relate many-to-one to galaxies and stars, 
+    They may relate many-to-one to galaxies and stars,
     and one-to-many to satellites.
 
     String versions of diameter, ra, dec, gravity, oribital_period, mass, and temperature
@@ -336,11 +335,11 @@ class Planet(db.Model):
 class Star(db.Model):
 
     """
-    Models stars. Main attributes are: 
+    Models stars. Main attributes are:
     name: The name of the Star
     diameter: The diameter of the Star in solar diameters
     ra: The right ascension in the ICRS J2000 coordinate system in decimal hour form
-    dec: The declination in the ICRS J2000 coordinate system in decimal degree form 
+    dec: The declination in the ICRS J2000 coordinate system in decimal degree form
     temperature: The surface temperature of the Star
     mass: The mass of the star in solar masses
 
@@ -459,8 +458,8 @@ class Star(db.Model):
 class Galaxy(db.Model):
 
     """
-    Models galaxies. Attributes are: 
-    name: The name of the galaxy 
+    Models galaxies. Attributes are:
+    name: The name of the galaxy
     ra: The right ascension in the ICRS J2000 coordinate system in decimal archour form
     dec: The declination in the ICRS J2000 coordinate system in decimal degree form
     morph_type: The morphilogical type of the galaxy such as Spiral, Irregular, etc.
@@ -507,7 +506,7 @@ class Galaxy(db.Model):
     def __init__(self, name, ra, dec, morph_type, redshift, size, image):
         """
         name a str of the galaxy name
-        ra a float of the right ascension 
+        ra a float of the right ascension
         dec a float of the declination
         morph_type a str of the morphilogical type
         redshift a float of the redshift value
