@@ -37,7 +37,7 @@ class React_Tests extends React.Component {
     		  		<a id="test-link" data-toggle="modal" data-target="#myModal" onClick={this.run_tests}>Run Unit Tests</a>
     		  	</div>
                 <div className="col-md-4 text-center">
-                    <a href="/visualization?graph=bubble_graph">Visualizations of BoswemianRhapsody.me</a>
+                    <a href="/visualization">Visualizations of BoswemianRhapsody.me</a>
                 </div>
     		    <div>
     		        <div id="myModal" className="modal fade" role="dialog">
