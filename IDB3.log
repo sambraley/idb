@@ -1,3 +1,15 @@
+commit 5d3dc1efeb6a2ae2a48c53ba675dd784d4f8c449
+Author: Scott Farrior <farrior@utexas.edu>
+Date:   Thu Apr 20 21:24:15 2017 -0500
+
+    Updates test.out
+
+commit 7f7de46ce70f6bf3b985df17ce27ec8f78bbfa5d
+Author: tabenmalik <tabenjmalik@gmail.com>
+Date:   Thu Apr 20 21:05:19 2017 -0500
+
+    Added git log
+
 commit 2200cc3e76552326ebb925936f9969c33c1025da
 Merge: 6b1081a 7e83a21
 Author: Taben <tabenjmalik@gmail.com>
@@ -814,7 +826,7 @@ Date:   Sat Apr 15 02:45:51 2017 -0500
     Merge branch 'develop' of https://github.com/samuelbraley/idb into develop
     
     Conflicts:
-            app/lib/__pycache__/helper.cpython-34.pyc
+    	app/lib/__pycache__/helper.cpython-34.pyc
 
 commit fb00e9a0d24c6a132f896aa62e7ca4a2b466fcaf
 Author: Scott Farrior <farrior@utexas.edu>
