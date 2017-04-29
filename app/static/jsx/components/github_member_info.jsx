@@ -8,7 +8,7 @@ class Github_Member_Info extends React.Component {
     render() {
     	var url = this.props.url;
     	var member_list = this.props.member_info.map((member_info) =>
-    		<Github_Member member_info={member_info} url={this.props.url} token={this.props.token}/>);
+    		<Github_Member key={member_info.name} member_info={member_info} url={this.props.url} token={this.props.token}/>);
       return (<div>{member_list}</div>);
     }
 }

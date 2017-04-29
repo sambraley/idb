@@ -11,10 +11,16 @@ body {
   padding: 0px;
   color: inherit;
 }
-inline {
+inline, .inline{
   display: inline-block;
 }
-
+.filter-input {
+	width: 100px;
+	margin-right: 10px;
+}
+.dropdown-menu>li>a {
+	cursor: pointer;
+}
 .navbar-default {
 	background-color: #000;
 	border-color: #1d1c23;

@@ -216,6 +216,17 @@ var Pages = function Pages(_ref) {
 		pages.push(React.createElement(
 			"li",
 			{ onClick: function onClick() {
+					return onPageSelect(1);
+				}, className: "page-item", key: "first-button" },
+			React.createElement(
+				"a",
+				null,
+				"First"
+			)
+		));
+		pages.push(React.createElement(
+			"li",
+			{ onClick: function onClick() {
 					return onPageSelect(current_page - 1);
 				}, className: "page-item", key: "previous-button" },
 			React.createElement(
@@ -268,6 +279,17 @@ var Pages = function Pages(_ref) {
 				"a",
 				null,
 				"Next"
+			)
+		));
+		pages.push(React.createElement(
+			"li",
+			{ onClick: function onClick() {
+					return onPageSelect(total_pages);
+				}, className: "page-item", key: "last-button" },
+			React.createElement(
+				"a",
+				null,
+				"Last"
 			)
 		));
 	}

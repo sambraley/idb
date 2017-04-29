@@ -4,6 +4,7 @@ const Pages = ({current_page, total_pages, onPageSelect}) => {
 	const pages = [];
 	// Adding previous button
 	if (current_page != 1) {
+		pages.push(<li onClick={() => onPageSelect(1)} className="page-item" key="first-button"><a >First</a></li>);
 		pages.push(<li onClick={() => onPageSelect(current_page - 1)} className="page-item" key="previous-button"><a >Previous</a></li>);
 	}
 	//Setting list of page numbers
@@ -45,6 +46,7 @@ const Pages = ({current_page, total_pages, onPageSelect}) => {
 	//adding next button
 	if (current_page != total_pages && current_page >= 1){
 		pages.push(<li onClick={() => onPageSelect(current_page + 1)} className="page-item" key="next-button" ><a>Next</a></li>);
+		pages.push(<li onClick={() => onPageSelect(total_pages)} className="page-item" key="last-button" ><a>Last</a></li>);
 	}
 	
 	return (
