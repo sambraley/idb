@@ -110,12 +110,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _select_options = require("./select_options");
-
-var _select_options2 = _interopRequireDefault(_select_options);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -128,12 +122,36 @@ var attrs = {
 	"stars": ["mass", "diameter"],
 	"satellites": ["year_launched"]
 };
-var ops = ["<", "<=", ">", ">=", "!="];
+var units = {
+	"planets": { "diameter": "X Jupiter's Diameter", "gravity": "X Jupiter's Gravity", "mass": "X Jupiter's Mass" },
+	"galaxies": { "size": "Arcminutes" },
+	"stars": { "mass": "Solar Mass", "diameter": "Solar Diameter" },
+	"satellites": { "year_launched": "Earth Years" }
+};
+var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
+	"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
+	"mission_type": "Mission Type", "year_launched": "Launch Year",
+	"<": "Less Than", "<=": "Less Than or Equal To", ">": "Greater Than",
+	">=": "Greater Than or Equal To", "==": "Equal To", "!=": "Not Equal To"
+};
+var ops = ["<", "<=", ">", ">=", "==", "!="];
 var compareTo = {
 	"planets": [1.0],
 	"galaxies": [1.0],
 	"stars": [1.0],
 	"satellites": [2012]
+};
+var ref = {
+	"planets": "Earth",
+	"galaxies": "the Milky Way",
+	"stars": "the Sun",
+	"satellites": "Saral"
+};
+var values = {
+	"planets": { "diameter": "0.09113015119223013", "gravity": "0.3788780184698508", "mass": "0.003146469968387777" },
+	"galaxies": { "size": "360.0" },
+	"stars": { "mass": "1.0", "diameter": "1.0" },
+	"satellites": { "year_launched": "2013" }
 };
 
 var Modals = function (_React$Component) {
@@ -147,6 +165,7 @@ var Modals = function (_React$Component) {
 		_this.state = {
 			modelType: _this.props.modelType,
 			filterBy: _this.props.filterBy,
+			attributes: attrs[_this.props.modelType],
 			value1: attrs[_this.props.modelType][0],
 			value2: ops[0],
 			value3: compareTo[_this.props.modelType][0]
@@ -155,13 +174,63 @@ var Modals = function (_React$Component) {
 		_this.onHandleChange1 = _this.onHandleChange1.bind(_this);
 		_this.onHandleChange2 = _this.onHandleChange2.bind(_this);
 		_this.onHandleChange3 = _this.onHandleChange3.bind(_this);
+		_this.get_units = _this.get_units.bind(_this);
+		_this.get_attributes = _this.get_attributes.bind(_this);
+		_this.get_comparisons = _this.get_comparisons.bind(_this);
+		_this.get_description = _this.get_description.bind(_this);
 		return _this;
 	}
 
 	_createClass(Modals, [{
+		key: "get_units",
+		value: function get_units() {
+			return units[this.state.modelType][this.state.value1];
+		}
+	}, {
+		key: "get_attributes",
+		value: function get_attributes() {
+			var attributes = this.state.attributes.map(function (a) {
+				return React.createElement(
+					"option",
+					{ key: a, value: a },
+					label[a]
+				);
+			});
+			return React.createElement(
+				"select",
+				{ className: "form-control", onChange: this.onHandleChange1 },
+				attributes
+			);
+		}
+	}, {
+		key: "get_comparisons",
+		value: function get_comparisons() {
+			var comparisons = ops.map(function (o) {
+				return React.createElement(
+					"option",
+					{ key: o, value: o },
+					ops[o]
+				);
+			});
+			return React.createElement(
+				"select",
+				{ className: "form-control", onChange: this.onHandleChange1 },
+				attributes
+			);
+		}
+	}, {
+		key: "get_description",
+		value: function get_description() {
+			var description = "";
+			description += "For reference " + ref[this.state.modelType];
+			description += " has a " + label[this.state.value1] + " of ";
+			description += values[this.state.modelType][this.state.value1] + " ";
+			description += units[this.state.modelType][this.state.value1] + ".";
+			return description;
+		}
+	}, {
 		key: "onHandleChange1",
 		value: function onHandleChange1(event) {
-			console.log("inside handle change 1 " + event.target.value);
 			this.setState({
 				value1: event.target.value
 			});
@@ -169,7 +238,6 @@ var Modals = function (_React$Component) {
 	}, {
 		key: "onHandleChange2",
 		value: function onHandleChange2(event) {
-			console.log("inside handle change 2 " + event.target.value);
 			this.setState({
 				value2: event.target.value
 			});
@@ -177,14 +245,8 @@ var Modals = function (_React$Component) {
 	}, {
 		key: "onHandleChange3",
 		value: function onHandleChange3(event) {
-			var v3 = 1;
-			console.log("inside handle change 2 " + event.target.value);
-			if (this.state.modelType == "satellites") {
-				v3 = parseInt(event.target.value);
-			}
-			console.log(v3);
 			this.setState({
-				value3: v3
+				value3: event.target.value.toString()
 			});
 		}
 	}, {
@@ -192,549 +254,130 @@ var Modals = function (_React$Component) {
 		value: function render() {
 			var _this2 = this;
 
-			console.log(this.state.modelType);
-			if (this.state.modelType === "planets") {
-				return React.createElement(
+			return React.createElement(
+				"div",
+				null,
+				React.createElement(
+					"button",
+					{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
+					"Filter By"
+				),
+				React.createElement(
 					"div",
-					null,
-					React.createElement(
-						"button",
-						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
-						"Filter By"
-					),
+					{ id: "myModal", className: "modal fade", role: "dialog" },
 					React.createElement(
 						"div",
-						{ id: "myModal", className: "modal fade", role: "dialog" },
+						{ className: "modal-dialog" },
 						React.createElement(
 							"div",
-							{ className: "modal-dialog" },
+							{ className: "modal-content" },
 							React.createElement(
 								"div",
-								{ className: "modal-content" },
+								{ className: "modal-header" },
 								React.createElement(
-									"div",
-									{ className: "modal-header" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "close", "data-dismiss": "modal" },
-										"\xD7"
-									),
-									React.createElement(
-										"h4",
-										{ className: "modal-title" },
-										"Filtering"
-									)
+									"button",
+									{ type: "button", className: "close", "data-dismiss": "modal" },
+									"\xD7"
 								),
 								React.createElement(
+									"h4",
+									{ className: "modal-title" },
+									"Filtering"
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "modal-body" },
+								React.createElement(
 									"div",
-									{ className: "modal-body" },
+									{ className: "form-group" },
 									React.createElement(
-										"div",
-										{ className: "form-group" },
+										"label",
+										null,
+										"Attribute:",
+										this.get_attributes()
+									),
+									React.createElement("br", null),
+									React.createElement(
+										"label",
+										null,
+										"Operation:",
 										React.createElement(
-											"label",
-											null,
-											"Attribute:",
+											"select",
+											{ className: "form-control", onChange: this.onHandleChange2 },
 											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange1 },
-												React.createElement(
-													"option",
-													{ value: "diameter" },
-													"Diameter"
-												),
-												React.createElement(
-													"option",
-													{ value: "gravity" },
-													"Gravity"
-												),
-												React.createElement(
-													"option",
-													{ value: "mass" },
-													"Mass"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Operation:",
+												"option",
+												{ value: "<" },
+												"Less Than"
+											),
 											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange2 },
-												React.createElement(
-													"option",
-													{ value: "<" },
-													"Less Than"
-												),
-												React.createElement(
-													"option",
-													{ value: "<=" },
-													"Less Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: ">" },
-													"Greater Than"
-												),
-												React.createElement(
-													"option",
-													{ value: ">=" },
-													"Greater Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: "!=" },
-													"Not Equal To"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Compare To:",
+												"option",
+												{ value: "<=" },
+												"Less Than or Equal To"
+											),
 											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange3 },
-												React.createElement(
-													"option",
-													{ value: "jupiter" },
-													"Jupiter"
-												)
+												"option",
+												{ value: ">" },
+												"Greater Than"
+											),
+											React.createElement(
+												"option",
+												{ value: ">=" },
+												"Greater Than or Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "==" },
+												"Equal To"
+											),
+											React.createElement(
+												"option",
+												{ value: "!=" },
+												"Not Equal To"
 											)
 										)
+									),
+									React.createElement("br", null),
+									React.createElement(
+										"label",
+										{ className: "inline" },
+										"Compare To:",
+										React.createElement("br", null),
+										React.createElement("input", { className: "filter-input", type: "number", step: "any", onChange: this.onHandleChange3 }),
+										React.createElement(
+											"inline",
+											null,
+											this.get_units()
+										)
+									),
+									React.createElement("br", null),
+									React.createElement(
+										"p",
+										null,
+										this.get_description()
 									)
+								)
+							),
+							React.createElement(
+								"div",
+								{ className: "modal-footer" },
+								React.createElement(
+									"button",
+									{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
+											return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
+										} },
+									"Submit"
 								),
 								React.createElement(
-									"div",
-									{ className: "modal-footer" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
-												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
-											} },
-										"Submit"
-									),
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-										"Close"
-									)
+									"button",
+									{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
+									"Close"
 								)
 							)
 						)
 					)
-				);
-			}
-			if (this.state.modelType === "galaxies") {
-				return React.createElement(
-					"div",
-					null,
-					React.createElement(
-						"button",
-						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
-						"Filter By"
-					),
-					React.createElement(
-						"div",
-						{ id: "myModal", className: "modal fade", role: "dialog" },
-						React.createElement(
-							"div",
-							{ className: "modal-dialog" },
-							React.createElement(
-								"div",
-								{ className: "modal-content" },
-								React.createElement(
-									"div",
-									{ className: "modal-header" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "close", "data-dismiss": "modal" },
-										"\xD7"
-									),
-									React.createElement(
-										"h4",
-										{ className: "modal-title" },
-										"Filtering"
-									)
-								),
-								React.createElement(
-									"div",
-									{ className: "modal-body" },
-									React.createElement(
-										"div",
-										{ className: "form-group" },
-										React.createElement(
-											"label",
-											null,
-											"Attribute:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange1 },
-												React.createElement(
-													"option",
-													{ value: "size" },
-													"Size"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Operation:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange2 },
-												React.createElement(
-													"option",
-													{ value: "<" },
-													"Less Than"
-												),
-												React.createElement(
-													"option",
-													{ value: "<=" },
-													"Less Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: ">" },
-													"Greater Than"
-												),
-												React.createElement(
-													"option",
-													{ value: ">=" },
-													"Greater Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: "!=" },
-													"Not Equal To"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Compare To:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange3 },
-												React.createElement(
-													"option",
-													{ value: "milkyway" },
-													"Milky Way"
-												)
-											)
-										)
-									)
-								),
-								React.createElement(
-									"div",
-									{ className: "modal-footer" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
-												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
-											} },
-										"Submit"
-									),
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-										"Close"
-									)
-								)
-							)
-						)
-					)
-				);
-			}
-			if (this.state.modelType === "stars") {
-				return React.createElement(
-					"div",
-					null,
-					React.createElement(
-						"button",
-						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
-						"Filter By"
-					),
-					React.createElement(
-						"div",
-						{ id: "myModal", className: "modal fade", role: "dialog" },
-						React.createElement(
-							"div",
-							{ className: "modal-dialog" },
-							React.createElement(
-								"div",
-								{ className: "modal-content" },
-								React.createElement(
-									"div",
-									{ className: "modal-header" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "close", "data-dismiss": "modal" },
-										"\xD7"
-									),
-									React.createElement(
-										"h4",
-										{ className: "modal-title" },
-										"Filtering"
-									)
-								),
-								React.createElement(
-									"div",
-									{ className: "modal-body" },
-									React.createElement(
-										"div",
-										{ className: "form-group" },
-										React.createElement(
-											"label",
-											null,
-											"Attribute:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange1 },
-												React.createElement(
-													"option",
-													{ value: "mass" },
-													"Mass"
-												),
-												React.createElement(
-													"option",
-													{ value: "diameter" },
-													"Diameter"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Operation:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange2 },
-												React.createElement(
-													"option",
-													{ value: "<" },
-													"Less Than"
-												),
-												React.createElement(
-													"option",
-													{ value: "<=" },
-													"Less Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: ">" },
-													"Greater Than"
-												),
-												React.createElement(
-													"option",
-													{ value: ">=" },
-													"Greater Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: "!=" },
-													"Not Equal To"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Compare To:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange3 },
-												React.createElement(
-													"option",
-													{ value: "sun" },
-													"The Sun"
-												)
-											)
-										)
-									)
-								),
-								React.createElement(
-									"div",
-									{ className: "modal-footer" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
-												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
-											} },
-										"Submit"
-									),
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-										"Close"
-									)
-								)
-							)
-						)
-					)
-				);
-			}
-			if (this.state.modelType === "satellites") {
-				return React.createElement(
-					"div",
-					null,
-					React.createElement(
-						"button",
-						{ type: "button", className: "btn btn-primary", "data-toggle": "modal", "data-target": "#myModal" },
-						"Filter By"
-					),
-					React.createElement(
-						"div",
-						{ id: "myModal", className: "modal fade", role: "dialog" },
-						React.createElement(
-							"div",
-							{ className: "modal-dialog" },
-							React.createElement(
-								"div",
-								{ className: "modal-content" },
-								React.createElement(
-									"div",
-									{ className: "modal-header" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "close", "data-dismiss": "modal" },
-										"\xD7"
-									),
-									React.createElement(
-										"h4",
-										{ className: "modal-title" },
-										"Filtering"
-									)
-								),
-								React.createElement(
-									"div",
-									{ className: "modal-body" },
-									React.createElement(
-										"div",
-										{ className: "form-group" },
-										React.createElement(
-											"label",
-											null,
-											"Attribute:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange1 },
-												React.createElement(
-													"option",
-													{ value: "year_launched" },
-													"Launch Year"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Operation:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange2 },
-												React.createElement(
-													"option",
-													{ value: "<" },
-													"Less Than"
-												),
-												React.createElement(
-													"option",
-													{ value: "<=" },
-													"Less Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: ">" },
-													"Greater Than"
-												),
-												React.createElement(
-													"option",
-													{ value: ">=" },
-													"Greater Than or Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: "==" },
-													"Equal To"
-												),
-												React.createElement(
-													"option",
-													{ value: "!=" },
-													"Not Equal To"
-												)
-											)
-										),
-										React.createElement(
-											"label",
-											null,
-											"Compare To:",
-											React.createElement(
-												"select",
-												{ className: "form-control", onChange: this.onHandleChange3 },
-												React.createElement(
-													"option",
-													{ value: "2012" },
-													"2012"
-												),
-												React.createElement(
-													"option",
-													{ value: "2013" },
-													"2013"
-												),
-												React.createElement(
-													"option",
-													{ value: "2014" },
-													"2014"
-												),
-												React.createElement(
-													"option",
-													{ value: "2015" },
-													"2015"
-												),
-												React.createElement(
-													"option",
-													{ value: "2016" },
-													"2016"
-												),
-												React.createElement(
-													"option",
-													{ value: "2017" },
-													"2017"
-												),
-												React.createElement(
-													"option",
-													{ value: "2018" },
-													"2018"
-												)
-											)
-										)
-									)
-								),
-								React.createElement(
-									"div",
-									{ className: "modal-footer" },
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-primary", "data-dismiss": "modal", onClick: function onClick() {
-												return _this2.state.filterBy(_this2.state.value1, _this2.state.value2, _this2.state.value3, 1);
-											} },
-										"Submit"
-									),
-									React.createElement(
-										"button",
-										{ type: "button", className: "btn btn-default", "data-dismiss": "modal" },
-										"Close"
-									)
-								)
-							)
-						)
-					)
-				);
-			}
+				)
+			);
 		}
 	}]);
 
@@ -743,7 +386,7 @@ var Modals = function (_React$Component) {
 
 exports.default = Modals;
 
-},{"./select_options":10}],4:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -846,7 +489,7 @@ var ModelListItem = function (_React$Component) {
 
 exports.default = ModelListItem;
 
-},{"react-highlight-words":23}],5:[function(require,module,exports){
+},{"react-highlight-words":21}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -906,120 +549,6 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var NavBar = function (_React$Component) {
-	_inherits(NavBar, _React$Component);
-
-	function NavBar() {
-		_classCallCheck(this, NavBar);
-
-		return _possibleConstructorReturn(this, (NavBar.__proto__ || Object.getPrototypeOf(NavBar)).apply(this, arguments));
-	}
-
-	_createClass(NavBar, [{
-		key: "render",
-		value: function render() {
-			return React.createElement(
-				"nav",
-				{ className: "navbar navbar-default navbar-fixed-top", role: "navigation" },
-				React.createElement(
-					"div",
-					{ className: "container" },
-					React.createElement(
-						"div",
-						{ className: "navbar-header" },
-						React.createElement(
-							"a",
-							{ className: "navbar-brand active", href: "/" },
-							"SpaceCowboys"
-						)
-					),
-					React.createElement(
-						"div",
-						{ className: "collapse navbar-collapse" },
-						React.createElement(
-							"ul",
-							{ className: "nav navbar-nav" },
-							React.createElement(
-								"li",
-								null,
-								React.createElement(
-									"a",
-									{ className: "navbar-item", href: "/planets" },
-									"Planets"
-								)
-							),
-							React.createElement(
-								"li",
-								null,
-								React.createElement(
-									"a",
-									{ className: "navbar-item", href: "/galaxies" },
-									"Galaxies"
-								)
-							),
-							React.createElement(
-								"li",
-								null,
-								React.createElement(
-									"a",
-									{ className: "navbar-item", href: "/satellites" },
-									"Satellites"
-								)
-							),
-							React.createElement(
-								"li",
-								null,
-								React.createElement(
-									"a",
-									{ className: "navbar-item", href: "/stars" },
-									"Stars"
-								)
-							),
-							React.createElement(
-								"li",
-								null,
-								React.createElement(
-									"a",
-									{ className: "navbar-item", href: "/about" },
-									"About"
-								)
-							),
-							React.createElement(
-								"li",
-								null,
-								React.createElement(
-									"a",
-									{ className: "navbar-item", href: "/report" },
-									"Report"
-								)
-							)
-						)
-					)
-				)
-			);
-		}
-	}]);
-
-	return NavBar;
-}(React.Component);
-
-exports.default = NavBar;
-
-},{}],8:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-
 var PageItem = function PageItem(_ref) {
 	var page_number = _ref.page_number,
 	    onPageSelect = _ref.onPageSelect,
@@ -1051,7 +580,7 @@ var PageItem = function PageItem(_ref) {
 };
 exports.default = PageItem;
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1072,6 +601,17 @@ var Pages = function Pages(_ref) {
 	var pages = [];
 	// Adding previous button
 	if (current_page != 1) {
+		pages.push(React.createElement(
+			"li",
+			{ onClick: function onClick() {
+					return onPageSelect(1);
+				}, className: "page-item", key: "first-button" },
+			React.createElement(
+				"a",
+				null,
+				"First"
+			)
+		));
 		pages.push(React.createElement(
 			"li",
 			{ onClick: function onClick() {
@@ -1129,6 +669,17 @@ var Pages = function Pages(_ref) {
 				"Next"
 			)
 		));
+		pages.push(React.createElement(
+			"li",
+			{ onClick: function onClick() {
+					return onPageSelect(total_pages);
+				}, className: "page-item", key: "last-button" },
+			React.createElement(
+				"a",
+				null,
+				"Last"
+			)
+		));
 	}
 
 	return React.createElement(
@@ -1140,43 +691,10 @@ var Pages = function Pages(_ref) {
 
 exports.default = Pages;
 
-},{"./page_item":8}],10:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-var selectOption = function selectOption(_ref) {
-	var attr = _ref.attr;
-
-	var label = { "name": "Name", "temperature": "Temperature", "diameter": "Diameter",
-		"gravity": "Gravity", "mass": "Mass", "size": "Size", "agency": "Agency",
-		"mission_type": "Mission Type", "year_launched": "Launch Year",
-		"<": "Less Than", "<=": "Less Than or Equal To", ">": "Greater Than",
-		">=": "Greater Than or Equal To", "==": "Equal To", "!=": "Not Equal To",
-		"Earth": "Earth" };
-	var attr2 = [];
-	attr.map(function (attr1) {
-		attr1.push(React.createElement(
-			"option",
-			{ value: attr1 },
-			label[attr1]
-		));
-	});
-
-	return { attr2: attr2 };
-};
-
-exports.default = selectOption;
-
-},{}],11:[function(require,module,exports){
+},{"./page_item":7}],9:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _nav_bar = require('./../components/nav_bar');
-
-var _nav_bar2 = _interopRequireDefault(_nav_bar);
 
 var _models_list = require('./../components/models_list');
 
@@ -1194,7 +712,7 @@ var _pages = require('./../components/pages');
 
 var _pages2 = _interopRequireDefault(_pages);
 
-var _modals = require('./../components/modals');
+var _modals = require('./../components/modals.jsx');
 
 var _modals2 = _interopRequireDefault(_modals);
 
@@ -1409,7 +927,7 @@ var App = function (_React$Component) {
 
 ReactDOM.render(React.createElement(App, null), document.querySelector('.content-container'));
 
-},{"./../components/drop_down":1,"./../components/modals":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/nav_bar":7,"./../components/pages":9,"isomorphic-fetch":16}],12:[function(require,module,exports){
+},{"./../components/drop_down":1,"./../components/modals.jsx":3,"./../components/model_title":5,"./../components/models_list":6,"./../components/pages":8,"isomorphic-fetch":14}],10:[function(require,module,exports){
 "use strict";
 
 /**
@@ -1448,7 +966,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],13:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -1470,7 +988,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":18}],14:[function(require,module,exports){
+},{"_process":16}],12:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -1528,7 +1046,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":18}],15:[function(require,module,exports){
+},{"_process":16}],13:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -1597,7 +1115,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":12,"_process":18}],16:[function(require,module,exports){
+},{"./emptyFunction":10,"_process":16}],14:[function(require,module,exports){
 // the whatwg-fetch polyfill installs the fetch() function
 // on the global object (window or self)
 //
@@ -1605,7 +1123,7 @@ module.exports = warning;
 require('whatwg-fetch');
 module.exports = self.fetch.bind(self);
 
-},{"whatwg-fetch":49}],17:[function(require,module,exports){
+},{"whatwg-fetch":47}],15:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -1697,7 +1215,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],18:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -1879,7 +1397,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],19:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -1944,7 +1462,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":22,"_process":18,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],20:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":20,"_process":16,"fbjs/lib/invariant":12,"fbjs/lib/warning":13}],18:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -1967,7 +1485,7 @@ module.exports = function(isValidElement) {
   return factory(isValidElement, throwOnDirectAccess);
 };
 
-},{"./factoryWithTypeCheckers":21}],21:[function(require,module,exports){
+},{"./factoryWithTypeCheckers":19}],19:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -2449,7 +1967,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":19,"./lib/ReactPropTypesSecret":22,"_process":18,"fbjs/lib/emptyFunction":12,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],22:[function(require,module,exports){
+},{"./checkPropTypes":17,"./lib/ReactPropTypesSecret":20,"_process":16,"fbjs/lib/emptyFunction":10,"fbjs/lib/invariant":12,"fbjs/lib/warning":13}],20:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2465,7 +1983,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],23:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -2881,7 +2399,7 @@ module.exports =
 /***/ }
 /******/ ]);
 
-},{"react":48}],24:[function(require,module,exports){
+},{"react":46}],22:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2940,7 +2458,7 @@ var KeyEscapeUtils = {
 };
 
 module.exports = KeyEscapeUtils;
-},{}],25:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -3054,7 +2572,7 @@ var PooledClass = {
 
 module.exports = PooledClass;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":46,"_process":18,"fbjs/lib/invariant":14}],26:[function(require,module,exports){
+},{"./reactProdInvariant":44,"_process":16,"fbjs/lib/invariant":12}],24:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -3160,7 +2678,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = React;
 }).call(this,require('_process'))
-},{"./ReactChildren":27,"./ReactClass":28,"./ReactComponent":29,"./ReactDOMFactories":32,"./ReactElement":33,"./ReactElementValidator":35,"./ReactPropTypes":38,"./ReactPureComponent":40,"./ReactVersion":41,"./canDefineProperty":42,"./onlyChild":45,"_process":18,"fbjs/lib/warning":15,"object-assign":17}],27:[function(require,module,exports){
+},{"./ReactChildren":25,"./ReactClass":26,"./ReactComponent":27,"./ReactDOMFactories":30,"./ReactElement":31,"./ReactElementValidator":33,"./ReactPropTypes":36,"./ReactPureComponent":38,"./ReactVersion":39,"./canDefineProperty":40,"./onlyChild":43,"_process":16,"fbjs/lib/warning":13,"object-assign":15}],25:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -3351,7 +2869,7 @@ var ReactChildren = {
 };
 
 module.exports = ReactChildren;
-},{"./PooledClass":25,"./ReactElement":33,"./traverseAllChildren":47,"fbjs/lib/emptyFunction":12}],28:[function(require,module,exports){
+},{"./PooledClass":23,"./ReactElement":31,"./traverseAllChildren":45,"fbjs/lib/emptyFunction":10}],26:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -4076,7 +3594,7 @@ var ReactClass = {
 
 module.exports = ReactClass;
 }).call(this,require('_process'))
-},{"./ReactComponent":29,"./ReactElement":33,"./ReactNoopUpdateQueue":36,"./ReactPropTypeLocationNames":37,"./reactProdInvariant":46,"_process":18,"fbjs/lib/emptyObject":13,"fbjs/lib/invariant":14,"fbjs/lib/warning":15,"object-assign":17}],29:[function(require,module,exports){
+},{"./ReactComponent":27,"./ReactElement":31,"./ReactNoopUpdateQueue":34,"./ReactPropTypeLocationNames":35,"./reactProdInvariant":44,"_process":16,"fbjs/lib/emptyObject":11,"fbjs/lib/invariant":12,"fbjs/lib/warning":13,"object-assign":15}],27:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -4196,7 +3714,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactComponent;
 }).call(this,require('_process'))
-},{"./ReactNoopUpdateQueue":36,"./canDefineProperty":42,"./reactProdInvariant":46,"_process":18,"fbjs/lib/emptyObject":13,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],30:[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":34,"./canDefineProperty":40,"./reactProdInvariant":44,"_process":16,"fbjs/lib/emptyObject":11,"fbjs/lib/invariant":12,"fbjs/lib/warning":13}],28:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -4532,7 +4050,7 @@ var ReactComponentTreeHook = {
 
 module.exports = ReactComponentTreeHook;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":31,"./reactProdInvariant":46,"_process":18,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],31:[function(require,module,exports){
+},{"./ReactCurrentOwner":29,"./reactProdInvariant":44,"_process":16,"fbjs/lib/invariant":12,"fbjs/lib/warning":13}],29:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -4563,7 +4081,7 @@ var ReactCurrentOwner = {
 };
 
 module.exports = ReactCurrentOwner;
-},{}],32:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -4735,7 +4253,7 @@ var ReactDOMFactories = {
 
 module.exports = ReactDOMFactories;
 }).call(this,require('_process'))
-},{"./ReactElement":33,"./ReactElementValidator":35,"_process":18}],33:[function(require,module,exports){
+},{"./ReactElement":31,"./ReactElementValidator":33,"_process":16}],31:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -5078,7 +4596,7 @@ ReactElement.isValidElement = function (object) {
 
 module.exports = ReactElement;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":31,"./ReactElementSymbol":34,"./canDefineProperty":42,"_process":18,"fbjs/lib/warning":15,"object-assign":17}],34:[function(require,module,exports){
+},{"./ReactCurrentOwner":29,"./ReactElementSymbol":32,"./canDefineProperty":40,"_process":16,"fbjs/lib/warning":13,"object-assign":15}],32:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -5098,7 +4616,7 @@ module.exports = ReactElement;
 var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
 module.exports = REACT_ELEMENT_TYPE;
-},{}],35:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -5353,7 +4871,7 @@ var ReactElementValidator = {
 
 module.exports = ReactElementValidator;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":30,"./ReactCurrentOwner":31,"./ReactElement":33,"./canDefineProperty":42,"./checkReactTypeSpec":43,"./getIteratorFn":44,"_process":18,"fbjs/lib/warning":15}],36:[function(require,module,exports){
+},{"./ReactComponentTreeHook":28,"./ReactCurrentOwner":29,"./ReactElement":31,"./canDefineProperty":40,"./checkReactTypeSpec":41,"./getIteratorFn":42,"_process":16,"fbjs/lib/warning":13}],34:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -5451,7 +4969,7 @@ var ReactNoopUpdateQueue = {
 
 module.exports = ReactNoopUpdateQueue;
 }).call(this,require('_process'))
-},{"_process":18,"fbjs/lib/warning":15}],37:[function(require,module,exports){
+},{"_process":16,"fbjs/lib/warning":13}],35:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -5478,7 +4996,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactPropTypeLocationNames;
 }).call(this,require('_process'))
-},{"_process":18}],38:[function(require,module,exports){
+},{"_process":16}],36:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5497,7 +5015,7 @@ var _require = require('./ReactElement'),
 var factory = require('prop-types/factory');
 
 module.exports = factory(isValidElement);
-},{"./ReactElement":33,"prop-types/factory":20}],39:[function(require,module,exports){
+},{"./ReactElement":31,"prop-types/factory":18}],37:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5514,7 +5032,7 @@ module.exports = factory(isValidElement);
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
-},{}],40:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5556,7 +5074,7 @@ _assign(ReactPureComponent.prototype, ReactComponent.prototype);
 ReactPureComponent.prototype.isPureReactComponent = true;
 
 module.exports = ReactPureComponent;
-},{"./ReactComponent":29,"./ReactNoopUpdateQueue":36,"fbjs/lib/emptyObject":13,"object-assign":17}],41:[function(require,module,exports){
+},{"./ReactComponent":27,"./ReactNoopUpdateQueue":34,"fbjs/lib/emptyObject":11,"object-assign":15}],39:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5570,7 +5088,7 @@ module.exports = ReactPureComponent;
 'use strict';
 
 module.exports = '15.5.4';
-},{}],42:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -5598,7 +5116,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 }).call(this,require('_process'))
-},{"_process":18}],43:[function(require,module,exports){
+},{"_process":16}],41:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -5687,7 +5205,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":30,"./ReactPropTypeLocationNames":37,"./ReactPropTypesSecret":39,"./reactProdInvariant":46,"_process":18,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],44:[function(require,module,exports){
+},{"./ReactComponentTreeHook":28,"./ReactPropTypeLocationNames":35,"./ReactPropTypesSecret":37,"./reactProdInvariant":44,"_process":16,"fbjs/lib/invariant":12,"fbjs/lib/warning":13}],42:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5728,7 +5246,7 @@ function getIteratorFn(maybeIterable) {
 }
 
 module.exports = getIteratorFn;
-},{}],45:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -5768,7 +5286,7 @@ function onlyChild(children) {
 
 module.exports = onlyChild;
 }).call(this,require('_process'))
-},{"./ReactElement":33,"./reactProdInvariant":46,"_process":18,"fbjs/lib/invariant":14}],46:[function(require,module,exports){
+},{"./ReactElement":31,"./reactProdInvariant":44,"_process":16,"fbjs/lib/invariant":12}],44:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -5807,7 +5325,7 @@ function reactProdInvariant(code) {
 }
 
 module.exports = reactProdInvariant;
-},{}],47:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -5985,12 +5503,12 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":24,"./ReactCurrentOwner":31,"./ReactElementSymbol":34,"./getIteratorFn":44,"./reactProdInvariant":46,"_process":18,"fbjs/lib/invariant":14,"fbjs/lib/warning":15}],48:[function(require,module,exports){
+},{"./KeyEscapeUtils":22,"./ReactCurrentOwner":29,"./ReactElementSymbol":32,"./getIteratorFn":42,"./reactProdInvariant":44,"_process":16,"fbjs/lib/invariant":12,"fbjs/lib/warning":13}],46:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":26}],49:[function(require,module,exports){
+},{"./lib/React":24}],47:[function(require,module,exports){
 (function(self) {
   'use strict';
 
@@ -6453,4 +5971,4 @@ module.exports = require('./lib/React');
   self.fetch.polyfill = true
 })(typeof self !== 'undefined' ? self : this);
 
-},{}]},{},[11]);
+},{}]},{},[9]);

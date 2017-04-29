@@ -353,7 +353,7 @@ var Github_Member_Info = function (_React$Component) {
 
       var url = this.props.url;
       var member_list = this.props.member_info.map(function (member_info) {
-        return React.createElement(_github_member2.default, { member_info: member_info, url: _this2.props.url, token: _this2.props.token });
+        return React.createElement(_github_member2.default, { key: member_info.name, member_info: member_info, url: _this2.props.url, token: _this2.props.token });
       });
       return React.createElement(
         "div",
@@ -469,7 +469,7 @@ var React_Tests = function (_React$Component) {
           { className: "col-md-4 text-center" },
           React.createElement(
             "a",
-            { href: "/visualization" },
+            { href: "http://spacecowboys.me/visualization" },
             "Visualization of BoswemianRhapsody.me"
           )
         ),
