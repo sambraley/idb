@@ -45,19 +45,21 @@ def make_combined_output(query, results_per_page, page):
     and_results = make_query(query, qparser=whoosh.qparser.AndGroup)
     or_results = make_query(query, exclude=and_results)
 
-    num_results = len(and_results) + len(or_results)
+    total_and_results = len(and_results)
+    num_results = total_and_results + len(or_results)
     total_pages = ceil(num_results / results_per_page)
 
-    total_and_results = len(and_results)
-
     and_results = and_results[(page - 1) * results_per_page:page * results_per_page]
-
     num_and_to_display = len(and_results)
     if num_and_to_display < results_per_page:
+        or_start = (page - 1) * results_per_page - total_and_results
+        
+        # Deal with mixed and/or results page fencepost problem
         num_or_to_display = results_per_page - num_and_to_display
-        or_start = num_results - total_and_results - num_or_to_display
+        or_start = max(or_start, 0)
 
-        or_results = or_results[or_start: or_start + num_or_to_display]
+        or_results = or_results[or_start:num_or_to_display + or_start]
+
     else:
         or_results = []
 
